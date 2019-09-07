@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>5.组件(三):模态、导航、popover |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> 5.组件(三):模态、导航、popover </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#ionic'>ionic</a></span>
+    
+    
+    
+    
+    
+    &nbsp/&nbsp<span>Tutorial</span>
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2018-05-24T00:00:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2018-05-24
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<h2 id="menus-侧边抽屉菜单">Menus 侧边抽屉菜单</h2>
+
+<p>菜单是可以拖出或切换显示的侧面菜单导航。当菜单关闭时，菜单的内容将被隐藏。菜单风格基于平台自适应。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000">ion-menu</span> <span style="color:#000">[</span><span style="color:#836c28">content</span><span style="color:#000">]=&#34;</span><span style="color:#836c28">content</span><span style="color:#000">&#34;</span>&gt;
+  &lt;<span style="color:#000">ion-header</span>&gt;
+    &lt;<span style="color:#000">ion-toolbar</span>&gt;
+      &lt;<span style="color:#000">ion-title</span>&gt;Menu&lt;/<span style="color:#000">ion-title</span>&gt;
+    &lt;/<span style="color:#000">ion-toolbar</span>&gt;
+  &lt;/<span style="color:#000">ion-header</span>&gt;
+  &lt;<span style="color:#000">ion-content</span>&gt;
+    &lt;<span style="color:#000">ion-list</span>&gt;
+      &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-item</span> <span style="color:#000">(</span><span style="color:#836c28">click</span><span style="color:#000">)=&#34;</span><span style="color:#836c28">openPage</span><span style="color:#000">(</span><span style="color:#836c28">homePage</span><span style="color:#000">)&#34;</span>&gt;
+        Home
+      &lt;/<span style="color:#000">button</span>&gt;
+      &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-item</span> <span style="color:#000">(</span><span style="color:#836c28">click</span><span style="color:#000">)=&#34;</span><span style="color:#836c28">openPage</span><span style="color:#000">(</span><span style="color:#836c28">friendsPage</span><span style="color:#000">)&#34;</span>&gt;
+        Friends
+      &lt;/<span style="color:#000">button</span>&gt;
+      &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-item</span> <span style="color:#000">(</span><span style="color:#836c28">click</span><span style="color:#000">)=&#34;</span><span style="color:#836c28">openPage</span><span style="color:#000">(</span><span style="color:#836c28">eventsPage</span><span style="color:#000">)&#34;</span>&gt;
+        Events
+      &lt;/<span style="color:#000">button</span>&gt;
+      &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-item</span> <span style="color:#000">(</span><span style="color:#836c28">click</span><span style="color:#000">)=&#34;</span><span style="color:#836c28">closeMenu</span><span style="color:#000">()&#34;</span>&gt;
+        Close Menu
+      &lt;/<span style="color:#000">button</span>&gt;
+    &lt;/<span style="color:#000">ion-list</span>&gt;
+  &lt;/<span style="color:#000">ion-content</span>&gt;
+&lt;/<span style="color:#000">ion-menu</span>&gt;
+
+&lt;<span style="color:#000">ion-nav</span> <span style="color:#836c28">id</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;nav&#34;</span> <span style="color:#000">#</span><span style="color:#836c28">content</span> <span style="color:#000">[</span><span style="color:#836c28">root</span><span style="color:#000">]=&#34;</span><span style="color:#836c28">rootPage</span><span style="color:#000">&#34;</span>&gt;&lt;/<span style="color:#000">ion-nav</span>&gt;</code></pre></div>
+<p>（个人没测试）</p>
+
+<h2 id="modals-模态">Modals 模态</h2>
+
+<p>模式在屏幕外滑动以显示临时UI，通常用于登录或注册页面，消息组成和选项选择。</p>
+
+<p>需要导入<code>ModalController</code></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">import { ModalController } from &#39;ionic-angular&#39;;
+import { MyviewsPage} from &#34;../myviews/myviews&#34;;
+
+export class MyPage {
+  constructor(public modalCtrl: ModalController) {
+  }
+
+  presentModal(){
+    let modal = this.modalCtrl.create(MyviewsPage);
+    modal.present()
+  }
+}</code></pre></div>
+<p>dismiss:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">import {ViewController} from &#34;ionic-angular&#34;;
+
+constructor(public navCtrl: NavController,public viewCtrl: ViewController, public navParams: NavParams) {
+}
+
+dismiss(){
+this.viewCtrl.dismiss()
+}</code></pre></div>
+<h2 id="navigation">Navigation</h2>
+
+<h3 id="basic-navigation">Basic Navigation</h3>
+
+<p>导航是通过 <ion-nav> 组件来处理的，该组件作为一个简单的栈(stack)来工作,新页面被push和pop，对应于在history中向前和向后移动。
+我们从加载导航组件的根页面开始：</p>
+
+<p>修改入口<code>app.components.ts</code></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">//自定的page为`NavRootPage`
+import  { NavRootPage} from &#34;../pages/nav-root/nav-root&#34;;
+
+//此处
+@Component({
+  template: &#39;&lt;<span style="color:#000">ion-nav</span> <span style="color:#000">[</span><span style="color:#836c28">root</span><span style="color:#000">]=&#34;</span><span style="color:#836c28">rootPage</span><span style="color:#000">&#34;</span>&gt;&lt;/<span style="color:#000">ion-nav</span>&gt;&#39;
+  //templateUrl: &#39;app.html&#39;
+})
+
+export class MyApp {
+  rootPage =  NavRootPage ;
+}</code></pre></div>
+<p>接下来，我们可以通过将导航控制器注入到我们的任何页面中来访问导航到的每个页面中的导航控制器。请注意，页面组件(Page components)不需要选择器(selector)。 Ionic自动添加这些。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">@Component({
+  template: `
+  &lt;<span style="color:#000">ion-header</span>&gt;
+    &lt;<span style="color:#000">ion-navbar</span>&gt;
+      &lt;<span style="color:#000">ion-title</span>&gt;Login&lt;/<span style="color:#000">ion-title</span>&gt;
+    &lt;/<span style="color:#000">ion-navbar</span>&gt;
+  &lt;/<span style="color:#000">ion-header</span>&gt;
+
+  &lt;<span style="color:#000">ion-content</span>&gt;Hello World&lt;/<span style="color:#000">ion-content</span>&gt;`
+})
+export class StartPage {
+  constructor(public navCtrl: NavController) {
+  }
+}</code></pre></div>
+<p>push和pop的操作：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js">  <span style="color:#000">pushNewPage</span>(){
+    <span style="color:#a90d91">this</span>.<span style="color:#000">navCtrl</span>.<span style="color:#000">push</span>(<span style="color:#000">NavRootPage</span>)
+  }
+
+  <span style="color:#000">goBack</span>(){
+    <span style="color:#a90d91">if</span> (<span style="color:#a90d91">this</span>.<span style="color:#000">navCtrl</span>.<span style="color:#000">canGoBack</span>()) {
+      <span style="color:#a90d91">this</span>.<span style="color:#000">navCtrl</span>.<span style="color:#000">pop</span>()
+    }
+  }
+</code></pre></div>
+<h3 id="navigating-from-the-root-component">Navigating from the Root Component</h3>
+
+<p>root组件中如何使用nav，该怎么办？您无法注入<code>NavController</code>，因为nav控制器的任何组件都是root组件的子组件，因此它们无法注入。</p>
+
+<p>此时，可以通过向<code>ion-nav</code>添加一个引用变量，可以使用<code>@ViewChild</code>获取导航控制器（它扩展了NavController）的Nav组件 .</p>
+
+<p>app.component.ts文件:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#000">@</span><span style="color:#000">Component</span>({
+  <span style="color:#000">template</span><span style="color:#000">:</span> <span style="color:#c41a16">&#39;&lt;ion-nav #myNav [root]=&#34;rootPage&#34;&gt;&lt;/ion-nav&gt;&#39;</span>
+})
+<span style="color:#a90d91">export</span> <span style="color:#a90d91">class</span> <span style="color:#000">MyApp</span> {
+  <span style="color:#000">@</span><span style="color:#000">ViewChild</span>(<span style="color:#c41a16">&#39;myNav&#39;</span>) <span style="color:#000">nav</span><span style="color:#000">:</span> <span style="color:#000">Nav</span>;
+  <span style="color:#000">rootPage</span> <span style="color:#000">=</span> <span style="color:#000">HelloIonicPage</span>;
+  
+  <span style="color:#000">ngAfterViewInit</span>() {
+    <span style="color:#177500">// Let&#39;s navigate from TabsPage to Page1
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">this</span>.<span style="color:#000">nav</span>.<span style="color:#000">push</span>(<span style="color:#000">NavRootPage</span>);
+  }
+}
+</code></pre></div>
+<p>可以看到nav被模板引用变量<code>#myNav</code>定义.</p>
+
+<h3 id="tabbed-navigation">Tabbed Navigation</h3>
+
+<p>导航可以嵌套在复杂组件（如Tabs）中使用。与传统路由系统不同，Ionic的导航功能可以轻松地从应用中的任何位置导航到给定的页面，而无需指定特定的路由。
+以iOS上的App Store应用程序为例，我们可以轻松导航AppDetailPage，该AppDetailPage显示有关任何选项卡上的特定应用程序的信息（自己试试看！）。</p>
+
+<p>查看<a href="https://ionicframework.com/docs/components/#tabs">Tabs文档</a>以获取有关如何轻松实现此目的的更多信息。</p>
+
+<h2 id="popover">Popover</h2>
+
+<p>Popover是一种浮现在应用内容上方的视图。  Popovers提供了一种简单的方式来呈现或收集用户的信息，并且通常在以下情况下使用.</p>
+
+<ul>
+<li>显示有关当前视图的更多信息.</li>
+<li>选择一个常用的工具或配置.</li>
+<li>在您的某个视图中提供要执行的操作列表</li>
+</ul>
+
+<p>更多信息查看<a href="https://ionicframework.com/docs/api/components/popover/PopoverController">https://ionicframework.com/docs/api/components/popover/PopoverController</a></p>
+
+<pre><code>import { PopoverController} from &quot;ionic-angular&quot;;
+...
+  showPopover(){
+    let popover = this.popoverCtrl.create(HelloIonicPage)
+    popover.present()
+  }
+</code></pre>
+
+<h2 id="radio">Radio</h2>
+
+<p>与复选框类似，radios是一个保存布尔值的输入组件。在hood下，radios与HTML无线电输入没有区别。但是，像其他Ionic组件一样，radios在每个平台上的样式都不同。与复选框不同，radios组件组成一个组，一次只能选择一个无radios。</p>
+
+<p>使用checked属性设置默认值，并使用disabled属性禁用用户更改为该值。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">  <span style="color:#000">&lt;ion-list</span> <span style="color:#000">radio-group</span><span style="color:#000">&gt;</span>
+    <span style="color:#000">&lt;ion-list-header&gt;</span>
+      Language
+    <span style="color:#000">&lt;/ion-list-header&gt;</span>
+
+    <span style="color:#000">&lt;ion-item&gt;</span>
+      <span style="color:#000">&lt;ion-label&gt;</span>Go<span style="color:#000">&lt;/ion-label&gt;</span>
+      <span style="color:#000">&lt;ion-radio</span> <span style="color:#836c28">checked=</span><span style="color:#c41a16">&#34;true&#34;</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;go&#34;</span><span style="color:#000">&gt;&lt;/ion-radio&gt;</span>
+    <span style="color:#000">&lt;/ion-item&gt;</span>
+
+    <span style="color:#000">&lt;ion-item&gt;</span>
+      <span style="color:#000">&lt;ion-label&gt;</span>Rust<span style="color:#000">&lt;/ion-label&gt;</span>
+      <span style="color:#000">&lt;ion-radio</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;rust&#34;</span><span style="color:#000">&gt;&lt;/ion-radio&gt;</span>
+    <span style="color:#000">&lt;/ion-item&gt;</span>
+
+    <span style="color:#000">&lt;ion-item&gt;</span>
+      <span style="color:#000">&lt;ion-label&gt;</span>Python<span style="color:#000">&lt;/ion-label&gt;</span>
+      <span style="color:#000">&lt;ion-radio</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;python&#34;</span> <span style="color:#836c28">disabled=</span><span style="color:#c41a16">&#34;true&#34;</span><span style="color:#000">&gt;&lt;/ion-radio&gt;</span>
+    <span style="color:#000">&lt;/ion-item&gt;</span>
+  <span style="color:#000">&lt;/ion-list&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052452065radio.png" alt="2018052452065radio.png" /></p>
+
+<h2 id="range-滑动条">Range(滑动条)</h2>
+
+<p>范围是一种控件，让用户通过沿滑块或轨道移动滑块来从一系列值中进行选择。</p>
+
+<pre><code>
+  &lt;ion-list&gt;
+    &lt;ion-list-header&gt;
+      Adjust Display
+    &lt;/ion-list-header&gt;
+    &lt;ion-item&gt;
+      &lt;ion-range [(ngModel)]=&quot;brightness&quot;&gt;
+        &lt;ion-icon range-left small name=&quot;sunny&quot;&gt;&lt;/ion-icon&gt;
+        &lt;ion-icon range-right name=&quot;sunny&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/ion-range&gt;
+    &lt;/ion-item&gt;
+    &lt;ion-item&gt;
+      &lt;ion-range min=&quot;-200&quot; max=&quot;200&quot; pin=&quot;true&quot; [(ngModel)]=&quot;contrast&quot; color=&quot;secondary&quot;&gt;
+        &lt;ion-icon range-left small name=&quot;contrast&quot;&gt;&lt;/ion-icon&gt;
+        &lt;ion-icon range-right name=&quot;contrast&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/ion-range&gt;
+    &lt;/ion-item&gt;
+    &lt;ion-item&gt;
+      &lt;ion-range dualKnobs=&quot;true&quot; pin=&quot;true&quot; [(ngModel)]=&quot;structure&quot; color=&quot;dark&quot;&gt;
+        &lt;ion-icon range-left small name=&quot;brush&quot;&gt;&lt;/ion-icon&gt;
+        &lt;ion-icon range-right name=&quot;brush&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/ion-range&gt;
+    &lt;/ion-item&gt;
+    &lt;ion-item&gt;
+      &lt;ion-range min=&quot;1000&quot; max=&quot;2000&quot; step=&quot;100&quot; snaps=&quot;true&quot; [(ngModel)]=&quot;warmth&quot; color=&quot;danger&quot;&gt;
+        &lt;ion-icon range-left small color=&quot;danger&quot; name=&quot;thermometer&quot;&gt;&lt;/ion-icon&gt;
+        &lt;ion-icon range-right color=&quot;danger&quot; name=&quot;thermometer&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/ion-range&gt;
+    &lt;/ion-item&gt;
+  &lt;/ion-list&gt;
+
+  &lt;ion-list&gt;
+    &lt;ion-list-header&gt;
+      Adjust Text
+    &lt;/ion-list-header&gt;
+    &lt;ion-item&gt;
+      &lt;ion-range min=&quot;-100&quot; step=&quot;10&quot; snaps=&quot;true&quot; [(ngModel)]=&quot;text&quot;&gt;
+        &lt;ion-label range-left class=&quot;small-text&quot;&gt;A&lt;/ion-label&gt;
+        &lt;ion-label range-right&gt;A&lt;/ion-label&gt;
+      &lt;/ion-range&gt;
+    &lt;/ion-item&gt;
+  &lt;/ion-list&gt;
+  
+  //ts文件：
+  
+  //定义初始值
+  brightness: number = 20;
+  contrast: number = 0;
+  warmth: number = 1300;
+  structure: any = { lower: 33, upper: 60 };
+  text: number = 0;
+</code></pre>
+
+<p><img src="http://image.tyrad.cc/2018052449913rang.png" alt="2018052449913rang.png" /></p>
+
+<h2 id="searchbar">Searchbar</h2>
+
+<p>Searchbar绑定到模型，并在模型更改时发出输入事件。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"> <span style="color:#000">&lt;ion-searchbar</span> <span style="color:#000">(ionInput)=&#34;getItems($event)&#34;</span><span style="color:#000">&gt;&lt;/ion-searchbar&gt;</span>
+  <span style="color:#000">&lt;ion-list&gt;</span>
+    <span style="color:#000">&lt;ion-item</span> <span style="color:#000">*</span><span style="color:#836c28">ngFor=</span><span style="color:#c41a16">&#34;let item of items&#34;</span><span style="color:#000">&gt;</span>
+      {{ item }}
+    <span style="color:#000">&lt;/ion-item&gt;</span>
+  <span style="color:#000">&lt;/ion-list&gt;</span>
+  
+  //.ts
+    searchQuery: string = &#39;&#39;
+  item:string[];
+
+  //初始情况下的item
+  initializeItems(){
+    this.items = [
+      &#39;Amsteradm&#39;,
+      &#39;Bogota&#39;
+    ];
+  }
+
+  getItems(ev:any){
+    this.initializeItems();
+    let val = ev.target.value;
+    if (val <span style="color:#000">&amp;&amp;</span> val.trim() != &#39;&#39;) {
+      this.items = this.items.filter((item) =&gt; {
+        return (item.toLowerCase().indexOf(val.toLowerCase()) &gt; -1);
+      })
+    }
+  }</code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052444968search.png" alt="2018052444968search.png" /></p>
+
+<h2 id="segment">Segment</h2>
+
+<p>段是按行显示的按钮的集合.它们可以充当过滤器，根据分段值显示/隐藏元素。</p>
+
+<p><a href="https://ionicframework.com/docs/api/components/segment/Segment">API文档</a></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000">&lt;div</span> <span style="color:#000">padding</span><span style="color:#000">&gt;</span>
+  <span style="color:#000">&lt;ion-segment</span> <span style="color:#000">[(ngModel)]=&#34;pet&#34;</span><span style="color:#000">&gt;</span>
+    <span style="color:#000">&lt;ion-segment-button</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;kittens&#34;</span><span style="color:#000">&gt;</span>
+      Kittens
+    <span style="color:#000">&lt;/ion-segment-button&gt;</span>
+    <span style="color:#000">&lt;ion-segment-button</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;puppies&#34;</span><span style="color:#000">&gt;</span>
+      Puppies
+    <span style="color:#000">&lt;/ion-segment-button&gt;</span>
+  <span style="color:#000">&lt;/ion-segment&gt;</span>
+  <span style="color:#000">&lt;/div&gt;</span>
+
+  <span style="color:#000">&lt;div</span> <span style="color:#000">[ngSwitch]=&#34;pet&#34;</span><span style="color:#000">&gt;</span>
+    <span style="color:#000">&lt;ion-list</span> <span style="color:#000">*</span><span style="color:#836c28">ngSwitchCase=</span><span style="color:#c41a16">&#34;&#39;puppies&#39;&#34;</span><span style="color:#000">&gt;</span>
+      <span style="color:#000">&lt;ion-item&gt;</span>
+        <span style="color:#000">&lt;ion-thumbnail</span> <span style="color:#000">item-start</span><span style="color:#000">&gt;</span>
+          <span style="color:#000">&lt;img</span> <span style="color:#836c28">src=</span><span style="color:#c41a16">&#34;assets/imgs/thumbnail-puppy-1.jpg&#34;</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;/ion-thumbnail&gt;</span>
+        <span style="color:#000">&lt;h2&gt;</span>Ruby<span style="color:#000">&lt;/h2&gt;</span>
+      <span style="color:#000">&lt;/ion-item&gt;</span>
+      ...
+    <span style="color:#000">&lt;/ion-list&gt;</span>
+
+    <span style="color:#000">&lt;ion-list</span> <span style="color:#000">*</span><span style="color:#836c28">ngSwitchCase=</span><span style="color:#c41a16">&#34;&#39;kittens&#39;&#34;</span><span style="color:#000">&gt;</span>
+      <span style="color:#000">&lt;ion-item&gt;</span>
+        <span style="color:#000">&lt;ion-thumbnail</span> <span style="color:#000">item-start</span><span style="color:#000">&gt;</span>
+          <span style="color:#000">&lt;img</span> <span style="color:#836c28">src=</span><span style="color:#c41a16">&#34;assets/imgs/thumbnail-kitten-1.jpg&#34;</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;/ion-thumbnail&gt;</span>
+        <span style="color:#000">&lt;h2&gt;</span>Luna<span style="color:#000">&lt;/h2&gt;</span>
+      <span style="color:#000">&lt;/ion-item&gt;</span>
+      ...
+    <span style="color:#000">&lt;/ion-list&gt;</span>
+  <span style="color:#000">&lt;/div&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052480721seg.png" alt="2018052480721seg.png" /></p>
+
+<h2 id="select">select</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">  <span style="color:#000">&lt;ion-list&gt;</span>
+    <span style="color:#000">&lt;ion-item&gt;</span>
+      <span style="color:#000">&lt;ion-label&gt;</span>Gaming<span style="color:#000">&lt;/ion-label&gt;</span>
+      <span style="color:#000">&lt;ion-select</span> <span style="color:#836c28">multiple=</span><span style="color:#c41a16">&#34;false&#34;</span> <span style="color:#000">[(ngModel)]=&#34;gaming&#34;</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;ion-option</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;nes&#34;</span><span style="color:#000">&gt;</span>NES<span style="color:#000">&lt;/ion-option&gt;</span>
+        <span style="color:#000">&lt;ion-option</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;n64&#34;</span><span style="color:#000">&gt;</span>Nintendo64<span style="color:#000">&lt;/ion-option&gt;</span>
+        <span style="color:#000">&lt;ion-option</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;ps&#34;</span><span style="color:#000">&gt;</span>PlayStation<span style="color:#000">&lt;/ion-option&gt;</span>
+        <span style="color:#000">&lt;ion-option</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;genesis&#34;</span><span style="color:#000">&gt;</span>Sega Genesis<span style="color:#000">&lt;/ion-option&gt;</span>
+        <span style="color:#000">&lt;ion-option</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;saturn&#34;</span><span style="color:#000">&gt;</span>Sega Saturn<span style="color:#000">&lt;/ion-option&gt;</span>
+        <span style="color:#000">&lt;ion-option</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;snes&#34;</span><span style="color:#000">&gt;</span>SNES<span style="color:#000">&lt;/ion-option&gt;</span>
+      <span style="color:#000">&lt;/ion-select&gt;</span>
+    <span style="color:#000">&lt;/ion-item&gt;</span>
+  <span style="color:#000">&lt;/ion-list&gt;</span>
+
+  <span style="color:#000">&lt;ion-list&gt;</span>
+    <span style="color:#000">&lt;ion-item&gt;</span>
+      <span style="color:#000">&lt;ion-label&gt;</span>Toppings<span style="color:#000">&lt;/ion-label&gt;</span>
+      <span style="color:#000">&lt;ion-select</span> <span style="color:#000">[(ngModel)]=&#34;toppings&#34;</span> <span style="color:#836c28">multiple=</span><span style="color:#c41a16">&#34;true&#34;</span> <span style="color:#836c28">cancelText=</span><span style="color:#c41a16">&#34;Nah&#34;</span> <span style="color:#836c28">okText=</span><span style="color:#c41a16">&#34;Okay!&#34;</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;ion-option</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;bacon&#34;</span> <span style="color:#836c28">selected=</span><span style="color:#c41a16">&#34;true&#34;</span><span style="color:#000">&gt;</span>Bacon<span style="color:#000">&lt;/ion-option&gt;</span>
+        <span style="color:#000">&lt;ion-option</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;olives&#34;</span><span style="color:#000">&gt;</span>Black Olives<span style="color:#000">&lt;/ion-option&gt;</span>
+        <span style="color:#000">&lt;ion-option</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;xcheese&#34;</span> <span style="color:#836c28">selected=</span><span style="color:#c41a16">&#34;true&#34;</span><span style="color:#000">&gt;</span>Extra Cheese<span style="color:#000">&lt;/ion-option&gt;</span>
+        <span style="color:#000">&lt;ion-option</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;peppers&#34;</span><span style="color:#000">&gt;</span>Green Peppers<span style="color:#000">&lt;/ion-option&gt;</span>
+        <span style="color:#000">&lt;ion-option</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;mushrooms&#34;</span><span style="color:#000">&gt;</span>Mushrooms<span style="color:#000">&lt;/ion-option&gt;</span>
+        <span style="color:#000">&lt;ion-option</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;onions&#34;</span><span style="color:#000">&gt;</span>Onions<span style="color:#000">&lt;/ion-option&gt;</span>
+        <span style="color:#000">&lt;ion-option</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;pepperoni&#34;</span><span style="color:#000">&gt;</span>Pepperoni<span style="color:#000">&lt;/ion-option&gt;</span>
+        <span style="color:#000">&lt;ion-option</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;pineapple&#34;</span><span style="color:#000">&gt;</span>Pineapple<span style="color:#000">&lt;/ion-option&gt;</span>
+        <span style="color:#000">&lt;ion-option</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;sausage&#34;</span><span style="color:#000">&gt;</span>Sausage<span style="color:#000">&lt;/ion-option&gt;</span>
+        <span style="color:#000">&lt;ion-option</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;Spinach&#34;</span><span style="color:#000">&gt;</span>Spinach<span style="color:#000">&lt;/ion-option&gt;</span>
+      <span style="color:#000">&lt;/ion-select&gt;</span>
+    <span style="color:#000">&lt;/ion-item&gt;</span>
+  <span style="color:#000">&lt;/ion-list&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052415757select.png" alt="2018052415757select.png" /></p>
+
+<p>可以通过百分比来调整select的宽度。</p>
+
+<pre><code>ion-select {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    overflow: hidden;
+    max-width: 45%;
+    
+    /*添加*/
+    width: 70%;
+    /* background: green; */
+    border: green solid 1px;
+}
+</code></pre>
+
+<p><img src="http://image.tyrad.cc/2018062541582u.png" alt="2018062541582u.png" /></p>
+
+<p>其他: 配合数据源举例</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">  &lt;<span style="color:#000">ion-list</span> <span style="color:#836c28">no-lines</span>&gt;
+    &lt;<span style="color:#000">ion-item</span> <span style="color:#000">*</span><span style="color:#836c28">ngFor</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;let itemTop of merchantTypeReply&#34;</span>&gt;
+        &lt;<span style="color:#000">ion-label</span>&gt;{{ itemTop.title }}&lt;/<span style="color:#000">ion-label</span>&gt;
+          &lt;<span style="color:#000">ion-select</span>  <span style="color:#836c28">placeholder</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;{{itemTop.title}}&#34;</span>  <span style="color:#836c28">submitText</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;确定&#34;</span> <span style="color:#836c28">cancelText</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;取消&#34;</span> &gt;
+            &lt;<span style="color:#000">ion-option</span> <span style="color:#000">*</span><span style="color:#836c28">ngFor</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;let option of itemTop.options; let i = index&#34;</span> <span style="color:#000">[</span><span style="color:#836c28">value</span><span style="color:#000">]=&#34;</span><span style="color:#836c28">option</span><span style="color:#000">.</span><span style="color:#836c28">id</span><span style="color:#000">&#34;</span>  <span style="color:#000">[</span><span style="color:#836c28">selected</span><span style="color:#000">]</span> <span style="color:#000">=</span> <span style="color:#000">&#34;</span><span style="color:#836c28">i </span><span style="color:#000">=</span><span style="color:#c41a16">=</span> <span style="color:#836c28">0</span><span style="color:#000">&#34;</span>&gt;{{option.name}}&lt;/<span style="color:#000">ion-option</span>&gt;
+          &lt;/<span style="color:#000">ion-select</span>&gt; 
+    &lt;/<span style="color:#000">ion-item</span>&gt;
+  &lt;/<span style="color:#000">ion-list</span>&gt;</code></pre></div>
+<h2 id="slides-幻灯片">Slides 幻灯片</h2>
+
+<p>For more information, Check out the <a href="https://ionicframework.com/docs/api/components/slides/Slides">Slides API docs</a> and the <a href="https://ionicframework.com/docs/api/components/slides/Slide">Slide API docs</a>.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">  <span style="color:#177500">&lt;!--&lt;ion-slides pager&gt;--&gt;</span>
+
+    <span style="color:#177500">&lt;!--&lt;ion-slide style=&#34;background-color: green&#34;&gt;--&gt;</span>
+      <span style="color:#177500">&lt;!--&lt;h2&gt;Slide 1&lt;/h2&gt;--&gt;</span>
+    <span style="color:#177500">&lt;!--&lt;/ion-slide&gt;--&gt;</span>
+
+    <span style="color:#177500">&lt;!--&lt;ion-slide style=&#34;background-color: blue&#34;&gt;--&gt;</span>
+      <span style="color:#177500">&lt;!--&lt;h2&gt;Slide 2&lt;/h2&gt;--&gt;</span>
+    <span style="color:#177500">&lt;!--&lt;/ion-slide&gt;--&gt;</span>
+
+    <span style="color:#177500">&lt;!--&lt;ion-slide style=&#34;background-color: red&#34;&gt;--&gt;</span>
+      <span style="color:#177500">&lt;!--&lt;h2&gt;Slide 3&lt;/h2&gt;--&gt;</span>
+    <span style="color:#177500">&lt;!--&lt;/ion-slide&gt;--&gt;</span>
+
+  <span style="color:#177500">&lt;!--&lt;/ion-slides&gt;--&gt;</span>
+
+
+  <span style="color:#000">&lt;ion-slides</span> <span style="color:#000">pager</span><span style="color:#000">&gt;</span>
+    <span style="color:#177500">&lt;!--前几个元素从--&gt;</span>
+    <span style="color:#000">&lt;ion-slide</span> <span style="color:#000">*</span><span style="color:#836c28">ngFor=</span><span style="color:#c41a16">&#34;let slide of slides&#34;</span><span style="color:#000">&gt;</span>
+      <span style="color:#000">&lt;ion-toolbar&gt;</span>
+        <span style="color:#000">&lt;ion-buttons</span> <span style="color:#000">end</span><span style="color:#000">&gt;</span>
+          <span style="color:#000">&lt;button</span> <span style="color:#000">ion-button</span> <span style="color:#836c28">color=</span><span style="color:#c41a16">&#34;primary&#34;</span><span style="color:#000">&gt;</span>Skip<span style="color:#000">&lt;/button&gt;</span>
+        <span style="color:#000">&lt;/ion-buttons&gt;</span>
+      <span style="color:#000">&lt;/ion-toolbar&gt;</span>
+      <span style="color:#000">&lt;img</span> <span style="color:#000">[src]=&#34;slide.image&#34;</span> <span style="color:#836c28">class=</span><span style="color:#c41a16">&#34;slide-image&#34;</span><span style="color:#000">/&gt;</span>
+      <span style="color:#000">&lt;h2</span> <span style="color:#836c28">class=</span><span style="color:#c41a16">&#34;slide-title&#34;</span> <span style="color:#000">[innerHTML]=&#34;slide.title&#34;</span><span style="color:#000">&gt;&lt;/h2&gt;</span>
+      <span style="color:#000">&lt;p</span> <span style="color:#000">[innerHTML]=&#34;slide.description&#34;</span><span style="color:#000">&gt;&lt;/p&gt;</span>
+    <span style="color:#000">&lt;/ion-slide&gt;</span>
+    <span style="color:#177500">&lt;!--最后一个元素为写死的数据--&gt;</span>
+    <span style="color:#000">&lt;ion-slide&gt;</span>
+      <span style="color:#000">&lt;ion-toolbar&gt;</span>
+      <span style="color:#000">&lt;/ion-toolbar&gt;</span>
+      <span style="color:#000">&lt;img</span> <span style="color:#836c28">src=</span><span style="color:#c41a16">&#34;assets/imgs/ica-slidebox-img-4.png&#34;</span> <span style="color:#836c28">class=</span><span style="color:#c41a16">&#34;slide-image&#34;</span><span style="color:#000">/&gt;</span>
+      <span style="color:#000">&lt;h2</span> <span style="color:#836c28">class=</span><span style="color:#c41a16">&#34;slide-title&#34;</span><span style="color:#000">&gt;</span>Ready to Play?<span style="color:#000">&lt;/h2&gt;</span>
+      <span style="color:#000">&lt;button</span> <span style="color:#000">ion-button</span> <span style="color:#000">large</span> <span style="color:#000">clear</span> <span style="color:#000">icon-end</span> <span style="color:#836c28">color=</span><span style="color:#c41a16">&#34;primary&#34;</span><span style="color:#000">&gt;</span>
+        Continue
+        <span style="color:#000">&lt;ion-icon</span> <span style="color:#836c28">name=</span><span style="color:#c41a16">&#34;arrow-forward&#34;</span><span style="color:#000">&gt;&lt;/ion-icon&gt;</span>
+      <span style="color:#000">&lt;/button&gt;</span>
+    <span style="color:#000">&lt;/ion-slide&gt;</span>
+  <span style="color:#000">&lt;/ion-slides&gt;</span>
+  
+  //ts文件
+  
+    slides = [
+    {
+      title: &#34;Welcome to the Docs!&#34;,
+      description: &#34;The <span style="color:#000">&lt;b&gt;</span>Ionic Component Documentation<span style="color:#000">&lt;/b&gt;</span> showcases a number of useful components that are included out of the box with Ionic.&#34;,
+      image: &#34;assets/imgs/ica-slidebox-img-1.png&#34;,
+    },
+    {
+      title: &#34;What is Ionic?&#34;,
+      description: &#34;<span style="color:#000">&lt;b&gt;</span>Ionic Framework<span style="color:#000">&lt;/b&gt;</span> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.&#34;,
+      image: &#34;assets/imgs/ica-slidebox-img-2.png&#34;,
+    },
+    {
+      title: &#34;What is Ionic Cloud?&#34;,
+      description: &#34;The <span style="color:#000">&lt;b&gt;</span>Ionic Cloud<span style="color:#000">&lt;/b&gt;</span> is a cloud platform for managing and scaling Ionic apps with integrated services like push notifications, native builds, user auth, and live updating.&#34;,
+      image: &#34;assets/imgs/ica-slidebox-img-3.png&#34;,
+    }
+  ];  </code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052414463s.png" alt="2018052414463s.png" /></p>
+
+<h2 id="tab">Tab</h2>
+
+<h3 id="基本使用">基本使用</h3>
+
+<p>To initialize Tabs, use <ion-tabs>, with a child <ion-tab> for each tab:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">  template: `
+    <span style="color:#000">&lt;ion-tabs&gt;</span>
+      <span style="color:#000">&lt;ion-tab</span> <span style="color:#836c28">tabIcon=</span><span style="color:#c41a16">&#34;heart&#34;</span> <span style="color:#000">[root]=&#34;tab1&#34;</span><span style="color:#000">&gt;&lt;/ion-tab&gt;</span>
+      <span style="color:#000">&lt;ion-tab</span> <span style="color:#836c28">tabIcon=</span><span style="color:#c41a16">&#34;star&#34;</span> <span style="color:#000">[root]=&#34;tab2&#34;</span><span style="color:#000">&gt;&lt;/ion-tab&gt;</span>
+      <span style="color:#000">&lt;ion-tab</span> <span style="color:#836c28">tabTitle=</span><span style="color:#c41a16">&#34;Music&#34;</span> <span style="color:#000">[root]=&#34;rootPage&#34;</span><span style="color:#000">&gt;&lt;/ion-tab&gt;</span>
+      <span style="color:#000">&lt;ion-tab</span> <span style="color:#836c28">tabTitle=</span><span style="color:#c41a16">&#34;Movies&#34;</span> <span style="color:#000">[root]=&#34;rootPage&#34;</span><span style="color:#000">&gt;&lt;/ion-tab&gt;</span>
+      <span style="color:#000">&lt;ion-tab</span> <span style="color:#836c28">tabIcon=</span><span style="color:#c41a16">&#34;star&#34;</span> <span style="color:#836c28">tabTitle=</span><span style="color:#c41a16">&#34;Games&#34;</span> <span style="color:#000">[root]=&#34;rootPage&#34;</span><span style="color:#000">&gt;&lt;/ion-tab&gt;</span>
+    <span style="color:#000">&lt;/ion-tabs&gt;</span>
+    
+ //ts
+ tab1: any;
+ tab2: any;
+ constructor(){
+   this.tab1 =  HelloIonicPage;
+   this.tab2 =  NavRootPage;
+ }</code></pre></div>
+<p>可以看到每个<code>&lt;ion-tab&gt;</code>绑定了个<code>[root]</code>属性，就如同nav中的<code>&lt;ion-nav&gt;</code>一样。这是因为每个<code>&lt;ion-tab&gt;</code>真的只是一个导航控制器。</p>
+
+<p>这意味着每个选项卡都有自己的history stack，并且 NavController instances 注入到每个选项卡的子组件@Components 中的NavController实例对于每个选项卡都是唯一的.</p>
+
+<p><img src="http://image.tyrad.cc/2018052497750tab1.png" alt="2018052497750tab1.png" /></p>
+
+<p>ps:
+可以调整tabs的位置，如<code>tabsPlacement=&quot;top&quot;</code></p>
+
+<h3 id="badge-title-icon-color">badge、title、icon、color</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000">&lt;ion-tabs</span> <span style="color:#836c28">class=</span><span style="color:#c41a16">&#34;tabs-icon&#34;</span> <span style="color:#000">[color]=&#34;isAndroid</span> <span style="color:#000">?</span> <span style="color:#000">&#39;danger&#39;</span> <span style="color:#000">:</span> <span style="color:#000">&#39;primary&#39;&#34;</span><span style="color:#000">&gt;</span>
+ <span style="color:#000">&lt;ion-tab</span> <span style="color:#836c28">tabTitle=</span><span style="color:#c41a16">&#34;Music&#34;</span> <span style="color:#836c28">tabIcon=</span><span style="color:#c41a16">&#34;contact&#34;</span> <span style="color:#000">[root]=&#34;tab1&#34;</span><span style="color:#000">&gt;&lt;/ion-tab&gt;</span>
+ <span style="color:#000">&lt;ion-tab</span> <span style="color:#836c28">tabIcon=</span><span style="color:#c41a16">&#34;compass&#34;</span> <span style="color:#000">[root]=&#34;tab2&#34;</span><span style="color:#000">&gt;&lt;/ion-tab&gt;</span>
+ <span style="color:#000">&lt;ion-tab</span> <span style="color:#836c28">tabIcon=</span><span style="color:#c41a16">&#34;star&#34;</span> <span style="color:#836c28">tabBadge=</span><span style="color:#c41a16">&#34;3&#34;</span> <span style="color:#836c28">tabBadgeStyle=</span><span style="color:#c41a16">&#34;danger&#34;</span> <span style="color:#836c28">tabTitle=</span><span style="color:#c41a16">&#34;Games&#34;</span> <span style="color:#000">[root]=&#34;tab2&#34;</span><span style="color:#000">&gt;&lt;/ion-tab&gt;</span>
+<span style="color:#000">&lt;/ion-tabs&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052416460tabbar2.png" alt="2018052416460tabbar2.png" /></p>
+
+<h2 id="toast">Toast</h2>
+
+<p>toast比较简单了</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#000">presentToast</span>() {
+    <span style="color:#a90d91">let</span> <span style="color:#000">toast</span> <span style="color:#000">=</span> <span style="color:#a90d91">this</span>.<span style="color:#000">toastCtrl</span>.<span style="color:#000">create</span>({
+      <span style="color:#000">message</span><span style="color:#000">:</span> <span style="color:#c41a16">&#39;User was added successfully&#39;</span>,
+      <span style="color:#000">duration</span><span style="color:#000">:</span> <span style="color:#1c01ce">3000</span>
+    });
+    <span style="color:#000">toast</span>.<span style="color:#000">present</span>();
+  }
+</code></pre></div>
+<p>此外可以设置<code>closeButtonText</code>、位置等。 详情<a href="https://ionicframework.com/docs/api/components/toast/ToastController">链接</a>。</p>
+
+<h2 id="toggle-uiswitch">Toggle（UISwitch)</h2>
+
+<p>more in <a href="https://ionicframework.com/docs/api/components/toggle/Toggle">API Doc</a></p>
+
+<pre><code> &lt;ion-item&gt;
+    &lt;ion-label&gt; Sam&lt;/ion-label&gt;
+    &lt;ion-toggle  checked=&quot;false&quot;&gt;&lt;/ion-toggle&gt;
+  &lt;/ion-item&gt;
+</code></pre>
+
+<p><img src="http://image.tyrad.cc/2018052441518icon.png" alt="2018052441518icon.png" /></p>
+
+<h2 id="toolbar">Toolbar</h2>
+
+<p>工具栏是一个通用栏，可以在应用程序中用作页眉，子页眉，页脚甚至子页脚。由于离子工具栏基于flexbox，无论您的页面中有多少个工具栏，它们都将正确显示，离子内容也会相应调整</p>
+
+<blockquote>
+<p>注意：与navigation一起使用时，通常在ion-header内部使用<code>NavBar</code></p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000">&lt;ion-footer&gt;</span>
+    <span style="color:#000">&lt;ion-toolbar&gt;</span>
+      <span style="color:#000">&lt;ion-title&gt;</span>Footer<span style="color:#000">&lt;/ion-title&gt;</span>
+    <span style="color:#000">&lt;/ion-toolbar&gt;</span>
+  <span style="color:#000">&lt;/ion-footer&gt;</span></code></pre></div>
+<p>也可以再nav中加入toolbar,可以添加按钮、改变颜色等。类似的，navBar也可以用这样的的方法改颜色<code>&lt;ion-navbar color=&quot;danger&quot;&gt;</code></p>
+
+<pre><code>&lt;ion-header&gt;
+  &lt;ion-toolbar color=&quot;primary&quot;&gt;
+    &lt;ion-buttons start&gt;
+      &lt;button ion-button icon-only&gt;
+        &lt;ion-icon name=&quot;more&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/button&gt;
+    &lt;/ion-buttons&gt;
+
+    &lt;ion-title&gt;Header&lt;/ion-title&gt;
+
+    &lt;ion-buttons end&gt;
+      &lt;button ion-button icon-only&gt;
+        &lt;ion-icon name=&quot;search&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/button&gt;
+    &lt;/ion-buttons&gt;
+
+  &lt;/ion-toolbar&gt;
+&lt;/ion-header&gt;
+</code></pre>
+
+<p><img src="http://image.tyrad.cc/20180524671981.png" alt="20180524671981.png" /></p>
+
+<h2 id="buttons-in-toolbars">Buttons in Toolbars</h2>
+
+<p>略</p>
+
+<h2 id="segment-in-toolbars">Segment in Toolbars</h2>
+
+<p>略</p>
+
+<h2 id="searchbar-in-toolbars">Searchbar in Toolbars</h2>
+
+<p>略</p>
+</div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#menus-侧边抽屉菜单">Menus 侧边抽屉菜单</a></li>
+<li><a href="#modals-模态">Modals 模态</a></li>
+<li><a href="#navigation">Navigation</a>
+<ul>
+<li><a href="#basic-navigation">Basic Navigation</a></li>
+<li><a href="#navigating-from-the-root-component">Navigating from the Root Component</a></li>
+<li><a href="#tabbed-navigation">Tabbed Navigation</a></li>
+</ul></li>
+<li><a href="#popover">Popover</a></li>
+<li><a href="#radio">Radio</a></li>
+<li><a href="#range-滑动条">Range(滑动条)</a></li>
+<li><a href="#searchbar">Searchbar</a></li>
+<li><a href="#segment">Segment</a></li>
+<li><a href="#select">select</a></li>
+<li><a href="#slides-幻灯片">Slides 幻灯片</a></li>
+<li><a href="#tab">Tab</a>
+<ul>
+<li><a href="#基本使用">基本使用</a></li>
+<li><a href="#badge-title-icon-color">badge、title、icon、color</a></li>
+</ul></li>
+<li><a href="#toast">Toast</a></li>
+<li><a href="#toggle-uiswitch">Toggle（UISwitch)</a></li>
+<li><a href="#toolbar">Toolbar</a></li>
+<li><a href="#buttons-in-toolbars">Buttons in Toolbars</a></li>
+<li><a href="#segment-in-toolbars">Segment in Toolbars</a></li>
+<li><a href="#searchbar-in-toolbars">Searchbar in Toolbars</a></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

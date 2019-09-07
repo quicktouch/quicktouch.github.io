@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>变量 |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> 变量 </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#php'>php</a></span>
+    
+    
+    
+    
+    
+    &nbsp/&nbsp<span>基础笔记</span>
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='0001-01-01T00:00:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 0001-01-01
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<h1 id="变量">变量</h1>
+
+<h2 id="常用的标记形式">常用的标记形式</h2>
+
+<ol>
+<li><code>&lt;?php  ?&gt;</code>标准形式(推荐)</li>
+<li><code>&lt;script language=&quot;php&quot;&gt; &lt;/script&gt;</code></li>
+<li><code>&lt;?   ?&gt;</code>:(不推荐使用)依赖于<code>php.ini</code>的设置项:<code>shor_open_tag = On</code>
+<br /></li>
+</ol>
+
+<h2 id="变量的基本操作">变量的基本操作</h2>
+
+<table>
+<thead>
+<tr>
+<th>操作</th>
+<th>举例</th>
+<th>注意点</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>赋值</td>
+<td><code>$var = 1</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td>取值</td>
+<td>`$var3 = $var1 + 3;</td>
+<td>`</td>
+</tr>
+
+<tr>
+<td>判断</td>
+<td>isset(变量名)</td>
+<td>变量为null,返回false</td>
+</tr>
+
+<tr>
+<td>删除</td>
+<td>unset(变量名)</td>
+<td>删除一个变量,并不是从程序中删掉，而是‘断开引用’</td>
+</tr>
+</tbody>
+</table>
+
+<p>判断 <code>isset(变量名)</code>:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">$var1 =  isset($a);  //结果false
+var_dump($aaa); //bool(false)
+$var2 = 200;
+$var3 = isset($var2);//true
+$var4 = null ; //null表示没有数据
+$var5 = isset($var4); //false</code></pre></div>
+<p>删除:</p>
+
+<ol>
+<li>该数据不指向任何数据,则isset()判断为false</li>
+<li>没有任何变量指向它，通常会自动释放</li>
+</ol>
+
+<h2 id="变量命名规范">变量命名规范</h2>
+
+<ul>
+<li><p>基本规则 &ndash; 保证程序的正确性</p>
+
+<ul>
+<li>字母、下划线开头</li>
+<li>后面跟任意数量字母、数字、下划线
+<br /></li>
+</ul></li>
+
+<li><p>行业规则 &ndash; 保证程序可读性</p>
+
+<ul>
+<li>驼峰: <code>$myName</code></li>
+<li>帕斯卡命名法:每个单词首字母大写 <code>$MyName</code></li>
+<li>下划线分割法:每个单词小写,并且之间用下划线分开 <code>my_name</code></li>
+</ul></li>
+</ul>
+
+<h2 id="值类型和引用类型">值类型和引用类型</h2>
+
+<table>
+<thead>
+<tr>
+<th>传递方式</th>
+<th></th>
+<th>举例</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>值</td>
+<td>一个变量传给另一个变量</td>
+<td><code>$var2 = 1</code> ; <code>$var1 = $var2</code> 将值取出来,<code>$var2</code>的值还在</td>
+</tr>
+
+<tr>
+<td>引用</td>
+<td>只有一种语法形式可以实现变量的引用传值方式:&amp;符号</td>
+<td><code>$m1 = 1;</code> <code>$m2 = &amp;$m1;</code></td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>值传递</strong>: 值相等、彼此互不影响</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">$v1 = 10 ;
+$v2 = $v1 ;
+$v1 = 20 ;
+echo $v1; //20
+echo $v2; //10
+unset($v1); //断开与其数据的关系
+var_dump($v1); //null
+var_dump($v2); //int(10)</code></pre></div>
+<p><strong>引用传值</strong>: 可看做两个变量都指向同一个数据空间</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">//将$m1与其数值之间的&#34;引用关系&#34;,复制一份，再给予变量m2,此时变量$m2也同样跟原来数据一样有个“引用关系”
+//两个变量都指向同一个数据空间
+$m1 = 1;
+$m2 = <span style="color:#000">&amp;$m1;</span>
+$m1 = 100 ;
+echo $m2; //100
+echo $m1; //100
+//----------
+unset($m1); //断开与其数据的关系
+var_dump($m1); //null
+var_dump($m2); //int(10)  m2的引用还在。</code></pre></div>
+<h2 id="可变变量">可变变量</h2>
+
+<pre><code>$var1 = 'a';
+echo $$var1 ; // 'a'
+</code></pre>
+
+<p><code>$</code>后面总是跟着变量名,因此输出的变量名为<code>$var1</code>,因此得出结果&rsquo;a&rsquo;。
+连续出现<code>$</code>的形式,叫做可变变量。</p>
+
+<p>表现灵活性的一个例子:</p>
+
+<pre><code>$var1 = 1111;
+$var2 = 111;
+$var3 = 11;
+$var4 = 1;
+
+$sum = 0 ;
+
+for($i = 1 ; $i&lt;=5 ; $i++){
+    $v = &quot;var&quot; . $i; //php中 `.`是拼接字符串的意思
+    $sum += $$v;
+}
+</code></pre>
+
+<h2 id="预定义变量">预定义变量</h2>
+
+<p>顾名思义,php预先处理好的变量。</p>
+
+<pre><code>//举例
+$_GET 
+$_POST
+$_REQUEST
+$_SERVER
+$GLOBALS
+</code></pre>
+
+<ul>
+<li>均是数组</li>
+<li>系统定义与维护&ndash;我们不要对其复制或销毁</li>
+<li>具有超全局作用域&ndash;哪里都可以使用</li>
+<li>不同情况下可能有不同的值</li>
+</ul>
+
+<h3 id="post变量">_POST变量</h3>
+
+<p><strong>含义</strong>: 表示用户通过表单以post方式提交的时候提交的所有数据 &ndash;这个称为post数据。</p>
+
+<p>文件:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000">html</span>&gt;
+&lt;<span style="color:#000">head</span>&gt;
+    &lt;<span style="color:#000">meta</span> <span style="color:#836c28">charset</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#000">title</span>&gt;helloWorld&lt;/<span style="color:#000">title</span>&gt;
+&lt;/<span style="color:#000">head</span>&gt;
+&lt;<span style="color:#000">body</span>&gt;
+&lt;<span style="color:#000">form</span> <span style="color:#836c28">action</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;post_data.php&#34;</span> <span style="color:#836c28">method</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;post&#34;</span>&gt;
+    name: &lt;<span style="color:#000">input</span> <span style="color:#836c28">type</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;text&#34;</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;name&#34;</span>&gt;
+    &lt;<span style="color:#000">br</span>&gt;
+    password
+    &lt;<span style="color:#000">input</span> <span style="color:#836c28">type</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;text&#34;</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;pwd&#34;</span>&gt;
+    &lt;<span style="color:#000">input</span> <span style="color:#836c28">type</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;submit&#34;</span> <span style="color:#836c28">value</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;提交&#34;</span>&gt;
+&lt;/<span style="color:#000">form</span>&gt;
+&lt;/<span style="color:#000">body</span>&gt;
+&lt;/<span style="color:#000">html</span>&gt;</code></pre></div>
+<p>文件:<code>post_data.php</code></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000">html</span>&gt;
+&lt;<span style="color:#000">head</span>&gt;
+    &lt;<span style="color:#000">meta</span> <span style="color:#836c28">charset</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;UTF-8&#34;</span>&gt;
+    &lt;<span style="color:#000">title</span>&gt;helloWorld&lt;/<span style="color:#000">title</span>&gt;
+&lt;/<span style="color:#000">head</span>&gt;
+&lt;<span style="color:#000">body</span>&gt;
+<span style="color:#633820">&lt;?php
+</span><span style="color:#633820">    $name = $_POST[&#39;name&#39;];
+</span><span style="color:#633820">    $pwd  = $_POST[&#39;pwd&#39;];
+</span><span style="color:#633820">    echo &#39;name:&#39;.$name;
+</span><span style="color:#633820">    echo &#39;&lt;br&gt;&#39;;
+</span><span style="color:#633820">    echo &#39;pwd&#39;.$pwd;
+</span><span style="color:#633820">    echo &#39;&lt;br&gt;&#39;;
+</span><span style="color:#633820">    print_r($_POST); //Array ( [name] =&gt; wwww [pwd] =&gt; 23123 )
+</span><span style="color:#633820">?&gt;</span>
+&lt;/<span style="color:#000">body</span>&gt;
+&lt;/<span style="color:#000">html</span>&gt;</code></pre></div>
+<p>isset(变量):判断变量是否存在,或者变量是否为空(null)
+empty(变量):判断内容是否为空的(不是null的空,而是没内容),基本上，是一些硬性规定，如下数据都是“空的”:0、‘0’、false、null、array()空数组都为空。如果是空，返回true。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">if(!empty($_POST())){
+}</code></pre></div>
+<p>计算器程序举例:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#633820">&lt;?php</span>
+<span style="color:#a90d91">if</span> (<span style="color:#000">!</span><span style="color:#a90d91">empty</span>(<span style="color:#000">$_POST</span>)){
+    <span style="color:#000">$num1</span> <span style="color:#000">=</span> <span style="color:#000">$_POST</span>[<span style="color:#c41a16">&#34;data1&#34;</span>];
+    <span style="color:#000">$num2</span> <span style="color:#000">=</span> <span style="color:#000">$_POST</span>[<span style="color:#c41a16">&#34;data2&#34;</span>];
+    <span style="color:#000">$fuhao</span> <span style="color:#000">=</span> <span style="color:#000">$_POST</span>[<span style="color:#c41a16">&#34;fuhao&#34;</span>];
+    <span style="color:#177500">//自行判断
+</span><span style="color:#177500"></span>    <span style="color:#177500">//if ($fuhao == &#39;+&#39;){ }
+</span><span style="color:#177500"></span>    <span style="color:#000">$jieguo</span> <span style="color:#000">=</span> <span style="color:#000">$num1</span> <span style="color:#000">+</span> <span style="color:#000">$num2</span>;
+}<span style="color:#a90d91">else</span>{
+    <span style="color:#000">$num1</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#39;&#39;</span>;
+    <span style="color:#000">$num2</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#39;&#39;</span>;
+    <span style="color:#000">$fuhao</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#39;+&#39;</span>;
+    <span style="color:#000">$jieguo</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#39;&#39;</span>;
+}
+<span style="color:#633820">?&gt;</span>
+
+&lt;<span style="color:#000">form</span> <span style="color:#836c28">action</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;&#34;</span> <span style="color:#836c28">method</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;post&#34;</span>&gt;
+    &lt;<span style="color:#000">input</span> <span style="color:#836c28">type</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;text&#34;</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;data1&#34;</span> <span style="color:#836c28">value</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;</span><span style="color:#633820">&lt;?php</span> <span style="color:#a90d91">echo</span> <span style="color:#000">$num1</span>; <span style="color:#633820">?&gt;</span><span style="color:#c41a16">&#34;</span>&gt;
+    &lt;<span style="color:#000">select</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;fuhao&#34;</span> &gt;
+        &lt;<span style="color:#000">option</span> <span style="color:#836c28">value</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;+&#34;</span>  <span style="color:#633820">&lt;?php</span> <span style="color:#a90d91">if</span> (<span style="color:#000">$fuhao</span> <span style="color:#000">==</span> <span style="color:#c41a16">&#34;+&#34;</span>) <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#39;selected&#39;</span><span style="color:#633820">?&gt;</span> &gt;+&lt;/<span style="color:#000">option</span>&gt;
+        &lt;<span style="color:#000">option</span> <span style="color:#836c28">value</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;-&#34;</span>  <span style="color:#633820">&lt;?php</span> <span style="color:#a90d91">if</span> (<span style="color:#000">$fuhao</span> <span style="color:#000">==</span> <span style="color:#c41a16">&#34;-&#34;</span>) <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#39;selected&#39;</span><span style="color:#633820">?&gt;</span>&gt;-&lt;/<span style="color:#000">option</span>&gt;
+        &lt;<span style="color:#000">option</span> <span style="color:#836c28">value</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;*&#34;</span>  <span style="color:#633820">&lt;?php</span> <span style="color:#a90d91">if</span> (<span style="color:#000">$fuhao</span> <span style="color:#000">==</span> <span style="color:#c41a16">&#34;*&#34;</span>) <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#39;selected&#39;</span><span style="color:#633820">?&gt;</span>&gt;*&lt;/<span style="color:#000">option</span>&gt;
+        &lt;<span style="color:#000">option</span> <span style="color:#836c28">value</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;/&#34;</span>  <span style="color:#633820">&lt;?php</span> <span style="color:#a90d91">if</span> (<span style="color:#000">$fuhao</span> <span style="color:#000">==</span> <span style="color:#c41a16">&#34;/&#34;</span>) <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#39;selected&#39;</span><span style="color:#633820">?&gt;</span>&gt;/&lt;/<span style="color:#000">option</span>&gt;
+    &lt;/<span style="color:#000">select</span>&gt;
+     &lt;<span style="color:#000">input</span> <span style="color:#836c28">type</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;text&#34;</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;data2&#34;</span> <span style="color:#836c28">value</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;</span><span style="color:#633820">&lt;?php</span> <span style="color:#a90d91">echo</span> <span style="color:#000">$num2</span>; <span style="color:#633820">?&gt;</span><span style="color:#c41a16">&#34;</span>&gt;
+    &lt;<span style="color:#000">input</span> <span style="color:#836c28">type</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;submit&#34;</span> <span style="color:#836c28">value</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;=&#34;</span>&gt;
+    &lt;<span style="color:#000">input</span> <span style="color:#836c28">type</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;text&#34;</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;result&#34;</span> <span style="color:#836c28">value</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;</span><span style="color:#633820">&lt;?php</span> <span style="color:#a90d91">echo</span> <span style="color:#000">$jieguo</span>; <span style="color:#633820">?&gt;</span><span style="color:#c41a16">&#34;</span>&gt;
+&lt;/<span style="color:#000">form</span>&gt;
+</code></pre></div>
+<p><img src="http://image.tyrad.cc/20170615724321.png" alt="20170615724321.png" /></p>
+
+<h3 id="get变量">_GET变量</h3>
+
+<p><code>print_r($_GET);</code> 或 <code>var_dump($_GET)</code></p>
+
+<p>有多种get形式提交数据。</p>
+
+<h4 id="形式1-form表单形式">形式1: form表单形式</h4>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000">form</span> <span style="color:#836c28">action</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;get_data.php&#34;</span> <span style="color:#836c28">method</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;get&#34;</span>&gt;
+    &lt;<span style="color:#000">input</span> <span style="color:#836c28">type</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;text&#34;</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;data1&#34;</span><span style="color:#000">&#34;</span>&gt;
+     &lt;<span style="color:#000">input</span> <span style="color:#836c28">type</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;text&#34;</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;data2&#34;</span>&gt;
+    &lt;<span style="color:#000">input</span> <span style="color:#836c28">type</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;submit&#34;</span> <span style="color:#836c28">value</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;=&#34;</span>&gt;
+&lt;/<span style="color:#000">form</span>&gt;</code></pre></div>
+<h4 id="形式2">形式2:</h4>
+
+<p><code>&lt;a href='xx.php'?data1=1&amp;data2=2&gt;link&lt;/a&gt;</code></p>
+
+<h4 id="形式3-js">形式3：js</h4>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#000">&lt;</span><span style="color:#000">script</span><span style="color:#000">&gt;</span>
+    <span style="color:#000">location</span>.<span style="color:#000">href</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;xx.php&#39;?data1=1&amp;data2=2&#34;</span>;
+<span style="color:#000">&lt;</span><span style="color:#000">/script&gt;</span>
+</code></pre></div>
+<h4 id="形式4-js">形式4：js</h4>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#000">&lt;</span><span style="color:#000">script</span><span style="color:#000">&gt;</span>
+    <span style="color:#000">location</span>.<span style="color:#000">assign</span>(<span style="color:#c41a16">&#34;xx.php&#39;?data1=1&amp;data2=2&#34;</span>);
+<span style="color:#000">&lt;</span><span style="color:#000">/script&gt;</span>
+</code></pre></div>
+<h4 id="形式5-php">形式5：php</h4>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#633820">&lt;?php</span> 
+  <span style="color:#000">header</span>(<span style="color:#c41a16">&#39;xx.php&#39;</span><span style="color:#000">?</span><span style="color:#000">data1</span><span style="color:#000">=</span><span style="color:#1c01ce">1</span><span style="color:#000">&amp;</span><span style="color:#000">data2</span><span style="color:#000">=</span><span style="color:#1c01ce">2</span><span style="color:#000">&#39;</span>);
+<span style="color:#633820">?&gt;</span>
+</code></pre></div>
+<h3 id="request变量">_REQUEST变量</h3>
+
+<p>含义:   它是<code>$_GET</code>变量和$<code>_POST</code>变量的合集。</p>
+
+<h3 id="server变量">_SERVER变量</h3>
+
+<p>含义：代表一次浏览网页的过程中的浏览器端的信息或服务器端的信息。</p>
+
+<p>程序可以拿到这些信息,并用于编程所需. 如获取用户ip。</p>
+
+<p>大约有30个左右,我们只需要其中5个左右。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php">$_SERVER[&#39;REMOTE_IP&#39;]; 访问者的ip地址
+$_SERVER[&#39;SERVER_IP&#39;]; 服务器所在ip地址
+$_SERVER[&#39;SERVER_NAME&#39;]; 服务器名字(站点设置中的servename)
+$_SERVER[&#39;DOCUMENT_ROOT&#39;]; 获取物理地址,就是站点设置中的Documentroot
+$_SERVER[&#39;PHP_SELF&#39;]; 获取当前网页地址(不含域名)
+$_SERVER[&#39;QUERY_STRING&#39;]; 当前网页的get数据（`?`后面的整个字符串）</code></pre></div>
+<p><code>print_r($_SERVER)</code></p>
+
+<h3 id="gloable变量">GLOABLE变量</h3>
+
+<p>含义: 也是一个“重复性数据”。里面存储了我们自己定义的所有的<strong>全局变量</strong>。</p>
+
+<p>举例:</p>
+
+<pre><code>$v1 = 1; //定义了一个全局变量 
+此时,就有这样一个数据$GLOBALS['v1'],其值就是1.
+echo $GLOBALS['V1']; //输出1
+</code></pre>
+
+<p>这个变量，主要是用户在局部范围不可以使用全局变量的时候，有需要改全局变量的值。可以用这个取得该全局变量的值。</p>
+</div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li><a href="#变量">变量</a>
+<ul>
+<li><a href="#常用的标记形式">常用的标记形式</a></li>
+<li><a href="#变量的基本操作">变量的基本操作</a></li>
+<li><a href="#变量命名规范">变量命名规范</a></li>
+<li><a href="#值类型和引用类型">值类型和引用类型</a></li>
+<li><a href="#可变变量">可变变量</a></li>
+<li><a href="#预定义变量">预定义变量</a>
+<ul>
+<li><a href="#post变量">_POST变量</a></li>
+<li><a href="#get变量">_GET变量</a>
+<ul>
+<li><a href="#形式1-form表单形式">形式1: form表单形式</a></li>
+<li><a href="#形式2">形式2:</a></li>
+<li><a href="#形式3-js">形式3：js</a></li>
+<li><a href="#形式4-js">形式4：js</a></li>
+<li><a href="#形式5-php">形式5：php</a></li>
+</ul></li>
+<li><a href="#request变量">_REQUEST变量</a></li>
+<li><a href="#server变量">_SERVER变量</a></li>
+<li><a href="#gloable变量">GLOABLE变量</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

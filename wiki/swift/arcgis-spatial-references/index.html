@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>基础(四):Spatial references |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> 基础(四):Spatial references </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#swift'>swift</a></span>
+    
+    
+    
+    
+    
+    &nbsp/&nbsp<span>arcgis-basic</span>
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='0001-01-01T00:00:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 0001-01-01
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<p>空间参考很重要，对于新来GIS的人来说，它们看起来很复杂。
+空间参考确保可以集成不同图层或来源的空间数据，以便进行精确查看或分析。
+如果将具有不同空间参考的图层组合在一起进行查看或分析，ArcGIS Runtime SDK会尝试通过设置默认值并在适当的空间参考中请求数据（如果可能的话）从服务处理这一差异。
+但有时，您需要了解空间参考才能使事情顺利进行。
+无论是将数据对齐在一起，使地图看起来合适，提高准确性，还是仅使图层显示出来，理解空间参考的基础知识都是至关重要的。</p>
+
+<p>空间参考可以通过 well-known ID（WKID）来引用。
+在下面的文本中提到了一些常见的WKID;
+有关更完整的说明，请参阅本主题中的<a href="https://developers.arcgis.com/ios/10-2/swift/guide/spatial-references.htm#GUID-EE810B02-A106-49E7-B77E-57FE563DBBA1">空间参考和转换规范</a>。</p>
+
+<h2 id="为什么空间参考很重要">为什么空间参考很重要</h2>
+
+<p>要将空间数据整合到地图中或分析过程中，ArcGIS Runtime必须知道事物在地球表面的位置。
+要做到这一点，它使用坐标。
+坐标与坐标系相关，坐标系是围绕地球表面模型的参照系。
+并非所有的坐标和相关的坐标系都是相同的;
+他们可以以不同的单位（度分秒，十进制度或米）或者他们可以基于不同类型的模型。
+为了将坐标从一个坐标系移到另一个坐标系，使用数学变换。
+空间参考提供了所有这些信息，以及诸如期望的精度水平等参数，从而可以一起查看和分析空间数据。</p>
+
+<h3 id="关于设置空间参考的说明">关于设置空间参考的说明</h3>
+
+<p>在API中，空间参考类表示坐标系。它包含一个坐标系和辅助方法来访问和使用。间参考类与其他几个需要坐标系功能的API类相关联。例如，图层具有关联的空间参考。某些任务参数（例如查询任务和本地路由任务的任务参数）是空间参考对象。</p>
+
+<h2 id="coordinate-systems和projections">Coordinate systems和projections</h2>
+
+<p>用于坐标系统的模型分为两大类：Coordinate systems和projections：</p>
+
+<p>1). 地理坐标系（GCS）使用三维球面（或椭球面）来定义位置。
+坐标基于从地球中心到地表的角度。
+通常GCS使用以度为单位指定的纬度和经度。
+从GPS设备导出的坐标在名为WGS84的GCS（WKID = 4326）中返回。</p>
+
+<p>2). 投影坐标系统（PCS）是平面的（二维的），笛卡儿或“平坦的”。
+与GCS不同，投影坐标系统在两个维度上具有恒定的长度，角度和面积。
+PCSs使用地理坐标系统，然后扭曲数据，以便它可以表示在平面上用于打印的地图或屏幕上。坐标由网格上的x，y坐标标识。 ArcGIS Online，Google和OpenStreetMap底图使用相同的投影坐标系（名为Web Mercator辅助球体（WKID = 3857））。</p>
+
+<p>您可能会遇到第三个坐标系，即一个与任何其他坐标系无关的局部坐标系。
+原点和x，y坐标单位对应于本地参考点。由于局部坐标系与另一个坐标系的关系不容易建立，所以有时称为未知坐标系。</p>
+
+<h2 id="什么时候需要考虑坐标系参考">什么时候需要考虑坐标系参考</h2>
+
+<h3 id="mapview上添加layer">mapView上添加layer</h3>
+
+<p>ArcGIS Runtime渲染地图时，需要在同一空间参考中绘制所有数据，以便数据排列整齐。当您创建MapView时，您添加的第一个图层的空间参考将用作整个地图的空间参考;这通常是底图(basemap)。</p>
+
+<p>当您向地图添加其他图层（MapView）时，您可能需要使用MapView使用的相同空间参考来请求它们。
+无论你是否必须要求这取决于你添加的图层类型。
+以下部分描述了与设置地图空间参考相关的图层类型。</p>
+
+<h3 id="graphic-layers">Graphic layers</h3>
+
+<p>图形层不支持数据的即时重投影;
+ArcGIS Runtime呈现客户端的这些图层。
+对图形图层进行即时重投影可能需要大量处理，这会减慢MapView渲染时间。
+将图形图层添加到MapView时，必须确保其空间参考与MapView上定义的相同（通常由底图图层设置）。
+您还需要确保添加到图形图层的单个图形在匹配的空间参考中具有坐标;
+否则，图形可能不会显示在地图上.</p>
+
+<h3 id="feature-layers-from-feature-services">Feature layers from feature services</h3>
+
+<p>在使用由ArcGIS for Server功能服务支持的功能服务表时，服务器支持重新投影。
+将服务功能表添加到MapView时，请务必在初始化表之前根据MapView的空间参考设置其空间参考。
+这将确保以正确的空间参考从服务器请求数据。
+在使用ArcGIS要素图层时，如果将其添加到MapView中，ArcGIS Runtime会自动确定正确的空间参考并相应地从要素服务请求数据。</p>
+
+<h3 id="feature-layers-from-geodatabase-feature-tables">Feature layers from geodatabase feature tables</h3>
+
+<p>您的地理数据库中的表必须与要添加到其中的地图处于相同的空间参考中，因为不支持对这些表中的数据进行即时重新投影。
+如果您使用的是桌面工作流程，请在运行创建运行时内容工具之前确保ArcMap地图框架正在使用所需的空间参考。
+如果您正在使用服务工作流程，请在生成地理数据库之前在SyncTaskParameters中设置所需的空间参考。
+有关桌面和服务器工作流程的详细信息，请参阅本指南的“创建离线地图”主题中的“离线模式”。</p>
+
+<h3 id="featurelayers-from-shapefiles-featuretables-and-geopackagesfeaturetables">FeatureLayers from shapefiles FeatureTables and GeoPackagesFeatureTables</h3>
+
+<p>地理数据库中的表格需要与您要添加到的地图处于相同的空间参考中;
+不支持从这些表中即时重新投射数据。</p>
+
+<h3 id="dynamicmapservicelayers">DynamicMapServiceLayers</h3>
+
+<p>如果这些是ArcGIS for Server地图服务，则服务器将支持重新投影。
+将ArcGISDynamicMapService添加到MapView时，ArcGIS Runtime将自动根据MapView的空间参考为您提供正确的空间参考地图图像。
+WMS地图服务是一种动态地图服务，它支持一组有限的空间参考，所以您应该在WMSLayer上设置空间参考，然后将其添加到MapView。</p>
+
+<h3 id="tiled-layers">Tiled layers</h3>
+
+<p>TiledLayers是预先存储的图层。
+在缓存时，使用空间参考，因此是预定义的。
+通常不可能在与服务中定义的空间引用不同的空间引用中请求TiledLayers（除非服务器支持在运行中执行此操作，大多数则不支持）。
+如果将ArcGIS平铺图层添加到不同空间参考的MapView中，则无法将其绘制为平铺图层。</p>
+
+<h3 id="edit-data">Edit data</h3>
+
+<p>从坐标创建新要素时，坐标值必须与图层的空间参考相匹配;
+否则，这些功能将不会显示在地图上的正确位置。
+您可以使用几何引擎确保坐标在添加到图层之前正确转换。
+有关几何引擎的更多信息，请参阅几何操作。</p>
+
+<h3 id="执行分析">执行分析</h3>
+
+<p>用于分析的几何对象（例如，确定空间关系，例如多边形相交的位置）需要在执行分析之前知道空间参考。
+否则，结果可能不准确或不正确。
+同样，如果两个几何对象具有不同的空间参考，则比较两个几何对象或确定它们的空间关系是没有意义的。
+要在地图图层中显示几何图形，几何图形必须具有与图层相同的空间参考或投影到图层的空间参考。
+要一起使用两个对象，如果这些对象都具有空间参考，则它们应具有相同的空间参考。
+有关通过几何操作进行分析的更多信息，请参阅<a href="https://developers.arcgis.com/ios/10-2/swift/guide/geometry-operations.htm">几何操作</a>。</p>
+
+<h3 id="空间参考转换">空间参考转换</h3>
+
+<p>当使用几何引擎将一个空间参考转换为另一个空间参考时，必须指定输入和输出空间参考。
+您也可以指定要使用的转换。
+有关详细信息，请参阅<a href="https://developers.arcgis.com/ios/10-2/swift/guide/geometry-operations.htm#ESRI_SECTION2_98BDBE00EC5243F1BFA85323E76CCE4F">“几何操作”中的投影到不同的空间参考</a>。</p>
+
+<h3 id="空间参考和转换规范">空间参考和转换规范</h3>
+
+<p>要定义空间参考，您可以使用WKID（有时也称为空间参考ID或SRID）或称为知名文本（WKT）的全文定义。
+WKID由标准组织或组织定义。
+ArcGIS支持多种WKID，通常由欧洲石油调查组织（EPSG）或Esri定义的WKID以及其他一些常用的ID。
+WKT是指定空间参考的所有参数的全文定义（如上所述）。
+要了解支持哪些WKID并查看其WKT定义，请参阅以下内容：</p>
+
+<p><a href="https://developers.arcgis.com/ios/10-2/swift/guide/geographic-coordinate-systems.htm">Geographic coordinate systems</a>
+<a href="https://developers.arcgis.com/ios/10-2/swift/guide/projected-coordinate-systems-part-1.htm">Projected coordinate systems</a></p>
+</div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#为什么空间参考很重要">为什么空间参考很重要</a>
+<ul>
+<li><a href="#关于设置空间参考的说明">关于设置空间参考的说明</a></li>
+</ul></li>
+<li><a href="#coordinate-systems和projections">Coordinate systems和projections</a></li>
+<li><a href="#什么时候需要考虑坐标系参考">什么时候需要考虑坐标系参考</a>
+<ul>
+<li><a href="#mapview上添加layer">mapView上添加layer</a></li>
+<li><a href="#graphic-layers">Graphic layers</a></li>
+<li><a href="#feature-layers-from-feature-services">Feature layers from feature services</a></li>
+<li><a href="#feature-layers-from-geodatabase-feature-tables">Feature layers from geodatabase feature tables</a></li>
+<li><a href="#featurelayers-from-shapefiles-featuretables-and-geopackagesfeaturetables">FeatureLayers from shapefiles FeatureTables and GeoPackagesFeatureTables</a></li>
+<li><a href="#dynamicmapservicelayers">DynamicMapServiceLayers</a></li>
+<li><a href="#tiled-layers">Tiled layers</a></li>
+<li><a href="#edit-data">Edit data</a></li>
+<li><a href="#执行分析">执行分析</a></li>
+<li><a href="#空间参考转换">空间参考转换</a></li>
+<li><a href="#空间参考和转换规范">空间参考和转换规范</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>(转)谷歌 HTML/CSS 规范 |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer  header-transparent header-dark ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+<section id="blog-hero" class="section 
+modular-hero hero text-light title-h1h2 overlay-dark-gradient hero-tiny parallax" style="background-color: black;background-image: url( http://image.tyrad.cc/2017021757582c5131475jw1f7syl6cawpj20dv07o75d.jpg ); 
+background-position-y: 0px;">
+    <div class="image-overlay"></div>
+    <section class="container grid-lg" style="text-align: center">
+        
+        <h1>(转)谷歌 HTML/CSS 规范</h1>  
+        
+        <h2></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#web'>web</a></span>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='0001-01-01T00:00:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 0001-01-01
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+    <i id="to-start" class="pulse fa fa-angle-down"></i>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content"><p><img src="http://image.tyrad.cc/2017021757582c5131475jw1f7syl6cawpj20dv07o75d.jpg" alt="2017021757582c5131475jw1f7syl6cawpj20dv07o75d.jpg" />
+ 谷歌 HTML/CSS 规范</p>
+
+<p><a href="https://segmentfault.com/a/1190000007023192">本文为转载,点击阅读原文 </a></p>
+
+<p>这篇文章定义了 HTML 和 CSS 的格式和代码规范，旨在提高代码质量和协作效率。</p>
+
+<h2 id="01-通用样式规范">01 通用样式规范</h2>
+
+<p>省略图片、样式、脚本以及其他媒体文件 URL 的协议部分（http:,https:），除非文件在两种协议下都不可用。这种方案称为 protocol-relative URL，好处是无论你是使用 HTTPS 还是 HTTP 访问页面，浏览器都会以相同的协议请求页面中的资源，同时可以节省一部分字节。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#177500">&lt;!-- Not recommended --&gt;</span>
+&lt;<span style="color:#000">script</span> <span style="color:#836c28">src</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;https://www.google.com/js/gweb/analytics/autotrack.js&#34;</span>&gt;&lt;/<span style="color:#000">script</span>&gt;
+ 
+<span style="color:#177500">&lt;!-- Recommended --&gt;</span>
+&lt;<span style="color:#000">script</span> <span style="color:#836c28">src</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;//www.google.com/js/gweb/analytics/autotrack.js&#34;</span>&gt;&lt;/<span style="color:#000">script</span>&gt;
+ 
+/* Not recommended */
+.example {
+  background: url(&#34;https://www.google.com/images/example&#34;);
+}
+
+/* Recommended */
+.example {
+  background: url(&#34;//www.google.com/images/example&#34;);
+} </code></pre></div>
+<h2 id="02-通用格式规范">02 通用格式规范</h2>
+
+<h5 id="缩进">缩进</h5>
+
+<p>1次缩进2个空格，不要使用 tab 或者混合 tab 和空格的缩进。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000">ul</span>&gt;
+  &lt;<span style="color:#000">li</span>&gt;Fantastic
+  &lt;<span style="color:#000">li</span>&gt;Great
+&lt;/<span style="color:#000">ul</span>&gt;
+ 
+.example {
+  color: blue;
+}</code></pre></div>
+<h5 id="大小写">大小写</h5>
+
+<p>以下都应该用小写：HTML 元素名称，属性，属性值（除非 text/CDATA），CSS 选择器，属性，属性值。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#177500">&lt;!-- Not recommended --&gt;</span>
+&lt;<span style="color:#000">A</span> <span style="color:#836c28">HREF</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;/&#34;</span>&gt;Home&lt;/<span style="color:#000">A</span>&gt;
+<span style="color:#177500">&lt;!-- Recommended --&gt;</span>
+&lt;<span style="color:#000">img</span> <span style="color:#836c28">src</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;google.png&#34;</span> <span style="color:#836c28">alt</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;Google&#34;</span>&gt; 
+
+/* Not recommended */
+color: #E5E5E5; 
+/* Recommended */
+color: #e5e5e5;
+{% endcodeblock %}</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#177500">&lt;!-- Not recommended --&gt;</span>
+&lt;<span style="color:#000">p</span>&gt;What?_</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#177500">&lt;!-- Recommended --&gt;</span>
+&lt;<span style="color:#000">p</span>&gt;Yes please.</code></pre></div>
+<h2 id="03-通用元规范">03 通用元规范</h2>
+
+<h5 id="编码">编码</h5>
+
+<p>在 HTML 中通过 <meta charset="utf-8"> 指定编码方式，CSS 中不需要指定，因为默认是 UTF-8。</p>
+
+<h5 id="注释">注释</h5>
+
+<p>使用注释来解释代码：包含的模块，功能以及优点。</p>
+
+<h5 id="任务项">任务项</h5>
+
+<p>用 TODO 来标记待办事项，而不是用一些其他的标记，像 @@。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000">ul</span>&gt;
+  &lt;<span style="color:#000">li</span>&gt;Apples&lt;/<span style="color:#000">li</span>&gt;
+  &lt;<span style="color:#000">li</span>&gt;Oranges&lt;/<span style="color:#000">li</span>&gt;
+&lt;/<span style="color:#000">ul</span>&gt; </code></pre></div>
+<h2 id="04-html风格规范">04 HTML风格规范</h2>
+
+<h4 id="文档类型">文档类型</h4>
+
+<p>HTML 文档应使用 HTML5 的文档类型：&lt;!DOCTYPE html&gt;。
+孤立标签无需封闭自身，<code>&lt;br&gt;</code> 不要写成 <code>&lt;br /&gt;</code>。</p>
+
+<h4 id="html-正确性">HTML 正确性</h4>
+
+<p>尽可能使用正确的 HTML。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#177500">&lt;!-- Not recommended --&gt;</span>
+&lt;<span style="color:#000">title</span>&gt;Test&lt;/<span style="color:#000">title</span>&gt;
+&lt;<span style="color:#000">article</span>&gt;This is only a test. 
+ 
+<span style="color:#177500">&lt;!-- Recommended --&gt;</span>
+<span style="color:#633820">&lt;!DOCTYPE html&gt;</span>
+&lt;<span style="color:#000">meta</span> <span style="color:#836c28">charset</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;utf-8&#34;</span>&gt;
+&lt;<span style="color:#000">title</span>&gt;Test&lt;/<span style="color:#000">title</span>&gt;
+&lt;<span style="color:#000">article</span>&gt;This is only a test.&lt;/<span style="color:#000">article</span>&gt;</code></pre></div>
+<h2 id="05-html格式规范">05 HTML格式规范</h2>
+
+<p>HTML 引号</p>
+
+<p>属性值用双引号。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#177500">&lt;!-- Not recommended --&gt;</span>
+&lt;<span style="color:#000">a</span> <span style="color:#836c28">class</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;maia-button maia-button-secondary&#39;</span>&gt;Sign in&lt;/<span style="color:#000">a</span>&gt;</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"><span style="color:#177500">&lt;!-- Recommended --&gt;</span>
+&lt;<span style="color:#000">a</span> <span style="color:#836c28">class</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;maia-button maia-button-secondary&#34;</span>&gt;Sign in&lt;/<span style="color:#000">a</span>&gt;</code></pre></div>
+<h2 id="06-css风格规范">06 CSS风格规范</h2>
+
+<h4 id="id-和-class-命名">ID 和 Class 命名</h4>
+
+<p>使用有含义的 id 和 class 名称。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">/* Not recommended: meaningless */
+#yee-1901 {}
+/* Not recommended: presentational */
+.button-green {}
+.clear {}</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">/* Recommended: specific */
+#gallery {}#login {}.video {}
+
+/* Recommended: generic */
+.aux {}
+.alt {}</code></pre></div>
+<h4 id="id-和-class-命名风格">ID 和 Class 命名风格</h4>
+
+<p>id 和 class 应该尽量简短，同时要容易理解。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">/* Not recommended */#navigation {}.atr {}
+/* Recommended */#nav {}.author {}</code></pre></div>
+<h4 id="选择器">选择器</h4>
+
+<p>除非需要，否则不要在 id 或 class 前加元素名。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">/* Not recommended */
+ul#example {}div.error {}
+/* Recommended */
+#example {}.error {}</code></pre></div>
+<h4 id="属性简写">属性简写</h4>
+
+<p>尽量使用 CSS 中可以简写的属性 (如 font)，可以提高编码效率以及代码可读性。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">/* Not recommended */
+border-top-style: none;
+font-family: palatino, georgia, serif;
+font-size: 100%;
+line-height: 1.6;
+padding-bottom: 2em;
+padding-left: 1em;
+padding-right: 1em;
+padding-top: 0;</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">/* Recommended */
+border-top: 0;
+font: 100%/1.6 palatino, georgia, serif;
+padding: 0 1em 2em;</code></pre></div>
+<h4 id="0和单位">0和单位</h4>
+
+<p>值为 0 时不用添加单位。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#000">margin</span><span style="color:#000">:</span> <span style="color:#000">0</span><span style="color:#000">;</span>
+<span style="color:#000">padding</span><span style="color:#000">:</span> <span style="color:#000">0</span><span style="color:#000">;</span></code></pre></div>
+<h4 id="开头的-0">开头的 0</h4>
+
+<p>值在 -1 和 1 之间时，不需要加 0。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#000">font-size</span><span style="color:#000">:</span> .<span style="color:#3f6e75">8em</span><span style="color:#000">;</span></code></pre></div>
+<h4 id="16进制表示法">16进制表示法</h4>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"> <span style="color:#177500">/* Not recommended */</span>
+<span style="color:#000">color</span><span style="color:#000">:</span> #<span style="color:#000">eebbcc</span><span style="color:#000">;</span>
+<span style="color:#177500">/* Recommended */</span>
+<span style="color:#000">color</span><span style="color:#000">:</span> #<span style="color:#000">ebc</span><span style="color:#000">;</span></code></pre></div>
+<h4 id="前缀">前缀</h4>
+
+<p>使用带前缀的命名空间可以防止命名冲突，同时提高代码可维护性。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">.adw-help {} /* AdWords */
+#maia-note {} /* Maia */</code></pre></div>
+<h4 id="id-和-class-命名分隔符">ID 和 Class 命名分隔符</h4>
+
+<p>选择器中使用连字符可以提高可读性。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">/* Not recommended: does not separate the words “demo” and “image” */
+.demoimage {}
+
+/* Not recommended: uses underscore instead of hyphen */
+.error_status {}</code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">/* Recommended */#video-id {}.ads-sample {}</code></pre></div>
+<h2 id="07-css格式规范">07 CSS格式规范</h2>
+
+<h4 id="书写顺序">书写顺序</h4>
+
+<p>按照属性首字母顺序书写 CSS 易于阅读和维护，排序时忽略带有浏览器前缀的属性。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">background: fuchsia;
+border: 1px solid;
+-moz-border-radius: 4px;
+-webkit-border-radius: 4px;
+border-radius: 4px;
+color: black;
+text-align: center;
+text-indent: 2em;</code></pre></div>
+<h4 id="块级内容缩进">块级内容缩进</h4>
+
+<p>为了反映层级关系和提高可读性，块级内容都应缩进。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">@media screen, projection {
+  html {
+    background: #fff;
+    color: #444;
+  }
+}</code></pre></div>
+<h4 id="声明结束">声明结束</h4>
+
+<p>每行 CSS 都应以分号结尾。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">/* Not recommended */
+.test {
+  display: block;
+  height: 100px
+} 
+
+/* Recommended */
+.test {
+  display: block;
+  height: 100px;
+}</code></pre></div>
+<h4 id="属性名结尾">属性名结尾</h4>
+
+<p>属性名和值之间都应有一个空格。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">/* Not recommended */
+h3 {
+  font-weight:bold;
+}
+/* Recommended */
+h3 {
+  font-weight: bold;
+}</code></pre></div>
+<h4 id="声明样式块的分隔">声明样式块的分隔</h4>
+
+<p>在选择器和 {} 之间用空格隔开。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">/* Not recommended: missing space */#video{
+  margin-top: 1em;
+}
+
+/* Not recommended: unnecessary line break */#video{
+  margin-top: 1em;
+}
+/* Recommended */#video {
+  margin-top: 1em;
+}</code></pre></div>
+<h4 id="选择器分隔">选择器分隔</h4>
+
+<p>每个选择器都另起一行。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">/* Not recommended */
+a:focus, a:active {
+  position: relative; top: 1px;
+}
+/* Recommended */
+h1,
+h2,
+h3 {
+  font-weight: normal;
+  line-height: 1.2;
+}</code></pre></div>
+<h4 id="规则分隔">规则分隔</h4>
+
+<p>规则之间都用空行隔开。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">html {
+  background: #fff;}
+
+body {
+  margin: auto;
+  width: 50%;
+}</code></pre></div>
+<h4 id="css引号">CSS引号</h4>
+
+<p>属性选择器和属性值用单引号，URI 的值不需要引号。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">/* Not recommended */@import url(&#34;//www.google.com/css/maia.css&#34;);html {
+  font-family: &#34;open sans&#34;, arial, sans-serif;
+}
+/* Recommended */@import url(//www.google.com/css/maia.css);html {
+  font-family: &#39;open sans&#39;, arial, sans-serif;
+}</code></pre></div>
+<h2 id="08-css元规则">08 CSS元规则</h2>
+
+<h4 id="分段注释">分段注释</h4>
+
+<p>用注释把 CSS 分成各个部分。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">/* Header */#adw-header {}/* Footer */#adw-footer {}/* Gallery */
+
+.adw-gallery {}</code></pre></div>
+<h2 id="09-结语">09 结语</h2>
+
+<p>坚持遵循代码规范。</p>
+
+<p>写代码前先看看周围同事的代码，然后决定代码风格。</p>
+
+<p>代码规范的意义在于提供一个参照物。这里提供了一份全局的规范，但是你也得参照公司内部的规范，否则阅读你代码的人会很痛苦。</p></div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#01-通用样式规范">01 通用样式规范</a></li>
+<li><a href="#02-通用格式规范">02 通用格式规范</a>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#缩进">缩进</a></li>
+<li><a href="#大小写">大小写</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#03-通用元规范">03 通用元规范</a>
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#编码">编码</a></li>
+<li><a href="#注释">注释</a></li>
+<li><a href="#任务项">任务项</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#04-html风格规范">04 HTML风格规范</a>
+<ul>
+<li>
+<ul>
+<li><a href="#文档类型">文档类型</a></li>
+<li><a href="#html-正确性">HTML 正确性</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#05-html格式规范">05 HTML格式规范</a></li>
+<li><a href="#06-css风格规范">06 CSS风格规范</a>
+<ul>
+<li>
+<ul>
+<li><a href="#id-和-class-命名">ID 和 Class 命名</a></li>
+<li><a href="#id-和-class-命名风格">ID 和 Class 命名风格</a></li>
+<li><a href="#选择器">选择器</a></li>
+<li><a href="#属性简写">属性简写</a></li>
+<li><a href="#0和单位">0和单位</a></li>
+<li><a href="#开头的-0">开头的 0</a></li>
+<li><a href="#16进制表示法">16进制表示法</a></li>
+<li><a href="#前缀">前缀</a></li>
+<li><a href="#id-和-class-命名分隔符">ID 和 Class 命名分隔符</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#07-css格式规范">07 CSS格式规范</a>
+<ul>
+<li>
+<ul>
+<li><a href="#书写顺序">书写顺序</a></li>
+<li><a href="#块级内容缩进">块级内容缩进</a></li>
+<li><a href="#声明结束">声明结束</a></li>
+<li><a href="#属性名结尾">属性名结尾</a></li>
+<li><a href="#声明样式块的分隔">声明样式块的分隔</a></li>
+<li><a href="#选择器分隔">选择器分隔</a></li>
+<li><a href="#规则分隔">规则分隔</a></li>
+<li><a href="#css引号">CSS引号</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#08-css元规则">08 CSS元规则</a>
+<ul>
+<li>
+<ul>
+<li><a href="#分段注释">分段注释</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#09-结语">09 结语</a></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

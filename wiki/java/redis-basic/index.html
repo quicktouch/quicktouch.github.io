@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>1.Redis基本理解及使用 |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer  header-transparent header-dark ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+<section id="blog-hero" class="section 
+modular-hero hero text-light title-h1h2 overlay-dark-gradient hero-tiny parallax" style="background-color: black;background-image: url( http://image.tyrad.cc/20190606155978918221695.jpg ); 
+background-position-y: 0px;">
+    <div class="image-overlay"></div>
+    <section class="container grid-lg" style="text-align: center">
+        
+        <h1>1.Redis基本理解及使用</h1>  
+        
+        <h2></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#java'>java</a></span>
+    
+    
+    
+    
+    
+    &nbsp/&nbsp<span>Redis</span>
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2019-06-04T00:00:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2019-06-04
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+    <i id="to-start" class="pulse fa fa-angle-down"></i>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<h2 id="redis-基本概念">Redis 基本概念</h2>
+
+<p>Redis是一个开源(BSD协议),内存数据结构存储,可以用作数据 库、缓存以及消息代理。</p>
+
+<p>Redis是所谓的键值存储( key-value store)，通常称为NoSQL数据库。</p>
+
+<p>Redis<code>不是普通的键值存储</code>，它实际上是一个<strong>data structures server</strong>，支持不同类型的值。
+这意味着，在传统的键值存储中，您将字符串键与字符串值相关联，在Redis中，<code>值不仅限于简单的字符串，还可以包含更复杂的数据结构</code>。
+以下是Redis支持的所有数据结构的列表:</p>
+
+<ul>
+<li><code>Binary-safe strings</code><br /></li>
+<li><code>Lists</code>: 根据插入顺序排序的字符串元素的集合。本质上是链表。</li>
+<li><code>Sets</code>: 不同的，未排序的字符串元素的集合</li>
+<li><code>Sorted sets</code>: 和Sets类似，但每个字符串元素都有与浮点数值相关联的score。我们可以根据score的排序进行取值操作.（例如，您可能会问：给我前10个，或者下10个）</li>
+<li><code>Hashes</code>: 由与值相关联的字段组成的映射。字段和值都是字符串。这与Ruby或Python哈希非常相似。</li>
+<li><code>Bit arrays (or simply bitmaps)</code>: 使用特殊命令可以像处理位数一样处理字符串值：您可以设置和清除各个位，将所有位设置为1，查找第一个或未设置位，等等。</li>
+<li><code>HyperLogLogs</code>: 这是一种概率数据结构，用于估计集合的基数(cardinality).</li>
+<li><code>Streams</code> : 追加一系列<code>map-like</code>的项，以提供抽象日志数据类型 仅附加的类似于地图的条目集合，它们提供抽象日志数据类型(append-only collections of map-like entries that provide an abstract log data type)。它们在<a href="https://redis.io/topics/streams-intro">Redis Streams简介</a>中有详细介绍。</li>
+</ul>
+
+<p>Redis具有内置复制(built-in replication)，Lua脚本，LRU驱逐(LRU eviction)，事务和不同级别的磁盘持久性，并通过Redis哨兵(Redis Sentinel)提供高可用性,通过Redis Cluster自动分区。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; SET  name  <span style="color:#c41a16">&#39;cc&#39;</span>
+OK
+&gt; GET  name
+<span style="color:#c41a16">&#34;cc&#34;</span></code></pre></div>
+<h2 id="存取示例">存取示例</h2>
+
+<p>键值存储提供的其他常见操作是DEL删除给定键和关联值，SET-if-not-exists（在Redis上称为SETNX）仅在键不存在时设置键，并且INCR以原子方式递增
+存储在给定键上的数字：</p>
+
+<p>常用的其他操作举例<br />
+- <code>DEL</code>   可以删除给定的键和关键值<br />
+- <code>SETNX</code> 即<code>SET-if-not-exists</code>不存在的时候设置键<br />
+- <code>INCR</code>  以原子的形式进行递增</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; GET name
+<span style="color:#c41a16">&#34;cc&#34;</span>
+&gt; SET connections <span style="color:#1c01ce">10</span>
+OK
+<span style="color:#177500">#自增</span>
+&gt; INCR connections
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">11</span>
+&gt; INCR connections
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">12</span>
+&gt; INCR connections
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">13</span>
+<span style="color:#177500">#已经有值,因此SETNX不会生效</span>
+&gt; SETNX connections <span style="color:#1c01ce">999</span>
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">0</span>
+&gt; GET connections
+<span style="color:#c41a16">&#34;13&#34;</span></code></pre></div>
+<p><code>INCR</code>的操作是原子的,它很有存在的必要。如下列操作，多个客户端同时进行不能保证线程安全。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">x</span> <span style="color:#000">=</span> GET count
+<span style="color:#000">x</span> <span style="color:#000">=</span> x + <span style="color:#1c01ce">1</span>
+SET count x</code></pre></div>
+<h2 id="过期设置">过期设置</h2>
+
+<p>可以通过key来告知缓存失效的确切时间。这是通过<code>EXPIRE</code>和<code>TTL</code>命令完成的。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt;  SET resource:lock <span style="color:#c41a16">&#34;Redis Demo&#34;</span>
+OK
+&gt;  GET resource:lock
+<span style="color:#c41a16">&#34;Redis Demo&#34;</span>
+<span style="color:#177500">#ttl值为-1 表示永不过期</span>
+&gt; TTL resource:lock
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> -1
+<span style="color:#177500">#设置8秒后过期</span>
+&gt;  EXPIRE resource:lock <span style="color:#1c01ce">8</span>
+<span style="color:#177500">#查询剩余过期时间</span>
+&gt;  TTL resource:lock
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">8</span>
+<span style="color:#177500">#aftert 8s</span>
+&gt;  GET resource:lock
+<span style="color:#000">(</span>nil<span style="color:#000">)</span>
+<span style="color:#177500">#过期后发现值为-2,表示不再存在</span>
+&gt;  TTL resource:lock
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> -2</code></pre></div>
+<p>总结:</p>
+
+<ul>
+<li><code>TTL &lt;key&gt;</code>
+
+<ul>
+<li>返回值为 -1 表示永不过期</li>
+<li>返回值为 -2 表示不存在。可能已经过期，也可能没存过<br /></li>
+</ul></li>
+<li><code>EXPIRE &lt;key&gt; &lt;秒&gt;</code>
+
+<ul>
+<li>设置过期时间</li>
+</ul></li>
+</ul>
+
+<h2 id="复杂的数据结构">复杂的数据结构</h2>
+
+<p>Redis还支持几种更复杂的数据结构。</p>
+
+<h3 id="列表">列表</h3>
+
+<p>我们要看的第一个是列表。列表是一系列有序值。</p>
+
+<p>与列表交互的一些重要命令是</p>
+
+<ul>
+<li><code>RPUSH</code>   添加元素到数组后面(right)</li>
+<li><code>LPUSH</code>    添加元素到数组前面</li>
+<li><code>LLEN</code>     数组长度</li>
+<li><code>LRANGE &lt;A&gt; &lt;B&gt;</code>   相当于截取数组。取出[A,B]区间的数组。下标超过数组范围的不报错/不显示。 -1表示到数组最后一个。</li>
+<li><code>LPOP</code>     移除并返回第一个元素</li>
+<li><code>RPOP</code>     移除并返回最后一个元素</li>
+</ul>
+
+<p>几个注意事项:</p>
+
+<ul>
+<li>通过<code>Linked Lists</code>来实现。这意味着即使列表中有数百万个元素，在列表的头部或尾部添加新元素的时间也是常量。使用<code>LPUSH</code>命令将新元素添加到具有十个元素的列表的头部的速度与将具有1000万个元素的元素添加到列表头部的速度相同。</li>
+<li>缺点:根据下标访没有优势。操作需要的工作量与所访问元素的索引成比例。</li>
+<li>Redis列表使用<code>Linked Lists</code>列表实现，因为对于数据库系统，能够以非常快的方式将元素添加到很长的列表中是至关重要的。</li>
+<li>Redis允许我们设置<code>List的上限</code>,只保留最新的n个数据。旧的数据通过<code>LTRIM</code>丢弃。<br />
+
+<ul>
+<li><code>LTRIM</code>命令类似于LRANGE，但它不是显示指定范围的元素，而是将此范围设置为新列表值。超出范围内的元素移除掉。</li>
+</ul></li>
+</ul>
+
+<p>您可以立即开始使用key存储列表，只要这个key现在没用于存储其他类型的数据。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; RPush friends <span style="color:#c41a16">&#39;alice&#39;</span>
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">1</span>
+&gt; RPush friends <span style="color:#c41a16">&#39;bill&#39;</span>
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">2</span>
+&gt; GET RPush
+<span style="color:#000">(</span>nil<span style="color:#000">)</span>
+&gt; GET friends<span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span><span style="color:#000">(</span>nil<span style="color:#000">)</span>
+&gt; GET friends
+<span style="color:#000">(</span>error<span style="color:#000">)</span> WRONGTYPE Operation against a key holding the wrong kind of value
+&gt; LLEN friends
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">2</span>
+&gt; LPUSH friends <span style="color:#c41a16">&#34;Sam&#34;</span>
+&gt; LRange friends <span style="color:#1c01ce">0</span> <span style="color:#1c01ce">2</span>
+<span style="color:#1c01ce">1</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;Sam&#34;</span>
+<span style="color:#1c01ce">2</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;alice&#34;</span>
+<span style="color:#1c01ce">3</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;bill&#34;</span>
+&gt; LRange friends <span style="color:#1c01ce">0</span> <span style="color:#1c01ce">999</span>
+<span style="color:#1c01ce">1</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;Sam&#34;</span>
+<span style="color:#1c01ce">2</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;alice&#34;</span>
+<span style="color:#1c01ce">3</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;bill&#34;</span>
+&gt; LRange friends <span style="color:#1c01ce">0</span> -1
+<span style="color:#1c01ce">1</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;Sam&#34;</span>
+<span style="color:#1c01ce">2</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;alice&#34;</span>
+<span style="color:#1c01ce">3</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;bill&#34;</span>
+<span style="color:#177500">#移除元素</span>
+&gt;  LLEN friends
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">3</span>
+&gt;  RPOP friends
+<span style="color:#c41a16">&#34;bill&#34;</span>
+&gt;  LPOP friends
+<span style="color:#c41a16">&#34;Sam&#34;</span>
+&gt;  LLEN friends
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">1</span>
+&gt;  LLEN friends
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">3</span>
+&gt;  RPOP friends
+<span style="color:#c41a16">&#34;bill&#34;</span>
+&gt;  LPOP friends
+<span style="color:#c41a16">&#34;Sam&#34;</span>
+&gt;  LLEN friends
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">1</span>
+&gt; rpush mylist <span style="color:#1c01ce">1</span> <span style="color:#1c01ce">2</span> <span style="color:#1c01ce">3</span> <span style="color:#1c01ce">4</span> <span style="color:#1c01ce">5</span>
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">5</span>
+&gt; ltrim mylist <span style="color:#1c01ce">0</span> <span style="color:#1c01ce">2</span>
+OK
+<span style="color:#177500"># ltrim</span>
+&gt; lrange mylist <span style="color:#1c01ce">0</span> -1
+<span style="color:#1c01ce">1</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;1&#34;</span>
+<span style="color:#1c01ce">2</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;2&#34;</span>
+<span style="color:#1c01ce">3</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;3&#34;</span></code></pre></div>
+<h3 id="集合">集合</h3>
+
+<p>集合类似于列表，但是没有特定的顺序，每个元素只能出现一次。
+使用集合的一些重要命令是</p>
+
+<ul>
+<li><code>SADD &lt;k&gt; &lt;v1&gt;</code>  添加值</li>
+<li><code>SREM &lt;k&gt; &lt;v1&gt;</code>  移除特定的值</li>
+<li><code>SISMEMBER &lt;k&gt; &lt;v1&gt;</code>是否包含特定值</li>
+<li><code>SUNION</code> 合并两个或多个集合并返回所有元素的列表</li>
+<li><code>SMEMBERS</code> 返回此集合中所有成员的列表</li>
+</ul>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; SADD superpowers <span style="color:#c41a16">&#34;flight&#34;</span>
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">1</span>
+&gt;  SADD superpowers <span style="color:#c41a16">&#34;x-ray vision&#34;</span>
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">1</span>
+&gt; SADD superpowers <span style="color:#c41a16">&#34;reflexes&#34;</span>
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">1</span>
+&gt; SREM superpowers <span style="color:#c41a16">&#34;reflexes&#34;</span>
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">1</span>
+&gt; SISMEMBER superpowers <span style="color:#c41a16">&#34;flight&#34;</span>
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">1</span>
+&gt; SISMEMBER superpowers <span style="color:#c41a16">&#34;reflexes&#34;</span>
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">0</span>
+&gt; SMEMBERS superpowers
+<span style="color:#1c01ce">1</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;x-ray vision&#34;</span>
+<span style="color:#1c01ce">2</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;flight&#34;</span></code></pre></div>
+<h3 id="sorted-sets">sorted sets</h3>
+
+<p>集合是一种非常方便的数据类型，但由于它们未排序，因此无法解决许多问题。
+这就是Redis 1.2引入Sorted Sets的原因。</p>
+
+<p>有序集类似于常规集，但现在每个值都有一个关联的分数。此分数用于对集合中的元素进行排序。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt;  ZADD hackers <span style="color:#1c01ce">1940</span> <span style="color:#c41a16">&#34;Alan Kay&#34;</span>
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">1</span>
+&gt;  ZADD hackers <span style="color:#1c01ce">1940</span> <span style="color:#c41a16">&#34;Alan Kay&#34;</span>
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">0</span>
+&gt; ZADD hackers <span style="color:#1c01ce">1906</span> <span style="color:#c41a16">&#34;Grace Hopper&#34;</span>
+&gt; ZRANGE hackers <span style="color:#1c01ce">2</span> <span style="color:#1c01ce">4</span>
+<span style="color:#000">(</span>empty list or <span style="color:#a90d91">set</span><span style="color:#000">)</span>
+&gt;  ZRANGE hackers <span style="color:#1c01ce">1</span> <span style="color:#1c01ce">0</span>
+<span style="color:#000">(</span>empty list or <span style="color:#a90d91">set</span><span style="color:#000">)</span>
+<span style="color:#177500">#取值, 根据score排序</span>
+&gt;  ZRANGE hackers <span style="color:#1c01ce">0</span> -1
+<span style="color:#1c01ce">1</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;Grace Hopper&#34;</span>
+<span style="color:#1c01ce">2</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;Alan Kay&#34;</span></code></pre></div>
+<h3 id="hashes">Hashes</h3>
+
+<p>哈希是字符串字段和字符串值之间的映射，因此它们是表示对象的完美数据类型（例如：具有多个字段的用户，如姓名，姓氏，年龄等）.</p>
+
+<ul>
+<li><code>HSET</code>  设置单个值</li>
+<li><code>HMSET</code> 设置多个值</li>
+<li><code>HGETALL</code> 获取全部hash</li>
+</ul>
+
+<p>数字类型的值的插入方法与字符串相同,数字类型的值提供了原子性的添加方法:<code>HINCRBY</code></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">#`user:1000`中存储用户名、email、密码等数据</span>
+&gt; HSET user:1000 name <span style="color:#c41a16">&#34;John Smith&#34;</span>
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">1</span>
+&gt; HSET user:1000 email <span style="color:#c41a16">&#34;john.smith@example.com&#34;</span>
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">1</span>
+&gt; HSET user:1000 password <span style="color:#c41a16">&#34;s3cret&#34;</span>
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">1</span>
+&gt; HGETALL user:1000
+<span style="color:#1c01ce">1</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;name&#34;</span>
+<span style="color:#1c01ce">2</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;John Smith&#34;</span>
+<span style="color:#1c01ce">3</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;email&#34;</span>
+<span style="color:#1c01ce">4</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;john.smith@example.com&#34;</span>
+<span style="color:#1c01ce">5</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;password&#34;</span>
+<span style="color:#1c01ce">6</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;s3cret&#34;</span>
+<span style="color:#177500">#可以一次性赋值</span>
+&gt;  HMSET user:1001 name <span style="color:#c41a16">&#34;Mary Jones&#34;</span> password <span style="color:#c41a16">&#34;hidden&#34;</span> email <span style="color:#c41a16">&#34;mjones@example.com&#34;</span>
+OK
+&gt; HGET user:1001 name
+<span style="color:#c41a16">&#34;Mary Jones&#34;</span>
+<span style="color:#177500">#存储数值类型</span>
+<span style="color:#177500">#添加访问次数10</span>
+&gt; HSET user:1000 visits <span style="color:#1c01ce">10</span>
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">1</span>
+<span style="color:#177500">#(原子)访问次数增加</span>
+&gt; HINCRBY user:1000 visits <span style="color:#1c01ce">1</span>
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">11</span>
+&gt;  HGETALL user:1000
+<span style="color:#1c01ce">1</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;name&#34;</span>
+<span style="color:#1c01ce">2</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;John Smith&#34;</span>
+<span style="color:#1c01ce">3</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;email&#34;</span>
+<span style="color:#1c01ce">4</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;john.smith@example.com&#34;</span>
+<span style="color:#1c01ce">5</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;password&#34;</span>
+<span style="color:#1c01ce">6</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;s3cret&#34;</span>
+<span style="color:#1c01ce">7</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;visits&#34;</span>
+<span style="color:#1c01ce">8</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;11&#34;</span>
+<span style="color:#177500">#删除</span>
+<span style="color:#177500">#清除访问次数</span>
+&gt; HDEL user:1000 visits
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">1</span>
+&gt; HGETALL user:1000
+<span style="color:#1c01ce">1</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;name&#34;</span>
+<span style="color:#1c01ce">2</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;John Smith&#34;</span>
+<span style="color:#1c01ce">3</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;email&#34;</span>
+<span style="color:#1c01ce">4</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;john.smith@example.com&#34;</span>
+<span style="color:#1c01ce">5</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;password&#34;</span>
+<span style="color:#1c01ce">6</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;s3cret&#34;</span>
+<span style="color:#177500">#(原子)访问次数增加</span>
+&gt;  HINCRBY user:1000 visits <span style="color:#1c01ce">1</span>
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">1</span>
+&gt; HGETALL user:1000
+<span style="color:#1c01ce">1</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;name&#34;</span>
+<span style="color:#1c01ce">2</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;John Smith&#34;</span>
+<span style="color:#1c01ce">3</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;email&#34;</span>
+<span style="color:#1c01ce">4</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;john.smith@example.com&#34;</span>
+<span style="color:#1c01ce">5</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;password&#34;</span>
+<span style="color:#1c01ce">6</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;s3cret&#34;</span>
+<span style="color:#1c01ce">7</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;visits&#34;</span>
+<span style="color:#1c01ce">8</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;1&#34;</span> <span style="color:#177500">#访问次数为1</span></code></pre></div>
+<h2 id="其他知识">其他知识</h2>
+
+<h3 id="redis-keys">Redis keys</h3>
+
+<p>Redis keys是二进制安全的，这意味着不管是字符串还是JPEG图片都可以作为key。</p>
+
+<p>关于key的其他规则</p>
+
+<ul>
+<li>不建议过长。过长更占用内存，而且根据key取值时做字符串比较也更耗时。即使当前的任务是匹配大值的存在(Even when the task at hand is to match the existence of a large value)，散列它（例如使用SHA1）也是一个更好的主意，特别是从内存和带宽的角度来看。<br /></li>
+<li>不建议过端。例如<code>user：1000：followers</code>、<code>u1000flw</code>后者不利于可读性。虽然短key消耗内存更少，但您的工作就是找到合适的平衡点。<br /></li>
+<li>坚持使用schema。例如，<code>object-type：id</code>是一个好主意，如<code>user:1000</code>。<code>.</code>或<code>-</code>通常用于多字词字段，如<code>comment:123:reply.to</code>或<code>comment:123:reply-to</code>。</li>
+<li>允许最大的key为512 MB</li>
+</ul>
+
+<h3 id="redis-strings">Redis Strings</h3>
+
+<p>Redis String类型是可以与Redis键关联的最简单的值类型。它是Memcached中唯一的数据类型，因此新手在Redis中使用它也很自然。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; SET mykey <span style="color:#1c01ce">123</span>
+OK
+&gt; GET mykey
+<span style="color:#c41a16">&#34;123&#34;</span>
+&gt; SET mykey <span style="color:#c41a16">&#39;zz&#39;</span>
+OK
+&gt; GET mykey
+<span style="color:#c41a16">&#34;zz&#34;</span></code></pre></div>
+<p>正如您所看到的，使用SET和GET命令是我们设置和检索字符串值的方式。
+请注意，<code>即使key与非字符串值相关联，SET也将替换已存在于key中的任何现有值（如果key已存在）</code>。所以SET执行一项分配。</p>
+
+<ul>
+<li><code>SET</code>值可以是各种类型的string（包括二进制数据）</li>
+<li><code>SET</code>值不能大于512 MB</li>
+<li><code>SET</code>后面可以加参数<a href="https://redis.io/commands/set">nx xx</a>
+
+<ul>
+<li><code>nx</code> : Only set the key if it does not already exist.</li>
+<li><code>xx</code> : Only set the key if it already exist.</li>
+</ul></li>
+<li><code>incr</code>原子方式递增
+
+<ul>
+<li>将字符串值解析为整数，将其递增1，最后将获取的值设置为新值。</li>
+<li>其他类似的命令，如INCRBY，DECR和DECRBY。在内部，它始终是相同的命令，以稍微不同的方式起作用。</li>
+</ul></li>
+</ul>
+
+<p>Strings相关的其他命令:</p>
+
+<ul>
+<li><code>GETSET</code>  设置旧值返回新值</li>
+<li><code>MSET</code> 、<code>MGET</code> 设置/取多个值</li>
+</ul>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">## nx | xx</span>
+&gt; <span style="color:#a90d91">set</span> mykey newval nx
+<span style="color:#000">(</span>nil<span style="color:#000">)</span>
+&gt; <span style="color:#a90d91">set</span> mykey newval xx
+OK
+<span style="color:#177500">#incr原子方式递增</span>
+&gt; <span style="color:#a90d91">set</span> counter <span style="color:#1c01ce">100</span>
+OK
+&gt; incr counter
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">101</span>
+&gt; incr counter
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">102</span>
+&gt; incrby counter <span style="color:#1c01ce">50</span>
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">152</span>
+
+&gt; <span style="color:#a90d91">set</span> v1 <span style="color:#1c01ce">100</span>
+OK
+<span style="color:#177500">#getset返回旧值、设置新值</span>
+&gt; getset v1 <span style="color:#1c01ce">200</span>
+<span style="color:#c41a16">&#34;100&#34;</span>
+&gt; getset v11 <span style="color:#1c01ce">200</span>
+<span style="color:#000">(</span>nil<span style="color:#000">)</span>
+&gt; getset v11 <span style="color:#1c01ce">2001</span>
+<span style="color:#c41a16">&#34;200&#34;</span></code></pre></div>
+<h3 id="更改和查询key-space">更改和查询key space</h3>
+
+<ul>
+<li><code>EXISTS</code>  返回0或1</li>
+<li><code>DEL</code>  返回0或1</li>
+</ul>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">&gt; <span style="color:#a90d91">set</span> mykey hello
+OK
+<span style="color:#177500">#查看类型</span>
+&gt; <span style="color:#a90d91">type</span> mykey
+string
+&gt; exists mykey
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">1</span>
+&gt; del mykey
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">1</span>
+&gt; exists mykey
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">0</span></code></pre></div>
+<h2 id="比较重要的概念">比较重要的概念</h2>
+
+<h3 id="master-slave">master/slave</h3>
+
+<p>主从(master/slave)</p>
+
+<blockquote>
+<p>参考 <a href="https://lanjingling.github.io/2015/11/17/redis-mast-slaveof/">https://lanjingling.github.io/2015/11/17/redis-mast-slaveof/</a></p>
+</blockquote>
+
+<p>Redis中，用户可以使用slaveof命令或者slaveof配置项，让一个服务器去复制另一个服务器。进行复制中的主从服务器双方的数据库将保存相同的数据（一致性）。</p>
+
+<ul>
+<li>主数据库可以进行读写操作，当写操作导致数据变化时会自动将数据同步给从数据库</li>
+<li>数据库一般是只读的，并接受主数据库同步过来的数据</li>
+<li>一个主数据库可以拥有多个从数据库，而一个从数据库只能拥有一个主数据库</li>
+<li>命令:
+
+<ul>
+<li><code>slaveof &lt;主redis服务器&gt;</code></li>
+<li>使用<code>slaveof no one</code>进行清空</li>
+</ul></li>
+</ul>
+
+<p>使用主从的两种方式（不同ip的访问请确保配好远程访问）:</p>
+
+<p>1）通过命令<code>slaveof &lt;主redis服务器&gt;</code></p>
+
+<pre><code>127.0.0.1:6380&gt; slaveof 127.0.0.2 6379
+</code></pre>
+
+<p>上面的命令表示：端口为6380的服务器 开始复制 端口为6379的服务器。 并且后续数据会同步到从节点。 从节点(slave)是可以只读的,不可以手动set值。</p>
+
+<p>2）通过配置文件：
+主服务器不用做任何修改，在从服务器的配置文件中作如下修改：</p>
+
+<pre><code>slaveof 192.168.0.100 6379 (映射到主服务器上)
+</code></pre>
+
+<p>如果master设置了验证密码，还需配置masterauth。楼主的master设置了验证密码为admin，所以配置masterauth admin。配置完之后启动slave的Redis服务，OK，主从配置完成。</p>
+
+<blockquote>
+<p>原理<br />
+当从数据库启动时，会向主数据库发送sync命令，主数据库接收到sync后开始在后台报错快照rdb，在保存快照期间受到的命名缓存起来，当快照完成时，主数据库会将快照和缓存的命令一块发送给从。复制初始化结束。<br />
+之后，主每受到1个命令就同步发送给从。<br />
+当出现断开重连后，2.8之后的版本会将断线期间的命令传给重数据库。增量复制<br />
+主从复制是乐观复制，当客户端发送写执行给主，主执行完立即将结果返回客户端，并异步的把命令发送给从，从而不影响性能。也可以设置至少同步给多少个从主才可写。<br />
+无硬盘复制:如果硬盘效率低将会影响复制性能，2.8之后可以设置无硬盘复制，<code>repl-diskless-sync yes</code></p>
+</blockquote>
+
+<h3 id="哨兵">哨兵</h3>
+
+<p>哨兵(sentinel)用于自动化的系统监控和故障恢复功能。</p>
+
+<p>sentinel是redis高可用的解决方案，sentinel系统可以监视一个或者多个redis master服务，以及这些master服务的所有从服务；当某个master服务下线时，自动将该master下的某个从服务升级为master服务替代已下线的master服务继续处理请求。一般建议sentinel采取奇数台，防止某一台sentinel无法连接到master导致误切换。</p>
+
+<p><img src="http://image.tyrad.cc/20190606155978863599704.png" alt="" /></p>
+
+<ul>
+<li>建议使用redis2.8以上</li>
+<li>Redis-sentinel本身也是一个独立运行的进程，它能监控多个master-slave集群，发现master宕机后能进行自动切换</li>
+</ul>
+
+<h3 id="sub-pub">SUB/PUB</h3>
+
+<blockquote>
+<p><a href="https://redis.io/topics/pubsub">https://redis.io/topics/pubsub</a></p>
+</blockquote>
+
+<p>订阅及发布</p>
+
+<ul>
+<li>订阅
+
+<ul>
+<li>开启订阅,支持一个或多个: <code>SUBSCRIBE &lt;channel1&gt; &lt;channel2&gt;</code><br /></li>
+<li>模糊匹配: <code>PSUBSCRIBE f*</code></li>
+</ul></li>
+<li>发布
+
+<ul>
+<li>发布信息到频道 <code>PUBLISH &lt;channel&gt; &lt;message&gt;</code></li>
+</ul></li>
+</ul>
+
+<p>使用两个终端调试</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">#终端1  - 订阅</span>
+➜  ~ docker <span style="color:#a90d91">exec</span> -it redis redis-cli
+<span style="color:#1c01ce">127</span>.0.0.1:6379&gt; SUBSCRIBE channel1
+Reading messages... <span style="color:#000">(</span>press Ctrl-C to quit<span style="color:#000">)</span>
+<span style="color:#1c01ce">1</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;subscribe&#34;</span>
+<span style="color:#1c01ce">2</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;channel1&#34;</span>
+<span style="color:#1c01ce">3</span><span style="color:#000">)</span> <span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">1</span>
+<span style="color:#1c01ce">1</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;message&#34;</span>
+<span style="color:#1c01ce">2</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;channel1&#34;</span>
+<span style="color:#1c01ce">3</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;hello&#34;</span>
+<span style="color:#1c01ce">1</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;message&#34;</span> 
+<span style="color:#1c01ce">2</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;channel1&#34;</span>
+<span style="color:#1c01ce">3</span><span style="color:#000">)</span> <span style="color:#c41a16">&#34;worl&#34;</span>
+<span style="color:#177500">#终端2  - 发布</span>
+➜  ~ docker <span style="color:#a90d91">exec</span> -it redis redis-cli
+<span style="color:#1c01ce">127</span>.0.0.1:6379&gt; PUBLISH channel1 <span style="color:#c41a16">&#39;hello&#39;</span>
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">1</span>
+<span style="color:#1c01ce">127</span>.0.0.1:6379&gt; PUBLISH channel1 <span style="color:#c41a16">&#39;worl&#39;</span>
+<span style="color:#000">(</span>integer<span style="color:#000">)</span> <span style="color:#1c01ce">1</span></code></pre></div>
+<h3 id="其他">其他</h3>
+
+<p>数据持久化、cluster稍后进行补充</p>
+
+<h2 id="问题">问题</h2>
+
+<h3 id="远程访问">远程访问</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">#其他机器访问10.10.38.44 redis</span>
+$ docker <span style="color:#a90d91">exec</span> -it redis redis-cli -h <span style="color:#1c01ce">10</span>.10.38.44 -p <span style="color:#1c01ce">6379</span>
+<span style="color:#1c01ce">10</span>.10.38.44:6379&gt; <span style="color:#a90d91">set</span> key <span style="color:#1c01ce">11</span>
+Error: Server closed the connection</code></pre></div>
+<p>（不限ip访问的设置）开启远程访问访问，修改配置文件redis.conf :</p>
+
+<ol>
+<li>注释掉 <code># bind 127.0.0.1</code></li>
+<li>Redis默认不是以守护进程的方式运行<code>daemonize no</code>,这块不需要修改</li>
+<li>保护模式关掉 <code>protected-mode no</code></li>
+</ol>
+
+<p>可以根据实际情况灵活配置。生产环境配置请慎重。</p>
+
+<p><a href="https://blog.csdn.net/Agly_Clarlie/article/details/52251746">参考</a></p>
+
+<h3 id="连接docker-redis超时问题">连接docker redis超时问题</h3>
+
+<p>连接本地redis-server不报错,jedis连接docker返回报错。但是命令行是没问题的。先记录此问题。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000">2019</span><span style="color:#000">-</span><span style="color:#000">06</span><span style="color:#000">-</span><span style="color:#000">06</span> <span style="color:#000">11:33:</span><span style="color:#000">24</span><span style="color:#000">.</span><span style="color:#836c28">356</span> <span style="color:#000">ERROR</span> <span style="color:#000">37771</span> <span style="color:#000">---</span> <span style="color:#000">[</span>           <span style="color:#000">main</span><span style="color:#000">]</span> <span style="color:#000">o</span><span style="color:#000">.</span><span style="color:#836c28">s</span><span style="color:#000">.</span><span style="color:#836c28">boot</span><span style="color:#000">.</span><span style="color:#836c28">SpringApplication</span>               <span style="color:#000">:</span> <span style="color:#000">Application</span> <span style="color:#000">run</span> <span style="color:#000">failed</span>
+
+<span style="color:#000">java</span><span style="color:#000">.</span><span style="color:#836c28">lang</span><span style="color:#000">.</span><span style="color:#836c28">IllegalStateException</span><span style="color:#000">:</span> <span style="color:#000">Failed</span> <span style="color:#000">to</span> <span style="color:#000">execute</span> <span style="color:#000">ApplicationRunner</span>
+	<span style="color:#000">at</span> <span style="color:#000">org</span><span style="color:#000">.</span><span style="color:#836c28">springframework</span><span style="color:#000">.</span><span style="color:#836c28">boot</span><span style="color:#000">.</span><span style="color:#836c28">SpringApplication</span><span style="color:#000">.</span><span style="color:#836c28">callRunner</span><span style="color:#000">(</span><span style="color:#000">SpringApplication</span><span style="color:#000">.</span><span style="color:#836c28">java</span><span style="color:#000">:</span><span style="color:#000">807</span><span style="color:#000">)</span> <span style="color:#000">~[</span><span style="color:#000">spring</span><span style="color:#000">-</span><span style="color:#000">boot</span><span style="color:#000">-</span><span style="color:#000">2</span><span style="color:#000">.</span><span style="color:#836c28">1</span><span style="color:#000">.</span><span style="color:#836c28">5</span><span style="color:#000">.</span><span style="color:#836c28">RELEASE</span><span style="color:#000">.</span><span style="color:#836c28">jar</span><span style="color:#000">:</span><span style="color:#000">2</span><span style="color:#000">.</span><span style="color:#836c28">1</span><span style="color:#000">.</span><span style="color:#836c28">5</span><span style="color:#000">.</span><span style="color:#836c28">RELEASE</span><span style="color:#000">]</span>
+	<span style="color:#000">at</span> <span style="color:#000">org</span><span style="color:#000">.</span><span style="color:#836c28">springframework</span><span style="color:#000">.</span><span style="color:#836c28">boot</span><span style="color:#000">.</span><span style="color:#836c28">SpringApplication</span><span style="color:#000">.</span><span style="color:#836c28">callRunners</span><span style="color:#000">(</span><span style="color:#000">SpringApplication</span><span style="color:#000">.</span><span style="color:#836c28">java</span><span style="color:#000">:</span><span style="color:#000">794</span><span style="color:#000">)</span> <span style="color:#000">~[</span><span style="color:#000">spring</span><span style="color:#000">-</span><span style="color:#000">boot</span><span style="color:#000">-</span><span style="color:#000">2</span><span style="color:#000">.</span><span style="color:#836c28">1</span><span style="color:#000">.</span><span style="color:#836c28">5</span><span style="color:#000">.</span><span style="color:#836c28">RELEASE</span><span style="color:#000">.</span><span style="color:#836c28">jar</span><span style="color:#000">:</span><span style="color:#000">2</span><span style="color:#000">.</span><span style="color:#836c28">1</span><span style="color:#000">.</span><span style="color:#836c28">5</span><span style="color:#000">.</span><span style="color:#836c28">RELEASE</span><span style="color:#000">]</span>
+	<span style="color:#000">at</span> <span style="color:#000">org</span><span style="color:#000">.</span><span style="color:#836c28">springframework</span><span style="color:#000">.</span><span style="color:#836c28">boot</span><span style="color:#000">.</span><span style="color:#836c28">SpringApplication</span><span style="color:#000">.</span><span style="color:#836c28">run</span><span style="color:#000">(</span><span style="color:#000">SpringApplication</span><span style="color:#000">.</span><span style="color:#836c28">java</span><span style="color:#000">:</span><span style="color:#000">324</span><span style="color:#000">)</span> <span style="color:#000">~[</span><span style="color:#000">spring</span><span style="color:#000">-</span><span style="color:#000">boot</span><span style="color:#000">-</span><span style="color:#000">2</span><span style="color:#000">.</span><span style="color:#836c28">1</span><span style="color:#000">.</span><span style="color:#836c28">5</span><span style="color:#000">.</span><span style="color:#836c28">RELEASE</span><span style="color:#000">.</span><span style="color:#836c28">jar</span><span style="color:#000">:</span><span style="color:#000">2</span><span style="color:#000">.</span><span style="color:#836c28">1</span><span style="color:#000">.</span><span style="color:#836c28">5</span><span style="color:#000">.</span><span style="color:#836c28">RELEASE</span><span style="color:#000">]</span>
+	<span style="color:#000">at</span> <span style="color:#000">org</span><span style="color:#000">.</span><span style="color:#836c28">springframework</span><span style="color:#000">.</span><span style="color:#836c28">boot</span><span style="color:#000">.</span><span style="color:#836c28">SpringApplication</span><span style="color:#000">.</span><span style="color:#836c28">run</span><span style="color:#000">(</span><span style="color:#000">SpringApplication</span><span style="color:#000">.</span><span style="color:#836c28">java</span><span style="color:#000">:</span><span style="color:#000">1260</span><span style="color:#000">)</span> <span style="color:#000">~[</span><span style="color:#000">spring</span><span style="color:#000">-</span><span style="color:#000">boot</span><span style="color:#000">-</span><span style="color:#000">2</span><span style="color:#000">.</span><span style="color:#836c28">1</span><span style="color:#000">.</span><span style="color:#836c28">5</span><span style="color:#000">.</span><span style="color:#836c28">RELEASE</span><span style="color:#000">.</span><span style="color:#836c28">jar</span><span style="color:#000">:</span><span style="color:#000">2</span><span style="color:#000">.</span><span style="color:#836c28">1</span><span style="color:#000">.</span><span style="color:#836c28">5</span><span style="color:#000">.</span><span style="color:#836c28">RELEASE</span><span style="color:#000">]</span>
+	<span style="color:#000">at</span> <span style="color:#000">org</span><span style="color:#000">.</span><span style="color:#836c28">springframework</span><span style="color:#000">.</span><span style="color:#836c28">boot</span><span style="color:#000">.</span><span style="color:#836c28">SpringApplication</span><span style="color:#000">.</span><span style="color:#836c28">run</span><span style="color:#000">(</span><span style="color:#000">SpringApplication</span><span style="color:#000">.</span><span style="color:#836c28">java</span><span style="color:#000">:</span><span style="color:#000">1248</span><span style="color:#000">)</span> <span style="color:#000">~[</span><span style="color:#000">spring</span><span style="color:#000">-</span><span style="color:#000">boot</span><span style="color:#000">-</span><span style="color:#000">2</span><span style="color:#000">.</span><span style="color:#836c28">1</span><span style="color:#000">.</span><span style="color:#836c28">5</span><span style="color:#000">.</span><span style="color:#836c28">RELEASE</span><span style="color:#000">.</span><span style="color:#836c28">jar</span><span style="color:#000">:</span><span style="color:#000">2</span><span style="color:#000">.</span><span style="color:#836c28">1</span><span style="color:#000">.</span><span style="color:#836c28">5</span><span style="color:#000">.</span><span style="color:#836c28">RELEASE</span><span style="color:#000">]</span>
+	<span style="color:#000">at</span> <span style="color:#000">com</span><span style="color:#000">.</span><span style="color:#836c28">example</span><span style="color:#000">.</span><span style="color:#836c28">jedisdemo</span><span style="color:#000">.</span><span style="color:#836c28">JedisDemoApplication</span><span style="color:#000">.</span><span style="color:#836c28">main</span><span style="color:#000">(</span><span style="color:#000">JedisDemoApplication</span><span style="color:#000">.</span><span style="color:#836c28">java</span><span style="color:#000">:</span><span style="color:#000">17</span><span style="color:#000">)</span> <span style="color:#000">~[</span><span style="color:#000">classes</span><span style="color:#000">/:</span><span style="color:#000">na</span><span style="color:#000">]</span>
+<span style="color:#000">Caused</span> <span style="color:#000">by:</span> <span style="color:#000">redis</span><span style="color:#000">.</span><span style="color:#836c28">clients</span><span style="color:#000">.</span><span style="color:#836c28">jedis</span><span style="color:#000">.</span><span style="color:#836c28">exceptions</span><span style="color:#000">.</span><span style="color:#836c28">JedisConnectionException</span><span style="color:#000">:</span> <span style="color:#000">java</span><span style="color:#000">.</span><span style="color:#836c28">net</span><span style="color:#000">.</span><span style="color:#836c28">SocketTimeoutException</span><span style="color:#000">:</span> <span style="color:#000">Read</span> <span style="color:#000">timed</span> <span style="color:#000">out</span>
+	<span style="color:#000">at</span> <span style="color:#000">redis</span><span style="color:#000">.</span><span style="color:#836c28">clients</span><span style="color:#000">.</span><span style="color:#836c28">util</span><span style="color:#000">.</span><span style="color:#836c28">RedisInputStream</span><span style="color:#000">.</span><span style="color:#836c28">ensureFill</span><span style="color:#000">(</span><span style="color:#000">RedisInputStream</span><span style="color:#000">.</span><span style="color:#836c28">java</span><span style="color:#000">:</span><span style="color:#000">202</span><span style="color:#000">)</span> <span style="color:#000">~[</span><span style="color:#000">jedis</span><span style="color:#000">-</span><span style="color:#000">2</span><span style="color:#000">.</span><span style="color:#836c28">9</span><span style="color:#000">.</span><span style="color:#836c28">3</span><span style="color:#000">.</span><span style="color:#836c28">jar</span><span style="color:#000">:</span><span style="color:#000">na</span><span style="color:#000">]</span>
+	<span style="color:#000">at</span> <span style="color:#000">redis</span><span style="color:#000">.</span><span style="color:#836c28">clients</span><span style="color:#000">.</span><span style="color:#836c28">util</span><span style="color:#000">.</span><span style="color:#836c28">RedisInputStream</span><span style="color:#000">.</span><span style="color:#836c28">readByte</span><span style="color:#000">(</span><span style="color:#000">RedisInputStream</span><span style="color:#000">.</span><span style="color:#836c28">java</span><span style="color:#000">:</span><span style="color:#000">40</span><span style="color:#000">)</span> <span style="color:#000">~[</span><span style="color:#000">jedis</span><span style="color:#000">-</span><span style="color:#000">2</span><span style="color:#000">.</span><span style="color:#836c28">9</span><span style="color:#000">.</span><span style="color:#836c28">3</span><span style="color:#000">.</span><span style="color:#836c28">jar</span><span style="color:#000">:</span><span style="color:#000">na</span><span style="color:#000">]</span>
+	<span style="color:#000">at</span> <span style="color:#000">redis</span><span style="color:#000">.</span><span style="color:#836c28">clients</span><span style="color:#000">.</span><span style="color:#836c28">jedis</span><span style="color:#000">.</span><span style="color:#836c28">Protocol</span><span style="color:#000">.</span><span style="color:#836c28">process</span><span style="color:#000">(</span><span style="color:#000">Protocol</span><span style="color:#000">.</span><span style="color:#836c28">java</span><span style="color:#000">:</span><span style="color:#000">153</span><span style="color:#000">)</span> <span style="color:#000">~[</span><span style="color:#000">jedis</span><span style="color:#000">-</span><span style="color:#000">2</span><span style="color:#000">.</span><span style="color:#836c28">9</span><span style="color:#000">.</span><span style="color:#836c28">3</span><span style="color:#000">.</span><span style="color:#836c28">jar</span><span style="color:#000">:</span><span style="color:#000">na</span><span style="color:#000">]</span>
+	<span style="color:#000">at</span> <span style="color:#000">redis</span><span style="color:#000">.</span><span style="color:#836c28">clients</span><span style="color:#000">.</span><span style="color:#836c28">jedis</span><span style="color:#000">.</span><span style="color:#836c28">Protocol</span><span style="color:#000">.</span><span style="color:#836c28">read</span><span style="color:#000">(</span><span style="color:#000">Protocol</span><span style="color:#000">.</span><span style="color:#836c28">java</span><span style="color:#000">:</span><span style="color:#000">218</span><span style="color:#000">)</span> <span style="color:#000">~[</span><span style="color:#000">jedis</span><span style="color:#000">-</span><span style="color:#000">2</span><span style="color:#000">.</span><span style="color:#836c28">9</span><span style="color:#000">.</span><span style="color:#836c28">3</span><span style="color:#000">.</span><span style="color:#836c28">jar</span><span style="color:#000">:</span><span style="color:#000">na</span><span style="color:#000">]</span>
+	<span style="color:#000">at</span> <span style="color:#000">redis</span><span style="color:#000">.</span><span style="color:#836c28">clients</span><span style="color:#000">.</span><span style="color:#836c28">jedis</span><span style="color:#000">.</span><span style="color:#836c28">Connection</span><span style="color:#000">.</span><span style="color:#836c28">readProtocolWithCheckingBroken</span><span style="color:#000">(</span><span style="color:#000">Connection</span><span style="color:#000">.</span><span style="color:#836c28">java</span><span style="color:#000">:</span><span style="color:#000">341</span><span style="color:#000">)</span> <span style="color:#000">~[</span><span style="color:#000">jedis</span><span style="color:#000">-</span><span style="color:#000">2</span><span style="color:#000">.</span><span style="color:#836c28">9</span><span style="color:#000">.</span><span style="color:#836c28">3</span><span style="color:#000">.</span><span style="color:#836c28">jar</span><span style="color:#000">:</span><span style="color:#000">na</span><span style="color:#000">]</span>
+	<span style="color:#000">at</span> <span style="color:#000">redis</span><span style="color:#000">.</span><span style="color:#836c28">clients</span><span style="color:#000">.</span><span style="color:#836c28">jedis</span><span style="color:#000">.</span><span style="color:#836c28">Connection</span><span style="color:#000">.</span><span style="color:#836c28">getStatusCodeReply</span><span style="color:#000">(</span><span style="color:#000">Connection</span><span style="color:#000">.</span><span style="color:#836c28">java</span><span style="color:#000">:</span><span style="color:#000">240</span><span style="color:#000">)</span> <span style="color:#000">~[</span><span style="color:#000">jedis</span><span style="color:#000">-</span><span style="color:#000">2</span><span style="color:#000">.</span><span style="color:#836c28">9</span><span style="color:#000">.</span><span style="color:#836c28">3</span><span style="color:#000">.</span><span style="color:#836c28">jar</span><span style="color:#000">:</span><span style="color:#000">na</span><span style="color:#000">]</span>
+	<span style="color:#000">at</span> <span style="color:#000">redis</span><span style="color:#000">.</span><span style="color:#836c28">clients</span><span style="color:#000">.</span><span style="color:#836c28">jedis</span><span style="color:#000">.</span><span style="color:#836c28">Jedis</span><span style="color:#000">.</span><span style="color:#836c28">set</span><span style="color:#000">(</span><span style="color:#000">Jedis</span><span style="color:#000">.</span><span style="color:#836c28">java</span><span style="color:#000">:</span><span style="color:#000">122</span><span style="color:#000">)</span> <span style="color:#000">~[</span><span style="color:#000">jedis</span><span style="color:#000">-</span><span style="color:#000">2</span><span style="color:#000">.</span><span style="color:#836c28">9</span><span style="color:#000">.</span><span style="color:#836c28">3</span><span style="color:#000">.</span><span style="color:#836c28">jar</span><span style="color:#000">:</span><span style="color:#000">na</span><span style="color:#000">]</span>
+	<span style="color:#000">at</span> <span style="color:#000">com</span><span style="color:#000">.</span><span style="color:#836c28">example</span><span style="color:#000">.</span><span style="color:#836c28">jedisdemo</span><span style="color:#000">.</span><span style="color:#836c28">JedisDemoApplication</span><span style="color:#000">.</span><span style="color:#836c28">useJedis</span><span style="color:#000">(</span><span style="color:#000">JedisDemoApplication</span><span style="color:#000">.</span><span style="color:#836c28">java</span><span style="color:#000">:</span><span style="color:#000">63</span><span style="color:#000">)</span> <span style="color:#000">~[</span><span style="color:#000">classes</span><span style="color:#000">/:</span><span style="color:#000">na</span><span style="color:#000">]</span>
+	<span style="color:#000">at</span> <span style="color:#000">com</span><span style="color:#000">.</span><span style="color:#836c28">example</span><span style="color:#000">.</span><span style="color:#836c28">jedisdemo</span><span style="color:#000">.</span><span style="color:#836c28">JedisDemoApplication</span><span style="color:#000">.</span><span style="color:#836c28">run</span><span style="color:#000">(</span><span style="color:#000">JedisDemoApplication</span><span style="color:#000">.</span><span style="color:#836c28">java</span><span style="color:#000">:</span><span style="color:#000">22</span><span style="color:#000">)</span> <span style="color:#000">~[</span><span style="color:#000">classes</span><span style="color:#000">/:</span><span style="color:#000">na</span><span style="color:#000">]</span>
+	<span style="color:#000">at</span> <span style="color:#000">org</span><span style="color:#000">.</span><span style="color:#836c28">springframework</span><span style="color:#000">.</span><span style="color:#836c28">boot</span><span style="color:#000">.</span><span style="color:#836c28">SpringApplication</span><span style="color:#000">.</span><span style="color:#836c28">callRunner</span><span style="color:#000">(</span><span style="color:#000">SpringApplication</span><span style="color:#000">.</span><span style="color:#836c28">java</span><span style="color:#000">:</span><span style="color:#000">804</span><span style="color:#000">)</span> <span style="color:#000">~[</span><span style="color:#000">spring</span><span style="color:#000">-</span><span style="color:#000">boot</span><span style="color:#000">-</span><span style="color:#000">2</span><span style="color:#000">.</span><span style="color:#836c28">1</span><span style="color:#000">.</span><span style="color:#836c28">5</span><span style="color:#000">.</span><span style="color:#836c28">RELEASE</span><span style="color:#000">.</span><span style="color:#836c28">jar</span><span style="color:#000">:</span><span style="color:#000">2</span><span style="color:#000">.</span><span style="color:#836c28">1</span><span style="color:#000">.</span><span style="color:#836c28">5</span><span style="color:#000">.</span><span style="color:#836c28">RELEASE</span><span style="color:#000">]</span>
+	<span style="color:#000">...</span> <span style="color:#000">5</span> <span style="color:#000">common</span> <span style="color:#000">frames</span> <span style="color:#000">omitted</span>
+<span style="color:#000">Caused</span> <span style="color:#000">by:</span> <span style="color:#000">java</span><span style="color:#000">.</span><span style="color:#836c28">net</span><span style="color:#000">.</span><span style="color:#836c28">SocketTimeoutException</span><span style="color:#000">:</span> <span style="color:#000">Read</span> <span style="color:#000">timed</span> <span style="color:#000">out</span>
+	<span style="color:#000">at</span> <span style="color:#000">java</span><span style="color:#000">.</span><span style="color:#836c28">base</span><span style="color:#000">/</span><span style="color:#000">java</span><span style="color:#000">.</span><span style="color:#836c28">net</span><span style="color:#000">.</span><span style="color:#836c28">SocketInputStream</span><span style="color:#000">.</span><span style="color:#836c28">socketRead0</span><span style="color:#000">(</span><span style="color:#000">Native</span> <span style="color:#000">Method</span><span style="color:#000">)</span> <span style="color:#000">~[</span><span style="color:#000">na:</span><span style="color:#000">na</span><span style="color:#000">]</span>
+	<span style="color:#000">at</span> <span style="color:#000">java</span><span style="color:#000">.</span><span style="color:#836c28">base</span><span style="color:#000">/</span><span style="color:#000">java</span><span style="color:#000">.</span><span style="color:#836c28">net</span><span style="color:#000">.</span><span style="color:#836c28">SocketInputStream</span><span style="color:#000">.</span><span style="color:#836c28">socketRead</span><span style="color:#000">(</span><span style="color:#000">SocketInputStream</span><span style="color:#000">.</span><span style="color:#836c28">java</span><span style="color:#000">:</span><span style="color:#000">115</span><span style="color:#000">)</span> <span style="color:#000">~[</span><span style="color:#000">na:</span><span style="color:#000">na</span><span style="color:#000">]</span>
+	<span style="color:#000">at</span> <span style="color:#000">java</span><span style="color:#000">.</span><span style="color:#836c28">base</span><span style="color:#000">/</span><span style="color:#000">java</span><span style="color:#000">.</span><span style="color:#836c28">net</span><span style="color:#000">.</span><span style="color:#836c28">SocketInputStream</span><span style="color:#000">.</span><span style="color:#836c28">read</span><span style="color:#000">(</span><span style="color:#000">SocketInputStream</span><span style="color:#000">.</span><span style="color:#836c28">java</span><span style="color:#000">:</span><span style="color:#000">168</span><span style="color:#000">)</span> <span style="color:#000">~[</span><span style="color:#000">na:</span><span style="color:#000">na</span><span style="color:#000">]</span>
+	<span style="color:#000">at</span> <span style="color:#000">java</span><span style="color:#000">.</span><span style="color:#836c28">base</span><span style="color:#000">/</span><span style="color:#000">java</span><span style="color:#000">.</span><span style="color:#836c28">net</span><span style="color:#000">.</span><span style="color:#836c28">SocketInputStream</span><span style="color:#000">.</span><span style="color:#836c28">read</span><span style="color:#000">(</span><span style="color:#000">SocketInputStream</span><span style="color:#000">.</span><span style="color:#836c28">java</span><span style="color:#000">:</span><span style="color:#000">140</span><span style="color:#000">)</span> <span style="color:#000">~[</span><span style="color:#000">na:</span><span style="color:#000">na</span><span style="color:#000">]</span>
+	<span style="color:#000">at</span> <span style="color:#000">java</span><span style="color:#000">.</span><span style="color:#836c28">base</span><span style="color:#000">/</span><span style="color:#000">java</span><span style="color:#000">.</span><span style="color:#836c28">net</span><span style="color:#000">.</span><span style="color:#836c28">SocketInputStream</span><span style="color:#000">.</span><span style="color:#836c28">read</span><span style="color:#000">(</span><span style="color:#000">SocketInputStream</span><span style="color:#000">.</span><span style="color:#836c28">java</span><span style="color:#000">:</span><span style="color:#000">126</span><span style="color:#000">)</span> <span style="color:#000">~[</span><span style="color:#000">na:</span><span style="color:#000">na</span><span style="color:#000">]</span>
+	<span style="color:#000">at</span> <span style="color:#000">redis</span><span style="color:#000">.</span><span style="color:#836c28">clients</span><span style="color:#000">.</span><span style="color:#836c28">util</span><span style="color:#000">.</span><span style="color:#836c28">RedisInputStream</span><span style="color:#000">.</span><span style="color:#836c28">ensureFill</span><span style="color:#000">(</span><span style="color:#000">RedisInputStream</span><span style="color:#000">.</span><span style="color:#836c28">java</span><span style="color:#000">:</span><span style="color:#000">196</span><span style="color:#000">)</span> <span style="color:#000">~[</span><span style="color:#000">jedis</span><span style="color:#000">-</span><span style="color:#000">2</span><span style="color:#000">.</span><span style="color:#836c28">9</span><span style="color:#000">.</span><span style="color:#836c28">3</span><span style="color:#000">.</span><span style="color:#836c28">jar</span><span style="color:#000">:</span><span style="color:#000">na</span><span style="color:#000">]</span>
+	<span style="color:#000">...</span> <span style="color:#000">14</span> <span style="color:#000">common</span> <span style="color:#000">frames</span> <span style="color:#000">omitted</span></code></pre></div>
+<h2 id="参考">参考</h2>
+
+<ul>
+<li><a href="http://try.redis.io">http://try.redis.io</a><br /></li>
+<li><a href="https://redis.io/topics/data-types-intro">https://redis.io/topics/data-types-intro</a></li>
+<li><a href="https://blog.csdn.net/c295477887/article/details/52487621">https://blog.csdn.net/c295477887/article/details/52487621</a></li>
+
+<li><p>深入剖析Redis系列(二) <a href="https://juejin.im/post/5b7d226a6fb9a01a1e01ff64">https://juejin.im/post/5b7d226a6fb9a01a1e01ff64</a>
+<!-- 
+TODO: 设置密码、集群等 --></p></li>
+
+<li><p><a href="https://github.com/qishibo/AnotherRedisDesktopManager/">可视化客户端</a></p></li>
+</ul>
+</div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#redis-基本概念">Redis 基本概念</a></li>
+<li><a href="#存取示例">存取示例</a></li>
+<li><a href="#过期设置">过期设置</a></li>
+<li><a href="#复杂的数据结构">复杂的数据结构</a>
+<ul>
+<li><a href="#列表">列表</a></li>
+<li><a href="#集合">集合</a></li>
+<li><a href="#sorted-sets">sorted sets</a></li>
+<li><a href="#hashes">Hashes</a></li>
+</ul></li>
+<li><a href="#其他知识">其他知识</a>
+<ul>
+<li><a href="#redis-keys">Redis keys</a></li>
+<li><a href="#redis-strings">Redis Strings</a></li>
+<li><a href="#更改和查询key-space">更改和查询key space</a></li>
+</ul></li>
+<li><a href="#比较重要的概念">比较重要的概念</a>
+<ul>
+<li><a href="#master-slave">master/slave</a></li>
+<li><a href="#哨兵">哨兵</a></li>
+<li><a href="#sub-pub">SUB/PUB</a></li>
+<li><a href="#其他">其他</a></li>
+</ul></li>
+<li><a href="#问题">问题</a>
+<ul>
+<li><a href="#远程访问">远程访问</a></li>
+<li><a href="#连接docker-redis超时问题">连接docker redis超时问题</a></li>
+</ul></li>
+<li><a href="#参考">参考</a></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

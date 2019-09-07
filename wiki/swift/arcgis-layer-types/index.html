@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>(二)Layer types |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> (二)Layer types </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#swift'>swift</a></span>
+    
+    
+    
+    
+    
+    &nbsp/&nbsp<span>arcgis</span>
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2018-04-09T14:51:54.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2018-04-09
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<h1 id="dynamic-map-service-layer-动态服务图层">Dynamic map service layer  动态服务图层</h1>
+
+<p>ArcGIS动态地图服务图层(dynamic map service layer)显示来自ArcGIS Server地图服务的地图内容。这种Map服务<strong>不能被缓存</strong>（tiled）。该服务在图层请求时生成地图图像。当用户导航地图(navigates the map)时，该图层请求显示新的地图图像。由于地图图像是动态创建的，因此可以通过修改某些图层属性来自定义地图图像的内容。<strong>如果动态图层的空间参考不匹配地图的空间参考，则动态图层将自动重新投影其地图内容以匹配地图的空间参考</strong>。</p>
+
+<p>ArcGIS Server地图服务基于地图文档（* .mxd  or *.msd files）。地图文档包含需要在地图中显示的功能。功能是真实世界的实体，如建筑物，管道和包裹。功能被组织成图层。例如，国家公园的地图文件可能包含远足小径，野餐区，露营地和主要道路的单独图层。</p>
+
+<p>地图文档还包含控制地图外观的信息，例如符号系统，可视性，图层缩放范围等。
+可以将地图文档发布到ArcGIS Server以创建地图服务。</p>
+
+<p>ArcGIS Server地图服务可作为SOAP和REST Web服务在Web上访问。您可以使用ArcGIS Server服务目录找到这些Web服务端点的URL。</p>
+
+<p>要实例化一个AGSDynamicMapServiceLayer，您需要为地图服务的REST Web服务端点提供一个URL。
+该URL通常采用<code>http://&lt;server:port&gt;/&lt;instance&gt;/rest/services/&lt;service&gt;/MapServer</code>的格式。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">let</span> <span style="color:#000">url</span> = <span style="color:#000">NSURL</span>(<span style="color:#000">string</span>: <span style="color:#c41a16">&#34;http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/Specialty/ESRI_StateCityHighway_USA/MapServer&#34;</span>)
+<span style="color:#a90d91">let</span> <span style="color:#000">layer</span> = <span style="color:#000">AGSDynamicMapServiceLayer</span>(<span style="color:#000">URL</span>: <span style="color:#000">url</span>)</code></pre></div>
+<p>另一种创建图层的方法是使用AGSMapServiceInfo对象。您首先创建AGSMapServerInfo，然后使用它创建一个图层。如果您想在创建图层之前检查Map服务的属性，或者如果希望图层从一开始就使用不同的默认设置（如图层定义或图层可见性），这会非常有用。</p>
+
+<p>可以通过AGSMapServiceInfo设置一些属性。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">let</span> <span style="color:#000">url</span> = <span style="color:#000">NSURL</span>(<span style="color:#000">string</span>: <span style="color:#c41a16">&#34;http://sampleserver1.arcgisonline.com/ArcGIS/rest/services/ Specialty/ESRI_StateCityHighway_USA/MapServer&#34;</span>)
+<span style="color:#a90d91">var</span> <span style="color:#000">error</span>:<span style="color:#000">NSError</span>?
+<span style="color:#a90d91">let</span> <span style="color:#000">info</span> = <span style="color:#000">AGSMapServiceInfo</span>(<span style="color:#000">URL</span>:<span style="color:#000">url</span>, <span style="color:#000">error</span>: &amp;<span style="color:#000">error</span>)
+        
+<span style="color:#177500">//inspect or modify the info object if you want</span>
+...
+        
+<span style="color:#a90d91">let</span> <span style="color:#000">layer</span> = <span style="color:#000">AGSDynamicMapServiceLayer</span>(<span style="color:#000">mapServiceInfo</span>: <span style="color:#000">info</span>)</code></pre></div>
+<p>创建一个AGSMapServiceInfo是同步的，这意味着它会阻塞调用线程。需要在后台线程上调用此方法。</p>
+
+<p>创建图层后，您可以将其添加到地图以显示其内容。当图层准备好时，其加载的属性将被启用。然后您可以安全地访问其属性。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">if</span> <span style="color:#000">layer</span>.<span style="color:#000">loaded</span> {
+    <span style="color:#5b269a">println</span>(<span style="color:#c41a16">&#34;Initial Envelope : </span><span style="color:#c41a16">\(</span><span style="color:#000">layer</span>.<span style="color:#000">initialEnvelope</span><span style="color:#c41a16">)</span><span style="color:#c41a16">&#34;</span>)
+}</code></pre></div>
+<p>您可以通过修改某些属性来更改图层的地图内容。例如，您可以通过修改visibleLayer属性来指定服务中哪些图层应该可见。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#177500">//only display ‘ushigh’ (id=0) and ‘states’ (id=1) layer</span>
+<span style="color:#000">layer</span>.<span style="color:#000">visibleLayers</span> = [<span style="color:#1c01ce">0</span>, <span style="color:#1c01ce">1</span>]</code></pre></div>
+<p>您还可以选择通过指定图层定义在数据集中仅显示一部分要素。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#177500">//only display states beginning with &#39;C&#39;</span>
+<span style="color:#a90d91">let</span> <span style="color:#000">layerID</span> = <span style="color:#1c01ce">1</span>
+<span style="color:#a90d91">let</span> <span style="color:#000">defString</span> = <span style="color:#c41a16">&#34;STATE_NAME like &#39;C%&#39;&#34;</span>
+<span style="color:#a90d91">let</span> <span style="color:#000">layerDef</span> = <span style="color:#000">AGSLayerDefinition</span>(<span style="color:#000">layerId</span>: <span style="color:#1c01ce">1</span>, <span style="color:#000">definition</span>: <span style="color:#000">defString</span>)
+        
+<span style="color:#000">layer</span>.<span style="color:#000">layerDefinitions</span> = [<span style="color:#000">layerDef</span>]</code></pre></div>
+<h1 id="arcgis-tiled-map-service-layer-平铺服务层">ArcGIS Tiled Map Service layer  平铺服务层</h1>
+
+<p>ArcGIS平铺地图服务图层显示来自已缓存（tiled）的ArcGIS Server地图服务的地图内容。
+缓存的地图服务包含预先生成的地图图块(map tile)。这些地图图块的数量和内容由服务的平铺方案( tiling scheme)和服务基于的地图文档来定义。平铺方案基本上指定了诸如平铺尺寸(dimensions)，图像格式(image format)，比例尺(scale levels)等的参数。
+在导航地图(navigate the map)时，图层会提取新的地图图块进行显示。</p>
+
+<p>与动态图层不同，平铺图层的空间参考必须与地图的空间参考相匹配。因为平铺图层显示提前预先生成的地图图块，无法重新投影以匹配不同的空间参考。</p>
+
+<p>要实例化一个AGSTiledMapServiceLayer，您需要提供一个URL到地图服务的REST Web服务端点。
+您应该检查服务目录中的<code>Single Fused Map Cache</code>属性是否设置为true，以确认该服务确实已缓存。
+AGSTiledMapServiceLayer不适用于未缓存的地图服务。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">let</span> <span style="color:#000">url</span> = <span style="color:#000">NSURL</span>(<span style="color:#000">string</span>: <span style="color:#c41a16">&#34;http://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer&#34;</span>)
+<span style="color:#a90d91">let</span> <span style="color:#000">layer</span> = <span style="color:#000">AGSTiledMapServiceLayer</span>(<span style="color:#000">URL</span>: <span style="color:#000">url</span>)</code></pre></div>
+<p>创建图层后，您可以将其添加到地图以显示其内容。当图层准备好时，其加载的属性将被启用。然后您可以安全地访问其属性。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">if</span> <span style="color:#000">layer</span>.<span style="color:#000">loaded</span> {
+ <span style="color:#5b269a">println</span>(<span style="color:#c41a16">&#34;Tiling Scheme: </span><span style="color:#c41a16">\(</span><span style="color:#000">layer</span>.<span style="color:#000">tileInfo</span><span style="color:#c41a16">)</span><span style="color:#c41a16">&#34;</span>)
+}</code></pre></div>
+<p>与ArcGIS动态地图服务图层不同，您不能修改ArcGIS平铺地图服务图层的属性来更改地图内容。
+这是因为该层依赖于缓存的Map服务，该服务不像动态地图服务那样以动态方式创建地图图像。</p>
+
+<h1 id="image-service-layer-图像服务层">Image Service layer 图像服务层</h1>
+
+<p>ArcGIS图像服务层显示由ArcGIS Server图像服务提供的图像和其他类型的栅格数据(raster data)。</p>
+
+<p>ArcGIS Image Service层是一个动态层(dynamic layer)。它在用户导航地图时请求新的地图图像。
+由于地图图像是在图层请求时动态创建的，因此可以通过修改某些图层属性来自定义地图图像的内容。
+<strong>如果图层的空间参考与地图的空间参考不匹配，图层将自动重新投影其地图内容以匹配地图的空间参考</strong>。</p>
+
+<h2 id="about-image-services">About Image Services</h2>
+
+<p>图像服务基于栅格数据(raster data)。栅格数据本质上是一个单元格网格。每个单元格对应一个物理位置，并且该单元格的值表示有关该位置的信息。
+栅格格式通常使用矢量格式来存储连续数据，例如降雨或高程，因为它可以更好地表示某个区域数据的粒度变化。
+栅格也常用于存储由卫星传感器捕获的图像和其他信息。</p>
+
+<p><a href="http://desktop.arcgis.com/en/arcmap/10.3/manage-data/raster-and-images/what-is-raster-data.htm">Learn more about raster data</a></p>
+
+<p><a href="http://server.arcgis.com/en/server/10.3/publish-services/windows/key-concepts-for-image-services.htm">Learn more about Image Services</a></p>
+
+<p>图像服务的数据可以采用任何支持的栅格格式。可以将数据发布到ArcGIS Server以创建图像服务。根据数据的存储方式，某些图像服务功能可能无法使用。例如，指定镶嵌规则的功能仅在数据存储为镶嵌数据集时才可用。有关哪些功能可用于不同输入的更多信息，请参阅<a href="http://server.arcgis.com/en/server/10.3/publish-services/windows/publishing-image-services.htm#ESRI_SECTION1_8E90BDF4F1254F0EAD62E2C5F924D652">Image Service参数主题</a>。</p>
+
+<p>图像服务可以作为SOAP和REST Web服务在Web上访问。
+您可以在ArcGIS服务目录上找到这些Web服务的URL。</p>
+
+<h2 id="创建图层">创建图层</h2>
+
+<p>要创建图像服务图层，您需要实例化AGSImageServiceLayer类的对象。
+在实例化对象时，您需要为Image Service的REST Web服务端点提供一个URL。
+该URL通常采用<code>http://&lt;server:port&gt;/&lt;instance&gt;/rest/services/&lt;service&gt;/ImageServer</code>格式。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">let</span> <span style="color:#000">url</span> = <span style="color:#000">NSURL</span>(<span style="color:#000">string</span>: <span style="color:#c41a16">&#34;http://sampleserver3.arcgisonline.com/ArcGIS/rest/services/Portland/CascadeLandsat/ImageServer&#34;</span>)
+<span style="color:#a90d91">let</span> <span style="color:#000">layer</span> = <span style="color:#000">AGSImageServiceLayer</span>(<span style="color:#000">URL</span>: <span style="color:#000">url</span>)</code></pre></div>
+<h2 id="修改地图内容">修改地图内容</h2>
+
+<p>图像服务图层允许您通过指定几个属性来修改图层显示的地图内容。
+例如，您可以指定应用于缩小地图图像大小的压缩量（0％ - 100％）。
+这对于通过低带宽连接访问高分辨率图像特别有用。</p>
+
+<h3 id="band-combinations">Band combinations</h3>
+
+<p>栅格数据可以有一个或多个信息带。
+例如，高程模型通常包含单波段的高程信息，而全色图像包含单波段灰度值。
+另一方面，航空照片通常包含三个波段，红色，绿色和蓝色波长各一个。
+一些光栅数据可以是多光谱的，包含超过三个甚至超出可见光范围的信息，例如红外。</p>
+
+<p><a href="http://desktop.arcgis.com/en/arcmap/10.3/manage-data/raster-and-images/raster-bands.htm">Learn about raster bands</a></p>
+
+<p>获取图像服务层提供有关图像服务中有多少波段可用的信息，如下所示：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">var</span> <span style="color:#000">layer</span> = <span style="color:#000">layer</span> <span style="color:#a90d91">as</span> <span style="color:#000">AGSImageServiceLayer</span>
+<span style="color:#a90d91">let</span> <span style="color:#000">imageInfo</span> = <span style="color:#000">layer</span>.<span style="color:#000">imageServiceInfo</span>
+<span style="color:#a90d91">let</span> <span style="color:#000">bandCount</span> = <span style="color:#000">imageInfo</span>.<span style="color:#000">bandCount</span></code></pre></div>
+<p>如果bandCount为n，则每个频段都分配一个从0到n-1的对应ID。</p>
+
+<p>您可以按如下方式指定应包含在地图图像中的波段组合：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#177500">//For a grayscale map image with band 0</span>
+<span style="color:#a90d91">var</span> <span style="color:#000">grayscaleBandIds</span> = [<span style="color:#1c01ce">0</span>]
+<span style="color:#000">layer</span>.<span style="color:#000">bandIds</span> = <span style="color:#000">grayscaleBandIds</span>
+        
+<span style="color:#177500">//Or, For a color image with band 2, band 5, and band 0 as Red, Green, and Blue respectively</span>
+<span style="color:#a90d91">var</span> <span style="color:#000">rgbBandIds</span> = [<span style="color:#1c01ce">2</span>, <span style="color:#1c01ce">5</span>, <span style="color:#1c01ce">0</span>]
+<span style="color:#000">layer</span>.<span style="color:#000">bandIds</span> = <span style="color:#000">rgbBandIds</span></code></pre></div>
+<blockquote>
+<p>Note:
+即使图像服务包含三个以上的波段，您也只能在地图图像中指定一个波段（对于灰度）或三个波段（对于颜色）。</p>
+</blockquote>
+
+<h3 id="mosaic-rules-马赛克规则">Mosaic rules 马赛克规则？</h3>
+
+<p>基于镶嵌数据集的图像服务可以包含许多重叠的栅格。镶嵌规则定义了将栅格组合在一起以创建地图图像的顺序。支持以下方法：</p>
+
+<ul>
+<li>最靠近Center-Rasters的中心距离视图中心最近的放置在顶部。</li>
+<li>根据最低点位置和视图中心之间的距离，最接近Nadir-Orders栅格。这与“最接近中心”方法类似，但使用栅格的最低点，可能与中心不同，特别是对于倾斜图像。</li>
+<li>最接近Viewpoint-Orders栅格基于用户定义的位置和栅格的最低点位置之间的距离。</li>
+<li>按Attribute—Orders栅格基于指定的元数据属性和基础值之间的差异。</li>
+<li>North-West—Rasters以及其中心向西北方向显示在上方。
+&hellip;
+(略)</li>
+</ul>
+
+<p>更多见:</p>
+
+<p><a href="https://developers.arcgis.com/ios/10-2/swift/guide/image-service-layer.htm">https://developers.arcgis.com/ios/10-2/swift/guide/image-service-layer.htm</a></p>
+
+<h1 id="arcgis-local-tiled-layer-本地平铺图层">ArcGIS Local Tiled layer 本地平铺图层</h1>
+
+<p>ArcGIS本地平铺图层显示来自设备上可用的图块包的地图内容。
+即使设备没有任何网络连接，该图层也可以继续显示地图内容，因为所有地图内容都可以在图块包中本地获得。</p>
+
+<p>(略)</p>
+
+<h1 id="bing-地图图层">Bing 地图图层</h1>
+
+<p>(略)</p>
+
+<h1 id="wms-layer-web地图服务层">WMS layer web地图服务层</h1>
+
+<p>(略)</p>
+
+<h1 id="graphics-layers-图形层">Graphics layers 图形层</h1>
+
+<p>图形图层允许您在地图上动态显示图形。例如，可以使用图形图层来保存用户绘制的多边形或线条，或者显示满足任务结果（如查询或地理处理）的要素。在下图中，图形层用于突出显示人口密度超过每平方英里200的州：</p>
+
+<p><img src="http://image.tyrad.cc/2018040920947cc.png" alt="2018040920947cc.png" /></p>
+
+<p>如果要将图形图层添加到地图，请使用AGSGraphicsLayer类创建图层。这个类的实例包含一个图形列表和一个可选的渲染器（AGSRenderer）。还有添加，删除和重绘图形的方法。确保在任何基础图层之后添加图形图层，以便在运行应用程序时在图层上方显示图形。有关更多信息，请参阅图层类型。</p>
+
+<p>符号定义了图形外观的非地理方面。这包括图形的颜色，边框宽度，透明度等等。适用于iOS的ArcGIS Runtime SDK包含许多符号类，每个符号类都允许您以独特的方式指定符号系统。每种符号类型也特定于一种几何类型（即点，线或多边形）。</p>
+
+<p>渲染器定义了适用于图形图层的符号集。应用于每个图形的符号取决于图形的属性。渲染器指定哪些属性值对应于哪个符号。</p>
+
+<h2 id="添加一个graphics-layer">添加一个graphics layer</h2>
+
+<p>现在app上添加地图(略), 然后</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">let</span> <span style="color:#000">myGraphicsLayer</span> = <span style="color:#000">AGSGraphicsLayer</span>()</code></pre></div>
+<p>如果你想用另一种方法引用你的新图形层，你可以在你的类中创建一个实例变量来保存图形层。</p>
+
+<p>要将新图形图层添加到地图，请使用AGSMapView方法addMapLayer：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">self</span>.<span style="color:#000">mapView</span>.<span style="color:#000">addMapLayer</span>(<span style="color:#000">myGraphicsLayer</span>, <span style="color:#000">withName</span>:<span style="color:#c41a16">&#34;Graphics Layer&#34;</span>)</code></pre></div>
+<p>请注意，您在addMapLayer方法中为您的图层命名的<strong>名称</strong>对于您的地图视图必须是唯一的。</p>
+
+<h2 id="添加图形功能">添加图形功能</h2>
+
+<p>图形是AGSGraphic类的一个实例。图形与几何图形相关联，该图形定义了地图上图形的位置和形状。
+该图形可以与符号相关联，该符号定义了图形应该如何显示。或者，图形层可以与渲染器相关联，该渲染器确定该层中的所有图形如何显示。或者，您可以拥有与图形相关的属性。这些属性是表示图形所代表的真实世界实体信息的关键值对。</p>
+
+<p>在大多数情况下，您在地图上显示的图形将作为执行任务（例如查询地图服务，地址地理编码或执行地理处理分析）的结果返回。在这种情况下，图形将包含描述其在地图上的位置和形状的几何图形。您只需定义如何显示图形，方法是为每个图形分配一个符号，或者将图层分配给一个渲染器。</p>
+
+<p>但是，您也可以通过编程方式创建图形。在这种情况下，您还需要为图形分配几何图形。您可以自己创建几何图形，也可以让用户使用Sketch图层交互式绘制几何图形。</p>
+
+<p>以下代码创建一个图形，为其分配一个符号和一个几何图形，并将其添加到现有的图形图层：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">func</span> <span style="color:#000">addGraphicsLayer</span>() {
+        
+   <span style="color:#177500">//create a marker symbol to be used by our Graphic</span>
+   <span style="color:#a90d91">let</span> <span style="color:#000">myMarkerSymbol</span> = <span style="color:#000">AGSSimpleMarkerSymbol</span>()
+   <span style="color:#000">myMarkerSymbol</span>.<span style="color:#000">color</span> = <span style="color:#000">UIColor</span>.<span style="color:#000">blue</span>
+   
+   <span style="color:#177500">//Create an AGSPoint (which inherits from AGSGeometry) that</span>
+   <span style="color:#177500">//defines where the Graphic will be drawn</span>
+   <span style="color:#a90d91">let</span> <span style="color:#000">myMarkerPoint</span> = <span style="color:#000">AGSPoint</span>(<span style="color:#000">x</span>: <span style="color:#000">-</span><span style="color:#1c01ce">93.2984</span>, <span style="color:#000">y</span>: <span style="color:#1c01ce">44.9409</span>, <span style="color:#000">spatialReference</span>: <span style="color:#a90d91">self</span>.<span style="color:#000">mapView</span>.<span style="color:#000">spatialReference</span>)
+   
+   <span style="color:#177500">//Create the Graphic, using the symbol and</span>
+   <span style="color:#177500">//geometry created earlier</span>
+   <span style="color:#a90d91">let</span> <span style="color:#000">myGraphic</span> = <span style="color:#000">AGSGraphic</span>(<span style="color:#000">geometry</span>: <span style="color:#000">myMarkerPoint</span>, <span style="color:#000">symbol</span>: <span style="color:#000">myMarkerSymbol</span>, <span style="color:#000">attributes</span>: <span style="color:#a90d91">nil</span>)
+   
+   <span style="color:#a90d91">if</span> <span style="color:#a90d91">self</span>.<span style="color:#000">graphicLayer</span> == <span style="color:#a90d91">nil</span> {
+       <span style="color:#a90d91">self</span>.<span style="color:#000">graphicLayer</span> = <span style="color:#000">AGSGraphicsLayer</span>()
+       <span style="color:#a90d91">self</span>.<span style="color:#000">mapView</span>.<span style="color:#000">addMapLayer</span>(<span style="color:#a90d91">self</span>.<span style="color:#000">graphicLayer</span>, <span style="color:#000">withName</span>:<span style="color:#c41a16">&#34;Graphics Layer&#34;</span>)
+   }
+   
+   <span style="color:#177500">//Add the graphic to the Graphics layer</span>
+   <span style="color:#000">graphicLayer</span><span style="color:#000">!</span>.<span style="color:#000">addGraphic</span>(<span style="color:#000">myGraphic</span>)        
+}</code></pre></div>
+<p><img src="http://image.tyrad.cc/2018040910538c1.png" alt="2018040910538c1.png" /></p>
+
+<p>作为任务结果返回的图形已经填充了一个几何图形而不是一个符号，因此您需要给这些图形一个符号或在将图形添加到图形图层之前将一个渲染器应用到图形图层。
+要将符号设置为作为查询任务结果返回的图形，请执行以下操作：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#177500">//create a simple fill symbol</span>
+<span style="color:#a90d91">let</span> <span style="color:#000">fillSymbol</span> = <span style="color:#000">AGSSimpleFillSymbol</span>()
+<span style="color:#000">fillSymbol</span>.<span style="color:#000">color</span> = <span style="color:#000">UIColor</span>.<span style="color:#000">purpleColor</span>().<span style="color:#000">colorWithAlphaComponent</span>(<span style="color:#1c01ce">0.25</span>)
+<span style="color:#000">fillSymbol</span>.<span style="color:#000">outline</span>.<span style="color:#000">color</span> = <span style="color:#000">UIColor</span>.<span style="color:#000">darkGrayColor</span>()
+        
+<span style="color:#177500">//featureSet.features is the result of a Query task.</span>
+<span style="color:#177500">//It is an array of AGSGraphic objects containing</span>
+<span style="color:#177500">//geometries, but not symbols.</span>
+<span style="color:#a90d91">for</span> <span style="color:#000">graphic</span> <span style="color:#a90d91">in</span> <span style="color:#000">featureSet</span>.<span style="color:#000">features</span> <span style="color:#a90d91">as</span> [<span style="color:#000">AGSGraphic</span>] {
+
+	<span style="color:#177500">//set the graphics’s symbol to fillSymbol</span>
+ <span style="color:#000">graphic</span>.<span style="color:#000">symbol</span> = <span style="color:#000">fillSymbol</span>
+            
+ <span style="color:#177500">//add the graphic to the layer</span>
+ <span style="color:#000">graphicsLayer</span>.<span style="color:#000">addGraphic</span>(<span style="color:#000">graphic</span>)
+}</code></pre></div>
+<h2 id="在标注中显示属性信息">在标注中显示属性信息</h2>
+
+<p>图形可以包含提供有关图形信息的自定义属性。例如，代表城市的图形可能具有提供有关其总人口，平均家庭收入等信息的属性。属性基本上是键值对，与每个图形一起存储在字典中。要在用户点击图形时自动显示地图标注，您必须：</p>
+
+<ul>
+<li>Set a <code>delegate</code> on AGSCallout</li>
+<li>Set a <code>calloutDelegate</code> on the AGSGraphicsLayer that contains the graphic.</li>
+</ul>
+
+<p>Refer to <a href="https://developers.arcgis.com/ios/10-2/swift/guide/map-callout.htm">Displaying a callout</a> topic for more information.</p>
+
+<p>个人理解类似气泡显示。</p>
+
+<h2 id="使用symbols">使用symbols</h2>
+
+<p>符号定义了图形的非地理方面的外观。这包括图形的颜色，边框宽度，透明度等等。适用于iOS的ArcGIS Runtime SDK包含许多符号类，每个符号类都允许您以独特的方式指定符号系统。每种符号类型也特定于一种几何类型（即点，线或多边形）。</p>
+
+<p>在许多应用中，相同的符号将被多次使用。
+例如，考虑使用查找任务来允许用户搜索县的应用程序。
+在这种情况下，每次执行任务时将相同的符号系统应用于任务的结果是有意义的。
+在这种情况下，您应该将对象的引用存储在类中的实例变量/属性中。</p>
+
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>(可用来描述的)几何图形</th>
+<th>Description</th>
+<th>class</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Simple Marker</td>
+<td>点</td>
+<td>用简单的形状象征点</td>
+<td>AGSSimpleMarkerSymbol</td>
+</tr>
+
+<tr>
+<td>Picture Marker</td>
+<td>点</td>
+<td>用图像象征点</td>
+<td>AGSPictureMarkerSymbol</td>
+</tr>
+
+<tr>
+<td>Simple Line</td>
+<td>折线</td>
+<td>用预定义的样式表示线条</td>
+<td>AGSSimpleLineSymbol</td>
+</tr>
+
+<tr>
+<td>Composite</td>
+<td>点/线/多边形</td>
+<td>用一组符号来表示几何图形</td>
+<td>AGSCompositeSymbol</td>
+</tr>
+
+<tr>
+<td>Simple Fill</td>
+<td>多边形</td>
+<td>用多种图案填充多边</td>
+<td>AGSSimpleFillSymbol</td>
+</tr>
+
+<tr>
+<td>Text</td>
+<td>点/线/多边形</td>
+<td>显示几何图形的文本标签</td>
+<td>AGSTextSymbol</td>
+</tr>
+</tbody>
+</table>
+
+<p>这里提到的所有符号类都从AGSSymbol继承。</p>
+
+<p>以下代码创建一个AGSSimpleMarkerSymbol，绘制为蓝色菱形，带有一个红色，三个像素宽的白色轮廓：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#000">/</span><span style="color:#000">create</span> <span style="color:#000">a</span> <span style="color:#000">marker</span> <span style="color:#000">symbol</span> <span style="color:#000">to</span> <span style="color:#000">be</span> <span style="color:#000">used</span> <span style="color:#000">by</span> <span style="color:#000">our</span> <span style="color:#000">Graphic</span>
+<span style="color:#a90d91">let</span> <span style="color:#000">myMarkerSymbol</span> = <span style="color:#000">AGSSimpleMarkerSymbol</span>()
+<span style="color:#000">myMarkerSymbol</span>.<span style="color:#000">color</span> = <span style="color:#000">UIColor</span>.<span style="color:#000">blue</span>
+<span style="color:#000">myMarkerSymbol</span>.<span style="color:#000">style</span> = .<span style="color:#000">diamond</span>
+<span style="color:#000">myMarkerSymbol</span>.<span style="color:#000">outline</span>.<span style="color:#000">color</span> = <span style="color:#000">UIColor</span>.<span style="color:#000">red</span>
+<span style="color:#000">myMarkerSymbol</span>.<span style="color:#000">outline</span>.<span style="color:#000">width</span> = <span style="color:#1c01ce">3</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/2018040974999c2.png" alt="2018040974999c2.png" /></p>
+
+<p>以下代码创建一个半透明红色填充和两个像素宽的红色轮廓的AGSSimpleFillSymbol。
+简单填充符号的大纲是一个AGSSimpleLineSymbol。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#177500">//Create the AGSSimpleFillSymbol and set it’s color</span>
+<span style="color:#a90d91">let</span> <span style="color:#000">myFillSymbol</span> = <span style="color:#000">AGSSimpleFillSymbol</span>()
+<span style="color:#000">myFillSymbol</span>.<span style="color:#000">color</span> = <span style="color:#000">UIColor</span>(<span style="color:#000">red</span>:<span style="color:#1c01ce">0.7</span>, <span style="color:#000">green</span>:<span style="color:#1c01ce">0.1</span>, <span style="color:#000">blue</span>:<span style="color:#1c01ce">0.1</span>, <span style="color:#000">alpha</span>:<span style="color:#1c01ce">0.5</span>)
+        
+<span style="color:#177500">//Create the AGSSimpleLineSymbol used for the outline</span>
+<span style="color:#a90d91">let</span> <span style="color:#000">myOutlineSymbol</span> = <span style="color:#000">AGSSimpleLineSymbol</span>()
+<span style="color:#000">myOutlineSymbol</span>.<span style="color:#000">color</span> = <span style="color:#000">UIColor</span>.<span style="color:#000">redColor</span>()
+<span style="color:#000">myOutlineSymbol</span>.<span style="color:#000">width</span> = <span style="color:#1c01ce">2</span>
+        
+<span style="color:#177500">//set the outline property to myOutlineSymbol</span>
+<span style="color:#000">myFillSymbol</span>.<span style="color:#000">outline</span> = <span style="color:#000">myOutlineSymbol</span></code></pre></div>
+<h2 id="使用-renderers">使用 Renderers</h2>
+
+<p>渲染器定义了一组将用于图形图层中的图形的符号。
+您可以使用渲染器根据图形的属性值使用不同颜色或大小的特征进行符号化。
+要使用渲染器，可以创建它，定义符号系统，然后设置Graphics图层的渲染器属性</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#000">graphicsLayer</span>.<span style="color:#000">renderer</span> = <span style="color:#000">myRenderer</span></code></pre></div>
+<p>一个简单的渲染器为每个图形使用相同的符号。
+你所需要做的就是用所需的符号创建渲染器，然后将其设置为图形图层的渲染器属性。</p>
+
+<p>AGSSimpleRenderer上的符号属性是只读的。
+要使用简单的渲染器使用符号，必须使用所需的符号创建渲染器。
+另外，符号类型需要与要素类型匹配（点要素的标记符号，折线要素的线符号以及多边形要素的填充符号）。</p>
+
+<p>其他略， 见 <a href="https://wiki.tyrad.cc/Swift/arcgis-symbols-and-renderers.html">https://wiki.tyrad.cc/Swift/arcgis-symbols-and-renderers.html</a></p>
+
+<h1 id="sketch-layer">Sketch layer</h1>
+
+<p>Sketch图层可以轻松地交互式地创建和修改几何图形。
+用户可以使用sketches注释地图，并通过绘制诸如区域，线条和点的形状来完善地理内容。
+您不必编写任何代码来实现sketching behavior。您只需连接Sketch图层，以便跟踪和响应用户交互。</p>
+
+<h2 id="sketch-workflow">Sketch workflow</h2>
+
+<p>这里介绍创建或修改sketch,所需的用户交互。</p>
+
+<p>1). 当sketch图层is active时，点击地图以向草图添加顶点。如果您正在绘制多边形，多段线或多点，则可以反复点击以向草图添加更多顶点。如果您正在绘制一个点，则再次点击地图会将现有顶点移动到新位置。
+2). 要在特定顶点(vertex)之后添加顶点，请点击顶点，然后点击要添加新顶点的地图。
+3). 要在两个顶点之间插入一个顶点，通过点击它来选择两个顶点之间的中点。接下来，通过点击要插入新顶点的地图来移动中点。这会在轻敲的位置插入一个新的顶点。
+4). 要移动顶点，请点击它来选择顶点。接下来，点击并按住顶点几秒钟。如果您在地图视图中启用了showMagnifierOnTapAndHold属性，则会出现放大镜。然后，您可以将手指拖动到要将顶点移动到的位。松开手指时，顶点将移动到该位置。</p>
+
+<h2 id="sketch-symbology">Sketch symbology</h2>
+
+<p>Sketch由很多不同的视觉元素组成,他们每个都是独立。例如:</p>
+
+<p><img src="http://image.tyrad.cc/2018041763737c2.png" alt="2018041763737c2.png" /></p>
+
+<p>您可以通过修改<code>AGSSketchGraphicsLayer</code>类的某些属性来更改每个元素的<code>symbology</code>。
+mainSymbol属性允许您修改草图的Line和Fill symbols。</p>
+
+<p>vertexSymbol，selectedVertexSymbol和midVertexSymbol属性允许您分别修改顶点，选定顶点和顶点之间的中点的符号。</p>
+
+<h2 id="使用sketch-layer">使用Sketch layer</h2>
+
+<p>要使用Sketch图层，请实例化<code>AGSSketchGraphicsLayer</code>类的对象并将其添加到地图中。
+如果您知道用户需要绘制的几何图形类型(the type of geometry)，则可以在实例化图层时传入几何图形(geometry)。或者，您可以实例化没有几何体的图层（如下所示），并稍后分配几何图形。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">let</span> <span style="color:#000">sketchLyr</span> = <span style="color:#000">AGSSketchGraphicsLayer</span>()
+<span style="color:#a90d91">self</span>.<span style="color:#000">mapView</span>.<span style="color:#000">addMapLayer</span>(<span style="color:#000">sketchLyr</span>, <span style="color:#000">withName</span>: <span style="color:#c41a16">&#34;Sketch Layer&#34;</span>)</code></pre></div>
+<p>您分配给图层的几何图形类型决定了用户允许绘制的图形(geometry)类型。几何图形可以是以下类型之
+一：</p>
+
+<ul>
+<li><code>AGSMutablePoint</code></li>
+<li><code>AGSMutableMultipoint</code></li>
+<li><code>AGSMutablePolyline</code></li>
+<li><code>AGSMutablePolygon</code></li>
+</ul>
+
+<p>请注意，需要将可变几何图元分配给图层，因为随着用户草图的绘制，图层将更新该几何图元。</p>
+
+<p>如果分配给图层的几何图形为空，则初始草图为空白，用户可以从头开始创建新草图。但是，如果几何体不是空的，则初始草图代表现有的几何体，用户可以对其进行修改。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#177500">//empty geometry for new sketch</span>
+<span style="color:#a90d91">let</span> <span style="color:#000">sketchPolygon</span> = <span style="color:#000">AGSMutablePolygon</span>(<span style="color:#000">spatialReference</span>: <span style="color:#a90d91">self</span>.<span style="color:#000">mapView</span>.<span style="color:#000">spatialReference</span>)
+<span style="color:#000">sketchLyr</span>.<span style="color:#000">geometry</span> = <span style="color:#000">sketchPolygon</span>
+        
+<span style="color:#177500">//or, existing geometry for modifying sketch</span>
+<span style="color:#a90d91">let</span> <span style="color:#000">sketchPolygon</span> = <span style="color:#000">polygon</span>.<span style="color:#000">mutableCopy</span>() <span style="color:#a90d91">as</span> <span style="color:#000">AGSMutablePolygon</span>
+<span style="color:#000">sketchLyr</span>.<span style="color:#000">geometry</span> = <span style="color:#000">sketchPolygon</span></code></pre></div>
+<p>将Sketch图层添加到地图并为其分配几何图形不足以开始草图操作。您还需要将其设置为地图的触控代理，以便它可以跟踪和响应用户交互。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">self</span>.<span style="color:#000">mapView</span>.<span style="color:#000">touchDelegate</span> = <span style="color:#000">sketchLyr</span></code></pre></div>
+<blockquote>
+<p>一次只能有一个对象作为地图的触控代理。将Sketch图层设置为委托可以取代任何先前的作为委托的对象。因此，您应该延迟将Sketch图层作为触摸委托，直到您真正希望用户开始绘制草图。</p>
+</blockquote>
+
+<p>此时，用户可以在地图上开始绘制草图，并在用户绘制草图时修改几何图形。您可以随时访问草图几何图形，如下所示：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">let</span> <span style="color:#000">sketch</span> = <span style="color:#000">sketchLyr</span>.<span style="color:#000">geometry</span></code></pre></div>
+<p>要开始另一个草图，你不需要创建一个新的图层; 可以为为现有图层分配新的几何图形。</p>
+
+<p>(不需要的时候)草图工作流程结束后，抓取草图图层的几何图形，清除图层，然后将图层取消设置为地图的触摸代理，以防止进一步绘制草图。请务必恢复原始触摸委托，以启用依赖跟踪地图触摸事件的应用程序的其他部分。</p>
+
+<blockquote>
+<p>note：
+用户完成草图后，建议使用AGSGeometryEngine上的simplifyGeometry：方法简化草图几何。
+如果几何体自身相交，或者多边形几何体的方向相反，则会进行必要的校正。
+如果在地图上启用了环绕，则使用AGSGeometryEngine上的normalizeCentralMeridianOfGeometry：方法规格化几何。</p>
+</blockquote>
+
+<h2 id="undo-and-redo-changes">Undo and Redo changes</h2>
+
+<p><code>Sketch layer</code>提供撤销和重做对草图所做更改的功能。该层在引擎盖下使用Apple的NSUndoManager类来维护草图更改的历史记录。修改草图时，无论是通过调用“草图”图层上的方法还是通过与地图交互，图层都会跟踪更改。您可以通过在NSUndoManager上调用相应的方法来撤销和重做这些更改序列，如下所示：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">let</span> <span style="color:#000">mgr</span> = <span style="color:#000">sketchLyr</span>.<span style="color:#000">undoManager</span>
+<span style="color:#177500">//Undo a change</span>
+<span style="color:#a90d91">if</span> <span style="color:#000">mgr</span>.<span style="color:#000">canUndo</span> {
+	<span style="color:#000">mgr</span>.<span style="color:#000">undo</span>()
+}
+        
+<span style="color:#177500">//Or, redo a change</span>
+<span style="color:#a90d91">if</span> <span style="color:#000">mgr</span>.<span style="color:#000">canRedo</span> {
+	<span style="color:#000">mgr</span>.<span style="color:#000">redo</span>()
+}</code></pre></div>
+<p>For more information about Undo and Redo changes, refer to Apple&rsquo;s <a href="http://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/UndoArchitecture/UndoArchitecture.html#//apple_ref/doc/uid/10000010-SW1">Undo Architecture guide</a>.</p>
+
+<blockquote>
+<p>草图更改特定于几何。
+当草图图层的几何体被替换时，草图变化的历史会自动清除。</p>
+</blockquote>
+
+<p>其他，略<a href="https://developers.arcgis.com/ios/10-2/swift/guide/sketch-layer.htm">https://developers.arcgis.com/ios/10-2/swift/guide/sketch-layer.htm</a></p>
+</div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li><a href="#dynamic-map-service-layer-动态服务图层">Dynamic map service layer  动态服务图层</a></li>
+<li><a href="#arcgis-tiled-map-service-layer-平铺服务层">ArcGIS Tiled Map Service layer  平铺服务层</a></li>
+<li><a href="#image-service-layer-图像服务层">Image Service layer 图像服务层</a>
+<ul>
+<li><a href="#about-image-services">About Image Services</a></li>
+<li><a href="#创建图层">创建图层</a></li>
+<li><a href="#修改地图内容">修改地图内容</a>
+<ul>
+<li><a href="#band-combinations">Band combinations</a></li>
+<li><a href="#mosaic-rules-马赛克规则">Mosaic rules 马赛克规则？</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#arcgis-local-tiled-layer-本地平铺图层">ArcGIS Local Tiled layer 本地平铺图层</a></li>
+<li><a href="#bing-地图图层">Bing 地图图层</a></li>
+<li><a href="#wms-layer-web地图服务层">WMS layer web地图服务层</a></li>
+<li><a href="#graphics-layers-图形层">Graphics layers 图形层</a>
+<ul>
+<li><a href="#添加一个graphics-layer">添加一个graphics layer</a></li>
+<li><a href="#添加图形功能">添加图形功能</a></li>
+<li><a href="#在标注中显示属性信息">在标注中显示属性信息</a></li>
+<li><a href="#使用symbols">使用symbols</a></li>
+<li><a href="#使用-renderers">使用 Renderers</a></li>
+</ul></li>
+<li><a href="#sketch-layer">Sketch layer</a>
+<ul>
+<li><a href="#sketch-workflow">Sketch workflow</a></li>
+<li><a href="#sketch-symbology">Sketch symbology</a></li>
+<li><a href="#使用sketch-layer">使用Sketch layer</a></li>
+<li><a href="#undo-and-redo-changes">Undo and Redo changes</a></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

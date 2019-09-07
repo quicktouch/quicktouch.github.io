@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>(转)mrpeak杂货铺-深度重构UIViewController |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> (转)mrpeak杂货铺-深度重构UIViewController </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#ios'>ios</a></span>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2017-11-19T21:33:42.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2017-11-19
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<p>UIViewController是iOS应用的基础业务单位，每个iOS程序员都写过无数的Controller。今天和大家一起来深度解剖Controller，看看怎么来做一次深度的重构。</p>
+
+<h2 id="重构的前提">重构的前提</h2>
+
+<p>我们应该谨慎的去重构我们的代码。iOS系统提供的UIViewController一定程度上可以很好的应付简单的页面单位，对于复杂的页面，我们也可以采用市面上主流的MV(X)系列模式，比如MVP，MVVM等。但随着单个Controller内业务进一步增长，我们需要更细粒度的重构，或者说对MV(X)做进一步的定制。</p>
+
+<p>以下图映客App两个页面为例。</p>
+
+<p><img src="http://image.tyrad.cc/2017111916058controller00.png" alt="2017111916058controller00.png" /></p>
+
+<p>左边页面元素少且静态，一个TableView基本上就能应付，右边的直播页面则元素多且动态，传统的MV(X)也会显得粒度太粗，这类复杂页面虽然不常遇到，但往往体现一个App的核心功能，合理的搭建或者重构这类Controller十分重要。</p>
+
+<h2 id="重构的本质">重构的本质</h2>
+
+<p>如何去定义重构，以我的理解可以归纳为两个关键词：分解，连接。</p>
+
+<p>重构的前提是复杂，臃肿，不直观，重构的手段是分解之后再连接。以映客的直播界面为例，UI元素，用户事件，服务器交互等基础元素都非常之多，以一个简单的MVP去归类代码犹嫌不足，我们还需要进一步的分解成view1,view2…viewN,presenter1,presenter2…presenterN,model1,model2…modelN，第二个问题是如何把这一个个的类文件或者说功能单位合理组织连接起来。完成上述两步我们就完成了一次重构，每一次将代码打散再串联就是一次重构。</p>
+
+<h2 id="分解uiviewcontroller">分解UIViewController</h2>
+
+<p>写了那么多Controller，让你来说下一个Controller都细分为哪些更小的功能单位，你能随口说出来么？只有做过足够多的业务，才能慢慢对Controller的构成有自己的理解。</p>
+
+<p>当然可以回答说MVC或者MVP，但这个答案粒度太粗，一个Controller内部会发生哪些事可以说的更细，我们看下VIPER的答案：</p>
+
+<blockquote>
+<p><strong>View</strong>: displays what it is told to by the Presenter and relays user input back to the Presenter.
+<strong>Interactor</strong>: contains the business logic as specified by a use case.
+<strong>Presenter</strong>: contains view logic for preparing content for display (as received from the Interactor) and for reacting to user inputs (by requesting new data from the Interactor).
+<strong>Entity</strong>: contains basic model objects used by the Interactor.
+<strong>Routing</strong>: contains navigation logic for describing which screens are shown in which order</p>
+</blockquote>
+
+<p>View不用多说，可以分解成更多的子View，最后合成一个树形结构。</p>
+
+<p>Entity自然是代表Model。</p>
+
+<p>MVC当中的C，MVP当中的P，被细分成了Interactor，Presenter，和Routing。这三个角色各自负责什么职责呢？</p>
+
+<p>Routing比较清楚，处理页面之间的跳转。我见过的项目代码里，很少有把这一部分单独拎出来的，但其实很有意义，这部分代表的是不同Controller之间耦合依赖的方式，无论是从类关系描述的角度还是Debug的角度，都能帮助我们快速定位代码。</p>
+
+<p>Interactor和Presenter初看起来很类似，似乎都是在处理业务逻辑。但业务逻辑其实是个大的归类，可以描述任何一种业务场景和行为。Interactor当中有个很重要的术语：use case，这个术语很多技术文章中都会遇见，它代表的是一个完整的，独立的，细分过后的业务流程，比如我们App当中的登录模块，它是一个业务单位，但它其实可以进一步的细分为很多的use case：</p>
+
+<p>use case 1: 验证邮箱长度</p>
+
+<p>use case 2: 密码强度检验</p>
+
+<p>use case 3: 从Server查询user name是否可用</p>
+
+<p>…</p>
+
+<p>user case N</p>
+
+<p>定义use case有什么好处呢？</p>
+
+<p>好处当然是分门别类，结构清晰。你把100本书堆一堆，或者放书架上按类别摆放，下次找书的时候那种方式你更舒服？独立出一个个的use case还有一个好处是方便unit test，如果项目对每一个use case都有写对应的unit test，每次遇到“前一发动全身“的业务更改，可以边杯茶边写代码。</p>
+
+<p>我见过不少代码都体现不出use case的分类，可以回头看下自己当前项目的登录模块，上面我提到的这些case有没有在类文件当中合理摆放，还是都搅在一起？</p>
+
+<p>所以VIPER当中interactor的说法是强化大家写单独的use case的意识，打开interactor.m，看到一个函数代表一个use case，同一类的use case再用#pragma mark 归在一块，别人看你代码时能不赏心悦目吗？</p>
+
+<p>再说到Presenter，Presenter可以看做是上面一个个use case的使用者和响应者。使用者将各个use case串联起来描述一个完整详细的业务流程，比如我们的登录模块，每次用户点击按钮注册的时候，会触发一系列的use case，从检验用户输入合法性，设备网络状态，服务器资源是否可用，到最后处理结果并展示，这就是一个完整的业务流程，这个流程由Presenter来描述。响应者表示Presenter在接收到服务器反馈之后进一步改变本地的状态，比如view的展示，新的数据修改等，甚至会调用Routing发生页面跳转。</p>
+
+<p>说到这里就比较明了了，interactor和routing都是服务的提供方，presenter是服务的使用和集成方。VIPER说白了不过是对传统的MVC当中的C做了进一步细分。</p>
+
+<p><strong>能不能分的更细呢？</strong></p>
+
+<p>当然可以，VIPER的分法是一种通用的做法，我们还可以从业务的角度去做细分。拿映客的直播界面做例子，比如Presenter当中包含了很多完整的业务流程：</p>
+
+<ul>
+<li>收到用户消息并展示</li>
+<li>收到礼品消息并展示</li>
+<li>收到弹幕消息并展示</li>
+<li>收到用户进出房间的事件，处理并展示</li>
+<li>收到XXX，处理并展示</li>
+</ul>
+
+<p>以Objective C语言的特性，我们可以生成更多的Presenter Category来安置这些流程，比如LivePresenter+Message, LivePresenter+Gift, LivePresenter+Danmu, LivePresenter+Room, LivePresenter+XXX。</p>
+
+<p>不要觉得上面几个业务流程很简单，一个presenter处理绰绰有余，我前段时间刚好做过一个直播项目，Presenter类超过1000行代码很轻松。</p>
+
+<p>还可以进一步细分，一个功能复杂繁多的页面基本上离不开UITableView，而tableview的代码量主要在于delegate和datasource。这两个职责当然可以放在presenter当中，或者我们向Android学习，把它们也独立出来放到单独的类文件中去处理，比如叫做Adapter，用代码来说就是：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#000">_tableView</span>.<span style="color:#000">delegate</span> <span style="color:#000">=</span> <span style="color:#a90d91">self</span>.<span style="color:#000">adapter</span>;
+<span style="color:#000">_tableView</span>.<span style="color:#000">dataSource</span> <span style="color:#000">=</span> <span style="color:#a90d91">self</span>.<span style="color:#000">adapter</span>;</code></pre></div>
+<p>和tableView相关的这些代码都搬到了adapter当中：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#a90d91">@protocol</span> <span style="color:#3f6e75">UITableViewDelegate</span>
+
+- (<span style="color:#000">CGFloat</span>)<span style="color:#000">tableView:</span>(<span style="color:#000">UITableView</span> <span style="color:#000">*</span>)<span style="color:#000">tableView</span> <span style="color:#000">heightForRowAtIndexPath:</span>(<span style="color:#000">NSIndexPath</span> <span style="color:#000">*</span>)<span style="color:#000">indexPath</span>;
+- (<span style="color:#000">CGFloat</span>)<span style="color:#000">tableView:</span>(<span style="color:#000">UITableView</span> <span style="color:#000">*</span>)<span style="color:#000">tableView</span> <span style="color:#000">heightForHeaderInSection:</span>(<span style="color:#000">NSInteger</span>)<span style="color:#000">section</span>;
+- (<span style="color:#000">CGFloat</span>)<span style="color:#000">tableView:</span>(<span style="color:#000">UITableView</span> <span style="color:#000">*</span>)<span style="color:#000">tableView</span> <span style="color:#000">heightForFooterInSection:</span>(<span style="color:#000">NSInteger</span>)<span style="color:#000">section</span>;
+
+<span style="color:#a90d91">@end</span>
+
+<span style="color:#a90d91">@protocol</span> <span style="color:#3f6e75">UITableViewDataSource</span><span style="color:#000">&lt;</span><span style="color:#000">NSObject</span><span style="color:#000">&gt;</span>
+
+<span style="color:#a90d91">@required</span>
+<span style="color:#000">-</span> (<span style="color:#000">NSInteger</span>)<span style="color:#000">tableView</span>:(<span style="color:#000">UITableView</span> <span style="color:#000">*</span>)<span style="color:#000">tableView</span> <span style="color:#000">numberOfRowsInSection</span>:(<span style="color:#000">NSInteger</span>)<span style="color:#000">section</span>;
+- (<span style="color:#000">UITableViewCell</span> <span style="color:#000">*</span>)<span style="color:#000">tableView:</span>(<span style="color:#000">UITableView</span> <span style="color:#000">*</span>)<span style="color:#000">tableView</span> <span style="color:#000">cellForRowAtIndexPath:</span>(<span style="color:#000">NSIndexPath</span> <span style="color:#000">*</span>)<span style="color:#000">indexPath</span>;
+<span style="color:#a90d91">@end</span></code></pre></div>
+<p>我们的Presenter就变得更加干净了，看起来和刚大扫除过的房间一样令人愉悦。</p>
+
+<p>好了，到这里我们盘子里的牛排已经被切成很多小块了，可以开始享用这些美味的代码了，继续我们的第二步工作：连接。</p>
+
+<h2 id="连接">连接</h2>
+
+<p>先看下我们分解之后有哪些元素：</p>
+
+<p>view(1…N), model(1…N), interactor, presenter(1…N), routing, adapter。看着应该粒度够细了，对于复杂的Controller，我个人习惯的做法和VIPER相近，但略有不同，Interactor当中的use case通过分层的架构被我放到server layer，分层的架构是另一个话题，这里不做细述。其他元素基本一致。</p>
+
+<p>至于怎么连接，手段无非就是OC的几种类交互机制：</p>
+
+<p><strong>Delegate, Target-Action, Block, Notification, KVO。</strong></p>
+
+<p>这几者之间的差异可以参考<a href="https://www.objc.io/issues/7-foundation/communication-patterns/">objc.io的一篇经典文章</a>。选择不同对耦合度，开发便捷性，调试是否方便等都会产生影响，如何应用不同的机制将各个单位串联起来就看架构师自己的积累和理解了，任何一个选择都有其优势和局限性。</p>
+
+<p>如果拿捏不准选哪个好的时候，我个人建议就使用delegate，朴素可靠且直观。delegate需要在不同的元素之间传递，代码量会偏多一些，但优点在protocol定义清晰，耦合在哪里一目了然，记得要注意循环引用的问题。</p>
+
+<p>我早些时候其他几种机制都在实际项目中做过尝试，最后综合比较还是倾向于选择delegate，再后来经过一番脑洞（主要是为了解决传递delegate所带来的额外代码量），利用runtime特性，做了一个CDD机制来自动串联各个功能单位。<a href="http://www.mrpeak.cn/blog/cdd/">CDD的详细介绍</a>在之前的博客中有，这里也不细述了，其本质或者说最终目的还是在于连接。</p>
+
+<p>说完了分解和连接，Controller的重构完成了大半，还剩下一个至关重要的概念：状态分享。</p>
+
+<h2 id="尽量避免跨类-跨模块或跨层共享状态">尽量避免跨类，跨模块或跨层共享状态</h2>
+
+<p>我之前在一篇博客中谈到过对于<a href="http://www.mrpeak.cn/blog/state/">程序状态的维护</a>。状态是否维护得好对于程序的整体稳定性很有影响，对于Controller当中的状态维护我有一个简单的建议：</p>
+
+<blockquote>
+<p>传递状态的时候尽可能Copy</p>
+</blockquote>
+
+<p>之前流行的函数式编程其实就很强调无状态性，无状态不是让大家不定义状态变量，而是避免函数之间的状态共享，具体到OC当中，就是不要在不同的功能单位里使用指向同一块内存拷贝的地址，为什么共享状态是一件危险的事，我在之前的文章中也介绍过。</p>
+
+<p>一般来说，我们从Model Layer或者说数据层拿到的model实例，扔给Controller使用的时候应该是一份新的拷贝，在不同的类单位里共享NSMutableString或者NSMutableArray，NSMutableDictionary很容易让你的代码变得不稳定，而且这类不稳定性一般很难调试，debug填坑的时候经常按下葫芦浮起瓢。</p>
+
+<p>在controller内部传递model或者state的时候，我们应该也尽量使用copy行为，任何state你一旦暴露出去就不再安全，自己创建，自己修改，自己销毁才是正途。说到</p>
+
+<p>我之前介绍Facebook架构的时候就提到过，Facebook当中的model layer是由一个单独开发团队维护的，应用层开发人员（Controller开发人员）获取到的都是新的拷贝，要修改某个属性不一定有接口，甚至要向model的维护团队提交增加接口的申请，对于state维护的谨慎度可见一斑。</p>
+
+<h2 id="使用脚本生成原型代码">使用脚本生成原型代码</h2>
+
+<p>说了这么多，Controller重构的关键点都说完了。最后再提个小Tip，一旦Controller做深度细分之后，团队成员需要对Controller的分法和构成有一致的认识，写出来的代码应该保持一致，我的做法是通过脚本的方式生成Controller各个相关的类文件.</p>
+
+<p>通过脚本将文件名和文件内容当中的Template全部替换成目标Controller的名字，就省去了很多重复代码的体力劳动，也达到了代码风格一致的目的。</p>
+
+<p>在公众号回复：Template ，可以下载脚本和UIViewController模板文件。</p>
+
+<p>欢迎关注公众号：MrPeakTech</p>
+</div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#重构的前提">重构的前提</a></li>
+<li><a href="#重构的本质">重构的本质</a></li>
+<li><a href="#分解uiviewcontroller">分解UIViewController</a></li>
+<li><a href="#连接">连接</a></li>
+<li><a href="#尽量避免跨类-跨模块或跨层共享状态">尽量避免跨类，跨模块或跨层共享状态</a></li>
+<li><a href="#使用脚本生成原型代码">使用脚本生成原型代码</a></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

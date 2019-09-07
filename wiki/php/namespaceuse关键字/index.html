@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>namespace和use关键字 |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> namespace和use关键字 </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#php'>php</a></span>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2017-09-02T15:53:55.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2017-09-02
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<blockquote>
+<p>参考:<a href="http://www.runoob.com/php/php-namespace.html">http://www.runoob.com/php/php-namespace.html</a></p>
+</blockquote>
+
+<p>namespace是php5.3时引入的.</p>
+
+<p>PHP 命名空间可以解决以下两类问题：</p>
+
+<ol>
+<li>用户编写的代码与PHP内部的类/函数/常量或第三方类/函数/常量之间的名字冲突。</li>
+<li>为很长的标识符名称(通常是为了缓解第一类问题而定义的)创建一个别名（或简短）的名称，提高源代码的可读性</li>
+</ol>
+
+<h2 id="定义命名空间">定义命名空间</h2>
+
+<p>命名空间通过关键字namespace 来声明。如果一个文件中包含命名空间，它必须在其它所有代码之前声明命名空间。语法格式如下；</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#000">&lt;</span> ?php  
+// 定义代码在 &#39;MyProject&#39; 命名空间中  
+namespace MyProject;  
+// ... 代码 ... </code></pre></div>
+<p>你也可以在同一个文件中定义不同的命名空间代码，如：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#000">&lt;</span> ?php  
+namespace MyProject1;  
+// MyProject1 命名空间中的PHP代码  
+ 
+namespace MyProject2;  
+// MyProject2 命名空间中的PHP代码    
+ 
+// 另一种语法
+namespace MyProject3 {  
+ // MyProject3 命名空间中的PHP代码    
+}  
+?&gt;  </code></pre></div>
+<p>在声明命名空间之前唯一合法的代码是用于定义源文件编码方式的 declare 语句。<strong>所有非 PHP 代码包括空白符都不能出现在命名空间的声明之前</strong>。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#633820">&lt;?php</span>
+<span style="color:#a90d91">declare</span>(<span style="color:#000">encoding</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;UTF-8&#39;</span>); <span style="color:#177500">//定义多个命名空间和不包含在命名空间中的代码
+</span><span style="color:#177500"></span><span style="color:#a90d91">namespace</span> <span style="color:#000">MyProject</span> {
+    <span style="color:#a90d91">const</span> <span style="color:#000">CONNECT_OK</span> <span style="color:#000">=</span> <span style="color:#1c01ce">1</span>;
+    <span style="color:#a90d91">class</span> <span style="color:#3f6e75">Connection</span> { <span style="color:#177500">/* ... */</span> }
+    <span style="color:#a90d91">function</span> <span style="color:#000">connect</span>() { <span style="color:#177500">/* ... */</span>  }
+}
+
+<span style="color:#a90d91">namespace</span> { <span style="color:#177500">// 全局代码
+</span><span style="color:#177500"></span>    <span style="color:#000">session_start</span>();
+    <span style="color:#000">$a</span> <span style="color:#000">=</span> <span style="color:#000">MyProject\connect</span>();
+    <span style="color:#a90d91">echo</span> <span style="color:#000">MyProject\Connection</span><span style="color:#000">::</span><span style="color:#836c28">start</span>();
+}
+<span style="color:#633820">?&gt;</span>
+</code></pre></div>
+<h2 id="子命名空间">子命名空间</h2>
+
+<p>与目录和文件的关系很象，PHP 命名空间也<strong>允许指定层次化的命名空间的名称</strong>。因此，命名空间的名字可以使用分层次的方式定义：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#633820">&lt;?php</span>
+<span style="color:#a90d91">namespace</span> <span style="color:#000">MyProject\Sub\Level</span>;  <span style="color:#177500">//声明分层次的单个命名空间
+</span><span style="color:#177500"></span><span style="color:#a90d91">const</span> <span style="color:#000">CONNECT_OK</span> <span style="color:#000">=</span> <span style="color:#1c01ce">1</span>;
+<span style="color:#a90d91">class</span> <span style="color:#3f6e75">Connection</span> { <span style="color:#177500">/* ... */</span> }
+<span style="color:#a90d91">function</span> <span style="color:#000">Connect</span>() { <span style="color:#177500">/* ... */</span>  }
+<span style="color:#633820">?&gt;</span>
+</code></pre></div>
+<h2 id="命名空间使用">命名空间使用</h2>
+
+<p>PHP 命名空间中的类名可以通过三种方式引用：</p>
+
+<ol>
+<li><strong>非限定名称，或不包含前缀的类名称</strong>，例如 <code>$a=new foo();</code>或 <code>foo::staticmethod();</code>。如果当前命名空间是 currentnamespace，foo 将被解析为 currentnamespace\foo。如果使用 foo 的代码是全局的，不包含在任何命名空间中的代码，则 foo 会被解析为foo。 <strong>警告：如果命名空间中的函数或常量未定义，则该非限定的函数名称或常量名称会被解析为全局函数名称或常量名称</strong>。</li>
+<li>限定名称,或包含前缀的名称，例如 <code>$a = new subnamespace\foo();</code> 或 <code>subnamespace\foo::staticmethod();</code>。如果当前的命名空间是 currentnamespace，则 foo 会被解析为 <code>currentnamespace\subnamespace\foo</code>。如果使用 foo 的代码是全局的，不包含在任何命名空间中的代码，foo 会被解析为<code>subnamespace\foo</code>。</li>
+<li>完全限定名称，或包含了全局前缀操作符的名称，例如，<code>$a = new \currentnamespace\foo();</code> 或 <code>\currentnamespace\foo::staticmethod();</code>。在这种情况下，foo 总是被解析为代码中的文字名<code>(literal name)currentnamespace\foo</code>。</li>
+</ol>
+
+<h2 id="使用命名空间-别名-导入">使用命名空间：别名/导入</h2>
+
+<p>PHP 命名空间支持 有两种使用别名或导入方式：为类名称使用别名，或为命名空间名称使用别名。注意PHP不支持导入函数或常量。
+在PHP中，别名是通过操作符 use 来实现的. 下面是一个使用所有可能的三种导入方式的例子：</p>
+
+<p>1). 使用use操作符导入/使用别名</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#633820">&lt;?php</span>
+<span style="color:#a90d91">namespace</span> <span style="color:#000">foo</span>;
+<span style="color:#a90d91">use</span> <span style="color:#000">My\Full\Classname</span> <span style="color:#a90d91">as</span> <span style="color:#000">Another</span>;
+
+<span style="color:#177500">// 下面的例子与 use My\Full\NSname as NSname 相同
+</span><span style="color:#177500"></span><span style="color:#a90d91">use</span> <span style="color:#000">My\Full\NSname</span>;
+
+<span style="color:#177500">// 导入一个全局类
+</span><span style="color:#177500"></span><span style="color:#a90d91">use</span> <span style="color:#000">\ArrayObject</span>;
+
+<span style="color:#000">$obj</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#a90d91">namespace</span><span style="color:#000">\Another</span>; <span style="color:#177500">// 实例化 foo\Another 对象
+</span><span style="color:#177500"></span><span style="color:#000">$obj</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">Another</span>; <span style="color:#177500">// 实例化 My\Full\Classname　对象
+</span><span style="color:#177500"></span><span style="color:#000">NSname\subns\func</span>(); <span style="color:#177500">// 调用函数 My\Full\NSname\subns\func
+</span><span style="color:#177500"></span><span style="color:#000">$a</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">ArrayObject</span>(<span style="color:#a90d91">array</span>(<span style="color:#1c01ce">1</span>)); <span style="color:#177500">// 实例化 ArrayObject 对象
+</span><span style="color:#177500">// 如果不使用 &#34;use \ArrayObject&#34; ，则实例化一个 foo\ArrayObject 对象
+</span><span style="color:#177500"></span><span style="color:#633820">?&gt;</span>
+</code></pre></div>
+<p>2). 一行中包含多个use语句</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#633820">&lt;?php</span>
+<span style="color:#a90d91">use</span> <span style="color:#000">My\Full\Classname</span> <span style="color:#a90d91">as</span> <span style="color:#000">Another</span>, <span style="color:#000">My\Full\NSname</span>;
+
+<span style="color:#000">$obj</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">Another</span>; <span style="color:#177500">// 实例化 My\Full\Classname 对象
+</span><span style="color:#177500"></span><span style="color:#000">NSname\subns\func</span>(); <span style="color:#177500">// 调用函数 My\Full\NSname\subns\func
+</span><span style="color:#177500"></span><span style="color:#633820">?&gt;</span>
+</code></pre></div>
+<p>导入操作是在编译执行的，但动态的类名称、函数名称或常量名称则不是。</p>
+
+<p>3). 导入和动态名称</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#633820">&lt;?php</span>
+<span style="color:#a90d91">use</span> <span style="color:#000">My\Full\Classname</span> <span style="color:#a90d91">as</span> <span style="color:#000">Another</span>, <span style="color:#000">My\Full\NSname</span>;
+
+<span style="color:#000">$obj</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">Another</span>; <span style="color:#177500">// 实例化一个 My\Full\Classname 对象
+</span><span style="color:#177500"></span><span style="color:#000">$a</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#39;Another&#39;</span>;
+<span style="color:#000">$obj</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">$a</span>;      <span style="color:#177500">// 实际化一个 Another 对象
+</span><span style="color:#177500"></span><span style="color:#633820">?&gt;</span>
+</code></pre></div>
+<p>另外，导入操作只影响非限定名称和限定名称。完全限定名称由于是确定的，故不受导入的影响。</p>
+
+<p>4).  导入和完全限定名称</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#633820">&lt;?php</span>
+<span style="color:#a90d91">use</span> <span style="color:#000">My\Full\Classname</span> <span style="color:#a90d91">as</span> <span style="color:#000">Another</span>, <span style="color:#000">My\Full\NSname</span>;
+
+<span style="color:#000">$obj</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">Another</span>; <span style="color:#177500">// instantiates object of class My\Full\Classname
+</span><span style="color:#177500"></span><span style="color:#000">$obj</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">\Another</span>; <span style="color:#177500">// instantiates object of class Another
+</span><span style="color:#177500"></span><span style="color:#000">$obj</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">Another\thing</span>; <span style="color:#177500">// instantiates object of class My\Full\Classname\thing
+</span><span style="color:#177500"></span><span style="color:#000">$obj</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">\Another\thing</span>; <span style="color:#177500">// instantiates object of class Another\thing
+</span><span style="color:#177500"></span><span style="color:#633820">?&gt;</span>
+</code></pre></div>
+<h2 id="举例">举例</h2>
+
+<p>两个文件分别为<code>A.php</code> 、<code>B.php</code></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP">//A.php
+<span style="color:#633820">&lt;?php</span>
+<span style="color:#a90d91">namespace</span> <span style="color:#000">A\B\C</span>;
+<span style="color:#a90d91">class</span> <span style="color:#3f6e75">Apple</span>
+{
+    <span style="color:#a90d91">function</span>  <span style="color:#000">hello</span>(){
+        <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#39;hello world A&#39;</span>;
+    }
+}
+<span style="color:#177500">//B.php
+</span><span style="color:#177500"></span><span style="color:#000">&lt;?</span><span style="color:#000">php</span>
+<span style="color:#a90d91">class</span> <span style="color:#3f6e75">Apple</span>
+{
+    <span style="color:#a90d91">function</span>  <span style="color:#000">hello</span>(){
+        <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#39;hello world B&#39;</span>;
+    }
+
+}
+</code></pre></div>
+<p>在其他文件中引入:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP">include_once(&#39;A.php&#39;);
+include_once(&#39;B.php&#39;);
+
+//没有使用namespace的情况
+$b = new Apple();
+$b-&gt;hello(); //hello world B
+echo &#39;&lt;/<span style="color:#000">br</span>&gt;&#39;;
+$a  = new A\B\C\Apple();
+$a -&gt;hello(); //hello world A</code></pre></div>
+<p>为了方便使用<code>use</code>关键字:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP">use  A\B\C\Apple;
+$c = new Apple();
+$c-&gt;hello(); //hello world A</code></pre></div>
+<p>(B.php)不带命名空间的情况，表示为全局类,使用方法: 类名加个<code>\</code>反斜杠。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP">$d = new \Apple();
+$d-&gt;hello();</code></pre></div></div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#定义命名空间">定义命名空间</a></li>
+<li><a href="#子命名空间">子命名空间</a></li>
+<li><a href="#命名空间使用">命名空间使用</a></li>
+<li><a href="#使用命名空间-别名-导入">使用命名空间：别名/导入</a></li>
+<li><a href="#举例">举例</a></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

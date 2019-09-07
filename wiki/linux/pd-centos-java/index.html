@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>pd安装centOS虚拟机并配置Java环境 |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> pd安装centOS虚拟机并配置Java环境 </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#linux'>linux</a></span>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2017-07-14T10:51:30.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2017-07-14
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<h2 id="install-centos-by-parallels-desktop">install Centos by parallels desktop</h2>
+
+<p>1). 通过iso镜像安装虚拟机</p>
+
+<p>2). centOS7环境下查看IP: <code>ip addr</code></p>
+
+<p><img src="http://image.tyrad.cc/20170714575451.png" alt="20170714575451.png" /></p>
+
+<p>3). 通过ssh连接</p>
+
+<pre><code>ssh -t username@IP地址  -p 22
+</code></pre>
+
+<!--
+mimal版缺少一些东西,
+
+wget/vim
+
+
+-->
+
+<h2 id="java">Java</h2>
+
+<p>通过yum的方式:</p>
+
+<p>列出yum库中的Java安装包:</p>
+
+<pre><code>yum -y list java*
+</code></pre>
+
+<p>安装:</p>
+
+<blockquote>
+<p>注：“*”表示将java-1.7.0的所有相关Java程序都安装上。</p>
+</blockquote>
+
+<pre><code>sudo yum -y install java-1.8.0-openjdk*
+</code></pre>
+
+<p>安装完查看版本:</p>
+
+<pre><code>[chen@centos-linux ~]$ java -version
+openjdk version &quot;1.8.0_131&quot;
+OpenJDK Runtime Environment (build 1.8.0_131-b12)
+OpenJDK 64-Bit Server VM (build 25.131-b12, mixed mode)
+</code></pre>
+
+<p>安装路径一般为<code>/usr/lib/jvm</code></p>
+
+<h2 id="tomcat">Tomcat</h2>
+
+<blockquote>
+<p><a href="https://www.1and1.com/cloud-community/learn/web-server/apache/install-and-use-apache-tomcat-on-centos-7/">https://www.1and1.com/cloud-community/learn/web-server/apache/install-and-use-apache-tomcat-on-centos-7/</a>
+<a href="https://www.howtoing.com/how-to-install-apache-tomcat-7-on-centos-7-via-yum/">https://www.howtoing.com/how-to-install-apache-tomcat-7-on-centos-7-via-yum/</a></p>
+</blockquote>
+
+<pre><code>sudo yum install tomcat
+</code></pre>
+
+<!--This will install Tomcat and its dependencies, including Java.
+-->
+
+<p>这将安装Tomcat及其依赖项，包括Java。</p>
+
+<p>tomcat目录: <code>/usr/share/tomcat</code></p>
+
+<p>这里有一些用户可能用到的额外的软件包,特别适用于tomcat新手。</p>
+
+<pre><code>sudo yum install tomcat-webapps tomcat-admin-webapps tomcat-docs-webapp tomcat-javadoc
+</code></pre>
+
+<p>将会安装:</p>
+
+<ul>
+<li>Tomcat根网页（tomcat-webapps）</li>
+<li>Tomcat Web管理管理器（tomcat-admin-webapps）</li>
+<li>官方在线Tomcat文档（tomcat-docs-webapp和tomcat-javadoc）</li>
+</ul>
+
+<p>如果您的服务器正在运行Apache，请使用以下命令停止：</p>
+
+<pre><code>sudo systemctl stop httpd
+</code></pre>
+
+<p>启动tomcat:</p>
+
+<pre><code>sudo systemctl start tomcat
+</code></pre>
+
+<p>关闭tomcat:</p>
+
+<pre><code>sudo systemctl stop tomcat
+</code></pre>
+
+<p>Tomcat开机启动:</p>
+
+<pre><code>sudo systemctl enable tomcat
+</code></pre>
+
+<p>您可以通过访问Web浏览器中的URL <code>http://example.com:8080</code>来验证Tomcat是否正在运行。您将看到Tomcat欢迎页面，其中包含您在上一步中安装的Tomcat文档的链接。</p>
+
+<h2 id="firewall">firewall</h2>
+
+<blockquote>
+<p>注: parallels desktop 主机要想访问到虚拟机的服务,需要开启桥接网络。
+此外liunx关闭防火、或开放对应端口</p>
+</blockquote>
+
+<hr />
+
+<blockquote>
+<p>适用于centOS7
+<a href="http://www.cnblogs.com/eaglezb/p/6073739.html">http://www.cnblogs.com/eaglezb/p/6073739.html</a></p>
+</blockquote>
+
+<p>关闭防火墙:</p>
+
+<pre><code>systemctl stop firewalld.service
+</code></pre>
+
+<p>开启防火墙:</p>
+
+<pre><code>systemctl start firewalld.service
+</code></pre>
+
+<p>开启端口(重启后生效)</p>
+
+<pre><code>firewall-cmd --zone=public --add-port=80/tcp --permanent
+</code></pre>
+
+<p>查看已经开放的端口：</p>
+
+<pre><code>firewall-cmd --list-ports
+</code></pre>
+
+<p>命令含义：</p>
+
+<p>–zone #作用域</p>
+
+<p>–add-port=80/tcp #添加端口，格式为：端口/通讯协议</p>
+
+<p>–permanent #永久生效，没有此参数重启后失效</p>
+
+<p>重启防火墙</p>
+
+<pre><code>firewall-cmd --reload #重启firewall
+systemctl stop firewalld.service #停止firewall
+systemctl disable firewalld.service #禁止firewall开机启动
+firewall-cmd --state #查看默认防火墙状态（关闭后显示notrunning，开启后显示running）
+</code></pre>
+
+<h2 id="mysql">Mysql</h2>
+
+<blockquote>
+<p>参考 <a href="https://help.aliyun.com/document_detail/50774.html?spm=5176.doc50700.6.669.om7xvz">https://help.aliyun.com/document_detail/50774.html?spm=5176.doc50700.6.669.om7xvz</a>
+权限不足的记得加上sudo</p>
+</blockquote>
+
+<p><strong>编译安装MySQL前预准备</strong></p>
+
+<p>首先检查系统中是否存在使用rpm安装的mysql或者mariadb，如果有需要先删除后再编译安装。</p>
+
+<pre><code>rpm -qa | grep mysql               #由下至上依次卸载
+rpm -qa | grep mariadb
+rpm -e xxx                           #一般使用此命令即可卸载成功,xxx表示前面命令列出的名字
+rpm -e --nodeps xxx                  #卸载不成功时使用此命令强制卸载
+</code></pre>
+
+<p>卸载完以后用 rpm -qa|grep mariadb 或者 rpm -qa|grep mysql 查看结果。</p>
+
+<p><strong>安装mysql</strong></p>
+
+<pre><code>yum install -y libaio-*                         #安装依赖
+mkdir -p /usr/local/mysql
+cd /usr/local/src
+wget http://zy-res.oss-cn-hangzhou.aliyuncs.com/mysql/mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz 
+tar -xzvf mysql-5.7.17-linux-glibc2.5-x86_64.tar.gz
+mv mysql-5.7.17-linux-glibc2.5-x86_64/* /usr/local/mysql/
+</code></pre>
+
+<p>建立mysql组和用户，并将mysql用户添加到mysql组</p>
+
+<pre><code>groupadd mysql
+useradd -g mysql -s /sbin/nologin mysql
+</code></pre>
+
+<p><strong>初始化mysql数据库</strong></p>
+
+<pre><code> /usr/local/mysql/bin/mysqld --initialize-insecure --datadir=/usr/local/mysql/data/ --user=mysql
+</code></pre>
+
+<p>更改mysql安装目录的属主属组</p>
+
+<pre><code>chown -R mysql:mysql /usr/local/mysql
+</code></pre>
+
+<p><strong>设置开机自启</strong></p>
+
+<pre><code>cd /usr/local/mysql/support-files/
+cp mysql.server  /etc/init.d/mysqld
+chmod +x /etc/init.d/mysqld             # 添加执行权限
+vim /etc/rc.d/rc.local                  
+</code></pre>
+
+<p>添加<code>/etc/init.d/mysqld start</code>到rc.local文件中，然后输入<code>:wq</code>保存退出。</p>
+
+<p><strong>设置环境变量</strong></p>
+
+<pre><code>vi /root/.bash_profile
+</code></pre>
+
+<p>添加:</p>
+
+<pre><code>PATH=$PATH:$HOME/bin:/usr/local/mysql/bin:/usr/local/mysql/lib
+</code></pre>
+
+<p>然后输入:wq保存退出，输入:</p>
+
+<pre><code>source /root/.bash_profile
+</code></pre>
+
+<p><strong>启动MySQL数据库</strong></p>
+
+<pre><code>/etc/init.d/mysqld start
+</code></pre>
+
+<p><strong>修改Mysql的root用户密码</strong></p>
+
+<p>初始化后mysql为空密码可直接登录，为了保证安全性需要修改mysql的root用户密码。</p>
+
+<pre><code>mysqladmin -u root password 'xxxx'
+</code></pre>
+
+<p><strong>测试登录MySQL数据库</strong></p>
+
+<pre><code>mysql -uroot -p密码                           #-p和密码之间无空格
+</code></pre>
+</div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#install-centos-by-parallels-desktop">install Centos by parallels desktop</a></li>
+<li><a href="#java">Java</a></li>
+<li><a href="#tomcat">Tomcat</a></li>
+<li><a href="#firewall">firewall</a></li>
+<li><a href="#mysql">Mysql</a></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

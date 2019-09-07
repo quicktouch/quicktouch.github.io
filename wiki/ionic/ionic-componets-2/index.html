@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>4.组件(二) |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> 4.组件(二) </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#ionic'>ionic</a></span>
+    
+    
+    
+    
+    
+    &nbsp/&nbsp<span>Tutorial</span>
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2018-05-23T00:00:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2018-05-23
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<h2 id="gestures">Gestures</h2>
+
+<p>基本手势可以通过HTML绑定,包括tap，press，pan，swipe，rotate和pinch事件。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"> &lt;<span style="color:#000">ion-card</span> <span style="color:#000">(</span><span style="color:#836c28">tap</span><span style="color:#000">)=&#34;</span><span style="color:#836c28">tapEvent</span><span style="color:#000">($</span><span style="color:#836c28">event</span><span style="color:#000">)&#34;</span>&gt;
+    &lt;<span style="color:#000">ion-item</span>&gt;
+      Tapped: {{tap}} times
+    &lt;/<span style="color:#000">ion-item</span>&gt;
+  &lt;/<span style="color:#000">ion-card</span>&gt;
+  
+  //.ts文件
+  public tap :number = 0;
+  tapEvent(e){
+    this.tap++;
+  }</code></pre></div>
+<h2 id="grid">Grid</h2>
+
+<p>Ionic的网格系统基于<a href="http://www.w3.org/TR/css3-flexbox/">flexbox</a>，
+网格由三个单元组成:网格grid，行row和列col。</p>
+
+<p>网格系统由12列组成，可以通过设置col- 属性来确定每个离子列的大小。详情参阅<a href="https://ionicframework.com/docs/api/components/grid/Grid/">https://ionicframework.com/docs/api/components/grid/Grid/</a></p>
+
+<h3 id="基本使用">基本使用</h3>
+
+<p>不额外标明比例,col就是等宽的。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">  &lt;<span style="color:#000">style</span>&gt;
+    <span style="color:#000">ion-col</span> <span style="color:#000">div</span> {
+      <span style="color:#a90d91">background-color</span>: <span style="color:#1c01ce">#f0f5ff</span>;
+      <span style="color:#a90d91">border</span>: <span style="color:#1c01ce">1</span><span style="color:#a90d91">px</span> <span style="color:#a90d91">solid</span> <span style="color:#1c01ce">#e6e9ee</span>;
+      <span style="color:#a90d91">border-radius</span>: <span style="color:#1c01ce">2</span><span style="color:#a90d91">px</span>;
+      <span style="color:#a90d91">padding</span>: <span style="color:#1c01ce">5</span><span style="color:#a90d91">px</span>;
+      <span style="color:#a90d91">text-align</span>: <span style="color:#a90d91">center</span>;
+    }
+    <span style="color:#000">p</span> {
+      <span style="color:#a90d91">padding</span>: <span style="color:#1c01ce">10</span><span style="color:#a90d91">px</span> <span style="color:#1c01ce">0</span> <span style="color:#1c01ce">0</span> <span style="color:#1c01ce">10</span><span style="color:#a90d91">px</span> <span style="color:#633820">!important</span>;
+      <span style="color:#a90d91">margin</span>: <span style="color:#1c01ce">0</span>;
+    }
+  &lt;/<span style="color:#000">style</span>&gt;
+  
+ &lt;<span style="color:#000">ion-grid</span>&gt;
+    &lt;<span style="color:#000">ion-row</span>&gt;
+      &lt;<span style="color:#000">ion-col</span>&gt;
+        &lt;<span style="color:#000">div</span>&gt;1 of 2&lt;/<span style="color:#000">div</span>&gt;
+      &lt;/<span style="color:#000">ion-col</span>&gt;
+      &lt;<span style="color:#000">ion-col</span>&gt;
+        &lt;<span style="color:#000">div</span>&gt;2 of 2&lt;/<span style="color:#000">div</span>&gt;
+      &lt;/<span style="color:#000">ion-col</span>&gt;
+    &lt;/<span style="color:#000">ion-row</span>&gt;
+
+    &lt;<span style="color:#000">ion-row</span>&gt;
+      &lt;<span style="color:#000">ion-col</span>&gt;
+        &lt;<span style="color:#000">div</span>&gt;1 of 3&lt;/<span style="color:#000">div</span>&gt;
+      &lt;/<span style="color:#000">ion-col</span>&gt;
+      &lt;<span style="color:#000">ion-col</span>&gt;
+        &lt;<span style="color:#000">div</span>&gt;2 of 3&lt;/<span style="color:#000">div</span>&gt;
+      &lt;/<span style="color:#000">ion-col</span>&gt;
+      &lt;<span style="color:#000">ion-col</span>&gt;
+        &lt;<span style="color:#000">div</span>&gt;3 of 3&lt;/<span style="color:#000">div</span>&gt;
+      &lt;/<span style="color:#000">ion-col</span>&gt;
+    &lt;/<span style="color:#000">ion-row</span>&gt;
+  &lt;/<span style="color:#000">ion-grid</span>&gt;
+  &lt;<span style="color:#000">hr</span>&gt;</code></pre></div>
+<p>设置某个item宽度,其他未标明的比例均分</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000">ion-grid</span>&gt;
+  &lt;<span style="color:#000">ion-row</span>&gt;
+    &lt;<span style="color:#000">ion-col</span>&gt;
+    &lt;<span style="color:#000">div</span>&gt;1&lt;/<span style="color:#000">div</span>&gt;
+    &lt;/<span style="color:#000">ion-col</span>&gt;
+    &lt;<span style="color:#000">ion-col</span> <span style="color:#836c28">col-6</span>&gt;
+      &lt;<span style="color:#000">div</span>&gt;1/2 width&lt;/<span style="color:#000">div</span>&gt;
+    &lt;/<span style="color:#000">ion-col</span>&gt;
+    &lt;<span style="color:#000">ion-col</span>&gt;
+      &lt;<span style="color:#000">div</span>&gt;3&lt;/<span style="color:#000">div</span>&gt;
+    &lt;/<span style="color:#000">ion-col</span>&gt;
+  &lt;/<span style="color:#000">ion-row</span>&gt;
+&lt;/<span style="color:#000">ion-grid</span>&gt;</code></pre></div>
+<p>每个item设置宽度,超过12就会换行</p>
+
+<pre><code>  &lt;ion-grid&gt;
+    &lt;ion-row&gt;
+      &lt;ion-col col-8 &gt;
+        &lt;div&gt;item1 9&lt;/div&gt;
+      &lt;/ion-col&gt;
+      &lt;ion-col col-3 &gt;
+        &lt;div&gt;item2 3&lt;/div&gt;
+      &lt;/ion-col&gt;
+      &lt;ion-col col-3 &gt;
+        &lt;div&gt;item2 3&lt;/div&gt;
+      &lt;/ion-col&gt;
+    &lt;/ion-row&gt;
+  &lt;/ion-grid&gt;
+</code></pre>
+
+<p><img src="http://image.tyrad.cc/2018052384501.png" alt="2018052384501.png" /></p>
+
+<h3 id="col-auto">col-auto</h3>
+
+<p>可变宽度,某个item自适应宽度<code>col-auto</code>，其他未标明的比例均分</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000">&lt;ion-grid&gt;</span>
+    <span style="color:#000">&lt;ion-row&gt;</span>
+      <span style="color:#000">&lt;ion-col&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>1<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+      <span style="color:#000">&lt;ion-col</span> <span style="color:#000">col-auto</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>一个名字很长很长很长很长很长的人<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+      <span style="color:#000">&lt;ion-col&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>3<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+    <span style="color:#000">&lt;/ion-row&gt;</span>
+  <span style="color:#000">&lt;/ion-grid&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052355428auto.png" alt="2018052355428auto.png" /></p>
+
+<h3 id="offset-x">offset-x</h3>
+
+<p>可以控制距左侧的item的距离:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000">&lt;ion-grid&gt;</span>
+    <span style="color:#000">&lt;ion-row&gt;</span>
+      <span style="color:#000">&lt;ion-col&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>1<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+      <span style="color:#000">&lt;ion-col</span> <span style="color:#000">offset-4</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>2<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+      <span style="color:#000">&lt;ion-col&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>3<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+    <span style="color:#000">&lt;/ion-row&gt;</span>
+  <span style="color:#000">&lt;/ion-grid&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052368823offset-x.png" alt="2018052368823offset-x.png" /></p>
+
+<h3 id="push-and-pull">push and pull</h3>
+
+<p>变换位置</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">  <span style="color:#000">&lt;ion-grid&gt;</span>
+    <span style="color:#000">&lt;ion-row&gt;</span>
+      <span style="color:#000">&lt;ion-col</span> <span style="color:#000">col-9</span> <span style="color:#000">push-3</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>item1 9<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+      <span style="color:#000">&lt;ion-col</span> <span style="color:#000">col-3</span> <span style="color:#000">pull-9</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>item2 3<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+    <span style="color:#000">&lt;/ion-row&gt;</span>
+  <span style="color:#000">&lt;/ion-grid&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052354385push-or-pull.png" alt="2018052354385push-or-pull.png" /></p>
+
+<h3 id="垂直方向对齐方式">垂直方向对齐方式</h3>
+
+<p>默认是顶部对齐</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">  <span style="color:#000">&lt;ion-grid&gt;</span>
+    <span style="color:#000">&lt;ion-row&gt;</span>
+      <span style="color:#000">&lt;ion-col&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>xx1 of 4<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+      <span style="color:#000">&lt;ion-col&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>2 of 4 <span style="color:#000">&lt;br&gt;</span>#<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+      <span style="color:#000">&lt;ion-col&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>3 of 4 <span style="color:#000">&lt;br&gt;</span>#<span style="color:#000">&lt;br&gt;</span>#<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+      <span style="color:#000">&lt;ion-col&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>4 of 4 <span style="color:#000">&lt;br&gt;</span>#<span style="color:#000">&lt;br&gt;</span>#<span style="color:#000">&lt;br&gt;</span>#<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+    <span style="color:#000">&lt;/ion-row&gt;</span>
+
+    <span style="color:#000">&lt;ion-row</span> <span style="color:#000">align-items-start</span><span style="color:#000">&gt;</span>
+      <span style="color:#000">&lt;ion-col&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>1 of 4<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+      <span style="color:#000">&lt;ion-col&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>2 of 4<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+      <span style="color:#000">&lt;ion-col&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>3 of 4<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+      <span style="color:#000">&lt;ion-col&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>4 of 4 <span style="color:#000">&lt;br&gt;</span>#<span style="color:#000">&lt;br&gt;</span>#<span style="color:#000">&lt;br&gt;</span>#<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+    <span style="color:#000">&lt;/ion-row&gt;</span>
+
+    <span style="color:#000">&lt;ion-row</span> <span style="color:#000">align-items-center</span><span style="color:#000">&gt;</span>
+      <span style="color:#000">&lt;ion-col&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>1 of 4<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+      <span style="color:#000">&lt;ion-col&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>2 of 4<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+      <span style="color:#000">&lt;ion-col&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>3 of 4<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+      <span style="color:#000">&lt;ion-col&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>4 of 4 <span style="color:#000">&lt;br&gt;</span>#<span style="color:#000">&lt;br&gt;</span>#<span style="color:#000">&lt;br&gt;</span>#<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+    <span style="color:#000">&lt;/ion-row&gt;</span>
+
+    <span style="color:#000">&lt;ion-row</span> <span style="color:#000">align-items-end</span><span style="color:#000">&gt;</span>
+      <span style="color:#000">&lt;ion-col&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>1 of 4<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+      <span style="color:#000">&lt;ion-col&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>2 of 4<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+      <span style="color:#000">&lt;ion-col&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>3 of 4<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+      <span style="color:#000">&lt;ion-col&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>4 of 4 <span style="color:#000">&lt;br&gt;</span>#<span style="color:#000">&lt;br&gt;</span>#<span style="color:#000">&lt;br&gt;</span>#<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+    <span style="color:#000">&lt;/ion-row&gt;</span>
+  <span style="color:#000">&lt;/ion-grid&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052316682h.png" alt="2018052316682h.png" /></p>
+
+<h3 id="水平对齐方式">水平对齐方式</h3>
+
+<p>默认从居左</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"> <span style="color:#000">&lt;ion-grid&gt;</span>
+    <span style="color:#000">&lt;ion-row</span> <span style="color:#000">justify-content-start</span><span style="color:#000">&gt;</span>
+      <span style="color:#000">&lt;ion-col</span> <span style="color:#000">col-3</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>左对齐 1 of 2<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+      <span style="color:#000">&lt;ion-col</span> <span style="color:#000">col-3</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>左对齐 2 of 2<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+    <span style="color:#000">&lt;/ion-row&gt;</span>
+
+    <span style="color:#000">&lt;ion-row</span> <span style="color:#000">justify-content-center</span><span style="color:#000">&gt;</span>
+      <span style="color:#000">&lt;ion-col</span> <span style="color:#000">col-3</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>居中1 of 2<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+      <span style="color:#000">&lt;ion-col</span> <span style="color:#000">col-3</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>居中2 of 2<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+    <span style="color:#000">&lt;/ion-row&gt;</span>
+
+    <span style="color:#000">&lt;ion-row</span> <span style="color:#000">justify-content-end</span><span style="color:#000">&gt;</span>
+      <span style="color:#000">&lt;ion-col</span> <span style="color:#000">col-3</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>右对齐1 of 2<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+      <span style="color:#000">&lt;ion-col</span> <span style="color:#000">col-3</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>右对齐2 of 2<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+    <span style="color:#000">&lt;/ion-row&gt;</span>
+
+    <span style="color:#000">&lt;ion-row</span> <span style="color:#000">justify-content-around</span><span style="color:#000">&gt;</span>
+      <span style="color:#000">&lt;ion-col</span> <span style="color:#000">col-3</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>around对齐1 of 2<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+      <span style="color:#000">&lt;ion-col</span> <span style="color:#000">col-3</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>around对齐2 of 2<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+    <span style="color:#000">&lt;/ion-row&gt;</span>
+
+    <span style="color:#000">&lt;ion-row</span> <span style="color:#000">justify-content-between</span><span style="color:#000">&gt;</span>
+      <span style="color:#000">&lt;ion-col</span> <span style="color:#000">col-3</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>between对齐1 of 2<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+      <span style="color:#000">&lt;ion-col</span> <span style="color:#000">col-3</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;div&gt;</span>between对齐2 of 2<span style="color:#000">&lt;/div&gt;</span>
+      <span style="color:#000">&lt;/ion-col&gt;</span>
+    <span style="color:#000">&lt;/ion-row&gt;</span>
+  <span style="color:#000">&lt;/ion-grid&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052326167v.png" alt="2018052326167v.png" /></p>
+
+<h2 id="icons">icons</h2>
+
+<p>提供了700+ci <a href="https://ionicframework.com/docs/ionicons/">icon</a></p>
+
+<p>所有图标都有活动状态active和非活动状态inactive。活动图标通常是完整且厚实的，其中非活动图标被勾勒出来并且很薄。将isActive属性设置为true或false以更改图标的状态。认为激活状态。 (个人没发现什么区别)</p>
+
+<pre><code>&lt;ion-icon name=&quot;heart&quot;&gt;&lt;/ion-icon&gt;
+&lt;ion-icon name=&quot;heart&quot; isActive=&quot;false&quot;&gt;&lt;/ion-icon&gt;
+&lt;button ion-button clear&gt; &lt;ion-icon name=&quot;heart&quot;&gt;&lt;/ion-icon&gt; &lt;/button&gt;
+</code></pre>
+
+<p>许多图标都有Material Design和iOS版本。Ionic将自动使用基于该平台的正确版本。要指定要用于每个平台的图标，请使用md和ios属性并提供平台特定的图标名称。</p>
+
+<p>不同平台可以指定不同的图标</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000">&lt;ion-icon</span> <span style="color:#836c28">ios=</span><span style="color:#c41a16">&#34;logo-apple&#34;</span> <span style="color:#836c28">md=</span><span style="color:#c41a16">&#34;logo-android&#34;</span><span style="color:#000">&gt;&lt;/ion-icon&gt;</span></code></pre></div>
+<h2 id="inputs">inputs</h2>
+
+<p>input对于以安全的方式收集和处理用户输入非常重要。他们应该遵循每个平台的样式和交互准则，以便他们直观地与用户交互。Ionic使用Angular 2的表单库，它可以被认为是两个相关的部分，控件和控件组。</p>
+
+<p>表单中的每个输入字段都有一个Control，一个绑定到字段中的值的函数，并执行验证。控制组是控件的集合。 控件组处理表单提交，并提供可用于确定整个表单是否有效的高级API。</p>
+
+<p>下面列出了许多可用于设置表单样式及其各种输入字段的属性。有关表单逻辑的更多信息，请查看<a href="https://ionicframework.com/docs/api/components/input/Input/">Inputs API文档</a>。</p>
+
+<h3 id="固定内联标签-fixed">固定内联标签 fixed</h3>
+
+<pre><code>&lt;p&gt;使用fixed可将标签放置在input element的左侧。 输入文本时，标签不会隐藏。 无论标签的长度如何，输入都将在同一位置对齐。 占位符文本可以与固定标签结合使用。&lt;/p&gt;
+  &lt;ion-list&gt;
+    &lt;ion-item&gt;
+      &lt;ion-label fixed&gt;usernameusernameusername&lt;/ion-label&gt;
+      &lt;ion-input type=&quot;text&quot;&gt;&lt;/ion-input&gt;
+    &lt;/ion-item&gt;
+    &lt;ion-item&gt;
+      &lt;ion-label fixed&gt;password&lt;/ion-label&gt;
+      &lt;ion-input type=&quot;password&quot;&gt;&lt;/ion-input&gt;
+    &lt;/ion-item&gt;
+  &lt;/ion-list&gt;
+</code></pre>
+
+<p><img src="http://image.tyrad.cc/20180523617861.png" alt="20180523617861.png" /></p>
+
+<h3 id="floating-labels">floating labels</h3>
+
+<p>编辑状态时，label向上浮动</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"> <span style="color:#000">&lt;ion-list&gt;</span>
+    <span style="color:#000">&lt;ion-item&gt;</span>
+      <span style="color:#000">&lt;ion-label</span> <span style="color:#000">floating</span><span style="color:#000">&gt;</span>Username<span style="color:#000">&lt;/ion-label&gt;</span>
+      <span style="color:#000">&lt;ion-input</span> <span style="color:#836c28">type=</span><span style="color:#c41a16">&#34;text&#34;</span><span style="color:#000">&gt;&lt;/ion-input&gt;</span>
+    <span style="color:#000">&lt;/ion-item&gt;</span>
+    <span style="color:#000">&lt;ion-item&gt;</span>
+      <span style="color:#000">&lt;ion-label</span> <span style="color:#000">floating</span><span style="color:#000">&gt;</span>Password<span style="color:#000">&lt;/ion-label&gt;</span>
+      <span style="color:#000">&lt;ion-input</span> <span style="color:#836c28">type=</span><span style="color:#c41a16">&#34;password&#34;</span><span style="color:#000">&gt;&lt;/ion-input&gt;</span>
+    <span style="color:#000">&lt;/ion-item&gt;</span>
+  <span style="color:#000">&lt;/ion-list&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052334812float.png" alt="2018052334812float.png" /></p>
+
+<h3 id="inline-labels">Inline Labels</h3>
+
+<p>没有任何属性的离子标签是内联标签。输入文本时，标签不会隐藏。占位符文本可以与内联标签结合使用。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000">&lt;ion-list&gt;</span>
+
+    <span style="color:#000">&lt;ion-item&gt;</span>
+      <span style="color:#000">&lt;ion-label&gt;</span>Username长氅changchangchang<span style="color:#000">&lt;/ion-label&gt;</span>
+      <span style="color:#000">&lt;ion-input</span> <span style="color:#836c28">type=</span><span style="color:#c41a16">&#34;text&#34;</span><span style="color:#000">&gt;&lt;/ion-input&gt;</span>
+    <span style="color:#000">&lt;/ion-item&gt;</span>
+
+    <span style="color:#000">&lt;ion-item&gt;</span>
+      <span style="color:#000">&lt;ion-label&gt;</span>Password<span style="color:#000">&lt;/ion-label&gt;</span>
+      <span style="color:#000">&lt;ion-input</span> <span style="color:#836c28">type=</span><span style="color:#c41a16">&#34;password&#34;</span><span style="color:#000">&gt;&lt;/ion-input&gt;</span>
+    <span style="color:#000">&lt;/ion-item&gt;</span>
+  <span style="color:#000">&lt;/ion-list&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052341099inline.png" alt="2018052341099inline.png" /></p>
+
+<h3 id="inset-labels">Inset Labels</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"> <span style="color:#000">&lt;p&gt;</span>默认情况下，每个输入项将填充其父元素的宽度的100％。
+    通过将inset属性添加到ion-list组件来使输入插入。<span style="color:#000">&lt;/p&gt;</span>
+  <span style="color:#000">&lt;ion-list</span> <span style="color:#000">inset</span><span style="color:#000">&gt;</span>
+
+    <span style="color:#000">&lt;ion-item&gt;</span>
+      <span style="color:#000">&lt;ion-label&gt;</span>Username<span style="color:#000">&lt;/ion-label&gt;</span>
+      <span style="color:#000">&lt;ion-input</span> <span style="color:#836c28">type=</span><span style="color:#c41a16">&#34;text&#34;</span><span style="color:#000">&gt;&lt;/ion-input&gt;</span>
+    <span style="color:#000">&lt;/ion-item&gt;</span>
+
+    <span style="color:#000">&lt;ion-item&gt;</span>
+      <span style="color:#000">&lt;ion-label&gt;</span>Password<span style="color:#000">&lt;/ion-label&gt;</span>
+      <span style="color:#000">&lt;ion-input</span> <span style="color:#836c28">type=</span><span style="color:#c41a16">&#34;password&#34;</span><span style="color:#000">&gt;&lt;/ion-input&gt;</span>
+    <span style="color:#000">&lt;/ion-item&gt;</span>
+  <span style="color:#000">&lt;/ion-list&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052363525inset.png" alt="2018052363525inset.png" /></p>
+
+<h3 id="placeholder-labels">Placeholder Labels</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"> <span style="color:#000">&lt;p&gt;</span>将placeholder添加到input标签<span style="color:#000">&lt;/p&gt;</span>
+  <span style="color:#000">&lt;ion-list&gt;</span>
+    <span style="color:#000">&lt;ion-item&gt;</span>
+      <span style="color:#000">&lt;ion-input</span> <span style="color:#836c28">type=</span><span style="color:#c41a16">&#34;text&#34;</span> <span style="color:#836c28">placeholder=</span><span style="color:#c41a16">&#34;Username&#34;</span><span style="color:#000">&gt;&lt;/ion-input&gt;</span>
+    <span style="color:#000">&lt;/ion-item&gt;</span>
+    <span style="color:#000">&lt;ion-item&gt;</span>
+      <span style="color:#000">&lt;ion-input</span> <span style="color:#836c28">type=</span><span style="color:#c41a16">&#34;password&#34;</span> <span style="color:#836c28">placeholder=</span><span style="color:#c41a16">&#34;Password&#34;</span><span style="color:#000">&gt;&lt;/ion-input&gt;</span>
+    <span style="color:#000">&lt;/ion-item&gt;</span>
+  <span style="color:#000">&lt;/ion-list&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052358267placeholder.png" alt="2018052358267placeholder.png" /></p>
+
+<h3 id="stacked-labels">Stacked Labels</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000">&lt;p&gt;</span>堆叠标签将始终显示在输入顶部。
+    将堆叠的属性添加到要使用的离子标签。
+    占位符文本可以与堆叠标签结合使用。<span style="color:#000">&lt;/p&gt;</span>
+  <span style="color:#000">&lt;ion-list&gt;</span>
+    <span style="color:#000">&lt;ion-item&gt;</span>
+      <span style="color:#000">&lt;ion-label</span> <span style="color:#000">stacked</span><span style="color:#000">&gt;</span>Username<span style="color:#000">&lt;/ion-label&gt;</span>
+      <span style="color:#000">&lt;ion-input</span> <span style="color:#836c28">type=</span><span style="color:#c41a16">&#34;text&#34;</span><span style="color:#000">&gt;&lt;/ion-input&gt;</span>
+    <span style="color:#000">&lt;/ion-item&gt;</span>
+    <span style="color:#000">&lt;ion-item&gt;</span>
+      <span style="color:#000">&lt;ion-label</span> <span style="color:#000">stacked</span><span style="color:#000">&gt;</span>Password<span style="color:#000">&lt;/ion-label&gt;</span>
+      <span style="color:#000">&lt;ion-input</span> <span style="color:#836c28">type=</span><span style="color:#c41a16">&#34;password&#34;</span><span style="color:#000">&gt;&lt;/ion-input&gt;</span>
+    <span style="color:#000">&lt;/ion-item&gt;</span>
+  <span style="color:#000">&lt;/ion-list&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052342006stack.png" alt="2018052342006stack.png" /></p>
+
+<p><a href="https://ionicframework.com/docs/components/#navigation">https://ionicframework.com/docs/components/#navigation</a></p>
+
+<h2 id="loading">Loading</h2>
+
+<p>基本使用:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a90d91">import</span> { <span style="color:#000">LoadingController</span>} <span style="color:#000">from</span> <span style="color:#c41a16">&#34;ionic-angular&#34;</span>;
+...
+<span style="color:#000">showLoading</span>(){
+    <span style="color:#a90d91">let</span> <span style="color:#000">loading</span> <span style="color:#000">=</span> <span style="color:#a90d91">this</span>.<span style="color:#000">loadingCtrl</span>.<span style="color:#000">create</span>();
+    <span style="color:#000">loading</span>.<span style="color:#000">present</span>();
+}
+
+<span style="color:#177500">//可以定义持续时间等
+</span><span style="color:#177500"></span><span style="color:#000">showLoading2</span>(){
+    <span style="color:#a90d91">let</span> <span style="color:#000">loading</span> <span style="color:#000">=</span> <span style="color:#a90d91">this</span>.<span style="color:#000">loadingCtrl</span>.<span style="color:#000">create</span>(
+     {
+       <span style="color:#000">content</span><span style="color:#000">:</span><span style="color:#c41a16">&#34;Please wait...&#34;</span>,
+       <span style="color:#000">duration</span><span style="color:#000">:</span><span style="color:#1c01ce">3000</span>
+     }
+    );
+    <span style="color:#000">loading</span>.<span style="color:#000">present</span>();
+}
+</code></pre></div>
+<h2 id="lists">Lists</h2>
+
+<p>列表用于显示信息行，如联系人列表，播放列表或菜单。更多请查看<a href="https://ionicframework.com/docs/api/components/list/List">List API docs</a>和<a href="https://ionicframework.com/docs/api/components/item/Item">item Api</a></p>
+
+<h3 id="basic">basic</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">//html文件
+...
+  &lt;<span style="color:#000">ion-list</span>&gt;
+    &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-item</span> <span style="color:#000">*</span><span style="color:#836c28">ngFor</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;let item of items&#34;</span> <span style="color:#000">(</span><span style="color:#836c28">click</span><span style="color:#000">)=&#34;</span><span style="color:#836c28">itemSelected</span><span style="color:#000">(</span><span style="color:#836c28">item</span><span style="color:#000">)&#34;</span>&gt;
+      {{item}}
+    &lt;/<span style="color:#000">button</span>&gt;
+  &lt;/<span style="color:#000">ion-list</span>&gt;
+  
+  //ts文件
+  ...
+  items = [
+    &#39;Pokémon Yellow&#39;,
+    &#39;Super Metroid&#39;,
+    &#39;Mega Man X&#39;
+  ];
+
+  itemSelected(item: string) {
+    console.log(&#34;Selected Item&#34;, item);
+  }
+  ...</code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052441689list-basic.png" alt="2018052441689list-basic.png" /></p>
+
+<h3 id="no-lines">No lines</h3>
+
+<!--不带分割线-->
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"> <span style="color:#000">&lt;ion-list</span> <span style="color:#000">no-lines</span><span style="color:#000">&gt;</span>
+    <span style="color:#000">&lt;button</span> <span style="color:#000">ion-item</span> <span style="color:#000">*</span><span style="color:#836c28">ngFor=</span><span style="color:#c41a16">&#34;let item of items&#34;</span><span style="color:#000">&gt;</span>
+      {{item}}
+    <span style="color:#000">&lt;/button&gt;</span>
+  <span style="color:#000">&lt;/ion-list&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/20180524904002.png" alt="20180524904002.png" /></p>
+
+<h3 id="inset-list">Inset List</h3>
+
+<p>列表默认情况下没有 outside margin。
+要添加一个，将<code>inset</code>属性添加给<code>ion-list</code>组件</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"> <span style="color:#000">&lt;ion-list</span> <span style="color:#000">inset</span><span style="color:#000">&gt;</span>
+    <span style="color:#000">&lt;button</span> <span style="color:#000">ion-item</span> <span style="color:#000">*</span><span style="color:#836c28">ngFor=</span><span style="color:#c41a16">&#34;let item of items&#34;</span><span style="color:#000">&gt;</span>{{item}}<span style="color:#000">&lt;/button&gt;</span>
+  <span style="color:#000">&lt;/ion-list&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052429053.png" alt="2018052429053.png" /></p>
+
+<h3 id="list-dividers">List Dividers</h3>
+
+<p>分组，请使用<code>&lt;ion-item-group&gt;</code>而不是<ion-list>。配合使用<code>&lt;ion-item-divider&gt;</code>组件将组划分为多个部分.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000">&lt;ion-item-group&gt;</span>
+    <span style="color:#000">&lt;ion-item-divider&gt;</span>A<span style="color:#000">&lt;/ion-item-divider&gt;</span>
+    <span style="color:#000">&lt;ion-item&gt;</span>Angola<span style="color:#000">&lt;/ion-item&gt;</span>
+    <span style="color:#000">&lt;ion-item&gt;</span>Argentina<span style="color:#000">&lt;/ion-item&gt;</span>
+    <span style="color:#000">&lt;ion-item-divider&gt;</span>B<span style="color:#000">&lt;/ion-item-divider&gt;</span>
+    <span style="color:#000">&lt;ion-item&gt;</span>Bngola<span style="color:#000">&lt;/ion-item&gt;</span>
+    <span style="color:#000">&lt;ion-item&gt;</span>Brgentina<span style="color:#000">&lt;/ion-item&gt;</span>
+  <span style="color:#000">&lt;/ion-item-group&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/20180524262894.png" alt="20180524262894.png" /></p>
+
+<h3 id="list-headers">List Headers</h3>
+
+<p>每个列表可以在列表顶部包含一个标题</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000">ion-list</span>&gt;
+    &lt;<span style="color:#000">ion-list-header</span>&gt;
+      Action
+    &lt;/<span style="color:#000">ion-list-header</span>&gt;
+    &lt;<span style="color:#000">ion-item</span>&gt;Terminator II&lt;/<span style="color:#000">ion-item</span>&gt;
+    &lt;<span style="color:#000">ion-item</span>&gt;The Empire Strikes Back&lt;/<span style="color:#000">ion-item</span>&gt;
+    &lt;<span style="color:#000">ion-item</span>&gt;Blade Runner&lt;/<span style="color:#000">ion-item</span>&gt;
+&lt;/<span style="color:#000">ion-list</span>&gt;</code></pre></div>
+<p><img src="http://image.tyrad.cc/201805249908h.png" alt="201805249908h.png" /></p>
+
+<h3 id="icon-list">Icon List</h3>
+
+<p>图标的位置可以使用项目左侧属性和项目右侧属性进行设置。 图标的大小默认为较小，并且可以使用较大的属性使其更大.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000">&lt;ion-list&gt;</span>
+    <span style="color:#000">&lt;ion-item&gt;</span>
+      <span style="color:#000">&lt;ion-icon</span> <span style="color:#836c28">name=</span><span style="color:#c41a16">&#34;leaf&#34;</span> <span style="color:#000">item-start</span><span style="color:#000">&gt;&lt;/ion-icon&gt;</span>
+      Herbology
+      <span style="color:#000">&lt;ion-icon</span> <span style="color:#836c28">name=</span><span style="color:#c41a16">&#34;rose&#34;</span> <span style="color:#000">item-end</span><span style="color:#000">&gt;&lt;/ion-icon&gt;</span>
+    <span style="color:#000">&lt;/ion-item&gt;</span>
+  <span style="color:#000">&lt;/ion-list&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/20180524181305.png" alt="20180524181305.png" /></p>
+
+<h3 id="avatar-list">Avatar List</h3>
+
+<p>头像显示比图标大的图像，但小于缩略图。  要使用头像，请在项目内添加组件<ion-avatar>。  头像的位置可以使用item-left和item-right属性进行设置：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"> <span style="color:#000">&lt;ion-list&gt;</span>
+    <span style="color:#000">&lt;ion-item&gt;</span>
+      <span style="color:#000">&lt;ion-avatar</span> <span style="color:#000">item-start</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;img</span> <span style="color:#836c28">src=</span><span style="color:#c41a16">&#34;assets/imgs/avatar-han.png&#34;</span><span style="color:#000">&gt;</span>
+      <span style="color:#000">&lt;/ion-avatar&gt;</span>
+      <span style="color:#000">&lt;h2&gt;</span>Han<span style="color:#000">&lt;/h2&gt;</span>
+      <span style="color:#000">&lt;p&gt;</span>Ugh. As if.<span style="color:#000">&lt;/p&gt;</span>
+    <span style="color:#000">&lt;/ion-item&gt;</span>
+    <span style="color:#000">&lt;ion-item&gt;</span>
+      <span style="color:#000">&lt;ion-avatar</span> <span style="color:#000">item-start</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;img</span> <span style="color:#836c28">src=</span><span style="color:#c41a16">&#34;assets/imgs/avatar-han.png&#34;</span><span style="color:#000">&gt;</span>
+      <span style="color:#000">&lt;/ion-avatar&gt;</span>
+      <span style="color:#000">&lt;h2&gt;</span>Han<span style="color:#000">&lt;/h2&gt;</span>
+      <span style="color:#000">&lt;p&gt;</span>Ugh. As if.<span style="color:#000">&lt;/p&gt;</span>
+    <span style="color:#000">&lt;/ion-item&gt;</span>
+  <span style="color:#000">&lt;/ion-list&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052494592av.png" alt="2018052494592av.png" /></p>
+
+<h3 id="multi-line-list">Multi-line List</h3>
+
+<p>多行列表与常规列表相同，但项目具有多行文本。
+当<code>&lt;ion-item&gt;</code>组件包含多个标题或段落元素时，它会自动扩展其高度以适应新的文本行。
+以下是三行文字的示例：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">  <span style="color:#000">&lt;ion-list&gt;</span>
+    <span style="color:#000">&lt;ion-item&gt;</span>
+      <span style="color:#000">&lt;ion-avatar</span> <span style="color:#000">item-start</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;img</span> <span style="color:#836c28">src=</span><span style="color:#c41a16">&#34;assets/imgs/avatar-han.png&#34;</span><span style="color:#000">&gt;</span>
+      <span style="color:#000">&lt;/ion-avatar&gt;</span>
+      <span style="color:#000">&lt;h2&gt;</span>Finn<span style="color:#000">&lt;/h2&gt;</span>
+      <span style="color:#000">&lt;h3&gt;</span>Don&#39;t Know What To Do!<span style="color:#000">&lt;/h3&gt;</span>
+      <span style="color:#000">&lt;p&gt;</span>I&#39;ve had a pretty messed up day. If we just...<span style="color:#000">&lt;/p&gt;</span>
+    <span style="color:#000">&lt;/ion-item&gt;</span>
+  <span style="color:#000">&lt;/ion-list&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052467020nt.png" alt="2018052467020nt.png" /></p>
+
+<h3 id="sliding-list">Sliding List</h3>
+
+<p>item添加侧滑按钮: 支持向左或向右滑动以显示一组隐藏的按钮。要使用滑动项目，请在离子列表组件的内部添加一个<code>ion-item-sliding</code>组件。然后在<code>ion-item-sliding</code>内添加一个组件以包含按钮.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000">&lt;ion-list&gt;</span>
+    <span style="color:#000">&lt;ion-item-sliding&gt;</span>
+      <span style="color:#000">&lt;ion-item&gt;</span>
+        <span style="color:#000">&lt;ion-avatar</span> <span style="color:#000">item-start</span><span style="color:#000">&gt;</span>
+          <span style="color:#000">&lt;img</span> <span style="color:#836c28">src=</span><span style="color:#c41a16">&#34;assets/imgs/avatar-han.png&#34;</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;/ion-avatar&gt;</span>
+        <span style="color:#000">&lt;h2&gt;</span>Slimer<span style="color:#000">&lt;/h2&gt;</span>
+      <span style="color:#000">&lt;/ion-item&gt;</span>
+      <span style="color:#177500">&lt;!--左侧滑--&gt;</span>
+      <span style="color:#000">&lt;ion-item-options</span> <span style="color:#836c28">side=</span><span style="color:#c41a16">&#34;left&#34;</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;button</span> <span style="color:#000">ion-button</span> <span style="color:#836c28">color=</span><span style="color:#c41a16">&#34;primary&#34;</span><span style="color:#000">&gt;</span>
+          <span style="color:#000">&lt;ion-icon</span> <span style="color:#836c28">name=</span><span style="color:#c41a16">&#34;text&#34;</span><span style="color:#000">&gt;&lt;/ion-icon&gt;</span>
+          Text
+        <span style="color:#000">&lt;/button&gt;</span>
+        <span style="color:#000">&lt;button</span> <span style="color:#000">ion-button</span> <span style="color:#836c28">color=</span><span style="color:#c41a16">&#34;secondary&#34;</span><span style="color:#000">&gt;</span>
+          <span style="color:#000">&lt;ion-icon</span> <span style="color:#836c28">name=</span><span style="color:#c41a16">&#34;call&#34;</span><span style="color:#000">&gt;&lt;/ion-icon&gt;</span>
+          Call
+        <span style="color:#000">&lt;/button&gt;</span>
+      <span style="color:#000">&lt;/ion-item-options&gt;</span>
+      <span style="color:#177500">&lt;!--右侧滑--&gt;</span>
+      <span style="color:#000">&lt;ion-item-options</span> <span style="color:#836c28">side=</span><span style="color:#c41a16">&#34;right&#34;</span><span style="color:#000">&gt;</span>
+        <span style="color:#000">&lt;button</span> <span style="color:#000">ion-button</span> <span style="color:#836c28">color=</span><span style="color:#c41a16">&#34;primary&#34;</span><span style="color:#000">&gt;</span>
+          <span style="color:#000">&lt;ion-icon</span> <span style="color:#836c28">name=</span><span style="color:#c41a16">&#34;mail&#34;</span><span style="color:#000">&gt;&lt;/ion-icon&gt;</span>
+          Email
+        <span style="color:#000">&lt;/button&gt;</span>
+      <span style="color:#000">&lt;/ion-item-options&gt;</span>
+    <span style="color:#000">&lt;/ion-item-sliding&gt;</span>
+  <span style="color:#000">&lt;/ion-list&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052449304s.png" alt="2018052449304s.png" /></p>
+
+<h3 id="thumbnail-list">Thumbnail List</h3>
+
+<p>缩略图展示占据了item的整个高度。 要使用缩略图，请在项目内添加组件<code>&lt;ion-thumbnail&gt;</code>。
+The position of the thumbnail can be set using the <code>item-left</code> and <code>item-right</code> attributes:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000">&lt;ion-list&gt;</span>
+  <span style="color:#000">&lt;ion-item&gt;</span>
+    <span style="color:#000">&lt;ion-thumbnail</span> <span style="color:#000">item-start</span><span style="color:#000">&gt;</span>
+      <span style="color:#000">&lt;img</span> <span style="color:#836c28">src=</span><span style="color:#c41a16">&#34;img/thumbnail-totoro.png&#34;</span><span style="color:#000">&gt;</span>
+    <span style="color:#000">&lt;/ion-thumbnail&gt;</span>
+    <span style="color:#000">&lt;h2&gt;</span>My Neighbor Totoro<span style="color:#000">&lt;/h2&gt;</span>
+    <span style="color:#000">&lt;p&gt;</span>Hayao Miyazaki • 1988<span style="color:#000">&lt;/p&gt;</span>
+    <span style="color:#000">&lt;button</span> <span style="color:#000">ion-button</span> <span style="color:#000">clear</span> <span style="color:#000">item-end</span><span style="color:#000">&gt;</span>View<span style="color:#000">&lt;/button&gt;</span>
+  <span style="color:#000">&lt;/ion-item&gt;</span>
+<span style="color:#000">&lt;/ion-list&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052460763th.png" alt="2018052460763th.png" /></p>
+</div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#gestures">Gestures</a></li>
+<li><a href="#grid">Grid</a>
+<ul>
+<li><a href="#基本使用">基本使用</a></li>
+<li><a href="#col-auto">col-auto</a></li>
+<li><a href="#offset-x">offset-x</a></li>
+<li><a href="#push-and-pull">push and pull</a></li>
+<li><a href="#垂直方向对齐方式">垂直方向对齐方式</a></li>
+<li><a href="#水平对齐方式">水平对齐方式</a></li>
+</ul></li>
+<li><a href="#icons">icons</a></li>
+<li><a href="#inputs">inputs</a>
+<ul>
+<li><a href="#固定内联标签-fixed">固定内联标签 fixed</a></li>
+<li><a href="#floating-labels">floating labels</a></li>
+<li><a href="#inline-labels">Inline Labels</a></li>
+<li><a href="#inset-labels">Inset Labels</a></li>
+<li><a href="#placeholder-labels">Placeholder Labels</a></li>
+<li><a href="#stacked-labels">Stacked Labels</a></li>
+</ul></li>
+<li><a href="#loading">Loading</a></li>
+<li><a href="#lists">Lists</a>
+<ul>
+<li><a href="#basic">basic</a></li>
+<li><a href="#no-lines">No lines</a></li>
+<li><a href="#inset-list">Inset List</a></li>
+<li><a href="#list-dividers">List Dividers</a></li>
+<li><a href="#list-headers">List Headers</a></li>
+<li><a href="#icon-list">Icon List</a></li>
+<li><a href="#avatar-list">Avatar List</a></li>
+<li><a href="#multi-line-list">Multi-line List</a></li>
+<li><a href="#sliding-list">Sliding List</a></li>
+<li><a href="#thumbnail-list">Thumbnail List</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

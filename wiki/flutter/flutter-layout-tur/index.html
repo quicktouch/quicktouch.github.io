@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>3. flutter中的布局 |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> 3. flutter中的布局 </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#flutter'>flutter</a></span>
+    
+    
+    
+    
+    
+    &nbsp/&nbsp<span>Tutorial</span>
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2019-02-05T19:24:23.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2019-02-05
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<p><a href="https://flutter.io/docs/development/ui/layout">https://flutter.io/docs/development/ui/layout</a></p>
+
+<p>Flutter布局机制的核心是小部件(widget)。在Flutter中，几乎所有东西都是小部件 - 甚至布局模型都是小部件。您在Flutter应用程序中看到的图像，图标和文本都是小部件。但是您看不到的东西也是小部件，例如排列，约束和对齐可见小部件的行，列和网格。</p>
+
+<p>您可以通过组合widget来构建更复杂的widget来创建布局。例如，下面的第一个屏幕截图显示了3个图标，每个图标下面都有一个标签：</p>
+
+<p><img src="https://flutter.io/assets/ui/layout/lakes-icons-9e75d63c8af0fc5ddf026c71b3e85687548ec29f2f1e06f8e78c546969a21127.png" alt="" />
+<img src="https://flutter.io/assets/ui/layout/lakes-icons-visual-f9e45691d76ba85d4ea2160941f42c8a2ce1a17d41d6e6aac8f3feb89e679f99.png" alt="" /></p>
+
+<p>第二个屏幕截图显示了可视布局，显示了一列3列，其中每列包含一个图标和一个标签。</p>
+
+<blockquote>
+<p>注意：本教程中的大多数屏幕截图都显示为debugPaintSizeEnabled设置为true，因此您可以看到可视布局。
+有关更多信息，请参阅<a href="https://flutter.io/docs/testing/debugging">可视调试: Visual debugging,</a>，<a href="https://flutter.io/docs/testing/debugging">调试Flutter应用程序</a>中的一节。</p>
+</blockquote>
+
+<p>以下是此UI的窗口小部件树图：</p>
+
+<p><img src="https://flutter.io/assets/ui/layout/sample-flutter-layout-46c76f6ab08f94fa4204469dbcf6548a968052af102ae5a1ae3c78bc24e0d915.png" alt="" /></p>
+
+<p>大多数情况应该如您所料，但你可能对Container(粉色部分)更感兴趣。
+<a href="https://docs.flutter.io/flutter/widgets/Container-class.html">Container</a>是一个窗口小部件类，允许您自定义其子窗口小部件。如果要添加padding，margins，borders或 background color，请使用Container来命名其某些功能。</p>
+
+<p>在此示例中，每个<a href="https://docs.flutter.io/flutter/widgets/Text-class.html">Text</a>小部件都放在Container中以添加边距。整个Row也放在一个Container中，以便在行周围添加填充。</p>
+
+<p>此示例中的其余UI由属性控制。使用其颜色属性设置图标的颜色。使用Text.style属性设置字体，颜色，权重(weight)等。列和行具有允许您指定子项垂直或水平对齐方式的属性，以及子项应占用的空间大小。</p>
+
+<h1 id="lay-out-a-widget">Lay out a widget</h1>
+
+<p>如何在Flutter中布局单个小部件？本节介绍如何创建和显示简单小部件。它还显示了一个简单的Hello World应用程序的完整代码。</p>
+
+<p>在Flutter中，只需几步即可在屏幕上显示文本，图标或图像。</p>
+
+<h2 id="选择layout-widget">选择layout widget</h2>
+
+<p>根据您想要对齐(align)或约束(constrain)可见widget的方式，从各种<a href="https://flutter.io/docs/development/ui/widgets/layout">Layout Widget</a>中进行选择，因为这些不同类型的layout widget的特征通常会传递给容器组件(the contained widget)。</p>
+
+<p>此示例使用<a href="https://docs.flutter.io/flutter/widgets/Center-class.html">Center</a>将其内容水平和垂直居中。</p>
+
+<h2 id="创建可视widget">创建可视widget</h2>
+
+<p>例如,创建<a href="https://docs.flutter.io/flutter/widgets/Text-class.html">Text</a> Widget:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#000">Text</span>(<span style="color:#c41a16">&#39;Hello World&#39;</span>),</code></pre></div>
+<p>创建<a href="https://docs.flutter.io/flutter/widgets/Image-class.html">Image</a> widget:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#000">Image</span>.<span style="color:#000">asset</span>(
+  <span style="color:#c41a16">&#39;images/lake.jpg&#39;</span>,
+  <span style="color:#000">fit:</span> <span style="color:#000">BoxFit</span>.<span style="color:#000">cover</span>,
+),</code></pre></div>
+<p>创建<a href="https://docs.flutter.io/flutter/material/Icons-class.html">Icon</a> widget:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#000">Icon</span>(
+  <span style="color:#000">Icons</span>.<span style="color:#000">star</span>,
+  <span style="color:#000">color:</span> <span style="color:#000">Colors</span>.<span style="color:#000">red</span>[<span style="color:#1c01ce">500</span>],
+),</code></pre></div>
+<h2 id="添加可视widget到布局widget">添加可视widget到布局widget</h2>
+
+<p>All layout widgets have either of the following:</p>
+
+<ul>
+<li>A <code>child</code> property if they take a single child – for example, <code>Center</code> or <code>Container</code></li>
+<li>A <code>children</code> property if they take a list of widgets – for example, <code>Row</code>, <code>Column</code>, <code>ListView</code>, or <code>Stack</code>.</li>
+</ul>
+
+<p>往Center widget添加Text widget。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#000">Center</span>(
+  <span style="color:#000">child:</span> <span style="color:#000">Text</span>(<span style="color:#c41a16">&#39;Hello World&#39;</span>),
+),</code></pre></div>
+<h2 id="将layout-widget添加到页面">将layout widget添加到页面</h2>
+
+<p>Flutter应用程序本身就是一个小部件，大多数小部件都有一个<a href="https://docs.flutter.io/flutter/widgets/StatelessWidget/build.html">build()</a>方法。通过在应用程序的<code>build()</code>方法中实例化并返回小部件,实现显示小部件。</p>
+
+<h3 id="material-apps">Material apps</h3>
+
+<p>对于Material应用程序，您可以使用<a href="https://docs.flutter.io/flutter/material/Scaffold-class.html">Scaffold</a>小部件;它提供默认banner，背景颜色，并具有用于添加drawers, snack bars和底部sheets的API。</p>
+
+<p>然后，您可以将<code>Center</code>小部件直接添加到主页的body属性中。随后，您可以将<code>Center</code>小部件直接添加到主页的body属性中。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#a90d91">class</span> <span style="color:#3f6e75">MyApp</span> <span style="color:#a90d91">extends</span> <span style="color:#000">StatelessWidget</span> {
+  <span style="color:#000">@</span><span style="color:#000">override</span>
+  <span style="color:#000">Widget</span> <span style="color:#000">build</span>(<span style="color:#000">BuildContext</span> <span style="color:#000">context</span>) {
+    <span style="color:#a90d91">return</span> <span style="color:#000">MaterialApp</span>(
+      <span style="color:#000">title:</span> <span style="color:#c41a16">&#39;Flutter layout demo&#39;</span>,
+      <span style="color:#000">home:</span> <span style="color:#000">Scaffold</span>(
+        <span style="color:#000">appBar:</span> <span style="color:#000">AppBar</span>(
+          <span style="color:#000">title:</span> <span style="color:#000">Text</span>(<span style="color:#c41a16">&#39;Flutter layout demo&#39;</span>),
+        ),
+        <span style="color:#000">body:</span> <span style="color:#000">Center</span>(
+          <span style="color:#000">child:</span> <span style="color:#000">Text</span>(<span style="color:#c41a16">&#39;Hello World&#39;</span>),
+        ),
+      ),
+    );
+  }
+}</code></pre></div>
+<blockquote>
+<p>Dart2后我们可以在创建对象的时候省略new和const.
+注意：<a href="https://docs.flutter.io/flutter/material/material-library.html">Material库</a>实现遵循<a href="https://material.io/design">Material Design</a>原则的小部件。
+在设计UI时，您可以专门使用标准widget库中的小部件，也可以使用 Material库中的窗口小部件。
+您可以混合来自两个库的小部件，可以自定义现有小部件，也可以构建自己的一组自定义小部件。</p>
+</blockquote>
+
+<h3 id="non-material-apps">Non-Material apps</h3>
+
+<p>对于非Material应用程序，您可以将Center小部件添加到应用程序的build（）方法：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#a90d91">class</span> <span style="color:#3f6e75">MyApp</span> <span style="color:#a90d91">extends</span> <span style="color:#000">StatelessWidget</span> {
+  <span style="color:#000">@</span><span style="color:#000">override</span>
+  <span style="color:#000">Widget</span> <span style="color:#000">build</span>(<span style="color:#000">BuildContext</span> <span style="color:#000">context</span>) {
+    <span style="color:#a90d91">return</span> <span style="color:#000">Container</span>(
+      <span style="color:#000">decoration:</span> <span style="color:#000">BoxDecoration</span>(<span style="color:#000">color:</span> <span style="color:#000">Colors</span>.<span style="color:#000">white</span>),
+      <span style="color:#000">child:</span> <span style="color:#000">Center</span>(
+        <span style="color:#000">child:</span> <span style="color:#000">Text</span>(
+          <span style="color:#c41a16">&#39;Hello World&#39;</span>,
+          <span style="color:#000">textDirection:</span> <span style="color:#000">TextDirection</span>.<span style="color:#000">ltr</span>,
+          <span style="color:#000">style:</span> <span style="color:#000">TextStyle</span>(
+            <span style="color:#000">fontSize:</span> <span style="color:#1c01ce">32</span>,
+            <span style="color:#000">color:</span> <span style="color:#000">Colors</span>.<span style="color:#000">black87</span>,
+          ),
+        ),
+      ),
+    );
+  }
+}</code></pre></div>
+<p>默认情况下，非Material应用程序不包含AppBar，标题或背景颜色。如果您希望在非Material应用程序中使用这些功能，则必须自己构建它们。</p>
+
+<p><img src="https://flutter.io/assets/ui/layout/hello-world-4ad7a5134f8a38ced291e606a3be4db84b00f68c357af9fefd2732d2cc8bb067.png" alt="" /></p>
+
+<h1 id="多个widgets竖直-水平排列">多个widgets竖直、水平排列</h1>
+
+<p>最常见的布局模式之一是垂直或水平排列小部件。您可以使用Row widget水平排列窗口小部件，使用Column widget垂直排列widgets。</p>
+
+<blockquote>
+<p>What&rsquo;s the point?
+行和列是两种最常用的布局模式。
+行和列每个都有一个子窗口小部件列表。
+子窗口小部件本身可以是行，列或其他复杂窗口小部件。
+您可以指定行或列如何在垂直和水平方向上对齐其子项。
+您可以拉伸或约束特定的子窗口小部件。
+您可以指定子窗口小部件如何使用Row或Column的可用空间。</p>
+</blockquote>
+
+<p>要在Flutter中创建行或列，可以将widget列表添加到“<a href="https://docs.flutter.io/flutter/widgets/Row-class.html">行</a>”或“<a href="https://docs.flutter.io/flutter/widgets/Column-class.html">列</a>”widget中。反过来，每个子元素本身可以是一行或一列，依此类推。以下示例显示了如何在行或列中嵌套行或列。</p>
+
+<p>此布局组织为一行。该行包含两个子项：左侧的列和右侧的图像：</p>
+
+<p><img src="https://flutter.io/assets/ui/layout/pavlova-diagram-8b3d410640d9b3575d69c0724203c5dff6814fdd1a57546a5f65f98254077a92.png" alt="" /></p>
+
+<p>左列的小部件树嵌套行和列:</p>
+
+<p><img src="https://flutter.io/assets/ui/layout/pavlova-left-column-diagram-c9bf1a39b39270615ce8e82608952ac3edaa0d1eab8691f8783e6408fdfbdfb3.png" alt="" /></p>
+
+<p>You’ll implement some of Pavlova’s layout code in <a href="https://flutter.io/docs/development/ui/layout#nesting-rows-and-columns">Nesting rows and columns</a>.</p>
+
+<blockquote>
+<p>注意：行和列是水平和垂直布局的基本原始窗口小部件 - 这些低级窗口小部件允许最大程度的自定义。
+Flutter还提供专门的，更高级别的小部件，可能足以满足您的需求。
+例如，您可能更喜欢<a href="https://docs.flutter.io/flutter/material/ListTile-class.html">ListTile</a>，这是一个易于使用的小部件，具有前导和尾随图标的属性，以及最多3行文本。
+您可能更喜欢<a href="https://docs.flutter.io/flutter/widgets/ListView-class.html">ListView</a>，而不是ListView，这是一种类似于列的布局，如果其内容太长而无法容纳可用空间，则会自动滚动。
+有关更多信息，请参阅常见<a href="https://flutter.io/docs/development/ui/layout#common-layout-widgets">布局小部件</a>。</p>
+</blockquote>
+
+<h2 id="对齐-aligning-widgets">对齐 Aligning widgets</h2>
+
+<p>您可以使用<code>mainAxisAlignment</code>和<code>crossAxisAlignment</code>属性控制行或列如何对齐其子项。
+For a row, the main axis runs horizontally and the cross axis runs vertically. For a column, the main axis runs vertically and the cross axis runs horizontally.</p>
+
+<p><img src="https://flutter.io/assets/ui/layout/row-diagram-ad51795e19e3e1d412815b287c9caa694ad357892e3ab8b3ef1da0c4c6e011db.png" alt="" /></p>
+
+<p><a href="https://docs.flutter.io/flutter/rendering/MainAxisAlignment-class.html">MainAxisAlignment</a>和<a href="https://docs.flutter.io/flutter/rendering/CrossAxisAlignment-class.html">CrossAxisAlignment</a>类提供了各种用于控制对齐的常量。</p>
+
+<blockquote>
+<p>注意：向项目添加图像时，需要更新pubspec文件以访问它们 - 此示例使用Image.asset显示图像。
+有关更多信息，请参阅此示例的pubspec.yaml文件，或在<a href="https://flutter.io/docs/development/ui/assets-and-images">Flutter中添加资产和图像</a>。
+如果您使用Image.network引用在线图像，则无需执行此操作。</p>
+</blockquote>
+
+<pre><code>flutter:
+  assets:
+  #对应根目录下的assets文件夹下所有文件  
+    - assets/
+</code></pre>
+
+<p>在以下示例中，3个图像中的每一个是100像素宽。
+渲染框(render box)（在这种情况下，整个屏幕）宽度超过300像素，因此将主轴对齐设置为空间在每个图像之间，之前和之后均匀地划分自由水平空间。(ps：均匀分布)</p>
+
+<p><img src="https://flutter.io/assets/ui/layout/row-spaceevenly-visual-bae00ee7fc0b8a0fbe46d74b113f9f0e4e4942e55609cf263cefca81f986d871.png" alt="" /></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#000">Row</span>(
+  <span style="color:#000">mainAxisAlignment:</span> <span style="color:#000">MainAxisAlignment</span>.<span style="color:#000">spaceEvenly</span>,
+  <span style="color:#000">children:</span> [
+    <span style="color:#000">Image</span>.<span style="color:#000">asset</span>(<span style="color:#c41a16">&#39;images/pic1.jpg&#39;</span>),
+    <span style="color:#000">Image</span>.<span style="color:#000">asset</span>(<span style="color:#c41a16">&#39;images/pic2.jpg&#39;</span>),
+    <span style="color:#000">Image</span>.<span style="color:#000">asset</span>(<span style="color:#c41a16">&#39;images/pic3.jpg&#39;</span>),
+  ],
+);</code></pre></div>
+<p>列的工作方式与行的工作方式相同。以下示例显示了包含3个图像的列，每个图像的高度为100像素。
+渲染框的高度（在这种情况下，整个屏幕）超过300像素，因此将主轴对齐设置为spaceEvenly在每个图像之间，上方和下方均匀地划分自由垂直空间。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#000">Column</span>(
+  <span style="color:#000">mainAxisAlignment:</span> <span style="color:#000">MainAxisAlignment</span>.<span style="color:#000">spaceEvenly</span>,
+  <span style="color:#000">children:</span> [
+    <span style="color:#000">Image</span>.<span style="color:#000">asset</span>(<span style="color:#c41a16">&#39;images/pic1.jpg&#39;</span>),
+    <span style="color:#000">Image</span>.<span style="color:#000">asset</span>(<span style="color:#c41a16">&#39;images/pic2.jpg&#39;</span>),
+    <span style="color:#000">Image</span>.<span style="color:#000">asset</span>(<span style="color:#c41a16">&#39;images/pic3.jpg&#39;</span>),
+  ],
+);</code></pre></div>
+<p><img src="https://flutter.io/assets/ui/layout/column-visual-40850f31d83815ccf693076198ae200ed46bc633e185de8484081cde83e9f1d3.png" alt="" /></p>
+
+<h2 id="sizing-widgets">Sizing widgets</h2>
+
+<p>当布局太大而无法容纳设备时，受影响的边缘会出现黄色和黑色条纹图案。
+这是一个太宽的行的示例：</p>
+
+<p><img src="https://flutter.io/assets/ui/layout/layout-too-large-f97b9d98cbac9a793c4190a6542ef8f31820a92610afcc387400d1fe30358e18.png" alt="" /></p>
+
+<p>可以使用“<a href="https://docs.flutter.io/flutter/widgets/Expanded-class.html">扩展</a>”窗口小部件调整窗口小部件的大小以适合行或列。
+要修复前一个示例，其中图像行对于其渲染框来说太宽，请使用Expanded小部件包装每个图像。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#000">Row</span>(
+  <span style="color:#000">crossAxisAlignment:</span> <span style="color:#000">CrossAxisAlignment</span>.<span style="color:#000">center</span>,
+  <span style="color:#000">children:</span> [
+    <span style="color:#000">Expanded</span>(
+      <span style="color:#000">child:</span> <span style="color:#000">Image</span>.<span style="color:#000">asset</span>(<span style="color:#c41a16">&#39;images/pic1.jpg&#39;</span>),
+    ),
+    <span style="color:#000">Expanded</span>(
+      <span style="color:#000">child:</span> <span style="color:#000">Image</span>.<span style="color:#000">asset</span>(<span style="color:#c41a16">&#39;images/pic2.jpg&#39;</span>),
+    ),
+    <span style="color:#000">Expanded</span>(
+      <span style="color:#000">child:</span> <span style="color:#000">Image</span>.<span style="color:#000">asset</span>(<span style="color:#c41a16">&#39;images/pic3.jpg&#39;</span>),
+    ),
+  ],
+);</code></pre></div>
+<p><img src="https://flutter.io/assets/ui/layout/row-expanded-2-visual-7003ec3a27b38a2cc925b97abfd933fe6d2fce62494400e0e3c9790b715cd0d1.png" alt="" /></p>
+
+<p>使用flex调整表比例,默认是1:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#000">Row</span>(
+  <span style="color:#000">crossAxisAlignment:</span> <span style="color:#000">CrossAxisAlignment</span>.<span style="color:#000">center</span>,
+  <span style="color:#000">children:</span> [
+    <span style="color:#000">Expanded</span>(
+      <span style="color:#000">child:</span> <span style="color:#000">Image</span>.<span style="color:#000">asset</span>(<span style="color:#c41a16">&#39;images/pic1.jpg&#39;</span>),
+    ),
+    <span style="color:#000">Expanded</span>(
+      <span style="color:#000">flex:</span> <span style="color:#1c01ce">2</span>,
+      <span style="color:#000">child:</span> <span style="color:#000">Image</span>.<span style="color:#000">asset</span>(<span style="color:#c41a16">&#39;images/pic2.jpg&#39;</span>),
+    ),
+    <span style="color:#000">Expanded</span>(
+      <span style="color:#000">child:</span> <span style="color:#000">Image</span>.<span style="color:#000">asset</span>(<span style="color:#c41a16">&#39;images/pic3.jpg&#39;</span>),
+    ),
+  ],
+);</code></pre></div>
+<p><img src="https://flutter.io/assets/ui/layout/row-expanded-visual-fa9a01df7b96ba5cb33162b91369658fea86554139953e3cc0357de83281133d.png" alt="" /></p>
+
+<h2 id="packing-widgets">Packing widgets</h2>
+
+<p>默认情况下，行或列沿其主轴占用尽可能多的空间，但如果要将子项紧密组合在一起，请将其mainAxisSize设置为MainAxisSize.min。以下示例使用此属性将星形图标打包在一起。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#000">Row</span>(
+  <span style="color:#000">mainAxisSize:</span> <span style="color:#000">MainAxisSize</span>.<span style="color:#000">min</span>,
+  <span style="color:#000">children:</span> [
+    <span style="color:#000">Icon</span>(<span style="color:#000">Icons</span>.<span style="color:#000">star</span>, <span style="color:#000">color:</span> <span style="color:#000">Colors</span>.<span style="color:#000">green</span>[<span style="color:#1c01ce">500</span>]),
+    <span style="color:#000">Icon</span>(<span style="color:#000">Icons</span>.<span style="color:#000">star</span>, <span style="color:#000">color:</span> <span style="color:#000">Colors</span>.<span style="color:#000">green</span>[<span style="color:#1c01ce">500</span>]),
+    <span style="color:#000">Icon</span>(<span style="color:#000">Icons</span>.<span style="color:#000">star</span>, <span style="color:#000">color:</span> <span style="color:#000">Colors</span>.<span style="color:#000">green</span>[<span style="color:#1c01ce">500</span>]),
+    <span style="color:#000">Icon</span>(<span style="color:#000">Icons</span>.<span style="color:#000">star</span>, <span style="color:#000">color:</span> <span style="color:#000">Colors</span>.<span style="color:#000">black</span>),
+    <span style="color:#000">Icon</span>(<span style="color:#000">Icons</span>.<span style="color:#000">star</span>, <span style="color:#000">color:</span> <span style="color:#000">Colors</span>.<span style="color:#000">black</span>),
+  ],
+)</code></pre></div>
+<p><img src="https://flutter.io/assets/ui/layout/packed-5583166ea8f018a2c3c829cb075eb63b465cf859e74ae1d7792d2c50813e32aa.png" alt="" /></p>
+
+<h2 id="nesting-rows-and-columns-嵌套">Nesting rows and columns 嵌套</h2>
+
+<p>布局框架允许您根据需要在行和列内嵌套行和列。让我们看看以下布局的概述部分的代码：</p>
+
+<p><img src="https://flutter.io/assets/ui/layout/pavlova-large-annotated-05a910e84242ba5185fe735515cb3f794640f49493036631ec99f768dce107c6.png" alt="" /></p>
+
+<p>概述的部分实现为两行。评级行包含五颗星和评论数。图标行包含三列图标和文本。</p>
+
+<p><img src="https://flutter.io/assets/ui/layout/widget-tree-pavlova-rating-row-7555ca5c12948715086787af2783d2e489e44117928b798f4c5d05bb8bec5119.png" alt="" /></p>
+
+<p>The <code>ratings</code> variable creates a row containing a smaller row of 5 star icons, and text:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart">  <span style="color:#177500">// DefaultTextStyle.merge() allows you to create a default text
+</span><span style="color:#177500"></span>  <span style="color:#177500">// style that is inherited by its child and all subsequent children.
+</span><span style="color:#177500"></span>  <span style="color:#a90d91">final</span> <span style="color:#000">iconList</span> <span style="color:#000">=</span> <span style="color:#000">DefaultTextStyle</span>.<span style="color:#000">merge</span>(
+    <span style="color:#000">style:</span> <span style="color:#000">TextStyle</span>(
+      <span style="color:#000">color:</span> <span style="color:#000">Colors</span>.<span style="color:#000">black</span>,
+      <span style="color:#000">fontWeight:</span> <span style="color:#000">FontWeight</span>.<span style="color:#000">w800</span>,
+      <span style="color:#000">fontFamily:</span> <span style="color:#c41a16">&#39;Roboto&#39;</span>,
+      <span style="color:#000">letterSpacing:</span> <span style="color:#1c01ce">0.5</span>,
+      <span style="color:#000">fontSize:</span> <span style="color:#1c01ce">18</span>,
+      <span style="color:#000">height:</span> <span style="color:#1c01ce">2</span>,
+    ),
+    <span style="color:#000">child:</span> <span style="color:#000">Container</span>(
+      <span style="color:#000">padding:</span> <span style="color:#000">EdgeInsets</span>.<span style="color:#000">all</span>(<span style="color:#1c01ce">20</span>),
+      <span style="color:#000">child:</span> <span style="color:#000">Row</span>(
+        <span style="color:#000">mainAxisAlignment:</span> <span style="color:#000">MainAxisAlignment</span>.<span style="color:#000">spaceEvenly</span>,
+        <span style="color:#000">children:</span> [
+          <span style="color:#000">Column</span>(
+            <span style="color:#000">children:</span> [
+              <span style="color:#000">Icon</span>(<span style="color:#000">Icons</span>.<span style="color:#000">kitchen</span>, <span style="color:#000">color:</span> <span style="color:#000">Colors</span>.<span style="color:#000">green</span>[<span style="color:#1c01ce">500</span>]),
+              <span style="color:#000">Text</span>(<span style="color:#c41a16">&#39;PREP:&#39;</span>),
+              <span style="color:#000">Text</span>(<span style="color:#c41a16">&#39;25 min&#39;</span>),
+            ],
+          ),
+          <span style="color:#000">Column</span>(
+            <span style="color:#000">children:</span> [
+              <span style="color:#000">Icon</span>(<span style="color:#000">Icons</span>.<span style="color:#000">timer</span>, <span style="color:#000">color:</span> <span style="color:#000">Colors</span>.<span style="color:#000">green</span>[<span style="color:#1c01ce">500</span>]),
+              <span style="color:#000">Text</span>(<span style="color:#c41a16">&#39;COOK:&#39;</span>),
+              <span style="color:#000">Text</span>(<span style="color:#c41a16">&#39;1 hr&#39;</span>),
+            ],
+          ),
+          <span style="color:#000">Column</span>(
+            <span style="color:#000">children:</span> [
+              <span style="color:#000">Icon</span>(<span style="color:#000">Icons</span>.<span style="color:#000">restaurant</span>, <span style="color:#000">color:</span> <span style="color:#000">Colors</span>.<span style="color:#000">green</span>[<span style="color:#1c01ce">500</span>]),
+              <span style="color:#000">Text</span>(<span style="color:#c41a16">&#39;FEEDS:&#39;</span>),
+              <span style="color:#000">Text</span>(<span style="color:#c41a16">&#39;4-6&#39;</span>),
+            ],
+          ),
+        ],
+      ),
+    ),
+  );
+
+  <span style="color:#000">@</span><span style="color:#000">override</span>
+  <span style="color:#000">Widget</span> <span style="color:#000">build</span>(<span style="color:#000">BuildContext</span> <span style="color:#000">context</span>) {
+    <span style="color:#a90d91">return</span> <span style="color:#000">MaterialApp</span>(
+        <span style="color:#000">title:</span> <span style="color:#c41a16">&#39;flutter app1&#39;</span>,
+        <span style="color:#000">theme:</span> <span style="color:#000">ThemeData</span>(<span style="color:#000">primarySwatch:</span> <span style="color:#000">Colors</span>.<span style="color:#000">red</span>),
+        <span style="color:#000">home:</span> <span style="color:#a90d91">new</span> <span style="color:#000">Scaffold</span>(
+            <span style="color:#000">appBar:</span> <span style="color:#000">AppBar</span>(
+              <span style="color:#000">title:</span> <span style="color:#000">Text</span>(<span style="color:#c41a16">&#39;hell world!&#39;</span>),
+            ),
+            <span style="color:#000">body:</span> <span style="color:#000">iconList</span>));
+  }</code></pre></div>
+<p><img src="http://image.tyrad.cc/20190206154946054250059.png" alt="20190206154946054250059.png" /></p>
+
+<p>The leftColumn variable contains the ratings and icons rows, as well as the title and text that describes the Pavlova:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#a90d91">final</span> <span style="color:#000">leftColumn</span> <span style="color:#000">=</span> <span style="color:#000">Container</span>(
+  <span style="color:#000">padding:</span> <span style="color:#000">EdgeInsets</span>.<span style="color:#000">fromLTRB</span>(<span style="color:#1c01ce">20</span>, <span style="color:#1c01ce">30</span>, <span style="color:#1c01ce">20</span>, <span style="color:#1c01ce">20</span>),
+  <span style="color:#000">child:</span> <span style="color:#000">Column</span>(
+    <span style="color:#000">children:</span> [
+      <span style="color:#000">titleText</span>,
+      <span style="color:#000">subTitle</span>,
+      <span style="color:#000">ratings</span>,
+      <span style="color:#000">iconList</span>,
+    ],
+  ),
+);</code></pre></div>
+<p>The left column is placed in a Container to constrain its width. Finally, the UI is constructed with the entire row (containing the left column and the image) inside a Card.</p>
+
+<p>The Pavlova image is from Pixabay. You can embed an image from the net using Image.network() but, for this example, the image is saved to an images directory in the project, added to the pubspec file, and accessed using Images.asset(). For more information, see Adding assets and images.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#000">body:</span> <span style="color:#000">Center</span>(
+  <span style="color:#000">child:</span> <span style="color:#000">Container</span>(
+    <span style="color:#000">margin:</span> <span style="color:#000">EdgeInsets</span>.<span style="color:#000">fromLTRB</span>(<span style="color:#1c01ce">0</span>, <span style="color:#1c01ce">40</span>, <span style="color:#1c01ce">0</span>, <span style="color:#1c01ce">30</span>),
+    <span style="color:#000">height:</span> <span style="color:#1c01ce">600</span>,
+    <span style="color:#000">child:</span> <span style="color:#000">Card</span>(
+      <span style="color:#000">child:</span> <span style="color:#000">Row</span>(
+        <span style="color:#000">crossAxisAlignment:</span> <span style="color:#000">CrossAxisAlignment</span>.<span style="color:#000">start</span>,
+        <span style="color:#000">children:</span> [
+          <span style="color:#000">Container</span>(
+            <span style="color:#000">width:</span> <span style="color:#1c01ce">440</span>,
+            <span style="color:#000">child:</span> <span style="color:#000">leftColumn</span>,
+          ),
+          <span style="color:#000">mainImage</span>,
+        ],
+      ),
+    ),
+  ),
+),</code></pre></div>
+<blockquote>
+<p>提示：Pavlova示例在宽屏设备（例如平板电脑）上水平运行最佳。如果您在iOS模拟器中运行此示例，则可以使用硬件&gt;设备菜单选择其他设备。对于此示例，我们建议使用iPad Pro。您可以使用硬件&gt;旋转将其方向更改为横向模式。您还可以使用“窗口”&gt;“缩放”更改模拟器窗口的大小（不更改逻辑像素数）。</p>
+</blockquote>
+
+<h1 id="common-layout-widgets">Common layout widgets</h1>
+
+<p>Flutter拥有丰富的布局小部件库。以下是一些最常用的。目的是让您尽快启动并运行，而不是用完整的列表压倒您。有关其他可用窗口小部件的信息，请参阅<a href="https://flutter.io/docs/development/ui/widgets">小部件目录</a>，或使用<a href="https://docs.flutter.io/">API​​参考文档</a>中的“搜索”框。
+此外，API文档中的窗口小部件页面通常会提供有关可能更适合您需求的类似窗口小部件的建议。</p>
+
+<p>以下小部件分为两类：来自小部件库的<a href="https://docs.flutter.io/flutter/widgets/widgets-library.html">标准小部件</a>和来自<a href="https://docs.flutter.io/flutter/material/material-library.html">Material library</a>的专用小部件。任何应用都可以使用小部件库，但只有Material应用可以使用Material Components库。</p>
+
+<h2 id="standard-widgets">Standard widgets</h2>
+
+<ul>
+<li><a href="https://flutter.io/docs/development/ui/layout#container">Container</a>: Adds padding, margins, borders, background color, or other decorations to a widget.</li>
+<li><a href="https://flutter.io/docs/development/ui/layout#gridview">GridView</a>: Lays widgets out as a scrollable grid.</li>
+<li><a href="https://flutter.io/docs/development/ui/layout#listview">ListView</a>: Lays widgets out as a scrollable list.</li>
+<li><a href="https://flutter.io/docs/development/ui/layout#stack">Stack</a>: Overlaps a widget on top of another.</li>
+</ul>
+
+<h2 id="material-widgets">Material widgets</h2>
+
+<ul>
+<li><a href="https://flutter.io/docs/development/ui/layout#card">Card</a>: Organizes related info into a box with rounded corners and a drop shadow.</li>
+<li><a href="https://flutter.io/docs/development/ui/layout#listtile">ListTile</a>: Organizes up to 3 lines of text, and optional leading and trailing icons, into a row.</li>
+</ul>
+
+<h2 id="container">Container</h2>
+
+<p>许多布局都允许自由使用Container来设置widget之间的padding、borders、margins。您可以通过将整个布局放入Container并更改其背景颜色或图像来更改设备的背景。</p>
+
+<h3 id="summary-container">Summary (Container)</h3>
+
+<ul>
+<li>添加padding、borders、margins</li>
+<li>修改背景颜色或图片</li>
+<li>包含单个子widget，但该子窗口可以是Row，Column，甚至是widget tree的根</li>
+</ul>
+
+<h3 id="examples-container">Examples (Container)</h3>
+
+<p>布局包块两行,每行包括2个图片.<code>Container</code>将整个容器的变为浅灰色。</p>
+
+<pre><code>Widget _buildImageColumn() =&gt; Container(
+      decoration: BoxDecoration(
+        color: Colors.black26,
+      ),
+      child: Column(
+        children: [
+          _buildImageRow(1),
+          _buildImageRow(3),
+        ],
+      ),
+    );
+</code></pre>
+
+<p>A Container is also used to add a rounded border and margins to each image:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#000">Widget</span> <span style="color:#000">_buildDecoratedImage</span>(<span style="color:#a90d91">int</span> <span style="color:#000">imageIndex</span>) <span style="color:#000">=&gt;</span> <span style="color:#000">Expanded</span>(
+      <span style="color:#000">child:</span> <span style="color:#000">Container</span>(
+        <span style="color:#000">decoration:</span> <span style="color:#000">BoxDecoration</span>(
+          <span style="color:#000">border:</span> <span style="color:#000">Border</span>.<span style="color:#000">all</span>(<span style="color:#000">width:</span> <span style="color:#1c01ce">10</span>, <span style="color:#000">color:</span> <span style="color:#000">Colors</span>.<span style="color:#000">black38</span>),
+          <span style="color:#000">borderRadius:</span> <span style="color:#a90d91">const</span> <span style="color:#000">BorderRadius</span>.<span style="color:#000">all</span>(<span style="color:#a90d91">const</span> <span style="color:#000">Radius</span>.<span style="color:#000">circular</span>(<span style="color:#1c01ce">8</span>)),
+        ),
+        <span style="color:#000">margin:</span> <span style="color:#a90d91">const</span> <span style="color:#000">EdgeInsets</span>.<span style="color:#000">all</span>(<span style="color:#1c01ce">4</span>),
+        <span style="color:#000">child:</span> <span style="color:#000">Image</span>.<span style="color:#000">asset</span>(<span style="color:#c41a16">&#39;images/pic</span><span style="color:#c41a16">$</span><span style="color:#000">imageIndex</span><span style="color:#c41a16">.jpg&#39;</span>),
+      ),
+    );
+
+<span style="color:#000">Widget</span> <span style="color:#000">_buildImageRow</span>(<span style="color:#a90d91">int</span> <span style="color:#000">imageIndex</span>) <span style="color:#000">=&gt;</span> <span style="color:#000">Row</span>(
+      <span style="color:#000">children:</span> [
+        <span style="color:#000">_buildDecoratedImage</span>(<span style="color:#000">imageIndex</span>),
+        <span style="color:#000">_buildDecoratedImage</span>(<span style="color:#000">imageIndex</span> <span style="color:#000">+</span> <span style="color:#1c01ce">1</span>),
+      ],
+    );</code></pre></div>
+<p>You can find more Container examples in the <a href="https://flutter.io/docs/development/ui/layout/tutorial">tutorial</a> and the <a href="https://github.com/flutter/flutter/tree/master/examples/flutter_gallery">Flutter Gallery</a>.</p>
+
+<h2 id="gridview">GridView</h2>
+
+<p>使用GridView将窗口小部件作为二维列表放置。 GridView提供了两个预制列表，或者您可以构建自己的自定义网格。当GridView检测到其内容太长而无法容纳渲染框时，它会自动滚动。</p>
+
+<h3 id="summary-gridview">Summary (GridView)</h3>
+
+<ul>
+<li>将widgets放到grid中</li>
+<li>检测列内容(column content)何时超出渲染框并自动提供滚动</li>
+<li>构建自己的自定义网格，或使用提供的网格之一：
+
+<ul>
+<li>GridView.count允许您指定列数</li>
+<li>GridView.extent允许您指定图块的最大像素宽度</li>
+</ul></li>
+</ul>
+
+<blockquote>
+<p>Note: When displaying a two-dimensional list where it’s important which row and column a cell occupies (for example, it’s the entry in the “calorie” column for the “avocado” row), use Table or DataTable.</p>
+</blockquote>
+
+<p>示例: <a href="https://github.com/flutter/website/blob/master/examples/layout/grid_and_list/lib/main.dart">https://github.com/flutter/website/blob/master/examples/layout/grid_and_list/lib/main.dart</a></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#a90d91">import</span> <span style="color:#c41a16">&#39;package:flutter/material.dart&#39;</span>;
+
+<span style="color:#a90d91">void</span> <span style="color:#000">main</span>() <span style="color:#000">=&gt;</span> <span style="color:#000">runApp</span>(<span style="color:#000">MyApp</span>());
+
+<span style="color:#a90d91">class</span> <span style="color:#3f6e75">MyApp</span> <span style="color:#a90d91">extends</span> <span style="color:#000">StatelessWidget</span> {
+  <span style="color:#000">@</span><span style="color:#000">override</span>
+  <span style="color:#000">Widget</span> <span style="color:#000">build</span>(<span style="color:#000">BuildContext</span> <span style="color:#000">context</span>) {
+    <span style="color:#a90d91">return</span> <span style="color:#000">MaterialApp</span>(
+      <span style="color:#000">title:</span> <span style="color:#c41a16">&#34;flutter layout grid&#34;</span>,
+      <span style="color:#000">home:</span> <span style="color:#000">Scaffold</span>(
+        <span style="color:#000">appBar:</span> <span style="color:#000">AppBar</span>(
+          <span style="color:#000">title:</span> <span style="color:#000">Text</span>(<span style="color:#c41a16">&#39;flutter demo&#39;</span>),
+        ),
+        <span style="color:#000">body:</span> <span style="color:#000">Center</span>(
+          <span style="color:#000">child:</span> <span style="color:#000">_buildGrid</span>(),
+        ),
+      ),
+    );
+  }
+
+  <span style="color:#000">Widget</span> <span style="color:#000">_buildGrid</span>() {
+    <span style="color:#a90d91">return</span> <span style="color:#000">GridView</span>.<span style="color:#000">extent</span>(
+      <span style="color:#000">maxCrossAxisExtent:</span> <span style="color:#1c01ce">100</span>,<span style="color:#177500">//单元格的大小
+</span><span style="color:#177500"></span>      <span style="color:#000">padding:</span> <span style="color:#a90d91">const</span> <span style="color:#000">EdgeInsets</span>.<span style="color:#000">all</span>(<span style="color:#1c01ce">5</span>), <span style="color:#177500">//grid的padding
+</span><span style="color:#177500"></span>      <span style="color:#000">mainAxisSpacing:</span> <span style="color:#1c01ce">14</span>, <span style="color:#177500">//每行间的距离
+</span><span style="color:#177500"></span>      <span style="color:#000">crossAxisSpacing:</span> <span style="color:#1c01ce">14</span>,<span style="color:#177500">//每列的距离
+</span><span style="color:#177500"></span>      <span style="color:#000">children:</span> <span style="color:#000">_buildGridTileList</span>(<span style="color:#1c01ce">30</span>),
+    );
+  }
+
+  <span style="color:#000">List</span><span style="color:#000">&lt;</span><span style="color:#000">Container</span><span style="color:#000">&gt;</span> <span style="color:#000">_buildGridTileList</span>(<span style="color:#a90d91">int</span> <span style="color:#000">count</span>) {
+    <span style="color:#a90d91">return</span> <span style="color:#000">List</span>.<span style="color:#000">generate</span>(<span style="color:#000">count</span>, (<span style="color:#000">i</span>) <span style="color:#000">=&gt;</span> <span style="color:#000">Container</span>(<span style="color:#000">child:</span> <span style="color:#000">Image</span>.<span style="color:#000">asset</span>(<span style="color:#c41a16">&#39;images/pic</span><span style="color:#c41a16">$</span><span style="color:#000">i</span><span style="color:#c41a16">.jpg&#39;</span>),));
+  }
+}</code></pre></div></div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li><a href="#lay-out-a-widget">Lay out a widget</a>
+<ul>
+<li><a href="#选择layout-widget">选择layout widget</a></li>
+<li><a href="#创建可视widget">创建可视widget</a></li>
+<li><a href="#添加可视widget到布局widget">添加可视widget到布局widget</a></li>
+<li><a href="#将layout-widget添加到页面">将layout widget添加到页面</a>
+<ul>
+<li><a href="#material-apps">Material apps</a></li>
+<li><a href="#non-material-apps">Non-Material apps</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#多个widgets竖直-水平排列">多个widgets竖直、水平排列</a>
+<ul>
+<li><a href="#对齐-aligning-widgets">对齐 Aligning widgets</a></li>
+<li><a href="#sizing-widgets">Sizing widgets</a></li>
+<li><a href="#packing-widgets">Packing widgets</a></li>
+<li><a href="#nesting-rows-and-columns-嵌套">Nesting rows and columns 嵌套</a></li>
+</ul></li>
+<li><a href="#common-layout-widgets">Common layout widgets</a>
+<ul>
+<li><a href="#standard-widgets">Standard widgets</a></li>
+<li><a href="#material-widgets">Material widgets</a></li>
+<li><a href="#container">Container</a>
+<ul>
+<li><a href="#summary-container">Summary (Container)</a></li>
+<li><a href="#examples-container">Examples (Container)</a></li>
+</ul></li>
+<li><a href="#gridview">GridView</a>
+<ul>
+<li><a href="#summary-gridview">Summary (GridView)</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

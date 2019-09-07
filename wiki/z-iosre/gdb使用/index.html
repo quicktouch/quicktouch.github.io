@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>LLDB&#43;debugserver |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> LLDB&#43;debugserver </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#z-iosre'>z-iosre</a></span>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2018-02-17T10:33:51.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2018-02-17
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<p>LLDB是运行在osx中的，想要调试iOS，还要<code>debugserver</code></p>
+
+<h2 id="安装配置-debugserver">安装配置 <code>debugserver</code></h2>
+
+<p>默认iOS没有安装debugserver，只有设备连接过Xcode并调试后,后,debugserver安装到<code>/Developer/usr/bin/debugserver</code>位置。</p>
+
+<p>但是通过Xcode安装的debugserver只能调试自己的App,下面是如何配置:</p>
+
+<p>1). 先导出<code>debugserver</code>,然后指令集瘦身,如iphone5c的设备对应armv7s</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ scp root@192.168.1.103:/Developer/usr/bin/debugserver ~/Desktop/debugserver
+root@192.168.1.103<span style="color:#000">&#39;</span>s password:
+debugserver                                   <span style="color:#1c01ce">100</span>%   13MB   <span style="color:#1c01ce">1</span>.1MB/s   <span style="color:#1c01ce">00</span>:12
+➜  ~ <span style="color:#a90d91">cd</span> Desktop
+➜  lipo -thin armv7s debugserver -output debugserver-result</code></pre></div>
+<p>2). 给debugserver添加task_for_pid权限</p>
+
+<p>下载<a href="http://iosre.com/ent.xml">http://iosre.com/ent.xml</a></p>
+
+<p><img src="http://image.tyrad.cc/2018021947637ldid.png" alt="2018021947637ldid.png" /></p>
+
+<p>3). 将经过处理的<code>debugserver</code>文件拷贝回iOS,目录<code>/usr/bin/debugserver</code></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#000">➜</span>  <span style="color:#000">~</span> <span style="color:#000">scp</span> <span style="color:#000">~/</span><span style="color:#000">Desktop</span><span style="color:#000">/</span><span style="color:#000">ds</span><span style="color:#000">/</span><span style="color:#000">debugserver</span><span style="color:#000">-</span><span style="color:#000">result</span> <span style="color:#000">root</span><span style="color:#1c01ce">@192.168.1.103</span><span style="color:#000">:/</span><span style="color:#000">usr</span><span style="color:#000">/</span><span style="color:#000">bin</span><span style="color:#000">/</span><span style="color:#000">debugserver</span>
+<span style="color:#000">root</span><span style="color:#1c01ce">@192.168.1.103</span><span style="color:#000">&#39;</span><span style="color:#000">s</span> <span style="color:#000">password</span>:
+<span style="color:#000">chenchuangde</span><span style="color:#000">-</span><span style="color:#000">iPhone</span>:<span style="color:#000">~</span> <span style="color:#000">root</span><span style="color:#633820"># chmod +x /usr/bin/debugserver</span></code></pre></div>
+<p>需要放到<code>/usr/bin</code>目录的原因:</p>
+
+<p>原版<code>debugserver</code>是不可写的,无法覆盖;
+而且<code>/usr/bin/</code>下的命令无序输入全路径就可以执行,在任何路径下执行<code>debugserver</code>都可以启动处理过的<code>debugserver</code>.</p>
+
+<h2 id="debugserver两种使用场景">debugserver两种使用场景</h2>
+
+<p>1). 启动 <code>debugerver -x backboard IP:port /path/to/executable</code></p>
+
+<p>debugerver会启动executable,并开启port端口,等待来自ip的lldb接入。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">#效果会打开短信app</span>
+chenchuangde-iPhone:~ root# debugserver -x backboard *:1233 /Applications/MobileSMS.app/MobileSMS
+debugserver-@<span style="color:#000">(</span><span style="color:#177500">#)PROGRAM:debugserver  PROJECT:debugserver-360.0.26.3</span>
+ <span style="color:#a90d91">for</span> armv7.
+Listening to port <span style="color:#1c01ce">1233</span> <span style="color:#a90d91">for</span> a connection from *...</code></pre></div>
+<p>2). 附加进程 <code>debugserver IP:port -a &quot;ProcessName&quot;</code></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">#debugsercer会添加`SpringBoard`,并开启port端口，等待来自IP的LLDB接入。</span>
+chenchuangde-iPhone:~ root# debugserver  *:1231 -a  <span style="color:#c41a16">&#34;SpringBoard&#34;</span>
+debugserver-@<span style="color:#000">(</span><span style="color:#177500">#)PROGRAM:debugserver  PROJECT:debugserver-360.0.26.3</span>
+ <span style="color:#a90d91">for</span> armv7.
+Attaching to process SpringBoard...
+Listening to port <span style="color:#1c01ce">1231</span> <span style="color:#a90d91">for</span> a connection from *...</code></pre></div>
+<h2 id="使用lldb">使用LLDB</h2>
+
+<h3 id="连接">连接</h3>
+
+<p>命令: <code>process connect connect://192.168.1.103:1233</code></p>
+
+<p><img src="http://image.tyrad.cc/2018022096974fuc.png" alt="2018022096974fuc.png" /></p>
+
+<h3 id="常用命令">常用命令</h3>
+
+<p>1). <code>image list</code>: 列举当前进程中的全部模块</p>
+
+<p><code>image list-o-f</code> 输出内存地址和模块</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#000">(</span>lldb<span style="color:#000">)</span> image list -o -f
+<span style="color:#000">[</span>  <span style="color:#1c01ce">0</span><span style="color:#000">]</span> 0x0008e000 /Applications/MobileSMS.app/MobileSMS<span style="color:#000">(</span>0x0000000000092000<span style="color:#000">)</span>
+<span style="color:#000">[</span>  <span style="color:#1c01ce">1</span><span style="color:#000">]</span> 0x00143000 /Users/tyrad/Library/Developer/Xcode/iOS DeviceSupport/10.3.3 <span style="color:#000">(</span>14G60<span style="color:#000">)</span>/Symbols/usr/lib/dyld
+<span style="color:#000">[</span>  <span style="color:#1c01ce">2</span><span style="color:#000">]</span> 0x000f5000 /Library/MobileSubstrate/MobileSubstrate.dylib<span style="color:#000">(</span>0x00000000000f5000<span style="color:#000">)</span>
+<span style="color:#000">[</span>  <span style="color:#1c01ce">3</span><span style="color:#000">]</span> 0x03180000 /Users/tyrad/Library/Developer/Xcode/iOS DeviceSupport/10.3.3 <span style="color:#000">(</span>14G60<span style="color:#000">)</span>/Symbols/System/Library/Frameworks/Foundation.framework/Foundation
+<span style="color:#000">[</span>  <span style="color:#1c01ce">4</span><span style="color:#000">]</span> 0x03180000 /Users/tyrad/Library/Developer/Xcode/iOS DeviceSupport/10.3.3 <span style="color:#000">(</span>14G60<span style="color:#000">)</span>/Symbols/System/Library/Frameworks/UIKit.framework/UIKit
+...</code></pre></div>
+<p>第一列<code>[数字]</code>为模块序列号;
+第二列是模块在虚拟内存中的起始地址因ASLR而产生的随机偏移(<strong>ASLR偏移</strong>);
+第三列为模块的全部路径,括号里是<strong>偏移之后的起始地址</strong></p>
+
+<p>根据<strong>偏移之后的起始地址</strong>和<strong>ASLR偏移</strong>,我们可以计算出<strong>偏移后模块的基地址</strong></p>
+
+<p>系统库如Foundation,基地址是固定的,函数如NSLog相对于Foundation的位置也是固定的。</p>
+
+<p>2). breakpoint 用来设置断点</p>
+
+<p>常用命令:</p>
+
+<pre><code>#在函数的起始位置设置断点
+b function 
+
+(lldb) b NSLog
+Breakpoint 1: 2 locations.
+(lldb)
+</code></pre>
+
+<p>或</p>
+
+<pre><code>#地址处设置断点
+br s -a address
+
+(lldb) br s -a 0xCCCCC
+Breakpoint 2: where = MobileSMS`_mh_execute_header + 3584, address = 0x000ccccc
+</code></pre>
+
+<p>或</p>
+
+<pre><code>#地址处设置断点
+br s -a 'ASLROffset+address'
+</code></pre>
+
+<p>3). print</p>
+
+<p><code>po</code>可以打印oc对象
+<code>p(char*)</code>强制转换的方式打印c语言基本数据类型</p>
+
+<p>4). nexti、stepi</p>
+
+<p>都是执行下一条机器指令，<code>nexti</code>不进入函数体,后者进入函数体,可以分别简写为<code>ni</code>于<code>si</code></p>
+
+<p>5). register write</p>
+
+<p>给指定的寄存器赋值,从而对程序进行改动.</p>
+</div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#安装配置-debugserver">安装配置 <code>debugserver</code></a></li>
+<li><a href="#debugserver两种使用场景">debugserver两种使用场景</a></li>
+<li><a href="#使用lldb">使用LLDB</a>
+<ul>
+<li><a href="#连接">连接</a></li>
+<li><a href="#常用命令">常用命令</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

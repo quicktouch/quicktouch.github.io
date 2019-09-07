@@ -1,0 +1,365 @@
+.blog-listing .card {
+    margin-bottom: 0.5rem;
+    box-shadow: none;
+    border-bottom: 1px solid #eee;
+}
+
+.card-image {
+    max-height: 40vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.card-image img {
+    display: block;
+    border: 0;
+    width: 100%;
+    transform: scale(1);
+    transition: all 1s ease 0s;
+    -webkit-transform: scale(1);
+    -webkit-transform: all 0.2s ease-out;
+    transition: transform 0.2s ease-out;
+}
+
+.card-image:hover img {
+    transform: scale(1.1);
+    transition: all 1s ease 0s;
+    -webkit-transform: scale(1.1);
+    -moz-transition: -moz-transform 0.2s ease-out;
+    -webkit-transition: -webkit-transform 0.2s ease-out;
+    -ms-transition: -ms-transform 0.2s ease-out;
+    transition: transform 0.2s ease-out;
+}
+
+body {
+    /* font-family: "Biaodian Pro Sans GB", "Helvetica Neue", Helvetica, Arial, "Han Heiti GB", sans-serif; */
+    font-family: "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans;
+    color: #333;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+.artical {
+    /* 未添加 */
+    font-size: 1em;
+    line-height: 1.8;
+}
+
+.header-transparent #header {
+    border-bottom: transparent;
+}
+
+#header.scrolled {
+    border-bottom: 1px solid rgba(172, 179, 194, .2);
+}
+
+.header-dark.header-transparent #header:not(.scrolled) {
+    background: transparent;
+}
+
+.card-body p {
+    margin-bottom: 0;
+}
+
+.post-content h1, .post-content .h1 {
+    font-size: 2rem;
+}
+
+.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5 {
+    font-weight: 600;
+}
+
+.post-content h1 {
+    font-size: 35px;
+}
+
+.post-content h2 {
+    font-size: 26px;
+    padding-bottom: .3rem;
+    border-bottom: 1px solid #eaecef;
+}
+
+.post-content h3 {
+    font-size: 22px;
+}
+
+.post-content h4 {
+    font-size: 16px;
+}
+
+.post-content h5 {
+    font-size: 13px;
+}
+
+.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
+    font-weight: 600;
+    font-family: "PingFang SC", "Lantinghei SC", "Microsoft Yahei", "Hiragino Sans GB", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans;
+    margin-top: 1.2rem;
+    color: #3a414e;
+}
+
+.post-content ul li {
+    margin-top: 0;
+}
+
+.post-content ol li {
+    margin-top: 0;
+}
+
+.post-content li>ul {
+    margin-top: 0;
+}
+
+.post-content p {
+    margin-bottom: 0.8rem;
+}
+
+.post-content strong {
+    padding: 0 0.2rem;
+}
+
+.task-list {
+    margin-left: 0.5rem;
+    list-style: none;
+}
+
+#TableOfContents {
+    background-color: white;
+    padding-left: 5px;
+}
+
+#TableOfContents ul li {
+    list-style-type: none;
+    font-size: 13px;
+    margin-top: 0.4rem;
+}
+
+#TableOfContents a {
+    color: #0e83cd;
+}
+
+#TableOfContents ul {
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
+}
+
+#TableOfContents ul, #TableOfContents li {
+    margin-left: 5px;
+    padding-left: 0;
+}
+
+#TableOfContents ul ul {
+    margin-left: 0.6rem;
+}
+
+#TableOfContents {
+    border-left: rgba(88, 88, 88, 0.1) 3px solid;
+}
+
+#TableOfContents a {
+    color: #555;
+}
+
+#TableOfContents a:visited {
+    color: #555;
+}
+
+#TableOfContents a.highlighted {
+    color: #3085ee;
+}
+
+.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5 {
+    padding-top: 100px !important;
+    margin-top: -100px !important;
+}
+
+#header{
+    z-index: 999 !important;
+}
+#blog-hero{
+    z-index: 100;
+}
+
+
+.grid-2rem-padding {
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.post-content table {
+    padding: 0;
+    border-collapse: collapse;
+    border-spacing: 0;
+    display: block;
+    width: 100%;
+    overflow: auto;
+    word-break: normal;
+    word-break: keep-all;
+    margin-top: 0;
+    margin-bottom: 1em;
+    border-color: grey;
+}
+
+.post-content thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+.post-content table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+.post-content tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+.post-content:not(.gist) table tr th {
+    font-weight: bold;
+    border: 1px solid #cccccc;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+.post-content td, th {
+    display: table-cell;
+    vertical-align: inherit;
+    padding: 0.6rem;
+}
+
+.post-content table tr td {
+    border: 1px solid #cccccc;
+    text-align: left;
+    margin: 0;
+    padding: 6px 13px;
+}
+
+.post-content table {
+    margin: 20px auto;
+}
+
+/* 文章列表调整 */
+
+.card-body p {
+    padding: 0;
+    margin: 0;
+}
+
+.card .card-body {
+    padding-top: 0.1rem;
+    color: #5d5d5d;
+    /* font-style: italic; */
+}
+
+.card .card-footer:last-child {
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+/* 文章内容 */
+
+#toc{
+    position: absolute;
+}
+.toc-fixed {
+    position: fixed !important;
+    top: 60px;
+    margin-top: 0;
+    max-height: 81%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.archive-by-year {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.archive-by-year li {
+    list-style: none;
+}
+
+.archive-by-year a {
+    padding-left: 0.5rem;
+}
+
+.archive-by-year time {
+    display: inline-block;
+    min-width: 80px;
+}
+
+/* 文章正文:第一个元素margin*/
+
+.blog-content h1:first-child, .blog-content h2:first-child, .blog-content h3:first-child, .blog-content h4:first-child, .blog-content h5:first-child {
+    margin-top: 0;
+}
+
+/* hero中a标签 */
+
+.text-light .breadcrumbs a {
+    color: white;
+    text-decoration: underline;
+}
+
+.text-light .breadcrumbs a:visited {
+    color: white;
+}
+
+.text-dark .breadcrumbs a {
+    color: #50596c;
+    text-decoration: underline;
+}
+
+blockquote {
+    margin-left: 0;
+    border-left: .15rem solid #e7e9ed;
+    padding-left: 1em;
+    color: #8c8c8c;
+}
+
+.archive-by-year ul {
+    margin: 0;
+}
+
+.archive-by-year ul {
+    margin-left: 0;
+}
+
+/* logo调整 */
+
+.header-dark #header:not(.scrolled) .logo svg text {
+    fill: #ffffff;
+}
+
+#header .logo svg {
+    width: 140px;
+}
+
+
+
+.prev-next .btn, .text-center .btn {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/*超出范围不显示toc  */
+
+@media only screen and (max-width:840px) {
+    #sidebar {
+        display: none;
+    }
+}
+
+/* safar代码块不能滚动 */
+
+pre {
+    padding-bottom: 8px;
+}

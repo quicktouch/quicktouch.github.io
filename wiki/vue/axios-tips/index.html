@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>axios使用的举例以及注意事项 |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> axios使用的举例以及注意事项 </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#vue'>vue</a></span>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2019-07-04T00:00:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2019-07-04
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<p><a href="https://github.com/axios/axios">https://github.com/axios/axios</a> 官方文档教程很西详细,不在赘述。下面使用的简单举例以及注意事项。</p>
+
+<h1 id="直接使用axios">直接使用axios</h1>
+
+<h2 id="get">Get</h2>
+
+<p>可以不带参数,或参数直接拼到url中去,默认情况下走的是 <code>application/x-www-form-urlencoded</code></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a90d91">import</span> <span style="color:#000">axios</span> <span style="color:#000">from</span> <span style="color:#c41a16">&#34;axios&#34;</span>;
+<span style="color:#177500">//发送一个get请求
+</span><span style="color:#177500"></span><span style="color:#000">axios</span>
+.<span style="color:#000">get</span>(<span style="color:#c41a16">&#34;http://10.10.38.44:9007/api/v1/component/searchByName?name=背景框&amp;exactly=false&#34;</span>)
+.<span style="color:#000">then</span>(<span style="color:#000">response</span> =&gt; {
+    <span style="color:#177500">// 网络请求成功的处理
+</span><span style="color:#177500"></span>    <span style="color:#000">console</span>.<span style="color:#000">log</span>(<span style="color:#000">response</span>);
+})
+.<span style="color:#a90d91">catch</span>(<span style="color:#000">error</span> =&gt; {
+    <span style="color:#177500">// 网络请求错误的出处理
+</span><span style="color:#177500"></span>    <span style="color:#000">console</span>.<span style="color:#000">log</span>(<span style="color:#000">error</span>);
+})
+.<span style="color:#a90d91">finally</span>(() =&gt; {
+    <span style="color:#177500">// 总会执行此操作
+</span><span style="color:#177500"></span>    <span style="color:#000">console</span>.<span style="color:#000">log</span>(<span style="color:#c41a16">&#34;finally&#34;</span>);
+});
+</code></pre></div>
+<p>拼装get请求的参数:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#000">axios</span>
+.<span style="color:#000">get</span>(<span style="color:#c41a16">&#34;http://10.10.38.44:9007/api/v1/component/searchByName&#34;</span>, {
+    <span style="color:#000">params</span><span style="color:#000">:</span> { <span style="color:#000">name</span><span style="color:#000">:</span> <span style="color:#c41a16">&#34;背景框&#34;</span> }
+})
+.<span style="color:#000">then</span>(<span style="color:#000">response</span> =&gt; {})
+.<span style="color:#a90d91">catch</span>(<span style="color:#000">error</span> =&gt; {})
+.<span style="color:#000">then</span>(() =&gt; {
+    <span style="color:#177500">// 总会执行此操作和`finally`效果是一致的
+</span><span style="color:#177500"></span>    <span style="color:#000">console</span>.<span style="color:#000">log</span>(<span style="color:#c41a16">&#34;always executed&#34;</span>);
+});
+</code></pre></div>
+<h2 id="post">Post</h2>
+
+<p>注意,此处和get请求的参数稍有区别<code>{name:&quot;背景框&quot;}</code> vs <code>{ params: { name: &quot;背景框&quot; } }</code>, get请求的<code>params</code>可以理解为修改url上的的kv参数。</p>
+
+<p>post请求时,请求头默认为<code>application/json;charset=utf-8</code>,和get请求时的也不同。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#000">axios</span>
+.<span style="color:#000">post</span>(<span style="color:#c41a16">&#34;http://10.10.38.44:9007/api/v1/axios/postCommonWithParam&#34;</span>, {
+    <span style="color:#000">name</span><span style="color:#000">:</span> <span style="color:#c41a16">&#34;背景框&#34;</span>
+})
+.<span style="color:#000">then</span>(<span style="color:#000">response</span> =&gt; {
+    <span style="color:#177500">// handle success
+</span><span style="color:#177500"></span>    <span style="color:#000">console</span>.<span style="color:#000">log</span>(<span style="color:#000">response</span>);
+    <span style="color:#a90d91">this</span>.<span style="color:#000">xData</span> <span style="color:#000">=</span> <span style="color:#000">response</span>.<span style="color:#000">data</span>;
+})
+.<span style="color:#a90d91">catch</span>(<span style="color:#000">error</span> =&gt; {
+    <span style="color:#177500">// handle error
+</span><span style="color:#177500"></span>    <span style="color:#000">console</span>.<span style="color:#000">log</span>(<span style="color:#000">error</span>);
+});
+</code></pre></div>
+<h3 id="application-x-www-form-urlencoded"><code>application/x-www-form-urlencoded</code></h3>
+
+<p>若想让post请求传递的数据为<code>application/x-www-form-urlencoded</code>格式的,可以有下面几种处理方法:</p>
+
+<h4 id="方法1-参数手动拼或者使用-qs">方法1、参数手动拼或者使用<code>qs</code></h4>
+
+<p>将发送请求参数的json object改成key-value字符串的形式</p>
+
+<p>1). 手动拼参数</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a90d91">let</span> <span style="color:#000">params</span> <span style="color:#000">=</span> { <span style="color:#000">name</span><span style="color:#000">:</span> <span style="color:#c41a16">&#34;背景框&#34;</span> };
+<span style="color:#a90d91">let</span> <span style="color:#000">ret</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#34;&#34;</span>;
+<span style="color:#a90d91">for</span> (<span style="color:#a90d91">let</span> <span style="color:#000">it</span> <span style="color:#a90d91">in</span> <span style="color:#000">params</span>) {
+    <span style="color:#000">ret</span> <span style="color:#000">+=</span> <span style="color:#a90d91">encodeURIComponent</span>(<span style="color:#000">it</span>) <span style="color:#000">+</span> <span style="color:#c41a16">&#34;=&#34;</span> <span style="color:#000">+</span> <span style="color:#a90d91">encodeURIComponent</span>(<span style="color:#000">params</span>[<span style="color:#000">it</span>]) <span style="color:#000">+</span> <span style="color:#c41a16">&#34;&amp;&#34;</span>;
+}
+
+<span style="color:#000">axios</span>
+.<span style="color:#000">post</span>(<span style="color:#c41a16">&#34;http://10.10.38.44:9007/api/v1/axios/postCommonWithParam&#34;</span>, <span style="color:#000">ret</span>)
+.<span style="color:#000">then</span>(<span style="color:#000">response</span> =&gt; {        
+})
+.<span style="color:#a90d91">catch</span>(<span style="color:#000">error</span> =&gt; {
+});
+</code></pre></div>
+<p>2). 使用<code>qs</code>对参数进行处理拼成key-value的形式</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a90d91">import</span> <span style="color:#000">Qs</span> <span style="color:#000">from</span> <span style="color:#c41a16">&#34;qs&#34;</span>;
+
+<span style="color:#177500">//示例1. 使用post请求时进行转换
+</span><span style="color:#177500"></span><span style="color:#000">axios</span>
+.<span style="color:#000">post</span>(
+    <span style="color:#c41a16">&#34;http://10.10.38.44:9007/api/v1/postCommonWithParam&#34;</span>, 
+    <span style="color:#177500">//通过qs将 { name: &#34;背景框&#34; }转换成了 name=%E8%83%8C%E6%99%AF%E6%A1%86
+</span><span style="color:#177500"></span>    <span style="color:#000">Qs</span>.<span style="color:#000">stringify</span>({ <span style="color:#000">name</span><span style="color:#000">:</span> <span style="color:#c41a16">&#34;背景框&#34;</span> })
+    )
+.<span style="color:#000">then</span>(<span style="color:#000">response</span> =&gt; {})
+.<span style="color:#a90d91">catch</span>(<span style="color:#000">error</span> =&gt; {});
+
+<span style="color:#177500">//示例2. 使用config的情况下
+</span><span style="color:#177500"></span><span style="color:#a90d91">let</span> <span style="color:#000">params</span> <span style="color:#000">=</span> { <span style="color:#000">name</span><span style="color:#000">:</span> <span style="color:#c41a16">&#34;xx&#34;</span> };
+<span style="color:#a90d91">const</span> <span style="color:#000">options</span> <span style="color:#000">=</span> {
+    <span style="color:#000">method</span><span style="color:#000">:</span> <span style="color:#c41a16">&#34;POST&#34;</span>,
+    <span style="color:#177500">//header设置不是必要的
+</span><span style="color:#177500"></span>    <span style="color:#177500">//headers: { &#34;content-type&#34;: &#34;application/x-www-form-urlencoded&#34; },
+</span><span style="color:#177500"></span>    <span style="color:#000">data</span><span style="color:#000">:</span> <span style="color:#000">Qs</span>.<span style="color:#000">stringify</span>(<span style="color:#000">params</span>),
+    <span style="color:#000">url</span><span style="color:#000">:</span> <span style="color:#c41a16">&#34;http://10.10.38.44:9007/api/v1/axios/postCommonWithParam&#34;</span>
+};
+<span style="color:#000">axios</span>(<span style="color:#000">options</span>)
+.<span style="color:#000">then</span>(<span style="color:#000">response</span> =&gt; {
+    <span style="color:#177500">// handle success
+</span><span style="color:#177500"></span>    <span style="color:#000">console</span>.<span style="color:#000">log</span>(<span style="color:#000">response</span>);
+    <span style="color:#a90d91">this</span>.<span style="color:#000">xData</span> <span style="color:#000">=</span> <span style="color:#000">response</span>.<span style="color:#000">data</span>;
+})
+.<span style="color:#a90d91">catch</span>(<span style="color:#000">error</span> =&gt; {
+    <span style="color:#177500">// handle error
+</span><span style="color:#177500"></span>    <span style="color:#000">console</span>.<span style="color:#000">log</span>(<span style="color:#000">error</span>);
+});
+</code></pre></div>
+<h4 id="方法2-在-transformrequest-中进行处理">方法2、在<code>transformRequest</code>中进行处理</h4>
+
+<p>可以在transformRequest中进行转换，调整为满足需要的格式（key-value）</p>
+
+<p>举例1. 全局处理</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#177500">//举例:全局的处理
+</span><span style="color:#177500">//全局处理中可以设置全局的请求头
+</span><span style="color:#177500"></span> <span style="color:#000">axios</span>.<span style="color:#000">defaults</span>.<span style="color:#000">headers</span>.<span style="color:#000">common</span>[<span style="color:#c41a16">&#34;Authorization&#34;</span>] <span style="color:#000">=</span> <span style="color:#c41a16">&#34;AUTH_TOKEN_XXXX&#34;</span>;
+<span style="color:#177500">//设置axios为form-data。 主要还得修改transformRequest,否则不生效
+</span><span style="color:#177500"></span><span style="color:#000">axios</span>.<span style="color:#000">defaults</span>.<span style="color:#000">headers</span>.<span style="color:#000">post</span>[<span style="color:#c41a16">&#34;Content-Type&#34;</span>] <span style="color:#000">=</span> <span style="color:#c41a16">&#34;application/x-www-form-urlencoded;charset=UTF-8&#34;</span>;
+<span style="color:#000">axios</span>.<span style="color:#000">defaults</span>.<span style="color:#000">transformRequest</span> <span style="color:#000">=</span> [
+<span style="color:#a90d91">function</span>(<span style="color:#000">data</span>) {
+    <span style="color:#a90d91">let</span> <span style="color:#000">ret</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#34;&#34;</span>;
+    <span style="color:#a90d91">for</span> (<span style="color:#a90d91">let</span> <span style="color:#000">it</span> <span style="color:#a90d91">in</span> <span style="color:#000">data</span>) {
+    <span style="color:#000">ret</span> <span style="color:#000">+=</span> <span style="color:#a90d91">encodeURIComponent</span>(<span style="color:#000">it</span>) <span style="color:#000">+</span> <span style="color:#c41a16">&#34;=&#34;</span> <span style="color:#000">+</span> <span style="color:#a90d91">encodeURIComponent</span>(<span style="color:#000">data</span>[<span style="color:#000">it</span>]) <span style="color:#000">+</span> <span style="color:#c41a16">&#34;&amp;&#34;</span>;
+    }
+    <span style="color:#a90d91">return</span> <span style="color:#000">ret</span>;
+}
+];
+</code></pre></div>
+<p>举例2:  使用 Request Config 的情况</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a90d91">let</span> <span style="color:#000">params</span> <span style="color:#000">=</span> { <span style="color:#000">name</span><span style="color:#000">:</span> <span style="color:#c41a16">&#34;xx1&#34;</span> };
+<span style="color:#a90d91">const</span> <span style="color:#000">config</span> <span style="color:#000">=</span> {
+<span style="color:#000">method</span><span style="color:#000">:</span> <span style="color:#c41a16">&#34;POST&#34;</span>,
+<span style="color:#177500">// headers: { &#34;content-type&#34;: &#34;application/x-www-form-urlencoded&#34; },
+</span><span style="color:#177500"></span><span style="color:#000">data</span><span style="color:#000">:</span> <span style="color:#000">params</span>,
+<span style="color:#000">url</span><span style="color:#000">:</span> <span style="color:#c41a16">&#34;http://10.10.38.44:9007/api/v1/axios/postCommonWithParam&#34;</span>,
+<span style="color:#000">transformRequest</span><span style="color:#000">:</span> [
+    <span style="color:#a90d91">function</span>(<span style="color:#000">data</span>) {
+    <span style="color:#a90d91">let</span> <span style="color:#000">ret</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#34;&#34;</span>;
+    <span style="color:#a90d91">for</span> (<span style="color:#a90d91">let</span> <span style="color:#000">it</span> <span style="color:#a90d91">in</span> <span style="color:#000">data</span>) {
+        <span style="color:#000">ret</span> <span style="color:#000">+=</span> <span style="color:#a90d91">encodeURIComponent</span>(<span style="color:#000">it</span>) <span style="color:#000">+</span> <span style="color:#c41a16">&#34;=&#34;</span> <span style="color:#000">+</span> <span style="color:#a90d91">encodeURIComponent</span>(<span style="color:#000">data</span>[<span style="color:#000">it</span>]) <span style="color:#000">+</span> <span style="color:#c41a16">&#34;&amp;&#34;</span>;
+    }
+    <span style="color:#a90d91">return</span> <span style="color:#000">ret</span>;
+    }
+]
+};
+<span style="color:#000">axios</span>(<span style="color:#000">config</span>)
+.<span style="color:#000">then</span>(<span style="color:#000">response</span> =&gt; {
+    <span style="color:#177500">// handle success
+</span><span style="color:#177500"></span>    <span style="color:#000">console</span>.<span style="color:#000">log</span>(<span style="color:#000">response</span>);
+    <span style="color:#a90d91">this</span>.<span style="color:#000">xData</span> <span style="color:#000">=</span> <span style="color:#000">response</span>.<span style="color:#000">data</span>;
+})
+.<span style="color:#a90d91">catch</span>(<span style="color:#000">error</span> =&gt; {
+    <span style="color:#177500">// handle error
+</span><span style="color:#177500"></span>    <span style="color:#000">console</span>.<span style="color:#000">log</span>(<span style="color:#000">error</span>);
+});
+</code></pre></div>
+<h4 id="方法3-request-config-使用-params-传参">方法3、Request Config 使用<code>params</code>传参</h4>
+
+<p>Request Config 配置中,<code>params</code>配置的参数是通过修改url生效的(目测,待考证)。<br />
+使用<code>params</code>代替<code>data</code>实现同样的效果，虽然请求头没有修改为<code>application/json</code>。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a90d91">let</span> <span style="color:#000">params</span> <span style="color:#000">=</span> { <span style="color:#000">name</span><span style="color:#000">:</span> <span style="color:#c41a16">&#34;xx1&#34;</span> };
+<span style="color:#a90d91">const</span> <span style="color:#000">options</span> <span style="color:#000">=</span> {
+    <span style="color:#000">method</span><span style="color:#000">:</span> <span style="color:#c41a16">&#34;POST&#34;</span>,
+    <span style="color:#000">params</span><span style="color:#000">:</span> <span style="color:#000">params</span>,
+    <span style="color:#000">url</span><span style="color:#000">:</span> <span style="color:#c41a16">&#34;http://10.10.38.44:9007/api/v1/axios/postCommonWithParam&#34;</span>
+};
+<span style="color:#000">axios</span>(<span style="color:#000">options</span>)
+.<span style="color:#000">then</span>(<span style="color:#000">response</span> =&gt; {
+    <span style="color:#177500">// handle success
+</span><span style="color:#177500"></span>})
+.<span style="color:#a90d91">catch</span>(<span style="color:#000">error</span> =&gt; {
+    <span style="color:#177500">// handle error
+</span><span style="color:#177500"></span>});
+</code></pre></div>
+<h1 id="axios的定制化">axios的定制化</h1>
+
+<p>使用<code>axios.create</code>初始化默认的配置,使用<code>interceptors</code>拦截请求的发送与返回。</p>
+
+<p>举例如下:示例参考自<a href="https://juejin.im/post/5ae432aaf265da0b9c1063c8">掘金:Vue二次封装axios为插件使用</a></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a90d91">export</span> <span style="color:#a90d91">default</span> <span style="color:#a90d91">function</span> <span style="color:#000">$axios</span>(<span style="color:#000">options</span>) {
+  <span style="color:#a90d91">return</span> <span style="color:#a90d91">new</span> <span style="color:#a90d91">Promise</span>((<span style="color:#000">resolve</span>, <span style="color:#000">reject</span>) =&gt; {
+    <span style="color:#a90d91">const</span> <span style="color:#000">instance</span> <span style="color:#000">=</span> <span style="color:#000">axios</span>.<span style="color:#000">create</span>({
+      <span style="color:#000">baseURL</span><span style="color:#000">:</span> <span style="color:#000">process</span>.<span style="color:#000">env</span>.<span style="color:#000">VUE_APP_BASE_API</span>,
+      <span style="color:#000">headers</span><span style="color:#000">:</span> { <span style="color:#c41a16">&#34;Content-Type&#34;</span><span style="color:#000">:</span> <span style="color:#c41a16">&#34;application/x-www-form-urlencoded;charset=UTF-8&#34;</span> },
+      <span style="color:#000">transformResponse</span><span style="color:#000">:</span> [],
+      <span style="color:#000">timeout</span><span style="color:#000">:</span> <span style="color:#1c01ce">1000</span> <span style="color:#000">*</span> <span style="color:#1c01ce">15</span>,
+      <span style="color:#000">withCredentials</span><span style="color:#000">:</span> <span style="color:#a90d91">false</span>
+    });
+
+    <span style="color:#000">instance</span>.<span style="color:#000">interceptors</span>.<span style="color:#000">request</span>.<span style="color:#000">use</span>(
+      <span style="color:#000">config</span> =&gt; {
+        <span style="color:#a90d91">if</span> (<span style="color:#000">store</span>.<span style="color:#000">getters</span>.<span style="color:#000">token</span>) {
+          <span style="color:#000">config</span>.<span style="color:#000">headers</span>[<span style="color:#c41a16">&#34;th-token&#34;</span>] <span style="color:#000">=</span> <span style="color:#000">store</span>.<span style="color:#000">getters</span>.<span style="color:#000">token</span>;
+        }
+        <span style="color:#a90d91">return</span> <span style="color:#000">config</span>;
+      },
+      <span style="color:#000">error</span> =&gt; {
+        <span style="color:#177500">//判断请求超时
+</span><span style="color:#177500"></span>        <span style="color:#a90d91">if</span> (<span style="color:#000">error</span>.<span style="color:#000">code</span> <span style="color:#000">===</span> <span style="color:#c41a16">&#34;ECONNABORTED&#34;</span> <span style="color:#000">&amp;&amp;</span> <span style="color:#000">error</span>.<span style="color:#000">message</span>.<span style="color:#000">indexOf</span>(<span style="color:#c41a16">&#34;timeout&#34;</span>) <span style="color:#000">!==</span> <span style="color:#000">-</span><span style="color:#1c01ce">1</span>) {
+          <span style="color:#000">console</span>.<span style="color:#000">log</span>(<span style="color:#c41a16">&#34;请求超时&#34;</span>);
+          <span style="color:#177500">// return service.request(originalRequest);//例如再重复请求一次
+</span><span style="color:#177500"></span>        }
+        <span style="color:#a90d91">Promise</span>.<span style="color:#000">reject</span>(<span style="color:#000">error</span>);
+      }
+    );
+
+    <span style="color:#000">instance</span>.<span style="color:#000">interceptors</span>.<span style="color:#000">response</span>.<span style="color:#000">use</span>(
+      <span style="color:#000">res</span> =&gt; {
+        <span style="color:#a90d91">if</span> (<span style="color:#000">res</span>.<span style="color:#000">data</span>.<span style="color:#000">succ</span>) {
+          <span style="color:#177500">//如果后台返回的json显示成功，pass
+</span><span style="color:#177500"></span>          <span style="color:#a90d91">return</span> <span style="color:#000">res</span>;
+        } <span style="color:#a90d91">else</span> {
+          <span style="color:#a90d91">if</span> (<span style="color:#000">res</span>.<span style="color:#000">data</span>.<span style="color:#000">code</span> <span style="color:#000">===</span> <span style="color:#000">Code</span>.<span style="color:#000">UNAUTHEN</span> <span style="color:#000">||</span> <span style="color:#000">res</span>.<span style="color:#000">data</span>.<span style="color:#000">code</span> <span style="color:#000">===</span> <span style="color:#000">Code</span>.<span style="color:#000">SESSION_TIMOUT</span>) {
+            <span style="color:#177500">//处理登录相关的错误
+</span><span style="color:#177500"></span>            <span style="color:#000">MessageBox</span>.<span style="color:#000">confirm</span>(<span style="color:#c41a16">&#34;你已被登出，可以取消继续留在该页面，或者重新登录&#34;</span>, <span style="color:#c41a16">&#34;确定登出&#34;</span>, {
+              <span style="color:#000">confirmButtonText</span><span style="color:#000">:</span> <span style="color:#c41a16">&#34;重新登录&#34;</span>,
+              <span style="color:#000">cancelButtonText</span><span style="color:#000">:</span> <span style="color:#c41a16">&#34;取消&#34;</span>,
+              <span style="color:#000">type</span><span style="color:#000">:</span> <span style="color:#c41a16">&#34;warning&#34;</span>
+            }).<span style="color:#000">then</span>(() =&gt; {
+              <span style="color:#000">store</span>.<span style="color:#000">dispatch</span>(<span style="color:#c41a16">&#34;LogOut&#34;</span>).<span style="color:#000">then</span>(() =&gt; {
+                <span style="color:#000">location</span>.<span style="color:#000">reload</span>(); <span style="color:#177500">// 为了重新实例化vue-router对象 避免bug
+</span><span style="color:#177500"></span>              });
+            });
+          } <span style="color:#a90d91">else</span> {
+            <span style="color:#177500">//其它错误弹出错误信息
+</span><span style="color:#177500"></span>            <span style="color:#000">Message</span>({ <span style="color:#000">message</span><span style="color:#000">:</span> <span style="color:#000">res</span>.<span style="color:#000">data</span>.<span style="color:#000">msg</span>, <span style="color:#000">type</span><span style="color:#000">:</span> <span style="color:#c41a16">&#34;error&#34;</span>, <span style="color:#000">duration</span><span style="color:#000">:</span> <span style="color:#1c01ce">5000</span> });
+          }
+          <span style="color:#a90d91">return</span> <span style="color:#a90d91">Promise</span>.<span style="color:#000">reject</span>(<span style="color:#000">res</span>);
+        }
+      },
+      <span style="color:#000">err</span> =&gt; {
+        <span style="color:#000">console</span>.<span style="color:#000">error</span>(<span style="color:#c41a16">&#34;request err: %o&#34;</span>, <span style="color:#000">err</span>); <span style="color:#177500">// for debug
+</span><span style="color:#177500"></span>        <span style="color:#000">Message</span>({ <span style="color:#000">message</span><span style="color:#000">:</span> <span style="color:#000">err</span>.<span style="color:#000">message</span>, <span style="color:#000">type</span><span style="color:#000">:</span> <span style="color:#c41a16">&#34;error&#34;</span>, <span style="color:#000">duration</span><span style="color:#000">:</span> <span style="color:#1c01ce">5000</span> });
+        <span style="color:#a90d91">return</span> <span style="color:#a90d91">Promise</span>.<span style="color:#000">reject</span>(<span style="color:#000">err</span>);
+      }
+    );
+  });
+}
+</code></pre></div></div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li><a href="#直接使用axios">直接使用axios</a>
+<ul>
+<li><a href="#get">Get</a></li>
+<li><a href="#post">Post</a>
+<ul>
+<li><a href="#application-x-www-form-urlencoded"><code>application/x-www-form-urlencoded</code></a>
+<ul>
+<li><a href="#方法1-参数手动拼或者使用-qs">方法1、参数手动拼或者使用<code>qs</code></a></li>
+<li><a href="#方法2-在-transformrequest-中进行处理">方法2、在<code>transformRequest</code>中进行处理</a></li>
+<li><a href="#方法3-request-config-使用-params-传参">方法3、Request Config 使用<code>params</code>传参</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li><a href="#axios的定制化">axios的定制化</a></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

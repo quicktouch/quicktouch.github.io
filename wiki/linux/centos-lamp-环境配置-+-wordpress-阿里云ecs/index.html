@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>CentOS LAMP 环境配置 &#43; wordpress (阿里云ECS) |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> CentOS LAMP 环境配置 &#43; wordpress (阿里云ECS) </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#linux'>linux</a></span>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='0001-01-01T00:00:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 0001-01-01
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<p>重装系统可能会导致ssh无法正常连接:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#000">➜</span>  <span style="color:#000">~</span> <span style="color:#000">ssh</span> <span style="color:#000">-</span><span style="color:#000">t</span> <span style="color:#000">root</span><span style="color:#000">@IP地址</span>  <span style="color:#000">-</span><span style="color:#a90d91">p</span> <span style="color:#1c01ce">22</span>
+<span style="color:#000">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span>
+<span style="color:#000">@</span>    <span style="color:#c41a16">WARNING</span>: <span style="color:#000">REMOTE</span> <span style="color:#000">HOST</span> <span style="color:#000">IDENTIFICATION</span> <span style="color:#000">HAS</span> <span style="color:#000">CHANGED</span><span style="color:#000">!</span>     <span style="color:#000">@</span>
+<span style="color:#000">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span>
+<span style="color:#000">IT</span> <span style="color:#000">IS</span> <span style="color:#000">POSSIBLE</span> <span style="color:#000">THAT</span> <span style="color:#000">SOMEONE</span> <span style="color:#000">IS</span> <span style="color:#000">DOING</span> <span style="color:#000">SOMETHING</span> <span style="color:#000">NASTY</span><span style="color:#000">!</span>
+<span style="color:#000">Someone</span> <span style="color:#000">could</span> <span style="color:#000">be</span> <span style="color:#000">eavesdropping</span> <span style="color:#000">on</span> <span style="color:#000">you</span> <span style="color:#000">right</span> <span style="color:#000">now</span> (<span style="color:#000">man</span><span style="color:#000">-</span><span style="color:#a90d91">in</span><span style="color:#000">-</span><span style="color:#000">the</span><span style="color:#000">-</span><span style="color:#000">middle</span> <span style="color:#000">attack</span>)<span style="color:#000">!</span>
+<span style="color:#000">It</span> <span style="color:#000">is</span> <span style="color:#000">also</span> <span style="color:#000">possible</span> <span style="color:#000">that</span> <span style="color:#000">a</span> <span style="color:#000">host</span> <span style="color:#000">key</span> <span style="color:#000">has</span> <span style="color:#000">just</span> <span style="color:#000">been</span> <span style="color:#000">changed</span><span style="color:#000">.</span>
+<span style="color:#000">The</span> <span style="color:#000">fingerprint</span> <span style="color:#a90d91">for</span> <span style="color:#000">the</span> <span style="color:#000">ECDSA</span> <span style="color:#000">key</span> <span style="color:#000">sent</span> <span style="color:#000">by</span> <span style="color:#000">the</span> <span style="color:#000">remote</span> <span style="color:#000">host</span> <span style="color:#000">is</span>
+<span style="color:#c41a16">SHA256</span>:<span style="color:#000">Kj</span><span style="color:#c41a16">/7ZMbxA8eRe8fWNU4Br76gJwpJRdH1oarVrixnkw4.
+</span><span style="color:#c41a16">Please contact your system administrator.
+</span><span style="color:#c41a16">Add correct host key in /</span><span style="color:#000">Users</span><span style="color:#c41a16">/user/</span><span style="color:#000">.</span><span style="color:#000">ssh</span><span style="color:#c41a16">/known_hosts to get rid of this message.
+</span><span style="color:#c41a16">Offending ECDSA key in /</span><span style="color:#000">Users</span><span style="color:#c41a16">/user/</span><span style="color:#000">.</span><span style="color:#000">ssh</span><span style="color:#c41a16">/known_hosts:5
+</span><span style="color:#c41a16">ECDSA host key for (ip地址 xx) has changed and you have requested strict checking.
+</span><span style="color:#c41a16">Host key verification failed.</span></code></pre></div>
+<p>原因是第一次使用SSH连接时，会生成一个认证，储存在客户端的known_hosts中.</p>
+
+<p>解决方法:</p>
+
+<pre><code>ssh-keygen -R IP地址
+</code></pre>
+
+<h2 id="lnmp教程参考阿里云文档教程">LNMP教程参考阿里云文档教程</h2>
+
+<p><a href="https://help.aliyun.com/document_detail/50774.html?spm=5176.doc50700.6.669.om7xvz">部署 LAMP （CentOS 7.2）</a></p>
+
+<p>测试是否能够正常解析PHP</p>
+
+<pre><code>cd  /usr/local/apache/htdocs/
+vim index.php                #添加如下内容
+&lt;?php
+phpinfo();
+?&gt;
+</code></pre>
+
+<h2 id="ftp配置">FTP配置</h2>
+
+<h3 id="基础配置">基础配置</h3>
+
+<p>vsftpd是linux下的一款小巧轻快，安全易用的FTP服务器软件，是一款在各个Linux发行版中最受推崇的FTP服务器软件。</p>
+
+<ol>
+<li><p>安装vsftpd，直接yum 安装就可以了</p>
+
+<pre><code>yum install -y vsftpd
+</code></pre></li>
+
+<li><p>相关配置文件：</p>
+
+<pre><code>cd /etc/vsftpd
+</code></pre>
+
+<p>目录下的文件:</p>
+
+<p><code>ftpusers</code> //黑名单，这个里面的用户不允许访问FTP服务器
+<code>user_list</code>  //白名单，允许访问FTP服务器的用户列表
+<code>vsftpd.conf</code> //主配置文件，核心配置文件
+vsftpd_conf_migrate.sh</p></li>
+
+<li><p>启动服务:</p>
+
+<p><code>systemctl enable vsftpd.service</code>  //设置开机启动
+<code>systemctl start vsftpd.service</code>   //启动ftp服务
+<code>netstat -antup | grep ftp</code>        //查看ftp服务端口</p>
+
+<p>因为用到了21端口,因为如果要正常使用,务必将需要配置安全组规则(见下图:)</p>
+
+<p><img src="http://image.tyrad.cc/201706047557021.png" alt="201706047557021.png" /></p></li>
+
+<li><p>访问</p>
+
+<p>默认配置情况下任何用户都可以通过匿名方式登录ftp服务器，查看并下载匿名账户主目录下的各级目录和文件，但是不能上传文件或者创建目录。</p>
+
+<p>我这里是用的软件<code>Yummy FTP Pro</code><img src="http://image.tyrad.cc/2017060478091yammy.png?imageView/2/w/100" alt="2017060478091yammy.png" />访问的。</p>
+
+<p>因为默认开启了匿名ftp的功能,因此只需要输入IP和端口号,就可以正常访问了(可能会有点慢,耐心等待一两分钟)。</p>
+
+<p><img src="http://image.tyrad.cc/2017060433533ss.png" alt="2017060433533ss.png" /></p></li>
+</ol>
+
+<h3 id="其他配置">其他配置</h3>
+
+<p>vsftpd安装后默认开启了匿名ftp的功能，用户无需额外配置即可使用匿名登录ftp服务器。</p>
+
+<p>如果需要修改,请编辑<code>vsftpd.conf</code>文件。</p>
+
+<p><code>anonymous_enable=YES</code> //允许匿名默认为YES</p>
+
+<h4 id="1-设置允许匿名用户上传">1. 设置允许匿名用户上传:</h4>
+
+<p>允许匿名用户上传:</p>
+
+<pre><code>write_enable=YES
+anon_upload_enable=YES
+</code></pre>
+
+<p>更改/var/ftp/pub目录的权限，为ftp用户添加写权限</p>
+
+<pre><code>chmod o+w /var/ftp/pub/  
+</code></pre>
+
+<p>重启服务:</p>
+
+<pre><code>systemctl restart vsftpd.service 
+</code></pre>
+
+<h4 id="2-配置本地用户登录">2. 配置本地用户登录</h4>
+
+<ol>
+<li><p>添加名为ftptest的用户</p>
+
+<pre><code>useradd ftptest                    #创建ftptest用户
+passwd ftptest                     #修改ftptest用户密码
+</code></pre></li>
+
+<li><p>修改<code>/etc/vsftpd/vsftpd.conf</code></p></li>
+</ol>
+
+<pre><code>   local_enable=YES   #默认即为YES
+</code></pre>
+
+<h4 id="3-禁止匿名用户登录-限制登录用户不能跳出其主目录">3. 禁止匿名用户登录，限制登录用户不能跳出其主目录</h4>
+
+<p>修改<code>/etc/vsftpd/vsftpd.conf</code></p>
+
+<pre><code>anonymous_enable=NO   #设置不允许匿名访问
+
+#http://blog.csdn.net/bluishglc/article/details/42398811
+chroot_list_enable=YES #是否启动限制用户的名单 YES为启用 
+chroot_local_user=YES  #是否将所有用户限制在主目录
+chroot_list_file=/etc/vsftpd/chroot_list
+</code></pre>
+
+<p>然后在<code>/etc/vsftpd</code>下新建<code>chroot_list</code>,加入登陆用户的名字。</p>
+
+<p>登录后发现一个问题: <code>500 OOPS: vsftpd: refusing to run with writable root inside chroot()</code></p>
+
+<p>解决方法,编辑<code>/etc/vsftpd/vsftpd.conf</code>,在最底下添加<code>添加　allow_writeable_chroot=YES</code>,重启下即可。</p>
+
+<h2 id="搭建wordpress-typeho服务">搭建wordpress/typeho服务</h2>
+
+<pre><code>cd /home/chen
+mv typecho /usr/local/apache/htdocs/typecho
+mv wordpress /usr/local/apache/htdocs/wordpress
+</code></pre>
+
+<p>修改目录读写权限:</p>
+
+<pre><code>cd /usr/local/apache/htdocs
+chmod 777 wordpress/
+</code></pre>
+
+<p><code>php.ini</code>中去掉注释</p>
+
+<p><code>extension=php_mysqli.dll</code></p>
+
+<p><code>extension_dir =</code> 改为phpinfo中的地址。</p>
+
+<p><code>extension=php_pdo_mysql.dll</code></p>
+</div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#lnmp教程参考阿里云文档教程">LNMP教程参考阿里云文档教程</a></li>
+<li><a href="#ftp配置">FTP配置</a>
+<ul>
+<li><a href="#基础配置">基础配置</a></li>
+<li><a href="#其他配置">其他配置</a>
+<ul>
+<li><a href="#1-设置允许匿名用户上传">1. 设置允许匿名用户上传:</a></li>
+<li><a href="#2-配置本地用户登录">2. 配置本地用户登录</a></li>
+<li><a href="#3-禁止匿名用户登录-限制登录用户不能跳出其主目录">3. 禁止匿名用户登录，限制登录用户不能跳出其主目录</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#搭建wordpress-typeho服务">搭建wordpress/typeho服务</a></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

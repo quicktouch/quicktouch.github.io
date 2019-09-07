@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>fastlane使用指南(一) |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer  header-transparent header-dark ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-light title-h1h2 overlay-dark-gradient hero-tiny parallax" style="background-color: black;background-image: url( https://www.tyrad.cc/img/mt.jpg ); 
+background-position-y: 0px;">
+    <div class="image-overlay"></div>
+    <section class="container grid-lg" style="text-align: center">
+        
+        <h1>fastlane使用指南(一)</h1>  
+        
+        <h2></h2>
+        
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2017-06-03T17:27:15.000&#43;08:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2017-06-03
+            </time>
+        </span>
+        <span class="tags">
+            
+            <a class="label label-rounded label-secondary p-category"
+                href="https://www.tyrad.cc/tags/fastlane">fastlane</a>
+            
+            <a class="label label-rounded label-secondary p-category"
+                href="https://www.tyrad.cc/tags/%E5%B7%A5%E5%85%B7">工具</a>
+            
+        </span>
+    </section>
+    <i id="to-start" class="pulse fa fa-angle-down"></i>
+</section>
+
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item" class="column  col-10  col-md-12 extra-spacing">
+                    <blockquote>
+<p>fastlane更新迭代比较快,博客仅供参考,具体以<a href="https://github.com/fastlane/fastlane">官方文档</a>为准</p>
+</blockquote>
+
+<p>fastlane官方号称用最简单的方式实现iOS、Android应用的自动构建和发布。</p>
+
+<h1 id="安装和初始化">安装和初始化</h1>
+
+<h2 id="确保安装了最新的xcode命令行工具">确保安装了最新的xcode命令行工具</h2>
+
+<pre><code>xcode-select --install
+</code></pre>
+
+<h2 id="安装fastlane">安装fastlane</h2>
+
+<p>官方提供了三种安装方式。</p>
+
+<table>
+<thead>
+<tr>
+<th>Homebrew</th>
+<th>Installer Script</th>
+<th>Rubygems</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>macOS</td>
+<td>macOS</td>
+<td>macOS or Linux with Ruby 2.0.0 or above</td>
+</tr>
+
+<tr>
+<td>brew cask install fastlane</td>
+<td><a href="https://download.fastlane.tools/">Download the zip file.</a> Then double click on the install script (or run it in a terminal window).</td>
+<td>sudo gem install fastlane -NV</td>
+</tr>
+</tbody>
+</table>
+
+<p>这里选用Rubygems的安装方式,如果安装失败尝试升级下ruby.</p>
+
+<pre><code>#安装fastlane
+sudo gem install fastlane -NV
+#查看版本
+fastlane -v 
+</code></pre>
+
+<h2 id="fastlane-init">fastlane init</h2>
+
+<p>进入项目.xcproject所在目录,执行<code>fastlane init</code></p>
+
+<pre><code>#初始化fastlane
+fastlane init
+</code></pre>
+
+<p>随后按提示输入Apple id、密码等信息(密码会被存储到keychain)。</p>
+
+<ul>
+<li>登录成功后,会自动获取到App id等信息,如果没有在iTunes Connect或 Apple Developer Portal创建过,会弹出提示,根据实际需要进行操作。（fastlane会调用produce进行初始化）</li>
+</ul>
+
+<pre><code>[09:30:48]: This app identifier doesn't exist on iTunes Connect yet, it will be created for you
+[09:30:48]: This app identifier doesn't exist on the Apple Developer Portal yet, it will be created for you
+[09:30:48]: Please confirm the above values (y/n)
+</code></pre>
+
+<ul>
+<li>如果提示登录失败,按提示进行输入即可(如企业账号)。</li>
+</ul>
+
+<p>这样对于一个项目来说就fastlane的初始化就已经完成了。</p>
+
+<p><img src="http://image.tyrad.cc/20170626637372.png" alt="20170626637372.png" /></p>
+
+<h2 id="分析">分析</h2>
+
+<p>在执行deliver init的过程中，会同步iTC中的所有语言的元数据和截图，并按照目录结构组织好 。</p>
+
+<p>这里肯定会被创建的是Appfile和Fastfile。如果Deliverfile，screenshots和metadata目录没被创建,可以运行deliver init来创建(非企业应用)。</p>
+
+<table>
+<thead>
+<tr>
+<th>文件</th>
+<th></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Appfile</td>
+<td>从 Apple Developer Portal 获取和项目相关的信息 <a href="https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Appfile.md">详情</a></td>
+</tr>
+
+<tr>
+<td>Fastfile</td>
+<td>核心文件,存放lane任务</td>
+</tr>
+
+<tr>
+<td>Deliverfile</td>
+<td>deliver的配置文件,从 iTunes Connect 获取和项目相关的信息<a href="https://github.com/fastlane/fastlane/blob/master/deliver/Deliverfile.md">详细</a></td>
+</tr>
+
+<tr>
+<td>metadata</td>
+<td>同步iTC中的元数据</td>
+</tr>
+
+<tr>
+<td>screenshots</td>
+<td>同步iTC中的截图</td>
+</tr>
+</tbody>
+</table>
+
+<p>关于fastfile:</p>
+
+<p>里面存放了很多lane,每个lane相当于按顺序执行的工作流。每个lane可以存放多个action,action可以看做具体的执行动作。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#000">fastlane_version</span> <span style="color:#c41a16">&#34;2.41.0&#34;</span>
+
+<span style="color:#000">default_platform</span> <span style="color:#c41a16">:ios</span>
+
+<span style="color:#000">platform</span> <span style="color:#c41a16">:ios</span> <span style="color:#a90d91">do</span>
+
+<span style="color:#177500"># 执行所有命令前都会先执行这里</span>
+  <span style="color:#000">before_all</span> <span style="color:#a90d91">do</span>    
+    <span style="color:#177500">#cocoapods  #实际上运行了`pod install`</span>
+    <span style="color:#177500"># ENV[&#34;SLACK_URL&#34;] = &#34;https://hooks.slack.com/services/...&#34;    </span>
+  <span style="color:#a90d91">end</span>
+  
+ <span style="color:#177500">#运行测试文件</span>
+  <span style="color:#000">desc</span> <span style="color:#c41a16">&#34;Runs all the tests&#34;</span>
+  <span style="color:#000">lane</span> <span style="color:#c41a16">:test</span> <span style="color:#a90d91">do</span>
+    <span style="color:#a90d91">scan</span>
+  <span style="color:#a90d91">end</span>
+
+  <span style="color:#000">desc</span> <span style="color:#c41a16">&#34;Submit a new Beta Build to Apple TestFlight&#34;</span>
+  <span style="color:#000">desc</span> <span style="color:#c41a16">&#34;This will also make sure the profile is up to date&#34;</span>
+  <span style="color:#000">lane</span> <span style="color:#c41a16">:beta</span> <span style="color:#a90d91">do</span>
+    <span style="color:#177500"># match(type: &#34;appstore&#34;) # more information: https://codesigning.guide</span>
+    <span style="color:#000">gym</span>(<span style="color:#c41a16">scheme</span>: <span style="color:#c41a16">&#34;fastlaneProj&#34;</span>) <span style="color:#177500"># Build your app - more options available</span>
+    <span style="color:#177500"># pilot</span>
+    <span style="color:#177500"># sh &#34;your_script.sh&#34;</span>
+    <span style="color:#177500"># You can also use other beta testing services here (run `fastlane actions`)</span>
+  <span style="color:#a90d91">end</span>
+
+  <span style="color:#177500"># You can define as many lanes as you want</span>
+  <span style="color:#177500"># 当上述流程全部执行成功后执行。</span>
+  <span style="color:#000">after_all</span> <span style="color:#a90d91">do</span> <span style="color:#000">|</span><span style="color:#000">lane</span><span style="color:#000">|</span>
+  <span style="color:#a90d91">end</span>
+    
+  <span style="color:#177500">#上述执行失败后执行</span>
+  <span style="color:#000">error</span> <span style="color:#a90d91">do</span> <span style="color:#000">|</span><span style="color:#000">lane</span>, <span style="color:#000">exception</span><span style="color:#000">|</span>
+  <span style="color:#a90d91">end</span>
+<span style="color:#a90d91">end</span></code></pre></div>
+<p>在命令行中使用<code>fastlane actions</code>可以列出所有的action，使用fastlane action [action的名字]可以查看该action的相关信息，最重要的是在帮助文档中的这里可以查看具体action的使用方法和示列。<a href="https://docs.fastlane.tools/actions/">Action文档地址</a>。</p>
+
+<table>
+<thead>
+<tr>
+<th>action举例</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>cocoapods</td>
+<td>Runs <strong><em>pod install</em></strong> for the   project</td>
+</tr>
+
+<tr>
+<td>scan</td>
+<td>Easily run tests of your iOS app using</td>
+</tr>
+
+<tr>
+<td>gym</td>
+<td>Easily build and sign your app using <strong><em><em>gym</em></em></strong>(打包)</td>
+</tr>
+
+<tr>
+<td>pilot</td>
+<td>Upload a new binary to iTunes Connect for TestFlight beta testing（把应用发布到TestFlight</td>
+</tr>
+
+<tr>
+<td>testflight</td>
+<td>Alias for the pilot action</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="重新安装">重新安装</h2>
+
+<pre><code>brew cask reinstall fastlane
+</code></pre>
+
+<p>卸载</p>
+
+<pre><code> gem uninstall fastlane
+</code></pre>
+
+<p>or</p>
+
+<pre><code>brew cask uninstall fastlane
+</code></pre>
+
+<h1 id="frameit-自动截图-套壳">frameit 自动截图(套壳)</h1>
+
+<h2 id="为什么要使用自动截图功能">为什么要使用自动截图功能？</h2>
+
+<p>因为截图是个没技术含量又费时的过程,如果比如app实现了国际化,多种语言多个模拟器,一张张截图、分类,就很费劲了。</p>
+
+<p>使用fastlane的snapshot能很方便地实现多语言、多模拟器的屏幕截图,截图完成后还会自动生成一个漂亮的html网页,以展示捕获的所有屏幕。</p>
+
+<h2 id="如何使用">如何使用</h2>
+
+<h3 id="准备工作">准备工作</h3>
+
+<p>fastlane 截图功能用到了Xcode7引入的<code>UI Tests</code>功能。</p>
+
+<p>如果不了解,建议看看这篇文章<a href="https://onevcat.com/2015/09/ui-testing/">WWDC15 Session笔记 - Xcode 7 UI 测试初窥</a>。</p>
+
+<!--*UI Tests简单使用:*
+
+1. 光标点击到测试类的方法内
+2. 点击录制按钮 
+3. 模拟器会跑起来后,就可以录制你操作模拟器的动作
+4. 此时,这个方法内会自动生成操作相应的代码
+5. 再次点击录制按钮,结束录制
+
+(如果多语言,建议对控件设置accessibilityIdentifier, 如self.myButton.accessibilityIdentifier = @"myButton";)-->
+
+<!--![20170622498031.png](http://image.tyrad.cc/20170622498031.png)-->
+
+<!--![20170622451272.png](http://image.tyrad.cc/20170622451272.png)-->
+
+<!--![20170622532143.png](http://image.tyrad.cc/20170622532143.png)  -->
+
+<!--![2017062246494.png](http://image.tyrad.cc/2017062246494.png)-->
+
+<h3 id="工程配置">工程配置</h3>
+
+<ol>
+<li>在项目中添加一个新的<code>UI Test target</code>(建议语言选择Swift,导入Swift文件更简单)</li>
+<li>进入工程目录，运行<code>fastlane snapshot init</code>, 运行成功后在fastlane文件夹下生成一些新文件，其中包括<code>SnapshotHelper.swift</code></li>
+<li>添加<code>SnapshotHelper.swift</code>这个文件添加到 <code>UI Test target</code> 中</li>
+<li>在测试类中,点击左下角的录制按钮,录制交互动作</li>
+<li>在测试类中,要添加截屏的位置添加代码<code>snapshot(&quot;01LoginScreen&quot;)</code></li>
+
+<li><p>在测试类的<code>setUp()</code>方法中添加如下代码:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">let</span> <span style="color:#000">app</span> = <span style="color:#000">XCUIApplication</span>()
+<span style="color:#000">setupSnapshot</span>(<span style="color:#000">app</span>)
+<span style="color:#000">app</span>.<span style="color:#000">launch</span>()</code></pre></div></li>
+</ol>
+
+<h3 id="截屏">截屏</h3>
+
+<p>为了满足实际需要,需要先配置<code>Snapfile</code> 文件。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#000">devices</span>(<span style="color:#000">[</span>
+   <span style="color:#c41a16">&#34;iPhone 6&#34;</span>,
+   <span style="color:#c41a16">&#34;iPhone 6 Plus&#34;</span>,
+   <span style="color:#c41a16">&#34;iPhone 5&#34;</span>
+<span style="color:#000">]</span>)
+
+<span style="color:#000">languages</span>(<span style="color:#000">[</span>
+  <span style="color:#c41a16">&#34;en-US&#34;</span>,
+  <span style="color:#c41a16">&#34;zh-Hans&#34;</span>
+<span style="color:#000">]</span>)
+<span style="color:#177500">#scheme &#34;snapshotExample&#34;</span>
+<span style="color:#177500">#截图文件数据位置</span>
+<span style="color:#177500">#output_directory &#34;../screenshots&#34;</span></code></pre></div>
+<p>执行<code>fastlane snapshot</code>就可以执行截屏脚本了。</p>
+
+<p>接下来耐心等待就可以了。成功后会还生成一个html文件。</p>
+
+<p><img src="http://image.tyrad.cc/20170624210471.png" alt="20170624210471.png" /></p>
+
+<p><img src="http://image.tyrad.cc/2017062451023htmlPagePreviewFade.jpg" alt="2017062451023htmlPagePreviewFade.jpg" /></p>
+
+<h3 id="重置模拟器">重置模拟器</h3>
+
+<p>截图工具提供了我们重置所有模拟器的方法。
+如果你截图过程中遇到了奇怪的问题,这个命令可能会很有帮助。</p>
+
+<pre><code>fastlane snapshot reset_simulators
+</code></pre>
+
+<h2 id="上传导入app-store">上传导入App Store</h2>
+
+<p>假设一开始,就执行了 <code>fastlane init</code>,那么截图默认会在<code>./fastlane/screenshots</code>文件夹。</p>
+
+<p>此时上传只需要一行命令:</p>
+
+<pre><code> fastlane deliver
+</code></pre>
+
+<p>然后按提示进行操作就可以了。</p>
+
+<h2 id="自己遇到的问题">自己遇到的问题</h2>
+
+<h3 id="多语言测试截图失败">多语言测试截图失败</h3>
+
+<p>原因是自己的ui test方法没有写好。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">func</span> <span style="color:#000">testSnapshots</span>(){
+     <span style="color:#a90d91">let</span> <span style="color:#000">app</span> = <span style="color:#000">XCUIApplication</span>()
+     <span style="color:#000">snapshot</span>(<span style="color:#c41a16">&#34;1Page&#34;</span>)
+     <span style="color:#000">app</span>.<span style="color:#000">buttons</span>[<span style="color:#c41a16">&#34;myButton&#34;</span>].<span style="color:#000">tap</span>()
+     <span style="color:#000">snapshot</span>(<span style="color:#c41a16">&#34;1Page&#34;</span>)
+}</code></pre></div>
+<p><code>app.buttons[&quot;myButton&quot;]</code>获取到当前屏幕上所有的按钮的代理,并去寻找<code>myButton</code>按钮,但是不同语言中按钮的名字是不一样的,这样就到导致了截图失败。</p>
+
+<p>解决方法,设置控件的<code>identifier</code>,可以在代码或者Interface Builder中进行设置:</p>
+
+<pre><code>self.myButton.accessibilityIdentifier = @&quot;myButton&quot;;
+</code></pre>
+
+<h1 id="pem-生成推送证书">pem:生成推送证书</h1>
+
+<p>是否厌倦了手动创建和维护您的iOS应用程序的推送通知配置文件？ 是否厌倦了为您的服务器生成一个pem文件？</p>
+
+<p>fastlane做所有这些，只要简单一个<code>fastlane pem</code>命令。</p>
+
+<h2 id="使用">使用</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#000">fastlane</span> <span style="color:#000">pem</span>
+
+<span style="color:#000">+------------------+------------------------+</span>
+<span style="color:#000">|</span>          <span style="color:#000">Summary</span> <span style="color:#a90d91">for</span> <span style="color:#000">PEM</span> <span style="color:#1c01ce">2</span><span style="color:#000">.</span><span style="color:#1c01ce">41</span><span style="color:#000">.</span><span style="color:#1c01ce">0</span>           <span style="color:#000">|</span>
+<span style="color:#000">+------------------+------------------------+</span>
+<span style="color:#000">|</span> <span style="color:#000">development</span>      <span style="color:#000">|</span> <span style="color:#a90d91">false</span>                  <span style="color:#000">|</span>
+<span style="color:#000">|</span> <span style="color:#000">generate_p12</span>     <span style="color:#000">|</span> <span style="color:#a90d91">true</span>                   <span style="color:#000">|</span>
+<span style="color:#000">|</span> <span style="color:#000">force</span>            <span style="color:#000">|</span> <span style="color:#a90d91">false</span>                  <span style="color:#000">|</span>
+<span style="color:#000">|</span> <span style="color:#000">save_private_key</span> <span style="color:#000">|</span> <span style="color:#a90d91">true</span>                   <span style="color:#000">|</span>
+<span style="color:#000">|</span> <span style="color:#000">app_identifier</span>   <span style="color:#000">|</span> <span style="color:#000">com</span><span style="color:#000">.</span><span style="color:#000">tyrad</span><span style="color:#000">.</span><span style="color:#000">fastlaneProj</span> <span style="color:#000">|</span>
+<span style="color:#000">|</span> <span style="color:#000">username</span>         <span style="color:#000">|</span> <span style="color:#000">qianshangjia</span><span style="color:#000">@</span><span style="color:#1c01ce">126</span><span style="color:#000">.</span><span style="color:#000">com</span>   <span style="color:#000">|</span>
+<span style="color:#000">|</span> <span style="color:#000">team_id</span>          <span style="color:#000">|</span> <span style="color:#000">ZAKS37HHGG</span>             <span style="color:#000">|</span>
+<span style="color:#000">|</span> <span style="color:#000">output_path</span>      <span style="color:#000">|</span> <span style="color:#000">.</span>                      <span style="color:#000">|</span>
+<span style="color:#000">+------------------+------------------------+</span>
+
+<span style="color:#000">[</span><span style="color:#1c01ce">10</span>:<span style="color:#1c01ce">24</span>:<span style="color:#1c01ce">58</span><span style="color:#000">]</span>: <span style="color:#000">Starting</span> <span style="color:#000">login</span> <span style="color:#000">with</span> <span style="color:#000">user</span> <span style="color:#c41a16">&#39;xxx@126.com&#39;</span>
+<span style="color:#000">[</span><span style="color:#1c01ce">10</span>:<span style="color:#1c01ce">25</span>:<span style="color:#1c01ce">02</span><span style="color:#000">]</span>: <span style="color:#000">Successfully</span> <span style="color:#000">logged</span> <span style="color:#a90d91">in</span>
+<span style="color:#000">[</span><span style="color:#1c01ce">10</span>:<span style="color:#1c01ce">25</span>:<span style="color:#1c01ce">03</span><span style="color:#000">]</span>: <span style="color:#000">Creating</span> <span style="color:#000">a</span> <span style="color:#a90d91">new</span> <span style="color:#000">push</span> <span style="color:#000">certificate</span> <span style="color:#a90d91">for</span> <span style="color:#000">app</span> <span style="color:#c41a16">&#39;com.tyrad.fastlaneProj&#39;</span><span style="color:#000">.</span>
+<span style="color:#000">[</span><span style="color:#1c01ce">10</span>:<span style="color:#1c01ce">25</span>:<span style="color:#1c01ce">06</span><span style="color:#000">]</span>: <span style="color:#000">Private</span> <span style="color:#c41a16">key</span>: <span style="color:#c41a16">/Users/</span><span style="color:#000">admin</span><span style="color:#c41a16">/Desktop/sn</span><span style="color:#000">apshot</span><span style="color:#000">-</span><span style="color:#000">fastlane</span><span style="color:#c41a16">/fastlaneProj/</span><span style="color:#000">production_com</span><span style="color:#000">.</span><span style="color:#000">tyrad</span><span style="color:#000">.</span><span style="color:#000">fastlaneProj</span><span style="color:#000">.</span><span style="color:#000">pkey</span>
+<span style="color:#000">[</span><span style="color:#1c01ce">10</span>:<span style="color:#1c01ce">25</span>:<span style="color:#1c01ce">06</span><span style="color:#000">]</span>: <span style="color:#000">p12</span> <span style="color:#c41a16">certificate</span>: <span style="color:#c41a16">/Users/</span><span style="color:#000">admin</span><span style="color:#c41a16">/Desktop/sn</span><span style="color:#000">apshot</span><span style="color:#000">-</span><span style="color:#000">fastlane</span><span style="color:#c41a16">/fastlaneProj/</span><span style="color:#000">production_com</span><span style="color:#000">.</span><span style="color:#000">tyrad</span><span style="color:#000">.</span><span style="color:#000">fastlaneProj</span><span style="color:#000">.</span><span style="color:#000">p12</span>
+<span style="color:#000">[</span><span style="color:#1c01ce">10</span>:<span style="color:#1c01ce">25</span>:<span style="color:#1c01ce">06</span><span style="color:#000">]</span>: <span style="color:#c41a16">PEM</span>: <span style="color:#c41a16">/Users/</span><span style="color:#000">admin</span><span style="color:#c41a16">/Desktop/sn</span><span style="color:#000">apshot</span><span style="color:#000">-</span><span style="color:#000">fastlane</span><span style="color:#c41a16">/fastlaneProj/</span><span style="color:#000">production_com</span><span style="color:#000">.</span><span style="color:#000">tyrad</span><span style="color:#000">.</span><span style="color:#000">fastlaneProj</span><span style="color:#000">.</span><span style="color:#000">pem</span></code></pre></div>
+<h2 id="做了哪些工作">做了哪些工作</h2>
+
+<ul>
+<li>创建新的签名请求(signing request)</li>
+<li>创建新的推送证书( push certification)</li>
+<li>下载这个证书(certificate)</li>
+<li>在当前工作目录创建新的 .pem 文件,你可以上传到你的服务器</li>
+</ul>
+
+<p><code>pem</code>不会revoke已经存在的证书,也不会下载已经存在的证书,因为私钥仅在创建的机器上可用。</p>
+
+<h2 id="实用命令">实用命令</h2>
+
+<p>如果你已经有一个可用的推送证书(certificate),而且有效期至少还有30天以上，<code>pem</code>就不会创建新的证书。如果你想要创建新的，使用<code>force</code>：</p>
+
+<pre><code>fastlane pem --force
+</code></pre>
+
+<p>还可传参数,如:</p>
+
+<pre><code>fastlane pem -a com.krausefx.app -u username
+</code></pre>
+
+<p><strong>生成开发证书:</strong></p>
+
+<pre><code>fastlane pem --development
+</code></pre>
+
+<p>给p12文件设置密码:</p>
+
+<pre><code>fastlane pem -p &quot;MyPass&quot;
+</code></pre>
+
+<p>可以指定输出名字:</p>
+
+<pre><code>fastlane pem -o my.pem
+</code></pre>
+
+<p>列出可用命令选项:</p>
+
+<pre><code>fastlane pem --help
+</code></pre>
+
+<h2 id="注意事项">注意事项</h2>
+
+<p><code>pem</code>命令生成的p12文件可以没有密码或者空字符串当密码。这样尽管生成的文件是有效的,但mac的Keychain Access不会允许你打开没指定密码的p12。</p>
+
+<p><img src="http://image.tyrad.cc/2017062679494error.png?imageView/2/w/400" alt="2017062679494error.png" /></p>
+
+<p>这时候,可以用OpenSSL验证文件:</p>
+
+<pre><code>openssl pkcs12 -info -in my.p12
+</code></pre>
+
+<p>如果要用keychain中的p12,比如说推送测试软件<a href="https://github.com/KnuffApp/Knuff">Knuff</a>或<a href="https://github.com/noodlewerk/NWPusher">NWPusher</a>,您可以使用openssl将p12导出到pem并返回到p12(设置密码)。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">% openssl pkcs12 -in my.p12 -out my.pem
+Enter Import Password:
+  &lt;hit enter: the p12 has no password&gt;
+MAC verified OK
+Enter PEM pass phrase:
+  &lt;enter a temporary password to encrypt the pem file&gt;
+  
+% openssl pkcs12 -export -in my.pem -out my-with-passphrase.p12
+Enter pass phrase <span style="color:#a90d91">for</span> temp.pem:
+  &lt;enter the temporary password to decrypt the pem file&gt;
+
+Enter Export Password:
+  &lt;enter a password <span style="color:#a90d91">for</span> encrypting the new p12 file&gt;</code></pre></div>
+                    <p class="prev-next text-center" style="display:flex;justify-content:space-between; ">
+                        
+                        <a class="btn" href="/wiki/tools/xcode-refactor/"><i class="fa fa-angle-left"></i>
+                            xcode refactor
+                        </a>
+                        
+                        
+                        <a class="btn" href="/2017/fastlane-2/">
+                            fastlane使用指南(二)
+                            <i class="fa fa-angle-right"></i></a>
+                        
+                    </p>
+                </div>
+                                    
+                <div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed">
+                        <nav id="TableOfContents">
+<ul>
+<li><a href="#安装和初始化">安装和初始化</a>
+<ul>
+<li><a href="#确保安装了最新的xcode命令行工具">确保安装了最新的xcode命令行工具</a></li>
+<li><a href="#安装fastlane">安装fastlane</a></li>
+<li><a href="#fastlane-init">fastlane init</a></li>
+<li><a href="#分析">分析</a></li>
+<li><a href="#重新安装">重新安装</a></li>
+</ul></li>
+<li><a href="#frameit-自动截图-套壳">frameit 自动截图(套壳)</a>
+<ul>
+<li><a href="#为什么要使用自动截图功能">为什么要使用自动截图功能？</a></li>
+<li><a href="#如何使用">如何使用</a>
+<ul>
+<li><a href="#准备工作">准备工作</a></li>
+<li><a href="#工程配置">工程配置</a></li>
+<li><a href="#截屏">截屏</a></li>
+<li><a href="#重置模拟器">重置模拟器</a></li>
+</ul></li>
+<li><a href="#上传导入app-store">上传导入App Store</a></li>
+<li><a href="#自己遇到的问题">自己遇到的问题</a>
+<ul>
+<li><a href="#多语言测试截图失败">多语言测试截图失败</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#pem-生成推送证书">pem:生成推送证书</a>
+<ul>
+<li><a href="#使用">使用</a></li>
+<li><a href="#做了哪些工作">做了哪些工作</a></li>
+<li><a href="#实用命令">实用命令</a></li>
+<li><a href="#注意事项">注意事项</a></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div>
+                
+            </div>
+        </section>
+    </section>
+</section>
+
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>sRGB和Adobe RGB的区别 |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> sRGB和Adobe RGB的区别 </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#%E6%9D%82%E8%AE%B0'>%E6%9D%82%E8%AE%B0</a></span>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2017-08-09T08:45:49.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2017-08-09
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<p>sRGB(standard Red Green Blue)</p>
+
+<p><img src="http://image.tyrad.cc/2017080910512123.png" alt="2017080910512123.png" /></p>
+
+<p>下边摘自:<a href="https://www.douban.com/note/236036819/">豆瓣:为什么显示器上的色彩照片和网络上看到的不一样？
+</a></p>
+
+<h2 id="一-为什么显示器上的色彩照片和网络上看到的不一样">一、为什么显示器上的色彩照片和网络上看到的不一样？</h2>
+
+<p>这是因为你在显示器、Photoshop中设置的颜色管理模式，与网络或相馆冲印设备颜色管理模式不一致而造成的色彩差异。</p>
+
+<p>互联网目前统一使用的色彩模式为sRGB IEC1966-2.1。</p>
+
+<p>在 Adobe的“颜色设置”对sRGB IEC1966-2.1原文说明如下：“sRGB IEC1966-2.1反映一般PC屏幕的特性。此标准色域已经受到硬件及软件制造商的认可，并成为许多扫描仪、低端打印机及软件应用程序的预置色域。这 是适合网页使用的理想色域，但是不建议印前制作使用（原因在于色域受到限制）。”</p>
+
+<p>在Adobe的“颜色设置”对Adobe RGB（1998）原文说明如下：“Adobe RGB（1998）提供相当大色域（范围）的RGB颜色，非常适合于文档转换为CMYK。如果从事涉及颜色范围很广的印刷工作，可以使用这种颜色模式。”</p>
+
+<p>Adobe RGB（1998）色彩模式是最理想的摄影或后期的色彩模式，如果你在Photoshop采用了Adobe RGB（1998），你会发现该色彩模式确实色域较广，色彩也很漂亮，但不久就会有一些疑惑困绕你，如：你在Photoshop中做好的彩色照片保存后， 用ACDS看图软件打开后就会明显暗淡许多，传到网络上也会暗淡无色？</p>
+
+<p>这是因为仅仅只在Photoshop的色彩管理中设置了Adobe RGB（1998），而你的电脑、ACDS看图软件、网络却仍然是默认的sRGB IEC1966-2.1色彩模式。它们之间的色域差异造成了色彩的变化和差异。</p>
+
+<h2 id="二-应当如何保持数码相机-显示器-网络-photoshop的统一色彩模式">二、应当如何保持数码相机、显示器、网络、Photoshop的统一色彩模式？</h2>
+
+<ol>
+<li>如果你用的是ＰＣ机或者是现在的液晶显示器，显示器默认色彩模式就是sRGB。</li>
+<li>数码相机默认的色彩模式一般都是sRGB，这是我们可以改变的。</li>
+<li>目前国内绝大多数相馆激光冲印色彩模式为sRGB，这是可以改变的，但你必须与设备管理工作人员进行商量，取得他的同意并为你而改变。</li>
+<li>全世界互联网色彩都统一为sRGB（这是我们没有办法改变的）</li>
+<li>Photoshop默认的色彩设置为sRGB，这是能够改变的。
+<br />
+<br /></li>
+</ol>
+
+<p>我们感觉sRGB颜色较窄，这是事实，但就我们大多数朋友使用的显示器来说，sRGB色彩已经足够丰富多彩了。</p>
+
+<p>当然，为了某方面的需要，你完全可以改变显示器的色彩模式，如为了获得更好的视觉色彩效果，你可以把sRGB改为Adobe RGB1998），但你必须同时把Photoshop色彩也改为Adobe RGB（1998），这就叫做色彩同步。但如果你想把在Adobe(1998)色彩模式下的作品发表在互联网上，则必须在发表前把作品的色彩模式再次改回 为sRGB。不然你就会发现：上网后作品的色彩会比你在计算机显示器上看到的色彩要发灰并暗淡许多。这是因为计算机与互联网色彩模式不一致所造成的不同步或差异。</p>
+
+<p>所以我建议：如果你需要经常都要把自己摄影作品发表出来，最好把数码相机、电脑显示器、 Photoshop的颜色模式都设置为sRGB IEC1966-2.1。这样可以保证你从摄影、计算机显示、Photoshop后期制作、传送上网的各个环节都颜色一致。</p>
+
+<p>如果你觉得 sRGB IEC1966-2.1色彩模式不能满足你的高标准和严要求，我建议你首选Adobe RGB（1998）色彩模式（这也是大多数摄影师推荐的色彩管理模式），但必须同时要把你的数码相机、电脑显示器、Photoshop软件、ACDS看图 软件、打印机（现在拥有小型打印机的人已越来越多）等所有涉及到色彩管理的设备都一致设置为这个色彩模式，这样才能取得色彩管理步调协同一致，尽量减少色彩转换的中间环节，因为我们知道：任何一个环节上的不一致都会或多或少地造成色彩丢失和差异。</p>
+
+<p>但必须牢记：你这些拥有很宽色域的彩色作品 在上传到网络之前，你还要再进行一次色彩的转换，也就是前面所说的：把Adobe(1998)色彩模式转换为sRGB IEC1966-2.1色彩模式。当然这样做肯定会丢失一些色彩（所以事先作一个备份是必须的），这也是没有办法的事情，目前互联网就是统一为sRGB这 种低级色彩管理模式，这就好比一辆高级“宝马”轿车下了高速公路进入了交通堵塞的大城市，你的“宝马”车速再快也跟国产“奥拓”速度没有区别，只有把你的 色彩转换到与互联网一致后，才能保证别人在互联网看到你的作品与你显示器上的作品色彩是一样精彩.</p>
+
+<p>sRGB与AdobeRGB的关系:</p>
+
+<p><img src="http://image.tyrad.cc/2017080916117p236036819-3.jpg" alt="2017080916117p236036819-3.jpg" /></p>
+
+<p>Adobe RGB和sRGB色彩空间的主要区别，首先在于开发时间和开发厂家不同。sRGB色彩空间是美国的惠普公司和微软公司于1997年共同开发的标准色彩空间（standard Red Green Blue），由于这两家公司的实力强，他们的产品在市场中占有很高的份额。而AdobeRGB色彩空间是由美国以开发Photoshop软件而闻名的Adobe公司1998年推出的色彩空间标准，它拥有宽广的色彩空间和良好的色彩层次表现，与sRGB色彩空间相比，它还有一个优点：就是Adobe RGB还包含了sRGB所没有完全覆盖的CMYK色彩空间。这使得Adobe RG8色彩空间在印刷等领域具有更明显的优势。</p>
+
+<p>其次，两种色彩空间所包含的色彩范围不同。Adobe RGB有更加宽广的色彩空间能再现更鲜艳的色彩，因为Adobe RGB比sRGB具有现大的色彩空间。此外，在图像处理和编辑方面有更大的自由度。</p>
+
+<p>再次，应用范围不同。“sRGB”意为“标准 RGB 色彩空间”，这一标准应用的范围十分广泛，其他许许多多的硬件及软件开发商也都采用了sRGB色彩空间做为其产品的色彩空间标准，逐步成为许多扫描仪、低档打印机和软件的默认色彩空间，同样采用sRGB色彩空间的设备之间，可以实现色彩相互模拟。同时，sRGB这一色彩空间也是为Web设计者而设计的。相反，大部分显示屏无法再现sRGB的色彩空间，如果没有进行色彩管理，在电脑显示屏显示的话，比sRGB图像更浅。</p>
+
+<h2 id="三-到底用啥色彩空间">三、到底用啥色彩空间</h2>
+
+<blockquote>
+<p>摘自知乎:
+作者：彭渤
+链接：<a href="https://www.zhihu.com/question/20602284/answer/34542785">https://www.zhihu.com/question/20602284/answer/34542785</a>
+来源：知乎</p>
+</blockquote>
+
+<p>这里主要看用途，因为虽然一个逗比RGB范围大，而且覆盖了CMYK，但是很多网站不支持，很多屏幕也无法显示出更多的颜色，所以只有在1，你的显示器支持AdobeRGB。 2，你的照片是要用来印刷的。这两个条件任何一个成立的时候使用AdobeRGB，而且如果需要发到网上请存两份，一份sRGB一份AdobeRGB（就是这么蛋疼，要骂骂微软去）（这里的网指的是微博、人人网这种不支持色彩管理的网站。图虫/LOFTER等专业摄影社区一般支持色彩管理所以可以直接用AdobeRGB）</p>
+
+<p>印刷的时候请选择专业的印刷厂，你丢给他们AdobeRGB就好了，软打样让他们自己搞去你不用管。当然如果是工业级别的印刷你作为甲方就得看着他们就得不停的打样，观察色偏，调色，再打样。这个我不太懂希望有专业人员完善我的答案。</p>
+
+<p>设置都知道怎么设置吧？PS里的色彩设置里那个RGB就可以了。PS里有个转换到工作空间和替换工作空间，这两个的区别就是第一个通过转换把原图数据改变了但是颜色基本不变，第二个就是直接暴力的给你换个内嵌的色彩空间原图数据没变但是色彩肯定要变。结论就是摄影爱好者玩票性质用sRGB追求输出印刷请一定要用AdobeRGB（尽管你可能没有专业显示器）</p>
+</div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#一-为什么显示器上的色彩照片和网络上看到的不一样">一、为什么显示器上的色彩照片和网络上看到的不一样？</a></li>
+<li><a href="#二-应当如何保持数码相机-显示器-网络-photoshop的统一色彩模式">二、应当如何保持数码相机、显示器、网络、Photoshop的统一色彩模式？</a></li>
+<li><a href="#三-到底用啥色彩空间">三、到底用啥色彩空间</a></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

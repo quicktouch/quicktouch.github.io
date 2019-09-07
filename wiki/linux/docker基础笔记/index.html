@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>Docker基础笔记 |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> Docker基础笔记 </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#linux'>linux</a></span>
+    
+    
+    
+    
+    
+    &nbsp/&nbsp<span>Docker</span>
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2018-09-04T13:53:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2018-09-04
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<h2 id="基本认识">基本认识</h2>
+
+<p>Docker是linux容器(当然也有<code>windows container docker</code>)的一种封装,提供了简单操作的接口。</p>
+
+<h3 id="容器与虚拟机">容器与虚拟机</h3>
+
+<p>容器和虚拟机具有类似的资源隔离和分配优势，但功能不同，因为容器虚拟化操作系统而不是硬件。容器更便携，更高效(<a href="https://www.docker.com/resources/what-container">https://www.docker.com/resources/what-container</a>)。</p>
+
+<p><img src="http://image.tyrad.cc/20190104154659144347828.png" alt="20190104154659144347828.png" /></p>
+
+<p>容器是应用层的抽象，它将代码和依赖关系打包在一起。 多个容器可以在同一台机器上运行，并与其他容器共享操作系统内核，每个容器在用户空间中作为独立进程运行。</p>
+
+<p>虚拟机（VM）是物理硬件的抽象，将一台服务器转变为多台服务器。 虚拟机管理程序允许多台虚拟机在一台计算机上运行。 每个VM都包含操作系统的完整副本，应用程序，必要的二进制文件和库 - 占用数十GB。</p>
+
+<h3 id="优点">优点</h3>
+
+<p>轻量: 只对需要的bin/lib打包
+部署快: 比虚拟机强
+弹性伸缩: Kubernetes、Swam、Mesos这类开源、方便、好使的容器管理平台有着非常强大的弹性管理能力（服务访问峰差很大的场景，可以做弹性适配）</p>
+
+<h2 id="常用命令">常用命令</h2>
+
+<p>1). 镜像（image）</p>
+
+<ol>
+<li>docker的运行环境，可以理解成’快照’</li>
+<li>镜像是一个虚拟的概念，由多层文件系统联合组成</li>
+</ol>
+
+<p>2). 容器（container）</p>
+
+<ol>
+<li>镜像运行中的’实体’</li>
+<li>image和container的关系,可以类比面向对象中的类和实例，容器是镜像运行中的实体</li>
+<li>容器销毁，容器中存储的信息会丢失。但是容器的存储可以绑定数据卷（volume）或宿主机目录</li>
+</ol>
+
+<p>3). 仓库</p>
+
+<ol>
+<li>镜像(image)仓库,用户根据需要拉取镜像</li>
+<li>有官方的仓库，也可以搭私有仓库</li>
+</ol>
+
+<h3 id="docker">docker</h3>
+
+<p>查看版本</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  docker --version </code></pre></div>
+<p>查看空间占用</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> docker system df</code></pre></div>
+<h3 id="image">image</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">#镜像名称</span>
+docker search &lt;image name&gt;
+<span style="color:#177500">#拉取</span> 
+docker pull <span style="color:#000">[</span>选项<span style="color:#000">]</span> <span style="color:#000">[</span>Docker Registry 地址<span style="color:#000">[</span>:端口号<span style="color:#000">]</span>/<span style="color:#000">]</span>    仓库名<span style="color:#000">[</span>:标签<span style="color:#000">]</span>
+docker pull ubuntu:18.04 <span style="color:#177500">##例如,参数不提供地址会从官网镜像获取镜像;参数无版本号会拉取最新的（latest）</span>
+<span style="color:#177500">#删除镜像</span>
+docker image rm  &lt;IMAGE ID&gt;
+<span style="color:#177500">#搜索镜像(无法指定版本号)</span>
+docker search centos </code></pre></div>
+<p>官方镜像地址为: <a href="https://hub.docker.com/">https://hub.docker.com/</a></p>
+
+<h3 id="container">container</h3>
+
+<h4 id="运行-docker-run">运行 <code>docker run ...</code></h4>
+
+<p>举例:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">#运行centos的echo命令:</span>
+docker run --name ctName  centos <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#39;hello wolrd&#39;</span>
+<span style="color:#177500">#操作centos命令行:</span> 
+docker run  --name ctname -t -i --rm centos bash
+<span style="color:#177500">#后台运行nginx:</span> 
+docker run --name web -d -p <span style="color:#1c01ce">8088</span>:80 -v /Users/tyrad/Documents/webapp:/usr/share/nginx/html nginx</code></pre></div>
+<p>参数解释</p>
+
+<p><code>--name</code>:    为运行起来的container(实体)起个名字
+<code>-t</code>:        为容器分配一个终端(terminal)绑定到容器的输出上
+<code>-i</code>:       让容器的标准输入保持打开
+<code>-v A:B</code>:    容器目录B映射到本机目录A
+<code>-d</code>:        后台运行,类似&amp; 、nohup、supervisor
+<code>--rm</code>:      退出后销毁容器,否则销毁需要手动 docker container rm ${name}
+<code>-d -p 8080:80</code>:  将容器的80端口映射到本机的80端口
+<code>-dit</code>:     等同于 -d -i -t</p>
+
+<h4 id="查看某个容器的启动错误日志">查看某个容器的启动错误日志</h4>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> docker logs &lt;<span style="color:#177500">#容器id#&gt;</span></code></pre></div>
+<h4 id="与运行容器交互">与运行容器交互</h4>
+
+<pre><code>#ctName为容器名
+docker attach ctName 
+docker exec -it  ctName  bash 
+</code></pre>
+
+<p>docker attach 是 Docker 自带的命令，为容器分配一个终端绑定到容器的输出上 。但是exit时容器也会停止。 exec 作用同上。但是exit时容器不会停止。 需要配合 -it 使用。当然也可以运行其他命令，如</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">➜  ~ docker <span style="color:#a90d91">exec</span>  web  <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#39;hello&#39;</span></code></pre></div>
+<h4 id="停止">停止</h4>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">#退出容器的终端 :</span>  
+<span style="color:#a90d91">exit</span>  或 Ctrl+d
+<span style="color:#177500">#停止运行中的容器:</span>  
+docker container  stop <span style="color:#c41a16">${</span><span style="color:#000">name或返回的id</span><span style="color:#c41a16">}</span>    </code></pre></div>
+<h4 id="重新启动">重新启动</h4>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">#关闭中容器重启</span> 
+docker container    start <span style="color:#c41a16">${</span><span style="color:#000">name或返回的id</span><span style="color:#c41a16">}</span>
+<span style="color:#177500">#容器重新启动</span>     
+docker container restart <span style="color:#c41a16">${</span><span style="color:#000">name或返回的id</span><span style="color:#c41a16">}</span> </code></pre></div>
+<h4 id="删除">删除</h4>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">#删除指定的（停止状态）的容器</span>
+docker container rm   <span style="color:#c41a16">${</span><span style="color:#000">name或返回的id</span><span style="color:#c41a16">}</span> </code></pre></div>
+<h4 id="容器的导入导出">容器的导入导出</h4>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">#导出容器快照</span>
+docker <span style="color:#a90d91">export</span> 9b804b1b &gt; Desktop/nginx.tar
+<span style="color:#177500">#导入快照 (可以是网络地址或本地路径)</span>
+docker import http://example.com/exampleimage.tgz example/imagerepo </code></pre></div>
+<p>快照export和save的区别是。 save会保存用户的操作，常用用途：保存作案现场并时候分析。</p>
+
+<h4 id="image镜像的导入导出">image镜像的导入导出</h4>
+
+<p>导出:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker save  imageId  &gt; ~/Desktop/import-nginx.tar</code></pre></div>
+<p><img src="http://image.tyrad.cc/20190104154659476470874.png" alt="20190104154659476470874.png" /></p>
+
+<p>导入:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker load &lt; ~/Desktop/import-nginx.tar   </code></pre></div>
+<p>导入并重命名
+<img src="http://image.tyrad.cc/2019010415465948227928.png" alt="2019010415465948227928.png" /></p>
+
+<h3 id="数据卷-volume">数据卷(volume)</h3>
+
+<p>容器销毁时,容器内的数据都会销毁。为了数据的持久化需要用到数据卷(volume),也可以将目录映射(-v)。</p>
+
+<p>需要注意:</p>
+
+<ol>
+<li>volume容器创建时就初始化，容器运行时就可以使用其中的文件</li>
+<li>volume能在不同的容器间共享和重用</li>
+<li>对volume中数据的操作会马上生效</li>
+<li>对volume中数据的操作不会影响容器本身</li>
+<li>volume证明周期独立于容器的生命周期。即使删除容器，volume仍然会存在，没有任何容器使用的volume也不会被Docker删除。
+(原文：<a href="https://blog.csdn.net/dream_broken/article/details/52314993">https://blog.csdn.net/dream_broken/article/details/52314993</a> )</li>
+</ol>
+
+<p>常用命令</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">#创建数据卷</span>
+➜  docker volume create docker-volume
+docker-volume
+<span style="color:#177500">#查看</span>
+➜  docker volume ls
+DRIVER              VOLUME NAME
+<span style="color:#a90d91">local</span>               docker-volume 
+<span style="color:#177500">#查看具体信息</span>
+➜  docker volume inspect docker-volume
+<span style="color:#000">[</span>
+    <span style="color:#000">{</span>
+        <span style="color:#c41a16">&#34;CreatedAt&#34;</span>: <span style="color:#c41a16">&#34;2018-12-26T08:43:45Z&#34;</span>,
+        <span style="color:#c41a16">&#34;Driver&#34;</span>: <span style="color:#c41a16">&#34;local&#34;</span>,
+        <span style="color:#c41a16">&#34;Labels&#34;</span>: <span style="color:#000">{}</span>,
+        <span style="color:#c41a16">&#34;Mountpoint&#34;</span>: <span style="color:#c41a16">&#34;/var/lib/docker/volumes/docker-volume/_data&#34;</span>,
+        <span style="color:#c41a16">&#34;Name&#34;</span>: <span style="color:#c41a16">&#34;docker-volume&#34;</span>,
+        <span style="color:#c41a16">&#34;Options&#34;</span>: <span style="color:#000">{}</span>,
+        <span style="color:#c41a16">&#34;Scope&#34;</span>: <span style="color:#c41a16">&#34;local&#34;</span>
+    <span style="color:#000">}</span>
+<span style="color:#000">]</span>
+<span style="color:#177500">#删除</span>
+➜ docker volume rm docker-volume</code></pre></div>
+<p>数据卷 是被设计用来持久化数据的，它的生命周期独立于容器，Docker 不会在容器被删除后自动删除 数据卷，并且也不存在垃圾回收这样的机制来处理没有任何容器引用的 数据卷。如果需要在删除容器的同时移除数据卷。可以在删除容器的时候使用 docker rm -v 这个命令。
+无主的数据卷可能会占据很多空间，要清理请使用以下命令</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker volume prune</code></pre></div>
+<h4 id="数据拷贝">数据拷贝</h4>
+
+<p>拷贝到宿主机</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker cp &lt;containerId&gt;:/file/path/within/container /host/path/target  
+<span style="color:#177500">#举例</span>
+docker cp  ctName:/anaconda-post.log ~/Desktop/do2pdf</code></pre></div>
+<p>拷贝内容到容器</p>
+
+<ol>
+<li>-v挂载数据卷</li>
+<li>也可以用docker cp</li>
+</ol>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">#	将主机/www/runoob目录拷贝到容器96f7f14e99ab中，目录重命名为www。</span> 
+docker cp /www/runoob 96f7f14e99ab:/www
+<span style="color:#177500">#将/etc/nginx/nginx.conf 文件拷贝本机目录下</span> 
+docker cp web:/etc/nginx/conf.d /Users/tyrad/Documents/nginx
+<span style="color:#177500">#/etc/nginx/conf.d目录拷贝到本机目录下</span>
+docker cp web:/etc/nginx/nginx.conf  /Users/tyrad/Documents/nginx</code></pre></div>
+<h4 id="目录映射">目录映射</h4>
+
+<p><code>-v A:B</code>: 目录A为本机目录，B为容器目录</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run --name web  -d    -p <span style="color:#1c01ce">8088</span>:80   -v    /Users/tyrad/Documents/webapp:/usr/share/nginx/html    -v /Users/tyrad/Documents/nginx/nginx.conf:/etc/nginx/nginx.conf    -v  /Users/tyrad/Documents/nginx/conf.d:/etc/nginx/conf.d       nginx</code></pre></div>
+<h3 id="网络">网络</h3>
+
+<p>旧的链接方式 <code>--link</code>:</p>
+
+<p>如果你之前有 Docker 使用经验，你可能已经习惯了使用 &ndash;link 参数来使容器互联。随着 Docker 网络的完善，强烈建议大家将容器加入自定义的 Docker 网络来连接多个容器，而不是使用 &ndash;link 参数。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker network create -d bridge my-net
+<span style="color:#177500">#测试,容器之间通过name是可以ping通的</span>
+docker run --name test1 -it  --rm   --network my-net centos bash
+docker run --name test1 -it  --rm   --network my-net centos bash</code></pre></div>
+<h2 id="提交镜像">提交镜像</h2>
+
+<h3 id="提交到官方仓库">提交到官方仓库</h3>
+
+<ol>
+<li>注册</li>
+<li><code>docker login</code></li>
+<li><code>docker push</code>,镜像名有要求,格式为<code>用户名/镜像名</code>,如<code>tyrad/nginx</code></li>
+</ol>
+</div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#基本认识">基本认识</a>
+<ul>
+<li><a href="#容器与虚拟机">容器与虚拟机</a></li>
+<li><a href="#优点">优点</a></li>
+</ul></li>
+<li><a href="#常用命令">常用命令</a>
+<ul>
+<li><a href="#docker">docker</a></li>
+<li><a href="#image">image</a></li>
+<li><a href="#container">container</a>
+<ul>
+<li><a href="#运行-docker-run">运行 <code>docker run ...</code></a></li>
+<li><a href="#查看某个容器的启动错误日志">查看某个容器的启动错误日志</a></li>
+<li><a href="#与运行容器交互">与运行容器交互</a></li>
+<li><a href="#停止">停止</a></li>
+<li><a href="#重新启动">重新启动</a></li>
+<li><a href="#删除">删除</a></li>
+<li><a href="#容器的导入导出">容器的导入导出</a></li>
+<li><a href="#image镜像的导入导出">image镜像的导入导出</a></li>
+</ul></li>
+<li><a href="#数据卷-volume">数据卷(volume)</a>
+<ul>
+<li><a href="#数据拷贝">数据拷贝</a></li>
+<li><a href="#目录映射">目录映射</a></li>
+</ul></li>
+<li><a href="#网络">网络</a></li>
+</ul></li>
+<li><a href="#提交镜像">提交镜像</a>
+<ul>
+<li><a href="#提交到官方仓库">提交到官方仓库</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

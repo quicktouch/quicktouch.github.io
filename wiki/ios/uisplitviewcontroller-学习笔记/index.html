@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>UISplit​View​Controller 学习笔记 |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> UISplit​View​Controller 学习笔记 </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#ios'>ios</a></span>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2017-04-07T00:00:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2017-04-07
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content"><p>个人感觉<code>UISplitViewController</code>是比较鸡肋的东西,开发中自定义<code>split​View​Controller</code>的时候比较常见。</p>
+
+<h2 id="介绍">介绍</h2>
+
+<p><code>UISplitViewController</code>类是一个容器视图控制器，它显示一个<code>master-detail</code>界面(主界面、详细界面)。在<code>master-detail</code>界面中，主视图控制器（<code>master</code>）的变化会驱动辅助视图控制器（<code>detail</code>）变化。 两个视图控制器(<code>master</code>控制器、<code>detail</code>控制器)的排列是可以控制的， 他们可以同时显示或者一次只显示一个。<code>UISplitViewController</code>在iOS3.2的时候就有了，只不过iOS8才开始支持iPhone(比如在iPhone6 plus上显示视图和iPad很相似了)。</p>
+
+<h2 id="overview">Overview</h2>
+
+<p>在构建应用程序的用户界面时，<code>split​View​Controller</code>通常是应用程序窗口(window)的根视图控制器。<code>split​View​Controller</code>没有明显的外观，它的外观基本上是由它的子视图控制器(master、detail控制器)决定的。 你可以以<code>Interface Builder</code>的方式或者代码的方式构建该控制器。</p>
+
+<blockquote>
+<p>Note
+你不能把<code>split​View​Controller</code>push到<code>navigationController</code>的栈中
+尽管在一些容器视图控制器中，把<code>split​View​Controller</code>当做子控制器这个操作是可行的，但是大多数情况不允许这么做。再次声明，<code>split​View​Controller</code>通常配置为window的root控制器。 有关实现界面的方法的提示和指导，请参阅<a href="https://developer.apple.com/ios/human-interface-guidelines/">iOS Human Interface Guidelines</a>。</p>
+</blockquote>
+
+<p><code>split​View​Controller</code>基于可用空间确定其子视图控制器的排列:</p>
+
+<p>在水平规则的环境中，<code>split​View​Controller</code>尽可能并排地呈现其视图控制器(同时并排地显示master、detail控制器)。</p>
+
+<p>在水平紧凑的环境中，<code>split​View​Controller</code>的行为更像导航控制器，最初显示主视图控制器，并根据需要<code>push</code>或<code>pop</code>第二个控制器。</p>
+
+<p>当显示在屏幕上时，<code>split​View​Controller</code>使用其&rdquo;代理对象&rdquo;(Delegation object)来管理其子视图控制器的显示。<a href="https://developer.apple.com/reference/uikit/uisplitviewcontrollerdelegate">具体参考此处:UISplit​View​Controller​Delegate</a></p>
+
+<h2 id="configuring-the-appearance-of-the-split-view-interface">Configuring the Appearance of the Split View Interface</h2>
+
+<p>split​View​Controller显示的视图配置由当前显示模式(<code>displayMode</code>)决定。 配置displayMode需要用到<code>preferredDisplayMode</code>属性。</p>
+
+<p><img src="http://image.tyrad.cc/20170405341751.png" alt="20170405341751.png" /></p>
+
+<p>分割视图控制器尽力尊重您指定的显示模式，但由于空间限制，可能无法视觉上适应该模式。 例如，分割视图控制器不能在水平紧凑的环境中并排显示其子视图控制器。</p>
+
+<p>下面列出了可用的显示模式，并描述了视图控制器如何布置在屏幕上。 该表还列出了用于请求指定显示模式的常量。</p>
+
+<p><img src="http://image.tyrad.cc/20170405758942.png" alt="20170405758942.png" /></p>
+
+<ul>
+<li><p>Side-by-side</p>
+
+<p>同时显示全部控制器。主视图控制器显示在左侧，通常比次视图控制器更窄。可以使用<a href="https://developer.apple.com/reference/uikit/uisplitviewcontroller/1623183-preferredprimarycolumnwidthfract">preferred​Primary​Column​Width​Fraction</a>属性来控制宽度.
+当<code>is​Collapsed</code>属性为true的时候，这个模式不会显示。在折叠的界面(collapsed interface)时,一次只能看到一个试图控制器。
+这个模式由枚举中<code>all​Visible</code>表示。<br />
+<img src='http://image.tyrad.cc/201704066616612.png' width="400px"></p></li>
+
+<li><p>Hidden:</p>
+
+<p>次视图控制器显示在屏幕上，主视图控制器处于关闭屏幕。
+要显示主视图控制器，您必须以模态显示(present it modally)或更改显示模式(change the display mode)。
+该模式由枚举中的<code>primary​Hidden</code>表示。
+<img src='http://image.tyrad.cc/20170406785313.png' width="400px"></p></li>
+
+<li><p>Overlay</p>
+
+<p>次视图控制器在屏幕上，主视图控制器分层在其上。 在此模式下，主视图控制器部分地遮挡了次视图控制器(如下图:右侧的控制器一部分被遮挡了)。
+此模式由<code>primary​Overlay</code>表示。
+<img src='http://image.tyrad.cc/201704064464314.png' width="400px"></p></li>
+</ul>
+
+<p>当设置完<code>preferredDisplayMode</code>后,split​View​Controller会自动更新,并在<code>displayMode</code>属性中反映实际的显示模式。</p>
+
+<p>您可以随时更改首选显示模式，这样做会导致split​View​Controller相应地进行自我调整 。</p>
+
+<p>分割视图控制器还安装内置手势识别器，让用户使用滑动来更改显示模式。您可以通过将<code>presentsWithGesture</code>属性设置为false来抑制此手势识别器。</p>
+
+<p><img src="http://image.tyrad.cc/2017040669931.png" alt="2017040669931.png" /></p>
+
+<h4 id="display-mode-button-item">display​Mode​Button​Item</h4>
+
+<p><code>display​Mode​Button​Item</code>方法返回一个特殊的<code>barButtonItem</code>,用于改变<code>displayMode</code>,你可以将其包含在应用程序的用户界面中。</p>
+
+<p><img src="http://image.tyrad.cc/2017040666102.png" alt="2017040666102.png" />
+你需要做的是将这个<code>barButtonItem</code>添加到界面中相应的<code>navigation bar</code>或<code>toolbar</code>。</p>
+
+<p>当它点击被的时候,按钮会向splitViewController发送一个消息,告诉它改变当前的<code>displayMode</code>。</p>
+
+<p>关于改变的结果取决于代理方法中的<code>target​Display​Mode​For​Action(in:​)</code>方法(ps: Objctve-C中对应<code>targetDisplayModeForActionInSplitViewController:</code>)。次方法缺省值的为<code>Automatic</code></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#177500">//设置举例
+</span><span style="color:#177500"></span> <span style="color:#177500">// Called by the gesture AND barButtonItem to determine what they will set the display mode to (and what the displayModeButtonItem&#39;s appearance will be.) Return UISplitViewControllerDisplayModeAutomatic to get the default behavior.
+</span><span style="color:#177500"></span>- (<span style="color:#000">UISplitViewControllerDisplayMode</span>)<span style="color:#000">targetDisplayModeForActionInSplitViewController:</span>(<span style="color:#000">UISplitViewController</span> <span style="color:#000">*</span>)<span style="color:#000">svc</span> {
+    
+    <span style="color:#a90d91">if</span> (<span style="color:#a90d91">self</span>.<span style="color:#000">displayMode</span> <span style="color:#000">==</span> <span style="color:#000">UISplitViewControllerDisplayModePrimaryHidden</span>) {
+        
+        <span style="color:#a90d91">return</span> <span style="color:#000">UISplitViewControllerDisplayModeAllVisible</span>;
+    }<span style="color:#a90d91">else</span> <span style="color:#a90d91">if</span> (<span style="color:#a90d91">self</span>.<span style="color:#000">displayMode</span> <span style="color:#000">==</span> <span style="color:#000">UISplitViewControllerDisplayModeAllVisible</span>){
+        
+        <span style="color:#a90d91">return</span> <span style="color:#000">UISplitViewControllerDisplayModePrimaryHidden</span>;
+    }<span style="color:#a90d91">else</span>{ <span style="color:#177500">//UISplitViewControllerDisplayModePrimaryOverlay
+</span><span style="color:#177500"></span>        
+        <span style="color:#a90d91">return</span> <span style="color:#000">UISplitViewControllerDisplayModePrimaryHidden</span>;
+    }
+    <span style="color:#177500">//这个是缺省值。 默认: 展开为`Overlay`. 隐藏为`Hidden`
+</span><span style="color:#177500"></span>    <span style="color:#177500">//return UISplitViewControllerDisplayModeAutomatic;
+</span><span style="color:#177500"></span>}</code></pre></div>
+<p>上述代理如果设置返回的是<code>UISplitViewControllerDisplayModeAutomatic</code>或者干脆没实现这个代理方法,视图控制器会根据当前屏幕大小选择合适的模式。 例如，在竖屏的iPad上，控制器在hidden和overlay模式之间切换。</p>
+
+<p>切换模式也可以通过手势来进行，手势也可以通过代理方法来确定要使用的显示模式。</p>
+
+<h2 id="changing-child-view-controllers-in-a-split-view-interface-改变子视图控制器">Changing Child View Controllers in a Split View Interface（改变子视图控制器）</h2>
+
+<p>当设计一个splitViewController的时候，当然如果主视图和辅助视图都不改变是最好的。</p>
+
+<p>常见的技术是在主视图和辅助视图都是导航控制器(navigationController)控制的,然后可以根据实际的需要进行控制器的<code>push</code>或者<code>pop</code>操作.</p>
+
+<p>如果需要<strong><em>更改主视图控制器或辅助视图控制器</em></strong>，建议您使用<code>show(_:​sender:​)</code>和<code>show​Detail​View​Controller(_:​sender:​)</code> 方法。使用这些方法（而不是直接修改<code>controllers</code>属性）使分割视图控制器以最适合当前显示模式和size class的方式呈现指定的视图控制器。</p>
+
+<p>splitViewController知道如何以更直观的方式调整界面。它甚至可以与其他容器视图控制器（如导航控制器）一起使用来呈现视图控制器。举个有点特殊的例子,在比较紧凑(<code>compact</code>)的环境中(比如iPhone 6plus的横屏状态),开始显示的控制器A(辅助视图)是一个导航控制器。这时候调用<code>show​Detail​View​Controller(_:​sender:​)</code>方法并不会替换掉视图控制器A。相反，视图控制器A将目标控制器push到其导航堆栈。</p>
+
+<h2 id="collapsing-and-expanding-the-split-view-interface">Collapsing and Expanding the Split View Interface</h2>
+
+<p>splitViewController进行展开和收齐的时候,它的<code>size class</code>在水平方向的<code>regular</code>和<code>compact</code>间切换。 在切换过程中,splitViewController会改变子视图控制器的显示方式.</p>
+
+<p>当从水平方向<code>regular</code>转换到<code>compact</code>时,splitViewController”收起“后显示一个控制器。
+当从水平方向<code>compact</code>转换到<code>regular</code>时,splitViewController会根据设定的<code>displayMode</code>屏幕”展开“显示一个或多个控制器.</p>
+
+<h4 id="收起-collapsing-process">收起 （collapsing process）</h4>
+
+<p>当界面转换到“收起&rdquo;时，分割视图控制器与其代理一起管理转换。在”收起“结束时,splitViewController通常只显示主视图控制器了。</p>
+
+<p>你可以在代理中实现<code>primary​View​Controller(for​Collapsing:​)</code>方法来变此行为。您可以使用该方法来指定次视图控制器或完全不同的视图控制器 - 也许那个控制器更适合在水平方向<code>compact</code>的环境中显示。</p>
+
+<p>如果相对控制器和视图层次进行额外调整,你可以在代理中实现<code>split​View​Controller(_:​collapse​Secondary:​onto:​)</code>方法。</p>
+
+<h4 id="展开-expansion-process">展开  （expansion process）</h4>
+
+<p>展开是收起的相反的过程。这一过程会询问delegate哪个控制器将成为主视图控制器(primary view controller)并且提供给delegate机会去执行transition变换。</p>
+
+<p>如果你实现了&rdquo;收起&rdquo;的代理方法，那么同样你也应该为&rdquo;展开&rdquo;实现<code>primary​View​Controller(for​Expanding:​)</code>和<code>split​View​Controller(_:​separate​Secondary​From:​)</code>方法。</p>
+
+<p>如果没实现“收起”和“展开”的任何代理方法,那也没关系。splitViewController提供了收起/展开的缺省值。</p>
+
+<hr/>
+
+<p>关于收起(collapse)、展开(expand)的更多信息,请查看<a href="https://developer.apple.com/reference/uikit/uisplitviewcontrollerdelegate">UISplit​View​Controller​Delegate</a>.</p>
+
+<h2 id="message-forwarding-to-its-child-view-controllers">Message Forwarding to Its Child View Controllers</h2>
+
+<p>splitViewController对window和子控制器(child view controllers)进行了协调。 因此所有到子控制的所有消息都会流经splitViewController.
+这通常可以预期，消息的流程应该比较直观。 例如，仅当相应的子视图控制器实际出现在屏幕上时才会发送查看外观显示或消失的消息。</p>
+
+<h2 id="state-preservation">State Preservation</h2>
+
+<p>在iOS6或者更高版本上,如果你给定了splitViewController的<a href="https://developer.apple.com/reference/uikit/uiviewcontroller/1621499-restorationidentifier">restoration​Identifier</a>属性值。 那么它将会保存具有有效恢复标识符(valid restoration identifier)的所有子控制器。</p>
+
+<p>在程序下一次启动时,splitViewController将会回复到之前的状态。splitViewController的子视图控制器可以使用相同的恢复标识符。splitViewController自动存储附加信息，以确保每个子控制器的恢复路径是唯一的。</p>
+
+<p>有关状态保存和恢复的工作原理的更多信息，请参阅<a href="https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40007072">App Programming Guide for iOS</a>。</p>
+
+<hr>
+
+<blockquote>
+<p>参考内容
+<a href="https://developer.apple.com/reference/uikit/uisplitviewcontroller">https://developer.apple.com/reference/uikit/uisplitviewcontroller</a>
+<a href="http://nshipster.cn/uisplitviewcontroller/">http://nshipster.cn/uisplitviewcontroller/</a></p>
+</blockquote></div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#介绍">介绍</a></li>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#configuring-the-appearance-of-the-split-view-interface">Configuring the Appearance of the Split View Interface</a>
+<ul>
+<li>
+<ul>
+<li><a href="#display-mode-button-item">display​Mode​Button​Item</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#changing-child-view-controllers-in-a-split-view-interface-改变子视图控制器">Changing Child View Controllers in a Split View Interface（改变子视图控制器）</a></li>
+<li><a href="#collapsing-and-expanding-the-split-view-interface">Collapsing and Expanding the Split View Interface</a>
+<ul>
+<li>
+<ul>
+<li><a href="#收起-collapsing-process">收起 （collapsing process）</a></li>
+<li><a href="#展开-expansion-process">展开  （expansion process）</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#message-forwarding-to-its-child-view-controllers">Message Forwarding to Its Child View Controllers</a></li>
+<li><a href="#state-preservation">State Preservation</a></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

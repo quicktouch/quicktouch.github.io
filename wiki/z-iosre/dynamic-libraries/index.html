@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>Dynamic Libraries |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> Dynamic Libraries </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#z-iosre'>z-iosre</a></span>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2018-02-13T15:29:03.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2018-02-13
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<p><a href="https://developer.apple.com/library/content/documentation/DeveloperTools/Conceptual/DynamicLibraries/100-Articles/OverviewOfDynamicLibraries.html">官方说明</a></p>
+
+<h2 id="linking-libraries">Linking Libraries</h2>
+
+<p>链接库的行为是代码依赖管理的一种形式。
+当任何应用程序运行时，其可执行代码被加载到内存中。
+此外，它所依赖的任何代码库也会加载到内存中。
+有两种类型的链接：静态和动态。</p>
+
+<h2 id="dynamic-linking">Dynamic Linking</h2>
+
+<p>动态链接最常用于OS X和iOS。
+当动态库链接时，库中的代码都不会直接包含在链接的目标中。
+相反，在符号得到解决之前，库会在运行时加载到内存中。
+由于代码没有静态链接到可执行二进制文件中，因此在运行时加载有一些好处。
+主要的是，这些库可以使用新功能或错误修复进行更新，而无需重新编译和重新链接可执行文件。
+此外，在运行时加载意味着各个代码库可以拥有自己的初始化程序，并在从内存中卸载之前清理自己的任务。</p>
+
+<p>For more information on overview and design, see <a href="https://developer.apple.com/library/mac/documentation/DeveloperTools/Conceptual/DynamicLibraries/100-Articles/OverviewOfDynamicLibraries.html">Apple&rsquo;s Dynamic Library Programming Topics</a>.</p>
+
+<h2 id="libraries">Libraries</h2>
+
+<p>动态库是一种Mach-O binary1，在应用程序的启动或运行时加载。
+由于动态库中的可执行代码并未静态链接到目标可执行文件中，因此在需要重复使用相同代码时，这会减少内存消耗。</p>
+
+<p>由于动态库在运行时被加载，所以库负责告诉链接器需要哪些附加代码。
+这消除了管理你使用的所有代码需要操作的负担。</p>
+
+<h2 id="frameworks">Frameworks</h2>
+
+<p><code>Dynamic frameworks</code>和<code>dynamic libraries</code>类似。
+两者都是动态链接库，除了<code>dynamic framework</code>是嵌入在一个<code>bundle</code>中的动态库。
+这允许对动态库进行版本控制以及对libraries代码使用的其他资源进行排序。</p>
+
+<h2 id="example">Example</h2>
+
+<h3 id="building">Building</h3>
+
+<p>举例:</p>
+
+<p>bar.h</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#633820">#ifndef __foo__bar__
+</span><span style="color:#633820">#define __foo__bar__
+</span><span style="color:#633820"></span>
+<span style="color:#633820">#include</span> <span style="color:#633820">&lt;stdio.h&gt;</span><span style="color:#633820">
+</span><span style="color:#633820"></span>
+<span style="color:#a90d91">int</span> <span style="color:#000">fizz</span>();
+
+<span style="color:#633820">#endif </span><span style="color:#177500">/* defined(__foo__bar__) */</span></code></pre></div>
+<p>bar.c</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#633820">#include</span> <span style="color:#633820">&#34;bar.h&#34;</span><span style="color:#633820">
+</span><span style="color:#633820">#include</span> <span style="color:#633820">&lt;CoreFoundation/CoreFoundation.h&gt;</span><span style="color:#633820">
+</span><span style="color:#633820"></span>
+<span style="color:#a90d91">int</span> <span style="color:#000">fizz</span>() {
+    <span style="color:#000">CFShow</span>(<span style="color:#000">CFSTR</span>(<span style="color:#c41a16">&#34;buzz&#34;</span>));
+    
+    <span style="color:#a90d91">return</span> <span style="color:#1c01ce">0</span>;
+} </code></pre></div>
+<p>从文件bar.h和bar.c开始。
+头文件定义了函数fizz（），它返回一个整数值。
+实现文件导入CoreFoundation框架并实现函数fizz在返回0之前打印字符串“buzz”</p>
+
+<h3 id="compiling">Compiling:</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$  clang -c bar.c -o bar.o</code></pre></div>
+<p>这将创建名为“bar”的对象file2，类型为MH_OBJECT的Mach-O二进制文件。</p>
+
+<p>One of these will be generated for each of the files compiled in the library.</p>
+
+<h3 id="creating-library">Creating Library:</h3>
+
+<pre><code>$ libtool -dynamic bar.o -o libfoo_dynamic.dylib -framework CoreFoundation -lSystem
+</code></pre>
+
+<p>这会创建dylib（动态库）并链接到libSystem和CoreFoundation.framework。 dylib是一个类型为MH_DYLIB的Mach-O二进制文件。这将在启动时由dyld动态加载，作为另一个二进制文件的依赖关系。</p>
+
+<h3 id="linking">Linking</h3>
+
+<p>main.c</p>
+
+<pre><code>#include &quot;bar.h&quot;
+
+int main() {
+    return fizz();
+}
+</code></pre>
+
+<p>在这个例子中，为动态库导入“bar.h”头，并直接调用fizz（）。</p>
+
+<h3 id="compiling-1">Compiling</h3>
+
+<pre><code>$ clang -c main.c -o main.o
+</code></pre>
+
+<p>This will generate the object file for main.</p>
+
+<h3 id="linking-1">Linking:</h3>
+
+<pre><code>$ ld main.o -lSystem -L. -lfoo_dynamic -o test_dynamic
+</code></pre>
+
+<p>这将从主目标文件生成一个二进制可执行文件，并且也会传递</p>
+
+<ul>
+<li>-lSystem for dyld_stub_binder</li>
+<li>-lfoo_dynamic for linking against libfoo_dynamic.dylib</li>
+</ul>
+
+<h3 id="running">Running:</h3>
+
+<pre><code>$ ./test_dynamic
+buzz
+</code></pre>
+
+<p>Symbols:</p>
+
+<pre><code>$ nm test_dynamic 
+0000000000001000 A __mh_execute_header
+                 U _fizz
+0000000000001fa0 T _main
+                 U dyld_stub_binder
+</code></pre>
+
+<p>References:</p>
+
+<pre><code>$ otool -L test_dynamic 
+test_dynamic:
+    /usr/lib/libSystem.B.dylib (compatibility version 1.0.0, current version 1197.1.1)
+    libfoo_dynamic.dylib (compatibility version 0.0.0, current version 0.0.0)
+</code></pre>
+
+<p>生成的二进制文件仅链接到libSystem和创建的dylib。
+库foo_dynamic负责链接它所需的任何附加库。
+这是在发布时动态解决的。
+在这种情况下，libfoo_dynamic.dylib的搜索路径将与主要可执行文件的搜索位置相同。
+动态库和框架在启动时由动态链接器加载。
+它们具有相关的搜索路径，以帮助链接程序找到它们在文件系统上的位置并加载它们。</p>
+
+<h2 id="static-linking">Static Linking</h2>
+
+<p>与动态链接不同，链接静态库包含库中的目标文件代码到目标的二进制文件中。
+这会导致更占空间，启动时间更慢。
+由于库的代码直接添加到链接目标的二进制文件，这意味着要更新库中的任何代码，链接目标也必须重新构建。</p>
+
+<p>在iOS 8之前，静态链接库是事实上的出货方式，并在应用程序中包含任何第三方代码。</p>
+
+<p>略</p>
+
+<h2 id="参考出处">参考出处</h2>
+
+<p><a href="https://pewpewthespells.com/blog/static_and_dynamic_libraries.html">https://pewpewthespells.com/blog/static_and_dynamic_libraries.html</a></p>
+
+<!--## Overview of Dynamic Libraries
+
+决定应用程序性能的两个重要因素是其启动时间和内存占用情况。
+减少应用程序可执行文件的大小并在启动后最大限度地减少对内存的使用，使应用程序启动速度更快，启动后内存使用量更少。
+**使用动态库而不是静态库会减少应用程序的可执行文件大小。**
+它们还**允许应用程序延迟加载具有特殊功能的库，仅在需要时才会启动**，而不是在启动时加载。
+此功能进一步减少了启动时间并有效利用了内存。 
+本文介绍了动态库，并展示了如何使用动态库而不是静态库来减少使用它们的应用程序的文件大小和初始内存占用量。
+本文还概述了应用程序在运行时使用动态库的动态加载程序兼容性功能。
+
+ What Are Dynamic Libraries?
+
+大多数应用程序的功能都是在可执行代码的库中实现的。 
+
+当app使用static linker链接一个库(library)时,app用到的代码被复制到生成的可执行文件中。 
+
+静态链接器(`static linker collects`)将编译后的源代码（称为`object code`和`library code`）收集到一个可执行文件中，该文件在运行时完整加载到内存中。
+
+成为应用程序可执行文件一部分的库被称为静态库。
+
+静态库是对象文件的集合或存档(Static libraries are collections or archives of object files)。
+
+> Static libraries are also known as static archive libraries and static linked shared libraries.
+
+
+当一个应用程序启动时，应用程序的代码（包括它所链接的静态库的代码）被加载到应用程序的地址空间中。将许多静态库链接到应用程序中会生成很大的应用程序可执行文件。下图显示了使用静态库中实现的功能的应用程序的内存使用情况. 
+当有大型可执行文件的应用程序的启动速度会变慢，内存占用大。而且，当静态库升级时，其客户端应用程序不会从对其进行的改进中受益。要获得改进的功能，应用程序的开发人员必须将应用程序的目标文件与新版本的库链接起来。而应用程序用户将不得不用最新版本替换他们的应用程序副本。因此，保持应用程序与静态库提供的最新功能保持同步需要开发人员和最终用户的颠覆性工作。
+
+
+
+![2018021340238address_space1_2x.png](http://image.tyrad.cc/2018021340238address_space1_2x.png)
+
+
+更好的方法是在应用程序实际需要时将代码加载到其地址空间中，无论是在启动时还是在运行时。提供这种灵活性的库类型称为动态库。动态库不会静态链接到客户端应用程序中;他们不会成为可执行文件的一部分。
+
+相反，**动态库可以在应用程序启动时或运行时加载（并链接）到应用程序中**。
+
+下图显示了如何将一些功能实现为动态库而不是静态库，从而减少了启动后应用程序使用的内存。
+
+![2018021399794address_space2_2x.png](http://image.tyrad.cc/2018021399794address_space2_2x.png)
+
+使用动态库，程序可以从自动使用的库中受益，因为它们与库的链接是动态的，而不是静态的。也就是说，客户端应用程序的功能可以改进和扩展，而不需要应用程序开发人员重新编译应用程序。
+
+为OS X编写的应用程序受益于此功能，因为OS X中的所有系统库都是动态库。这就是使用Carbon或Cocoa技术的应用程序如何从OS X的改进中受益。 
+
+动态库提供的另一个好处是它们可以在加载时初始化，并且可以在客户端应用程序正常终止时执行清理任务，静态库不具备此功能。
+
+有关详细信息，请参阅模块初始化程序和终结器。  
+
+在开发动态库时，开发人员必须牢记的一个问题是在库更新时保持与客户端应用程序的兼容性。 
+
+由于库可以在客户端应用程序开发人员不知情的情况下进行更新，因此应用程序必须能够使用库的新版本而不更改其代码。
+
+为此，libraries的API不应该改变。
+但是，有时候改进需要API更改。在这种情况下，库的以前版本必须保留在用户的计算机上才能使客户端应用程序正常运行。 
+
+动态库设计指南探讨了在动态库发展时管理与客户端应用程序兼容性的主题。
+
+
+-->
+</div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#linking-libraries">Linking Libraries</a></li>
+<li><a href="#dynamic-linking">Dynamic Linking</a></li>
+<li><a href="#libraries">Libraries</a></li>
+<li><a href="#frameworks">Frameworks</a></li>
+<li><a href="#example">Example</a>
+<ul>
+<li><a href="#building">Building</a></li>
+<li><a href="#compiling">Compiling:</a></li>
+<li><a href="#creating-library">Creating Library:</a></li>
+<li><a href="#linking">Linking</a></li>
+<li><a href="#compiling-1">Compiling</a></li>
+<li><a href="#linking-1">Linking:</a></li>
+<li><a href="#running">Running:</a></li>
+</ul></li>
+<li><a href="#static-linking">Static Linking</a></li>
+<li><a href="#参考出处">参考出处</a></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

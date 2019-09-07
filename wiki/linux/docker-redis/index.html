@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>docker中使用redis |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> docker中使用redis </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#linux'>linux</a></span>
+    
+    
+    
+    
+    
+    &nbsp/&nbsp<span>Docker</span>
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2019-05-23T00:00:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2019-05-23
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<blockquote>
+<p>主要参考自 <a href="https://segmentfault.com/a/1190000014091287">https://segmentfault.com/a/1190000014091287</a> 并做相应的修改</p>
+</blockquote>
+
+<h2 id="redis">Redis</h2>
+
+<blockquote>
+<p>macOS上安装Redis一般使用hombrew
+安装: brew install redis
+启动: redis-server</p>
+</blockquote>
+
+<p>这里主要介绍docker上运行,以及一些问题</p>
+
+<p>拉取镜像并尝试启动,以作简单调试</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">#拉取镜像,默认最新</span>
+docker pull redis</code></pre></div>
+<p>如果简单调试,直接执行以下命令就可以了:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run --name redis -d -p <span style="color:#1c01ce">6379</span>:6379 redis</code></pre></div>
+<p>执行<code>redis-cli</code></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker <span style="color:#a90d91">exec</span> -it &lt;名称/id&gt; redis-cli</code></pre></div>
+<p>远程连接</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">#远程连接 比如我docker宿主机ip为10.10.39.57,redis映射的端口为6379</span>
+redis-cli -h <span style="color:#1c01ce">10</span>.10.39.57 -p <span style="color:#1c01ce">6379</span></code></pre></div>
+<h2 id="启动警告分析">启动警告分析</h2>
+
+<p>启动时可以看到基础警告,</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@aml:~/docker/redis# docker run --name redis  redis
+<span style="color:#1c01ce">1</span>:C <span style="color:#1c01ce">22</span> May <span style="color:#1c01ce">2019</span> <span style="color:#1c01ce">09</span>:28:40.070 <span style="color:#177500"># oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo</span>
+<span style="color:#1c01ce">1</span>:C <span style="color:#1c01ce">22</span> May <span style="color:#1c01ce">2019</span> <span style="color:#1c01ce">09</span>:28:40.070 <span style="color:#177500"># Redis version=5.0.5, bits=64, commit=00000000, modified=0, pid=1, just started</span>
+<span style="color:#1c01ce">1</span>:C <span style="color:#1c01ce">22</span> May <span style="color:#1c01ce">2019</span> <span style="color:#1c01ce">09</span>:28:40.070 <span style="color:#177500"># Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf</span>
+<span style="color:#1c01ce">1</span>:M <span style="color:#1c01ce">22</span> May <span style="color:#1c01ce">2019</span> <span style="color:#1c01ce">09</span>:28:40.076 * Running <span style="color:#000">mode</span><span style="color:#000">=</span>standalone, <span style="color:#000">port</span><span style="color:#000">=</span><span style="color:#1c01ce">6379</span>.
+<span style="color:#1c01ce">1</span>:M <span style="color:#1c01ce">22</span> May <span style="color:#1c01ce">2019</span> <span style="color:#1c01ce">09</span>:28:40.076 <span style="color:#177500"># WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.</span>
+<span style="color:#1c01ce">1</span>:M <span style="color:#1c01ce">22</span> May <span style="color:#1c01ce">2019</span> <span style="color:#1c01ce">09</span>:28:40.076 <span style="color:#177500"># Server initialized</span>
+<span style="color:#1c01ce">1</span>:M <span style="color:#1c01ce">22</span> May <span style="color:#1c01ce">2019</span> <span style="color:#1c01ce">09</span>:28:40.076 <span style="color:#177500"># WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add &#39;vm.overcommit_memory = 1&#39; to /etc/sysctl.conf and then reboot or run the command &#39;sysctl vm.overcommit_memory=1&#39; for this to take effect.</span>
+<span style="color:#1c01ce">1</span>:M <span style="color:#1c01ce">22</span> May <span style="color:#1c01ce">2019</span> <span style="color:#1c01ce">09</span>:28:40.076 <span style="color:#177500"># WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command &#39;echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled&#39; as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.</span>
+<span style="color:#1c01ce">1</span>:M <span style="color:#1c01ce">22</span> May <span style="color:#1c01ce">2019</span> <span style="color:#1c01ce">09</span>:28:40.076 * Ready to accept connections</code></pre></div>
+<p>有几处警告: <a href="https://blog.51cto.com/mashushu/1926941">https://blog.51cto.com/mashushu/1926941</a></p>
+
+<h3 id="tcp-backlog">TCP backlog</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#1c01ce">1</span>:C <span style="color:#1c01ce">22</span> May <span style="color:#1c01ce">2019</span> <span style="color:#1c01ce">09</span>:28:40.070 <span style="color:#177500"># Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf</span></code></pre></div>
+<p>意思是：TCP  backlog设置值，511没有成功，因为 /proc/sys/net/core/somaxconn这个设置的是更小的128.   <a href="http://blog.csdn.net/raintungli/article/details/37913765">linux里的backlog详解</a></p>
+
+<p><em>解决方法:</em></p>
+
+<p>参考<a href="https://github.com/docker-library/redis/issues/35">issue</a>。docker启动redis时加参数<code>--sysctl net.core.somaxconn=511</code>,这种解决方式比较简单。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">#发现启动时没有该错误了</span>
+docker run --name redis --rm  --sysctl net.core.somaxconn<span style="color:#000">=</span><span style="color:#1c01ce">511</span> redis</code></pre></div>
+<h3 id="overcommit-memory">overcommit_memory</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">#WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add &#39;vm.overcommit_memory = 1&#39; to /etc/sysctl.conf and then reboot or run the command &#39;sysctl vm.overcommit_memory=1&#39; for this to take effect.</span></code></pre></div>
+<p>意思是：overcommit_memory参数设置为0！在内存不足的情况下，后台程序save可能失败。</p>
+
+<p><code>overcommit_memory</code>表示内存分配策略:
+0  表示内核将检查是否有足够的可用内存供应用进程使用；如果有足够的可用内存，内存申请允许；否则，内存申请失败，并把错误返回给应用进程
+1  表示内核允许分配所有的物理内存，而不管当前的内存状态如何。
+2  表示内核允许分配超过所有物理内存和交换空间总和的内存</p>
+
+<p>参考此处: <a href="https://stackoverflow.com/questions/43843197/how-to-fix-the-warnings-when-running-the-redisalpine-docker-image">https://stackoverflow.com/questions/43843197/how-to-fix-the-warnings-when-running-the-redisalpine-docker-image</a></p>
+
+<p><code>vm.overcommit_memory</code>不能直接用<code>--sysctl</code>来设置。</p>
+
+<p><del><a href="https://stackoverflow.com/questions/41203492/solving-redis-warnings-on-overcommit-memory-and-transparent-huge-pages-for-ubunt">解决方法</a></del>:</p>
+
+<p><del>添加行vm.overcommit_memory=1至底部/etc/sysctl.conf</del>  (未解决有时间再研究)</p>
+
+<h3 id="thp">THP</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#1c01ce">1</span>:M <span style="color:#1c01ce">22</span> May <span style="color:#1c01ce">2019</span> <span style="color:#1c01ce">09</span>:28:40.076 <span style="color:#177500"># WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memory usage issues with Redis. To fix this issue run the command &#39;echo never &gt; /sys/kernel/mm/transparent_hugepage/enabled&#39; as root, and add it to your /etc/rc.local in order to retain the setting after a reboot. Redis must be restarted after THP is disabled.</span></code></pre></div>
+<p>意思是：你使用的是透明大页，可能导致redis延迟和内存使用问题。</p>
+
+<p>解决方法,宿主机器（linux）执行如下命令:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a90d91">echo</span> never &gt; /sys/kernel/mm/transparent_hugepage/enabled
+<span style="color:#a90d91">echo</span> never &gt; /sys/kernel/mm/transparent_hugepage/defrag</code></pre></div>
+<h2 id="基本的启动配置">基本的启动配置</h2>
+
+<p>创建redis目录,并在目录下添加<code>data</code>文件夹、<code>config</code>文件夹。</p>
+
+<pre><code>└── redis
+    ├── config
+    │   └── redis.conf
+    └── data
+</code></pre>
+
+<p>下载配置文件到config文件夹</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget http://download.redis.io/redis-stable/redis.conf -O config/redis.conf
+
+<span style="color:#177500"># 直接替换编辑(可选)</span>
+<span style="color:#177500">#sed -i &#39;s/logfile &#34;&#34;/logfile &#34;access.log&#34;/&#39; conf/redis.conf</span>
+<span style="color:#177500">#sed -i &#39;s/# requirepass foobared/requirepass 123456/&#39; conf/redis.conf</span>
+<span style="color:#177500">#sed -i &#39;s/appendonly no/appendonly yes/&#39; conf/redis.conf</span>
+<span style="color:#177500"># 这里可能还需配置一些 bind protected-mode</span>
+<span style="color:#177500">#protected-mode 是在没有显示定义 bind 地址（即监听全网断），又没有设置密码 requirepass时，protected-mode 只允许本地回环 127.0.0.1 访问。</span>
+<span style="color:#177500">#也就是说当开启了 protected-mode 时，如果你既没有显示的定义了 bind 监听的地址，同时又没有设置 auth 密码。那你只能通过 127.0.0.1 来访问 redis 服务。</span></code></pre></div>
+<p>编写启动脚本:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run --name redis --restart<span style="color:#000">=</span>always<span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>	-v <span style="color:#c41a16">`</span><span style="color:#a90d91">pwd</span><span style="color:#c41a16">`</span>/redis/data:/data:rw  <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>	-v <span style="color:#c41a16">`</span><span style="color:#a90d91">pwd</span><span style="color:#c41a16">`</span>/redis/config/redis.conf:/etc/redis/redis.conf:ro<span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>	--privileged<span style="color:#000">=</span><span style="color:#a90d91">true</span> <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>	--sysctl net.core.somaxconn<span style="color:#000">=</span><span style="color:#1c01ce">511</span> <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>	-d -p <span style="color:#1c01ce">6379</span>:6379  <span style="color:#c41a16">\
+</span><span style="color:#c41a16"></span>	redis redis-server /etc/redis/redis.conf
+<span style="color:#177500">#参数解释</span>
+<span style="color:#177500"># :rw 为读写  :ro 为ro 为readonly</span>
+<span style="color:#177500"># --privileged=true \ # 给与一些权限</span>
+<span style="color:#177500"># --sysctl net.core.somaxconn=511 见启动警告说明</span></code></pre></div>
+<h2 id="访问">访问</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">#访问reids</span>
+docker <span style="color:#a90d91">exec</span> -it &lt;名称/id&gt; bash
+<span style="color:#177500">#访问cli</span> 
+docker <span style="color:#a90d91">exec</span> -it &lt;名称/id&gt; redis-cli
+<span style="color:#177500">#重新启动</span>
+docker restart &lt;名称/id&gt; 
+<span style="color:#177500">#远程连接 比如我docker宿主机ip为10.10.39.57,redis映射的端口为6379</span>
+redis-cli -h <span style="color:#1c01ce">10</span>.10.39.57 -p <span style="color:#1c01ce">6379</span></code></pre></div></div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#redis">Redis</a></li>
+<li><a href="#启动警告分析">启动警告分析</a>
+<ul>
+<li><a href="#tcp-backlog">TCP backlog</a></li>
+<li><a href="#overcommit-memory">overcommit_memory</a></li>
+<li><a href="#thp">THP</a></li>
+</ul></li>
+<li><a href="#基本的启动配置">基本的启动配置</a></li>
+<li><a href="#访问">访问</a></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>[转] h5: iPhoneX适配 |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> [转] h5: iPhoneX适配 </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#web'>web</a></span>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2018-09-03T00:00:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2018-09-03
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<p><a href="https://aotu.io/notes/2017/11/27/iphonex/index.html">原文地址: https://aotu.io/notes/2017/11/27/iphonex/index.html</a></p>
+
+<h2 id="前言">前言</h2>
+
+<p>iPhoneX 取消了物理按键，改成底部小黑条，这一改动导致网页出现了比较尴尬的屏幕适配问题。对于网页而言，顶部（刘海部位）的适配问题浏览器已经做了处理，所以我们只需要关注底部与小黑条的适配问题即可（即常见的吸底导航、返回顶部等各种相对底部 fixed 定位的元素）。</p>
+
+<p>笔者通过查阅了一些官方文档，以及结合实际项目中的一些处理经验，整理了一套简单的适配方案分享给大家，希望对大家有所帮助，以下是处理前后效果图:</p>
+
+<p><img src="http://image.tyrad.cc/2018090317702iphonex_3.png" alt="2018090317702iphonex_3.png" /></p>
+
+<h2 id="适配之前需要了解的几个新知识">适配之前需要了解的几个新知识</h2>
+
+<h3 id="安全区域">安全区域</h3>
+
+<p>安全区域指的是一个可视窗口范围，处于安全区域的内容不受圆角（corners）、齐刘海（sensor housing）、小黑条（Home Indicator）影响，如下图蓝色区域：</p>
+
+<p><img src="http://image.tyrad.cc/2018090367223iphonex_4.png" alt="2018090367223iphonex_4.png" /></p>
+
+<p>也就是说，我们要做好适配，必须保证页面可视、可操作区域是在安全区域内。</p>
+
+<p>更详细说明，参考文档：<a href="https://developer.apple.com/ios/human-interface-guidelines/overview/iphone-x/">Human Interface Guidelines - iPhoneX</a></p>
+
+<h3 id="viewport-fit">viewport-fit</h3>
+
+<p>iOS11 新增特性，苹果公司为了适配 iPhoneX 对现有 viewport meta 标签的一个扩展，用于设置网页在可视窗口的布局方式，可设置三个值：</p>
+
+<ul>
+<li>contain: 可视窗口完全包含网页内容（左图）</li>
+<li>cover：网页内容完全覆盖可视窗口（右图）</li>
+<li>auto：默认值，跟 contain 表现一致</li>
+</ul>
+
+<p><img src="http://image.tyrad.cc/2018090338782iphonex_1.png" alt="2018090338782iphonex_1.png" /></p>
+
+<blockquote>
+<p>注意：网页默认不添加扩展的表现是 viewport-fit=contain，需要适配 iPhoneX 必须设置 viewport-fit=cover，这是适配的关键步骤。</p>
+</blockquote>
+
+<p>更详细说明，参考文档：<a href="https://www.w3.org/TR/css-round-display-1/#viewport-fit-descriptor">viewport-fit-descriptor</a></p>
+
+<h3 id="env-和-constant">env() 和 constant()</h3>
+
+<p>iOS11 新增特性，Webkit 的一个 CSS 函数，用于设定安全区域与边界的距离，有四个预定义的变量：</p>
+
+<ol>
+<li>safe-area-inset-left：安全区域距离左边边界距离</li>
+<li>safe-area-inset-right：安全区域距离右边边界距离</li>
+<li>safe-area-inset-top：安全区域距离顶部边界距离</li>
+<li>safe-area-inset-bottom：安全区域距离底部边界距离</li>
+</ol>
+
+<p>这里我们只需要关注 safe-area-inset-bottom 这个变量，因为它对应的就是小黑条的高度（横竖屏时值不一样）。</p>
+
+<blockquote>
+<p>注意：当 viewport-fit=contain 时 env() 是不起作用的，必须要配合 viewport-fit=cover 使用。对于不支持env() 的浏览器，浏览器将会忽略它。</p>
+</blockquote>
+
+<p>在这之前，笔者使用的是 constant()，后来，官方文档加了这么一段注释（坑）：</p>
+
+<blockquote>
+<p>The env() function shipped in iOS 11 with the name constant(). Beginning with Safari Technology Preview 41 and the iOS 11.2 beta, constant() has been removed and replaced with env(). You can use the CSS fallback mechanism to support both versions, if necessary, but should prefer env() going forward.</p>
+</blockquote>
+
+<p>这就意味着，之前使用的 constant() 在 iOS11.2 之后就不能使用的，但我们还是需要做向后兼容，像这样：</p>
+
+<pre><code>padding-bottom: constant(safe-area-inset-bottom); /* 兼容 iOS &lt; 11.2 */
+padding-bottom: env(safe-area-inset-bottom); /* 兼容 iOS &gt;= 11.2 */
+</code></pre>
+
+<p>注意：env() 跟 constant() 需要同时存在，而且顺序不能换。</p>
+
+<p>更详细说明，参考文档：<a href="https://webkit.org/blog/7929/designing-websites-for-iphone-x/?hmsr=funteas.com&amp;utm_medium=funteas.com&amp;utm_source=funteas.com">Designing Websites for iPhone X</a></p>
+
+<h2 id="如何适配">如何适配</h2>
+
+<p>了解了以上所说的几个知识点，接下来我们适配的思路就很清晰了。</p>
+
+<h3 id="第一步-设置网页在可视窗口的布局方式">第一步：设置网页在可视窗口的布局方式</h3>
+
+<p>新增 viweport-fit 属性，使得页面内容完全覆盖整个窗口：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000">&lt;meta</span> <span style="color:#836c28">name=</span><span style="color:#c41a16">&#34;viewport&#34;</span> <span style="color:#836c28">content=</span><span style="color:#c41a16">&#34;width=device-width, viewport-fit=cover&#34;</span><span style="color:#000">&gt;</span></code></pre></div>
+<h3 id="第二步-页面主体内容限定在安全区域内">第二步：页面主体内容限定在安全区域内</h3>
+
+<p>这一步根据实际页面场景选择，如果不设置这个值，可能存在小黑条遮挡页面最底部内容的情况。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#000">body</span> {
+  <span style="color:#a90d91">padding-bottom</span>: <span style="color:#000">constant</span>(<span style="color:#000">safe</span><span style="color:#000">-</span><span style="color:#000">area</span><span style="color:#000">-</span><span style="color:#a90d91">inset</span><span style="color:#000">-</span><span style="color:#a90d91">bottom</span>);
+  <span style="color:#a90d91">padding-bottom</span>: <span style="color:#000">env</span>(<span style="color:#000">safe</span><span style="color:#000">-</span><span style="color:#000">area</span><span style="color:#000">-</span><span style="color:#a90d91">inset</span><span style="color:#000">-</span><span style="color:#a90d91">bottom</span>);
+}</code></pre></div>
+<h3 id="第三步-fixed-元素的适配">第三步：fixed 元素的适配</h3>
+
+<p>类型一：fixed 完全吸底元素（bottom = 0），比如下图这两种情况：</p>
+
+<p><img src="http://image.tyrad.cc/2018090349973iphonex_2.png" alt="2018090349973iphonex_2.png" /></p>
+
+<p>可以通过加内边距 padding 扩展高度：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">{
+  <span style="color:#a90d91">padding-bottom</span>: <span style="color:#000">constant</span>(<span style="color:#000">safe</span><span style="color:#000">-</span><span style="color:#000">area</span><span style="color:#000">-</span><span style="color:#a90d91">inset</span><span style="color:#000">-</span><span style="color:#a90d91">bottom</span>);
+  <span style="color:#a90d91">padding-bottom</span>: <span style="color:#000">env</span>(<span style="color:#000">safe</span><span style="color:#000">-</span><span style="color:#000">area</span><span style="color:#000">-</span><span style="color:#a90d91">inset</span><span style="color:#000">-</span><span style="color:#a90d91">bottom</span>);
+}</code></pre></div>
+<p>或者通过计算函数 calc 覆盖原来高度：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">{
+  <span style="color:#a90d91">height</span>: <span style="color:#a90d91">calc</span>(<span style="color:#1c01ce">60</span><span style="color:#a90d91">px</span><span style="color:#000">(假设值</span>) <span style="color:#000">+</span> <span style="color:#000">constant</span>(<span style="color:#000">safe</span><span style="color:#000">-</span><span style="color:#000">area</span><span style="color:#000">-</span><span style="color:#a90d91">inset</span><span style="color:#000">-</span><span style="color:#a90d91">bottom</span>));
+  <span style="color:#a90d91">height</span>: <span style="color:#a90d91">calc</span>(<span style="color:#1c01ce">60</span><span style="color:#a90d91">px</span><span style="color:#000">(假设值</span>) <span style="color:#000">+</span> <span style="color:#000">env</span>(<span style="color:#000">safe</span><span style="color:#000">-</span><span style="color:#000">area</span><span style="color:#000">-</span><span style="color:#a90d91">inset</span><span style="color:#000">-</span><span style="color:#a90d91">bottom</span>));
+}</code></pre></div>
+<blockquote>
+<p>注意，这个方案需要吸底条必须是有背景色的，因为扩展的部分背景是跟随外容器的，否则出现镂空情况。</p>
+</blockquote>
+
+<p>还有一种方案就是，可以通过新增一个新的元素（空的颜色块，主要用于小黑条高度的占位），然后吸底元素可以不改变高度只需要调整位置，像这样：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">{
+  <span style="color:#a90d91">margin-bottom</span>: <span style="color:#000">constant</span>(<span style="color:#000">safe</span><span style="color:#000">-</span><span style="color:#000">area</span><span style="color:#000">-</span><span style="color:#a90d91">inset</span><span style="color:#000">-</span><span style="color:#a90d91">bottom</span>);
+  <span style="color:#a90d91">margin-bottom</span>: <span style="color:#000">env</span>(<span style="color:#000">safe</span><span style="color:#000">-</span><span style="color:#000">area</span><span style="color:#000">-</span><span style="color:#a90d91">inset</span><span style="color:#000">-</span><span style="color:#a90d91">bottom</span>);
+}</code></pre></div>
+<p>空的颜色块</p>
+
+<pre><code>{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: constant(safe-area-inset-bottom);
+  height: env(safe-area-inset-bottom);
+  background-color: #fff;
+}
+</code></pre>
+
+<p>类型二：fixed 非完全吸底元素（bottom ≠ 0），比如 “返回顶部”、“侧边广告” 等</p>
+
+<p>像这种只是位置需要对应向上调整，可以仅通过外边距 margin 来处理:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">{
+  <span style="color:#a90d91">margin-bottom</span>: <span style="color:#000">constant</span>(<span style="color:#000">safe</span><span style="color:#000">-</span><span style="color:#000">area</span><span style="color:#000">-</span><span style="color:#a90d91">inset</span><span style="color:#000">-</span><span style="color:#a90d91">bottom</span>);
+  <span style="color:#a90d91">margin-bottom</span>: <span style="color:#000">env</span>(<span style="color:#000">safe</span><span style="color:#000">-</span><span style="color:#000">area</span><span style="color:#000">-</span><span style="color:#a90d91">inset</span><span style="color:#000">-</span><span style="color:#a90d91">bottom</span>);
+}</code></pre></div>
+<p>或者，你也可以通过计算函数 calc 覆盖原来 bottom 值：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">{
+  <span style="color:#a90d91">bottom</span>: <span style="color:#a90d91">calc</span>(<span style="color:#1c01ce">50</span><span style="color:#a90d91">px</span><span style="color:#000">(假设值</span>) <span style="color:#000">+</span> <span style="color:#000">constant</span>(<span style="color:#000">safe</span><span style="color:#000">-</span><span style="color:#000">area</span><span style="color:#000">-</span><span style="color:#a90d91">inset</span><span style="color:#000">-</span><span style="color:#a90d91">bottom</span>));
+  <span style="color:#a90d91">bottom</span>: <span style="color:#a90d91">calc</span>(<span style="color:#1c01ce">50</span><span style="color:#a90d91">px</span><span style="color:#000">(假设值</span>) <span style="color:#000">+</span> <span style="color:#000">env</span>(<span style="color:#000">safe</span><span style="color:#000">-</span><span style="color:#000">area</span><span style="color:#000">-</span><span style="color:#a90d91">inset</span><span style="color:#000">-</span><span style="color:#a90d91">bottom</span>));
+}</code></pre></div>
+<h3 id="你也可以使用-supports-隔离兼容样式">你也可以使用 @supports 隔离兼容样式</h3>
+
+<p>写到这里，我们常见的两种类型的 fixed 元素适配方案已经了解了吧。如果我们只希望 iPhoneX 才需要新增适配样式，我们可以配合 @supports 来隔离兼容样式，当然这个处理对页面展示实际不会有任何影响：</p>
+
+<pre><code>@supports (bottom: constant(safe-area-inset-bottom)) or (bottom: env(safe-area-inset-bottom)) {
+  div {
+    margin-bottom: constant(safe-area-inset-bottom);
+    margin-bottom: env(safe-area-inset-bottom);
+  }
+}
+</code></pre>
+
+<h2 id="写在最后">写在最后</h2>
+
+<p>以上几种方案仅供参考，笔者认为，现阶段适配处理起来是有点折腾，但是至少能解决，具体需要根据页面实际场景，在不影响用户体验与操作的大前提下不断尝试与探索，才能更完美的适配。</p>
+</div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#前言">前言</a></li>
+<li><a href="#适配之前需要了解的几个新知识">适配之前需要了解的几个新知识</a>
+<ul>
+<li><a href="#安全区域">安全区域</a></li>
+<li><a href="#viewport-fit">viewport-fit</a></li>
+<li><a href="#env-和-constant">env() 和 constant()</a></li>
+</ul></li>
+<li><a href="#如何适配">如何适配</a>
+<ul>
+<li><a href="#第一步-设置网页在可视窗口的布局方式">第一步：设置网页在可视窗口的布局方式</a></li>
+<li><a href="#第二步-页面主体内容限定在安全区域内">第二步：页面主体内容限定在安全区域内</a></li>
+<li><a href="#第三步-fixed-元素的适配">第三步：fixed 元素的适配</a></li>
+<li><a href="#你也可以使用-supports-隔离兼容样式">你也可以使用 @supports 隔离兼容样式</a></li>
+</ul></li>
+<li><a href="#写在最后">写在最后</a></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

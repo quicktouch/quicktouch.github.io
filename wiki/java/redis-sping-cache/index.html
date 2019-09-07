@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>3.Spring中的缓存抽象及SpringDataRedis使用 |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer  header-transparent header-dark ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+<section id="blog-hero" class="section 
+modular-hero hero text-light title-h1h2 overlay-dark-gradient hero-tiny parallax" style="background-color: black;background-image: url( http://image.tyrad.cc/20190606155978918221695.jpg ); 
+background-position-y: 0px;">
+    <div class="image-overlay"></div>
+    <section class="container grid-lg" style="text-align: center">
+        
+        <h1>3.Spring中的缓存抽象及SpringDataRedis使用</h1>  
+        
+        <h2></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#java'>java</a></span>
+    
+    
+    
+    
+    
+    &nbsp/&nbsp<span>Redis</span>
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2019-06-06T00:00:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2019-06-06
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+    <i id="to-start" class="pulse fa fa-angle-down"></i>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<h1 id="spring中的缓存抽象">Spring中的缓存抽象</h1>
+
+<h2 id="spring中的缓存">Spring中的缓存</h2>
+
+<p>Spring为不同的缓存提供一层抽象</p>
+
+<ul>
+<li>为java方法增加缓存，缓存执行结果。下次相同的参数访问，直接从缓存取。</li>
+<li>支持ConcurrentMap、EhCache、redis、Caffeine、JCache(JSR-7)</li>
+<li>接口
+
+<ul>
+<li>org.springframework.cache.Cache</li>
+<li>org.springframework.cache.CacheManager</li>
+</ul></li>
+</ul>
+
+<p>对于需要集群的缓存，可以用支持分布式缓存的，如redis</p>
+
+<h2 id="缓存相关的注解">缓存相关的注解</h2>
+
+<ul>
+<li><code>@EnableCaching</code>   开启缓存支持
+
+<ul>
+<li><code>@Cacheble</code>     方法缓存，没有的话，拿到方法值并存缓存。有的话直接从缓存去。</li>
+<li><code>@CacheEvict</code>   缓存的清理</li>
+<li><code>@CachePut</code>     不管方法的执行情况，直接做缓存的设置</li>
+<li><code>@Caching</code>      缓存方法的打包，可以执行上述多个操作</li>
+<li><code>@CacheConfig</code>  缓存的设置，可以设置缓存的名字</li>
+</ul></li>
+</ul>
+
+<p><code>@EnableCaching</code>于spring版本3.1起加入了该注解。如果你使用了这个注解，那么你就不需要在XML文件中配置cache manager了。</p>
+
+<h3 id="示例">示例</h3>
+
+<p>下面是一个示例,通过注解添加对方法返回值的缓存、以及缓存清除。</p>
+
+<p>配置文件</p>
+
+<pre><code>spring.cache.type=redis
+# 程序启动时创建缓存名
+#spring.cache.cache-names=count
+#缓存的时间5s
+spring.cache.redis.time-to-live=5000
+spring.cache.redis.cache-null-values=false
+</code></pre>
+
+<p>演示类</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#177500">//对service添加缓存
+</span><span style="color:#177500"></span><span style="color:#000">@Slf4j</span>
+<span style="color:#000">@Service</span>
+<span style="color:#000">@CacheConfig</span><span style="color:#000">(</span><span style="color:#000">cacheNames</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#34;count&#34;</span><span style="color:#000">)</span>
+<span style="color:#a90d91">public</span> <span style="color:#a90d91">class</span> <span style="color:#3f6e75">CountingService</span> <span style="color:#000">{</span>
+
+    <span style="color:#000">@CacheEvict</span> <span style="color:#177500">//清除缓存
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">public</span> <span style="color:#a90d91">void</span> <span style="color:#000">clearCount</span><span style="color:#000">()</span> <span style="color:#000">{</span>
+    <span style="color:#000">}</span>
+
+    <span style="color:#000">@Cacheable</span>  <span style="color:#177500">//开启缓存
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">public</span> <span style="color:#a90d91">int</span> <span style="color:#000">getNumber</span><span style="color:#000">()</span> <span style="color:#000">{</span>
+        <span style="color:#000">log</span><span style="color:#000">.</span><span style="color:#836c28">error</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;Reading from cache.......&#34;</span><span style="color:#000">);</span>
+        <span style="color:#a90d91">return</span> <span style="color:#000">1000</span><span style="color:#000">;</span>
+    <span style="color:#000">}</span>
+    <span style="color:#177500">// Spring 3.X
+</span><span style="color:#177500"></span>    <span style="color:#177500">//@Cacheable(value=&#34;artisan&#34;)
+</span><span style="color:#177500"></span>    
+    <span style="color:#177500">// Spring 4.0新增了value的别名cacheNames，更贴切，推荐使用
+</span><span style="color:#177500"></span>    <span style="color:#177500">//@Cacheable(cacheNames=&#34;artisan&#34;)
+</span><span style="color:#177500"></span><span style="color:#000">}</span>
+
+<span style="color:#177500">//JedisDemoApplication类
+</span><span style="color:#177500"></span><span style="color:#000">@SpringBootApplication</span>
+<span style="color:#000">@Slf4j</span>
+<span style="color:#000">@EnableCaching</span><span style="color:#000">(</span><span style="color:#000">proxyTargetClass</span> <span style="color:#000">=</span> <span style="color:#a90d91">true</span><span style="color:#000">)</span>  <span style="color:#177500">//开启缓存支持,也可加到按需其他类上
+</span><span style="color:#177500"></span><span style="color:#a90d91">public</span> <span style="color:#a90d91">class</span> <span style="color:#3f6e75">JedisDemoApplication</span> <span style="color:#a90d91">implements</span> <span style="color:#000">ApplicationRunner</span> <span style="color:#000">{</span>
+
+    <span style="color:#000">@Autowired</span>
+    <span style="color:#a90d91">private</span> <span style="color:#000">CountingService</span> <span style="color:#000">countingService</span><span style="color:#000">;</span>
+
+    <span style="color:#a90d91">public</span> <span style="color:#a90d91">static</span> <span style="color:#a90d91">void</span> <span style="color:#000">main</span><span style="color:#000">(</span><span style="color:#000">String</span><span style="color:#000">[]</span> <span style="color:#000">args</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+        <span style="color:#000">SpringApplication</span><span style="color:#000">.</span><span style="color:#836c28">run</span><span style="color:#000">(</span><span style="color:#000">JedisDemoApplication</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">,</span> <span style="color:#000">args</span><span style="color:#000">);</span>
+    <span style="color:#000">}</span>
+
+    <span style="color:#177500">//测试方法调用
+</span><span style="color:#177500"></span>    <span style="color:#000">@Override</span>
+    <span style="color:#a90d91">public</span> <span style="color:#a90d91">void</span> <span style="color:#000">run</span><span style="color:#000">(</span><span style="color:#000">ApplicationArguments</span> <span style="color:#000">args</span><span style="color:#000">)</span> <span style="color:#a90d91">throws</span> <span style="color:#000">Exception</span> <span style="color:#000">{</span>
+        <span style="color:#000">log</span><span style="color:#000">.</span><span style="color:#836c28">info</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;Count: {}&#34;</span><span style="color:#000">,</span> <span style="color:#000">countingService</span><span style="color:#000">.</span><span style="color:#836c28">getNumber</span><span style="color:#000">());</span>
+        <span style="color:#a90d91">for</span> <span style="color:#000">(</span><span style="color:#a90d91">int</span> <span style="color:#000">i</span> <span style="color:#000">=</span> <span style="color:#000">0</span><span style="color:#000">;</span> <span style="color:#000">i</span> <span style="color:#000">&lt;</span> <span style="color:#000">10</span><span style="color:#000">;</span> <span style="color:#000">i</span><span style="color:#000">++)</span> <span style="color:#000">{</span>
+            <span style="color:#a90d91">if</span> <span style="color:#000">(</span><span style="color:#000">i</span> <span style="color:#000">==</span> <span style="color:#000">5</span><span style="color:#000">){</span>
+                <span style="color:#000">countingService</span><span style="color:#000">.</span><span style="color:#836c28">clearCount</span><span style="color:#000">();</span>
+            <span style="color:#000">}</span>
+            <span style="color:#000">log</span><span style="color:#000">.</span><span style="color:#836c28">info</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;time:{} Count: {}&#34;</span><span style="color:#000">,</span> <span style="color:#000">i</span><span style="color:#000">,</span> <span style="color:#000">countingService</span><span style="color:#000">.</span><span style="color:#836c28">getNumber</span><span style="color:#000">());</span>
+        <span style="color:#000">}</span>
+    <span style="color:#000">}</span>
+<span style="color:#000">}</span>
+
+<span style="color:#177500">//运行的log如下
+</span><span style="color:#177500"></span><span style="color:#000">-:</span> <span style="color:#000">Reading</span> <span style="color:#000">from</span> <span style="color:#000">cache</span><span style="color:#000">.......</span>
+<span style="color:#000">-:</span> <span style="color:#000">Count:</span> <span style="color:#000">1000</span>
+<span style="color:#000">-:</span> <span style="color:#000">time:</span><span style="color:#000">0</span> <span style="color:#000">Count:</span> <span style="color:#000">1000</span>
+<span style="color:#000">-:</span> <span style="color:#000">time:</span><span style="color:#000">1</span> <span style="color:#000">Count:</span> <span style="color:#000">1000</span>
+<span style="color:#000">-:</span> <span style="color:#000">time:</span><span style="color:#000">2</span> <span style="color:#000">Count:</span> <span style="color:#000">1000</span>
+<span style="color:#000">-:</span> <span style="color:#000">time:</span><span style="color:#000">3</span> <span style="color:#000">Count:</span> <span style="color:#000">1000</span>
+<span style="color:#000">-:</span> <span style="color:#000">time:</span><span style="color:#000">4</span> <span style="color:#000">Count:</span> <span style="color:#000">1000</span>
+<span style="color:#177500">//i=5时进行缓存清空，故重新从缓存读取
+</span><span style="color:#177500"></span><span style="color:#000">-:</span> <span style="color:#000">Reading</span> <span style="color:#000">from</span> <span style="color:#000">cache</span><span style="color:#000">.......</span>
+<span style="color:#000">-:</span> <span style="color:#000">time:</span><span style="color:#000">5</span> <span style="color:#000">Count:</span> <span style="color:#000">1000</span>
+<span style="color:#000">-:</span> <span style="color:#000">time:</span><span style="color:#000">6</span> <span style="color:#000">Count:</span> <span style="color:#000">1000</span>
+<span style="color:#000">-:</span> <span style="color:#000">time:</span><span style="color:#000">7</span> <span style="color:#000">Count:</span> <span style="color:#000">1000</span>
+<span style="color:#000">-:</span> <span style="color:#000">time:</span><span style="color:#000">8</span> <span style="color:#000">Count:</span> <span style="color:#000">1000</span>
+<span style="color:#000">-:</span> <span style="color:#000">time:</span><span style="color:#000">9</span> <span style="color:#000">Count:</span> <span style="color:#000">1000</span></code></pre></div>
+<h1 id="spring-data-redis">Spring Data Redis</h1>
+
+<h2 id="配置与使用">配置与使用</h2>
+
+<p>Spring Data Redis是Spring Data系列的一部分，可以从Spring应用程序轻松配置和访问Redis。它提供了与store交互的低级(RedisTemplate)和高级(ListOperations)抽象，使用户可以对基础设施少操点心。</p>
+
+<p>支持 Jedis和Lettuce,  2.X以后默认实现是<code>Lettuce</code>(JRedis和SRP已被标记为过期)。</p>
+
+<p><strong>使用</strong>:需要引入依赖<code>spring-boot-starter-cache</code>和<code>spring-boot-starter-data-redis</code>。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000">&lt;dependency&gt;</span>
+   <span style="color:#000">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#000">&lt;/groupId&gt;</span>
+   <span style="color:#000">&lt;artifactId&gt;</span>spring-boot-starter-data-redis<span style="color:#000">&lt;/artifactId&gt;</span>
+<span style="color:#000">&lt;/dependency&gt;</span>
+
+<span style="color:#177500">&lt;!--spring2.0集成redis所需common-pool2--&gt;</span>
+<span style="color:#000">&lt;dependency&gt;</span>
+    <span style="color:#000">&lt;groupId&gt;</span>org.apache.commons<span style="color:#000">&lt;/groupId&gt;</span>
+    <span style="color:#000">&lt;artifactId&gt;</span>commons-pool2<span style="color:#000">&lt;/artifactId&gt;</span>
+    <span style="color:#000">&lt;version&gt;</span>2.4.2<span style="color:#000">&lt;/version&gt;</span>
+<span style="color:#000">&lt;/dependency&gt;</span></code></pre></div>
+<p>修改相关配置:</p>
+
+<pre><code>spring.cache.type=redis
+# 程序启动时创建缓存名
+spring.cache.cache-names=count
+#缓存的时间5s
+spring.cache.redis.time-to-live=5000
+spring.cache.redis.cache-null-values=false
+
+spring.redis.host=localhost
+spring.redis.port=6379
+</code></pre>
+
+<p>其他代码与<a href="http://localhost:1313/wiki/java/redis-sping-cache/#示例">缓存相关的注解 &gt; 示例</a>相同，可以看到数据直接存到redis中了。</p>
+
+<p>如果存储class,需要实现<code>Serializable</code>以便进行序列化工作。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000">@Data</span>
+<span style="color:#a90d91">public</span> <span style="color:#a90d91">class</span> <span style="color:#3f6e75">HUser</span> <span style="color:#a90d91">implements</span> <span style="color:#000">Serializable</span> <span style="color:#000">{</span>
+    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">id</span><span style="color:#000">;</span>
+    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">nickName</span><span style="color:#000">;</span>
+    <span style="color:#a90d91">private</span> <span style="color:#000">Integer</span> <span style="color:#000">age</span><span style="color:#000">;</span>
+<span style="color:#000">}</span></code></pre></div>
+<h2 id="redistemplate">RedisTemplate</h2>
+
+<p>redisTemplate.opsForXXX系列:</p>
+
+<p>非绑定key操作</p>
+
+<ul>
+<li>ValueOperations<K, V> opsForValue();<br /></li>
+<li><HK, HV> HashOperations<K, HK, HV> opsForHash();<br /></li>
+<li>ListOperations<K, V> opsForList();<br /></li>
+<li>SetOperations<K, V> opsForSet();<br /></li>
+<li>ZSetOperations<K, V> opsForZSet();<br /></li>
+</ul>
+
+<p>绑定key操作,若以bound开头，则意味着在操作之初就会绑定一个key，后续的所有操作便默认认为是对该key的操作</p>
+
+<ul>
+<li>BoundValueOperations<K, V> boundValueOps(K key);<br /></li>
+<li><HK, HV> BoundHashOperations<K, HK, HV> boundHashOps(K key);<br /></li>
+<li>BoundListOperations<K, V> boundListOps(K key);<br /></li>
+<li>BoundSetOperations<K, V> boundSetOps(K key);<br /></li>
+<li>BoundZSetOperations<K, V> boundZSetOps(K key);<br /></li>
+</ul>
+
+<h3 id="示例1-简单的存取">示例1:简单的存取</h3>
+
+<p>配置文件</p>
+
+<pre><code>spring.redis.host=localhost
+spring.redis.port=6379
+</code></pre>
+
+<p>测试类</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000">@Autowired</span>
+<span style="color:#a90d91">private</span> <span style="color:#000">RedisTemplate</span><span style="color:#000">&lt;</span><span style="color:#000">String</span><span style="color:#000">,</span> <span style="color:#000">Object</span><span style="color:#000">&gt;</span> <span style="color:#000">redisTemplate</span><span style="color:#000">;</span>
+
+<span style="color:#177500">//因为使用了`RedisTemplate&lt;String, Object&gt;`这里需要添加对应的bean
+</span><span style="color:#177500"></span><span style="color:#000">@Bean</span> 
+<span style="color:#a90d91">public</span> <span style="color:#000">RedisTemplate</span><span style="color:#000">&lt;</span><span style="color:#000">String</span><span style="color:#000">,</span> <span style="color:#000">Object</span><span style="color:#000">&gt;</span> <span style="color:#000">redisObjectTemplate</span><span style="color:#000">(</span><span style="color:#000">RedisConnectionFactory</span> <span style="color:#000">redisConnectionFactory</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+    <span style="color:#000">RedisTemplate</span><span style="color:#000">&lt;</span><span style="color:#000">String</span><span style="color:#000">,</span> <span style="color:#000">Object</span><span style="color:#000">&gt;</span> <span style="color:#000">template</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">RedisTemplate</span><span style="color:#000">&lt;&gt;();</span>
+    <span style="color:#000">template</span><span style="color:#000">.</span><span style="color:#836c28">setConnectionFactory</span><span style="color:#000">(</span><span style="color:#000">redisConnectionFactory</span><span style="color:#000">);</span>
+    <span style="color:#a90d91">return</span> <span style="color:#000">template</span><span style="color:#000">;</span>
+<span style="color:#000">}</span>
+
+<span style="color:#a90d91">private</span> <span style="color:#a90d91">void</span> <span style="color:#000">redisTemplateSimpleDemo</span><span style="color:#000">()</span> <span style="color:#000">{</span>
+    <span style="color:#000">Map</span><span style="color:#000">&lt;</span><span style="color:#000">String</span><span style="color:#000">,</span> <span style="color:#000">Object</span><span style="color:#000">&gt;</span> <span style="color:#000">properties</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">HashMap</span><span style="color:#000">&lt;&gt;();</span>
+    <span style="color:#000">properties</span><span style="color:#000">.</span><span style="color:#836c28">put</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;123&#34;</span><span style="color:#000">,</span> <span style="color:#c41a16">&#34;hello&#34;</span><span style="color:#000">);</span>
+    <span style="color:#000">properties</span><span style="color:#000">.</span><span style="color:#836c28">put</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;456&#34;</span><span style="color:#000">,</span> <span style="color:#c41a16">&#34;world&#34;</span><span style="color:#000">);</span>
+    <span style="color:#000">properties</span><span style="color:#000">.</span><span style="color:#836c28">put</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;abc&#34;</span><span style="color:#000">,</span> <span style="color:#000">456</span><span style="color:#000">);</span>
+    <span style="color:#177500">//存
+</span><span style="color:#177500"></span>    <span style="color:#000">redisTemplate</span><span style="color:#000">.</span><span style="color:#836c28">opsForHash</span><span style="color:#000">().</span><span style="color:#836c28">putAll</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;hash&#34;</span><span style="color:#000">,</span> <span style="color:#000">properties</span><span style="color:#000">);</span>
+    <span style="color:#177500">//设置过期时间
+</span><span style="color:#177500"></span>    <span style="color:#177500">//redisTemplate.expireAt(&#34;hash&#34;,date)
+</span><span style="color:#177500"></span>    <span style="color:#000">redisTemplate</span><span style="color:#000">.</span><span style="color:#836c28">expire</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;hash&#34;</span><span style="color:#000">,</span><span style="color:#000">20</span><span style="color:#000">,</span> <span style="color:#000">TimeUnit</span><span style="color:#000">.</span><span style="color:#836c28">SECONDS</span><span style="color:#000">);</span>
+    <span style="color:#177500">//取
+</span><span style="color:#177500"></span>    <span style="color:#000">Map</span><span style="color:#000">&lt;</span><span style="color:#000">Object</span><span style="color:#000">,</span> <span style="color:#000">Object</span><span style="color:#000">&gt;</span> <span style="color:#000">ans</span> <span style="color:#000">=</span> <span style="color:#000">redisTemplate</span><span style="color:#000">.</span><span style="color:#836c28">opsForHash</span><span style="color:#000">().</span><span style="color:#836c28">entries</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;hash&#34;</span><span style="color:#000">);</span>
+    <span style="color:#000">log</span><span style="color:#000">.</span><span style="color:#836c28">info</span><span style="color:#000">(</span><span style="color:#000">ans</span><span style="color:#000">.</span><span style="color:#836c28">toString</span><span style="color:#000">());</span>
+<span style="color:#000">}</span></code></pre></div>
+<h3 id="示例2-存储class-以及lettuce相关配置">示例2:存储class,以及lettuce相关配置</h3>
+
+<p>配置文件</p>
+
+<pre><code>spring.redis.host=localhost
+spring.redis.port=6379
+#spring.redis.url=redis://user:password@localhost:6379
+
+#Redis默认情况下有16个分片，这里配置具体使用的分片，默认是0
+#spring.redis.database=0
+
+#需要配置bean似乎
+# 连接池最大连接数（使用负值表示没有限制） 默认 8
+spring.redis.lettuce.pool.max-active=8
+ #连接池中的最大空闲连接 默认 8
+spring.redis.lettuce.pool.max-idle=8
+spring.redis.lettuce.pool.min-idle=0
+</code></pre>
+
+<p>自定义的class需要支持<code>implements Serializable</code></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000">@Data</span>
+<span style="color:#a90d91">public</span> <span style="color:#a90d91">class</span> <span style="color:#3f6e75">HUser</span> <span style="color:#a90d91">implements</span> <span style="color:#000">Serializable</span> <span style="color:#000">{</span>
+    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">id</span><span style="color:#000">;</span>
+    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">nickName</span><span style="color:#000">;</span>
+    <span style="color:#a90d91">private</span> <span style="color:#000">Integer</span> <span style="color:#000">age</span><span style="color:#000">;</span>
+<span style="color:#000">}</span></code></pre></div>
+<p>因为配置了<code>lettuce</code>相关参数而与示例1稍有区别:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000">@Autowired</span>
+<span style="color:#a90d91">private</span> <span style="color:#000">RedisTemplate</span><span style="color:#000">&lt;</span><span style="color:#000">String</span><span style="color:#000">,</span> <span style="color:#000">Object</span><span style="color:#000">&gt;</span> <span style="color:#000">redisTemplate</span><span style="color:#000">;</span>
+
+<span style="color:#000">@Bean</span>
+<span style="color:#a90d91">public</span> <span style="color:#000">RedisTemplate</span><span style="color:#000">&lt;</span><span style="color:#000">String</span><span style="color:#000">,</span> <span style="color:#000">HUser</span><span style="color:#000">&gt;</span> <span style="color:#000">redisUserTemplate</span><span style="color:#000">(</span><span style="color:#000">RedisConnectionFactory</span> <span style="color:#000">redisConnectionFactory</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+    <span style="color:#000">RedisTemplate</span><span style="color:#000">&lt;</span><span style="color:#000">String</span><span style="color:#000">,</span> <span style="color:#000">HUser</span><span style="color:#000">&gt;</span> <span style="color:#000">template</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">RedisTemplate</span><span style="color:#000">&lt;&gt;();</span>
+    <span style="color:#000">template</span><span style="color:#000">.</span><span style="color:#836c28">setConnectionFactory</span><span style="color:#000">(</span><span style="color:#000">redisConnectionFactory</span><span style="color:#000">);</span>
+    <span style="color:#a90d91">return</span> <span style="color:#000">template</span><span style="color:#000">;</span>
+<span style="color:#000">}</span>
+
+<span style="color:#000">@Bean</span>
+<span style="color:#a90d91">public</span> <span style="color:#000">LettuceClientConfigurationBuilderCustomizer</span> <span style="color:#000">customizer</span><span style="color:#000">()</span> <span style="color:#000">{</span>
+    <span style="color:#177500">//因为配置了spring.redis.lettuce.pool,lettuce配置的bean不可缺少。可以采用如下几种方式
+</span><span style="color:#177500"></span>    <span style="color:#177500">//LettuceClientConfiguration
+</span><span style="color:#177500"></span>    <span style="color:#177500">//LettucePoolingClientConfiguration
+</span><span style="color:#177500"></span>    <span style="color:#177500">//LettuceClientConfigurationBuilderCustomizer
+</span><span style="color:#177500"></span>
+    <span style="color:#177500">// lettuce支持读写分离
+</span><span style="color:#177500"></span>    <span style="color:#177500">// 只读主、只读从
+</span><span style="color:#177500"></span>    <span style="color:#177500">// 优先读主、优先读从
+</span><span style="color:#177500"></span>    <span style="color:#177500">//这里设置从主节点读取
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">return</span> <span style="color:#000">builder</span> <span style="color:#000">-&gt;</span> <span style="color:#000">builder</span><span style="color:#000">.</span><span style="color:#836c28">readFrom</span><span style="color:#000">(</span><span style="color:#000">ReadFrom</span><span style="color:#000">.</span><span style="color:#836c28">MASTER_PREFERRED</span><span style="color:#000">);</span>
+<span style="color:#000">}</span>
+
+<span style="color:#a90d91">private</span> <span style="color:#a90d91">void</span> <span style="color:#000">redisAddEntity</span><span style="color:#000">()</span> <span style="color:#000">{</span>
+    <span style="color:#000">HUser</span> <span style="color:#000">user</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">HUser</span><span style="color:#000">();</span>
+    <span style="color:#000">user</span><span style="color:#000">.</span><span style="color:#836c28">setAge</span><span style="color:#000">(</span><span style="color:#000">11</span><span style="color:#000">);</span>
+    <span style="color:#000">user</span><span style="color:#000">.</span><span style="color:#836c28">setId</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;01&#34;</span><span style="color:#000">);</span>
+    <span style="color:#000">user</span><span style="color:#000">.</span><span style="color:#836c28">setNickName</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;Ken&#34;</span><span style="color:#000">);</span>
+    <span style="color:#000">redisUserTemplate</span><span style="color:#000">.</span><span style="color:#836c28">opsForValue</span><span style="color:#000">().</span><span style="color:#836c28">set</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;user:ken&#34;</span><span style="color:#000">,</span> <span style="color:#000">user</span><span style="color:#000">);</span>
+    <span style="color:#000">HUser</span> <span style="color:#000">u2</span> <span style="color:#000">=</span> <span style="color:#000">redisUserTemplate</span><span style="color:#000">.</span><span style="color:#836c28">opsForValue</span><span style="color:#000">().</span><span style="color:#836c28">get</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;user:ken&#34;</span><span style="color:#000">);</span>
+    <span style="color:#000">log</span><span style="color:#000">.</span><span style="color:#836c28">info</span><span style="color:#000">(</span><span style="color:#000">u2</span><span style="color:#000">.</span><span style="color:#836c28">toString</span><span style="color:#000">());</span>
+<span style="color:#000">}</span></code></pre></div>
+<h3 id="示例2-cluster和sentinel">示例2: cluster和sentinel</h3>
+
+<p>TODO：待完善</p>
+
+<h1 id="其他">其他</h1>
+
+<p>代码示例</p>
+
+<ul>
+<li><a href="https://github.com/quicktouch/x-redis">代码示例</a></li>
+</ul>
+
+<p>相关参考
+- <a href="https://liuyueyi.github.io/hexblog/2018/06/11/180611-Spring之RedisTemplate配置与使用/">Spring之RedisTemplate配置与使用</a>
+- <a href="https://blog.csdn.net/xiaolyuh123/article/details/78682200">Redis 序列化方式StringRedisSerializer、FastJsonRedisSerializer和KryoRedisSerializer</a>
+- <a href="https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/">https://docs.spring.io/spring-data/data-redis/docs/current/reference/html/</a>
+- <a href="https://www.jianshu.com/p/ade624eacea0">Redis学习之Spring-data-redis使用</a>
+- <a href="https://blog.csdn.net/yangshangwei/article/details/78153531">https://blog.csdn.net/yangshangwei/article/details/78153531</a>
+- <a href="https://juejin.im/post/5bac97606fb9a05cd8492e48">https://juejin.im/post/5bac97606fb9a05cd8492e48</a></p>
+</div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li><a href="#spring中的缓存抽象">Spring中的缓存抽象</a>
+<ul>
+<li><a href="#spring中的缓存">Spring中的缓存</a></li>
+<li><a href="#缓存相关的注解">缓存相关的注解</a>
+<ul>
+<li><a href="#示例">示例</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#spring-data-redis">Spring Data Redis</a>
+<ul>
+<li><a href="#配置与使用">配置与使用</a></li>
+<li><a href="#redistemplate">RedisTemplate</a>
+<ul>
+<li><a href="#示例1-简单的存取">示例1:简单的存取</a></li>
+<li><a href="#示例2-存储class-以及lettuce相关配置">示例2:存储class,以及lettuce相关配置</a></li>
+<li><a href="#示例2-cluster和sentinel">示例2: cluster和sentinel</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#其他">其他</a></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

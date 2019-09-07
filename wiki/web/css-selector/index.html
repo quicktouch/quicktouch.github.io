@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>css选择器效果一览 |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> css选择器效果一览 </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#web'>web</a></span>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2019-04-29T00:00:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2019-04-29
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<h2 id="元素选择">元素选择</h2>
+
+<p><code>*</code>  通配全部元素<br />
+<code>element</code> 选择指定元素名称的所有元素,如<code>p{}</code><br />
+<code>#id</code> id选择器<br />
+<code>.class</code> class选择器</p>
+
+<h2 id="关系选择器">关系选择器</h2>
+
+<h3 id="包含选择器">包含选择器</h3>
+
+<p>空格分割,如<code>A B</code>。表示选择A中全部的B元素。</p>
+
+<h3 id="子选择器">子选择器 <code>&gt;</code></h3>
+
+<p><code>A&gt;B</code>,选择特定父元素的元素</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#000">//</span><span style="color:#000">举例</span>
+.<span style="color:#3f6e75">demo-a</span> <span style="color:#000">&gt;</span> <span style="color:#000">p</span> {
+    <span style="color:#a90d91">color</span>:<span style="color:#a90d91">red</span>;
+} </code></pre></div>
+<div  style="width:400px;background:gray;color:white;">         
+<style>
+    div.css-ft-demo-a > p {
+        color:red;
+    } 
+</style>
+
+<div class="css-ft-demo-a" style="width:100%;background:black;padding:10px;position:relative;"> 
+<p> &lt;p&gt;元素&lt;/p&gt; </p>
+<span style="background:tranparent;padding:10px;position:absolute;top:0;right:0;"> 
+.demo-a
+</span>
+</div>
+<div class="css-ft-demo-a1" style="width:100%;background:#586059;padding:10px;position:relative;"> 
+<p> &lt;p&gt;元素&lt;/p&gt; </p>
+<span style="background:tranparent;padding:10px;position:absolute;top:0;right:0;"> 
+.demo-a1
+</span>
+</div>
+</div>
+
+<h3 id="相邻元素">相邻元素 <code>+</code></h3>
+
+<p>选取同级的相邻元素</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#3f6e75">demo-b</span><span style="color:#000">+</span>.<span style="color:#3f6e75">demo-b</span>{
+    <span style="color:#a90d91">margin-left</span>: <span style="color:#1c01ce">40</span><span style="color:#a90d91">px</span>
+}</code></pre></div>
+<div  style="width:400px;background:white;color:white;">         
+<style>
+.css-ft-demo-b+.css-ft-demo-b{
+    margin-left: 30px
+}
+</style>
+
+<div class="css-ft-demo-b" style="background:black;padding:10px;position:relative;display:inline-block;"> 
+     demo-b
+</div>
+
+<div class="css-ft-demo-b" style="background:black;padding:10px;position:relative;display:inline-block;"> 
+     demo-b
+</div>
+</div>
+
+<h3 id="兄弟选择器">兄弟选择器 <code>~</code></h3>
+
+<p><code>A~B</code> 匹配出现在 A 后面的 B。二者具有相同的父级,但不需要相邻</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css">.<span style="color:#3f6e75">demo-c1</span><span style="color:#000">~</span>.<span style="color:#3f6e75">demo-c3</span>{
+   <span style="color:#a90d91">color</span>:<span style="color:#a90d91">red</span>;
+}</code></pre></div>
+<div style="width:400px;background:white;color:white;">         
+<style>
+.css-ft-demo-c1~.css-ft-demo-c3{
+    color:red;
+}
+</style>
+<div class="css-ft-demo-c1" style="background:black;padding:10px;position:relative;display:inline-block;"> 
+    demo-c1
+</div>
+<div class="css-ft-demo-c2" style="background:black;padding:10px;position:relative;display:inline-block;"> 
+     demo-c2
+</div>
+<div class="css-ft-demo-c3" style="background:black;padding:10px;position:relative;display:inline-block;"> 
+     demo-c3
+</div>
+</div>
+
+<h2 id="属性选择器">属性选择器</h2>
+
+<h3 id="attribute">[attribute]</h3>
+
+<p>选取带有指定属性的元素。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#000">a</span><span style="color:#000">[</span><span style="color:#000">target</span><span style="color:#000">]</span>{  
+    <span style="color:#a90d91">background-color</span>:<span style="color:#a90d91">yellow</span>;
+}</code></pre></div>
+<div class="css-ft-demo-d" style="background:white;color:white;">         
+<style>
+.css-ft-demo-d a[target]{  
+    background-color:yellow;
+}
+</style>
+<a href="javascript:void(0)">&lt;a target="_blank"&gt;php&lt;/a&gt;</a> <br>
+<a href="javascript:void(0)" target="_blank">&lt;a target="_blank"&gt;html&lt;/a&gt;</a><br>
+<a href="javascript:void(0)" target="_top">&lt;a target="_top"&gt;css&lt;/a&gt;</a>
+</div>
+
+<h3 id="attribute-value">[attribute=value]</h3>
+
+<p>指定了属性和属性值</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#000">a</span><span style="color:#000">[</span><span style="color:#000">target</span><span style="color:#000">=</span><span style="color:#000">_blank</span><span style="color:#000">]</span>{  
+    <span style="color:#a90d91">background-color</span>:<span style="color:#a90d91">orange</span>;				
+}</code></pre></div>
+<div class="css-ft-demo-e" style="background:white;color:white;">         
+<style>
+.css-ft-demo-e > a[target=_blank]{  
+    background-color:orange;
+}
+</style>
+<a href="javascript:void(0)">&lt;a&gt;php&lt;/a&gt;</a> <br>
+<a href="javascript:void(0)" target="_blank">&lt;a target="_blank"&gt;html&lt;/a&gt;</a><br>
+<a href="javascript:void(0)" target="_top">&lt;a target="_top"&gt;css&lt;/a&gt;</a>
+</div>
+
+<h3 id="attribute-value-1">[attribute~=value]</h3>
+
+<p>属性包含某个单词</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#000">a</span><span style="color:#000">[</span><span style="color:#000">title</span><span style="color:#000">~=</span><span style="color:#000">great</span><span style="color:#000">]</span>{  
+    <span style="color:#a90d91">color</span>:<span style="color:#a90d91">gray</span>;
+}</code></pre></div>
+<div class="css-ft-demo-f" style="background:white;color:white;">         
+<style>
+.css-ft-demo-f > a[title~=great]{  
+    color:gray;
+}
+</style>
+<a href="javascript:void(0)" title="greatidea">&lt;a title="greatidea"&gt;php&lt;/a&gt;</a> <br>
+<a href="javascript:void(0)" title="great">&lt;a title="great"&gt;html&lt;/a&gt;</a><br>
+<a href="javascript:void(0)" title="great idea">&lt;a title="great idea"&gt;css&lt;/a&gt;</a>
+</div>
+
+<h3 id="attribute-value-2">[attribute^=value]</h3>
+
+<p>匹配属性值由<code>value</code>开始的元素。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#000">a</span><span style="color:#000">[</span><span style="color:#000">class</span><span style="color:#000">~=</span><span style="color:#000">start-with</span><span style="color:#000">]</span>{  
+    <span style="color:#a90d91">color</span>:<span style="color:#a90d91">gray</span>;
+}</code></pre></div>
+<div class="css-ft-demo-g" style="background:white;color:white;">         
+<style>
+.css-ft-demo-g > a[class^=start-with]{  
+    color:gray;
+}
+</style>
+<a href="javascript:void(0)" class="start-with-a">&lt;a class="start-with-a"&gt;php&lt;/a&gt;</a> <br>
+<a href="javascript:void(0)" class="start-with-b">&lt;a class="start-with-b"&gt;html&lt;/a&gt;</a><br>
+<a href="javascript:void(0)" >&lt;a&gt;css&lt;/a&gt;</a>
+</div>
+
+<h3 id="attribute-value-3">[attribute$=value]</h3>
+
+<p>匹配属性值由<code>value</code>结束的元素。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#000">a</span><span style="color:#000">[</span><span style="color:#000">class</span><span style="color:#000">$=</span><span style="color:#000">end-with</span><span style="color:#000">]</span>{  
+    <span style="color:#a90d91">color</span>:<span style="color:#a90d91">gray</span>;
+}</code></pre></div>
+<div class="css-ft-demo-g" style="background:white;color:white;">         
+<style>
+.css-ft-demo-g > a[class$=end-with]{  
+    color:gray;
+}
+</style>
+<a href="javascript:void(0)" class="x-end-with">&lt;a class="x-end-with"&gt;php&lt;/a&gt;</a> <br>
+<a href="javascript:void(0)" class="5-end-with">&lt;a class="5-end-with"&gt;html&lt;/a&gt;</a><br>
+<a href="javascript:void(0)" >&lt;a&gt;css&lt;/a&gt;</a>
+</div>
+
+<h3 id="attribute-value-4">[attribute*=value]</h3>
+
+<p>包含指定值<code>value</code>的元素</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#000">a</span><span style="color:#000">[</span><span style="color:#000">class</span><span style="color:#000">*=</span><span style="color:#000">contain</span><span style="color:#000">]</span>{  
+    <span style="color:#a90d91">color</span>:<span style="color:#a90d91">gray</span>;
+}</code></pre></div>
+<div class="css-ft-demo-h" style="background:white;color:white;">         
+<style>
+.css-ft-demo-h > a[class*=contain]{  
+    color:gray;
+}
+</style>
+<a href="javascript:void(0)" class="x-contain-x">&lt;a class="x-contain-x"&gt;php&lt;/a&gt;</a> <br>
+<a href="javascript:void(0)" class="5-contain">&lt;a class="5-contain"&gt;html&lt;/a&gt;</a><br>
+<a href="javascript:void(0)" >&lt;a&gt;css&lt;/a&gt;</a>
+</div>
+
+<h3 id="attribute-value-5">[attribute|=value]</h3>
+
+<p>表示带有以 attr 命名的属性的元素，属性值为“value”或是以“value-”为前缀（&rdquo;-&ldquo;为连字符，Unicode编码为U+002D）开头。</p>
+
+<p>典型的应用场景是用来来匹配语言简写代码（如zh-CN，zh-TW可以用zh作为value）。</p>
+
+<blockquote>
+<p>与 ^= 的区别 <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors">https://developer.mozilla.org/en-US/docs/Web/CSS/Attribute_selectors</a><br />
+<code>|=</code> 匹配的值必须是单词</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#000">a</span><span style="color:#000">[</span><span style="color:#000">class</span><span style="color:#000">|=</span><span style="color:#000">start-with</span><span style="color:#000">]</span>{  
+    <span style="color:#a90d91">color</span>:<span style="color:#a90d91">gray</span>;
+}</code></pre></div>
+<div class="css-ft-demo-i" style="background:white;color:white;">         
+<style>
+.css-ft-demo-i > a[class|=start-with]{  
+    color:red;
+}
+</style>
+<a href="javascript:void(0)" class="start-with-a">&lt;a class="start-with-a"&gt;php&lt;/a&gt;</a> <br>
+<a href="javascript:void(0)" class="start-with-b">&lt;a class="start-with-b"&gt;html&lt;/a&gt;</a><br>
+<a href="javascript:void(0)" >&lt;a&gt;css&lt;/a&gt;</a>
+</div>
+
+<h2 id="伪类">伪类</h2>
+
+<h3 id="link-visited-active-hover">:link/:visited/:active/:hover/</h3>
+
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>:link</td>
+<td>未访问的链接</td>
+</tr>
+
+<tr>
+<td>visited</td>
+<td>向访问过的链接</td>
+</tr>
+
+<tr>
+<td>hover</td>
+<td><span class="css-ft-demo-hover"> 鼠标悬浮时添加的样式,不限于链接<span></td>
+</tr>
+
+<tr>
+<td>active</td>
+<td><span class="css-ft-demo-active"> 点击时的高亮颜色,不限于链接<span></td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>为了产生预期的效果，在CSS定义中，:active必须位于:hover之后。否则active不生效</p>
+</blockquote>
+
+<style>    
+.css-ft-demo-hover:hover{
+    background-color:#96e7e0 ;
+    color: red;
+}
+.css-ft-demo-active:active{
+    color: red;
+}
+</style>
+
+<h3 id="focus-lang-not">:focus/:lang/:not</h3>
+
+<p><strong>focus</strong> 输入时生效</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#000">input</span>:<span style="color:#000">focus</span>{
+    <span style="color:#a90d91">background-color</span>:<span style="color:#1c01ce">#99ffff</span>; 
+}</code></pre></div>
+<div class="css-ft-demo-i"> 
+<style>    
+.css-ft-demo-i  input:focus{
+    background-color:#99ffff;
+}
+</style>
+<input type="text" name="firstname" />
+</div>
+
+<p></br></p>
+
+<p><strong>:lang</strong> 选择lang 属性</p>
+
+<p>该lang 属性值必须是整个单词，即可是单独的，比如 lang=&ldquo;en&rdquo;，也可后跟连接符，比如 lang=&ldquo;en-us&rdquo;。<br />
+相当于是<code>|=</code>的语法糖。<br />
+默认语言与header中的申明有关。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#000">p</span>:<span style="color:#000">lang</span><span style="color:#000">(</span><span style="color:#000">en</span><span style="color:#000">)</span>{
+    <span style="color:#a90d91">background-color</span>:<span style="color:#1c01ce">#66cdcc</span>;
+    <span style="color:#a90d91">color</span>:<span style="color:#a90d91">red</span>;
+}</code></pre></div>
+<div class="css-ft-demo-lang" style="background:white;color:white;">         
+<style>
+.css-ft-demo-lang > p{    
+    color:black;
+    padding:0;
+    margin:0;
+    display:inline-block;
+}    
+.css-ft-demo-lang > p:lang(en){
+    background-color:#66cdcc;
+    color:red;
+}
+</style>
+<p href="javascript:void(0)" lang="en">&lt;p lang="en"&gt;php&lt;/p&gt;</p> <br>
+<p href="javascript:void(0)" lang="en-1">&lt;p lang="en-1"&gt;html&lt;/p&gt;</p><br>
+<p href="javascript:void(0)" lang="xxx">&lt;p lang="xxx"&gt;html&lt;/p&gt;</p><br>
+</div>
+
+<p></br></p>
+
+<p><strong>:not</strong> 反选</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#000">p</span> {
+    <span style="color:#a90d91">color</span>:<span style="color:#a90d91">pink</span>;
+}
+:<span style="color:#000">not</span><span style="color:#000">(</span><span style="color:#000">p</span><span style="color:#000">)</span> {
+    <span style="color:#a90d91">color</span>:<span style="color:#a90d91">skyblue</span>;
+}</code></pre></div>
+<h3 id="root-xx-child">:root/:xx-child/</h3>
+
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>:root</td>
+<td>文档根节点,在HTML中根元素始终是HTML元素</td>
+</tr>
+
+<tr>
+<td>:first-child</td>
+<td>用于选取属于其父元素的首个子元素</td>
+</tr>
+
+<tr>
+<td>:last-child</td>
+<td>用于选取属于其父元素的最后一个子元素</td>
+</tr>
+
+<tr>
+<td>:only-child</td>
+<td>匹配属于父元素中唯一子元素的元素</td>
+</tr>
+
+<tr>
+<td>:nth-child(n)</td>
+<td>:nth-child(n) 选择器匹配父元素中的第 n 个子元素，元素类型没有限制</td>
+</tr>
+
+<tr>
+<td>:nth-last-child(n)</td>
+<td>选择器匹配同类型中的倒数第n个同级兄弟元素</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="xxx-of-type">xxx-of-type</h3>
+
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>first-of-type</td>
+<td></td>
+</tr>
+
+<tr>
+<td>last-of-type</td>
+<td></td>
+</tr>
+
+<tr>
+<td>only-of-type</td>
+<td></td>
+</tr>
+
+<tr>
+<td>:nth-of-type(n)</td>
+<td></td>
+</tr>
+
+<tr>
+<td>:nth-last-of-type(n)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="empty">:empty</h3>
+
+<p>选择器选择每个<strong>没有任何子级</strong>的元素（包括文本节点）</p>
+
+<h3 id="其他">其他</h3>
+
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>:checked</td>
+<td></td>
+</tr>
+
+<tr>
+<td>:enabled</td>
+<td></td>
+</tr>
+
+<tr>
+<td>:disabled</td>
+<td></td>
+</tr>
+
+<tr>
+<td>:target</td>
+<td></td>
+</tr>
+
+<tr>
+<td><del>@page :first</del></td>
+<td></td>
+</tr>
+
+<tr>
+<td><del>@page :left</del></td>
+<td></td>
+</tr>
+
+<tr>
+<td><del>@page :right</del></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="伪对象选择符">伪对象选择符</h2>
+
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>说明</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>:first-letter</td>
+<td>指定元素第一个字母的样式</td>
+</tr>
+
+<tr>
+<td>:first-line</td>
+<td>指定选择器第一行的样式</td>
+</tr>
+
+<tr>
+<td>::before</td>
+<td>向选定的元素前插入内容。需要和content 属性一起使用，使用content 属性来指定要插入的内容。</td>
+</tr>
+
+<tr>
+<td>::after</td>
+<td>向选定的元素之后插入内容。需要和content 属性一起使用，使用content 属性来指定要插入的内容。</td>
+</tr>
+
+<tr>
+<td>::placeholder</td>
+<td>设置对象文字占位符的样式  可能有兼容性问题</td>
+</tr>
+
+<tr>
+<td>::selection</td>
+<td>匹配元素中被用户选中或处于高亮状态的部分</td>
+</tr>
+</tbody>
+</table>
+
+<p>其中<code>::before</code>和<code>::after</code>比较常用。</p>
+
+<ul>
+<li><code>::before</code>和<code>:before</code>的区别: 双冒号是css3规范的写法,如果兼容IE浏览器，使用单冒号好些</li>
+<li>常通过 <code>content</code> 属性来为一个元素添加修饰性的内容</li>
+<li>元素默认为行内元素</li>
+<li>几乎可以用任何方法定义 <code>content</code> 中的文字和图片样式</li>
+</ul>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-css" data-lang="css"><span style="color:#000">p</span>{
+    <span style="color:#a90d91">color</span>:<span style="color:#a90d91">black</span>;
+    <span style="color:#a90d91">padding</span>:<span style="color:#1c01ce">0</span>;
+    <span style="color:#a90d91">margin</span>:<span style="color:#1c01ce">3</span><span style="color:#a90d91">px</span>;
+    <span style="color:#a90d91">display</span>:<span style="color:#a90d91">inline</span><span style="color:#000">-</span><span style="color:#a90d91">block</span>;
+    <span style="color:#a90d91">border</span>: <span style="color:#1c01ce">1</span><span style="color:#a90d91">px</span> <span style="color:#a90d91">solid</span> <span style="color:#a90d91">black</span>;
+}    
+
+<span style="color:#000">p</span>.<span style="color:#3f6e75">before-demo</span>::<span style="color:#000">before</span> {
+  <span style="color:#a90d91">content</span>: <span style="color:#c41a16">&#34;♥&#34;</span>;
+  <span style="color:#a90d91">color</span>: <span style="color:#a90d91">red</span>;
+}
+
+<span style="color:#000">p</span>.<span style="color:#3f6e75">before-demo2</span>::<span style="color:#000">before</span> {
+  <span style="color:#a90d91">content</span>: <span style="color:#a90d91">url</span>(<span style="color:#c41a16">http://www.mozilla.org/favicon.ico</span>) <span style="color:#c41a16">&#34; MOZILLA: &#34;</span>;
+  <span style="color:#a90d91">font</span>: <span style="color:#a90d91">x-small</span> <span style="color:#000">Arial</span>,<span style="color:#000">freeSans</span>,<span style="color:#a90d91">sans-serif</span>;
+  <span style="color:#a90d91">color</span>: <span style="color:#a90d91">gray</span>;
+} </code></pre></div>
+<div class="css-ft-demo-before" style="background:white;color:white;">         
+<style>
+.css-ft-demo-before p{
+    color:black;
+    padding:0;
+    margin:3px;
+    display:inline-block;
+    border: 1px solid black;
+}    
+.css-ft-demo-before > p.css-ft-demo-before-demo::before {
+  content: "♥";
+  color: red;
+} 
+
+.css-ft-demo-before > p.css-ft-demo-before-demo2::before {
+  content: url(http://www.mozilla.org/favicon.ico) " MOZILLA: ";
+  font:    x-small Arial,freeSans,sans-serif;
+  color:   gray;
+} 
+</style>
+<p class="css-ft-demo-before-demo"  >&lt;p class='before-demo' &gt;php&lt;/p&gt;</p> <br>
+<p class="css-ft-demo-before-demo2" >&lt;p class='before-demo2' &gt;html&lt;/p&gt;</p><br>
+</div>
+
+<p><br></p>
+</div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#元素选择">元素选择</a></li>
+<li><a href="#关系选择器">关系选择器</a>
+<ul>
+<li><a href="#包含选择器">包含选择器</a></li>
+<li><a href="#子选择器">子选择器 <code>&gt;</code></a></li>
+<li><a href="#相邻元素">相邻元素 <code>+</code></a></li>
+<li><a href="#兄弟选择器">兄弟选择器 <code>~</code></a></li>
+</ul></li>
+<li><a href="#属性选择器">属性选择器</a>
+<ul>
+<li><a href="#attribute">[attribute]</a></li>
+<li><a href="#attribute-value">[attribute=value]</a></li>
+<li><a href="#attribute-value-1">[attribute~=value]</a></li>
+<li><a href="#attribute-value-2">[attribute^=value]</a></li>
+<li><a href="#attribute-value-3">[attribute$=value]</a></li>
+<li><a href="#attribute-value-4">[attribute*=value]</a></li>
+<li><a href="#attribute-value-5">[attribute|=value]</a></li>
+</ul></li>
+<li><a href="#伪类">伪类</a>
+<ul>
+<li><a href="#link-visited-active-hover">:link/:visited/:active/:hover/</a></li>
+<li><a href="#focus-lang-not">:focus/:lang/:not</a></li>
+<li><a href="#root-xx-child">:root/:xx-child/</a></li>
+<li><a href="#xxx-of-type">xxx-of-type</a></li>
+<li><a href="#empty">:empty</a></li>
+<li><a href="#其他">其他</a></li>
+</ul></li>
+<li><a href="#伪对象选择符">伪对象选择符</a></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>Quartz学习笔记 |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> Quartz学习笔记 </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2019-05-14T00:00:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2019-05-14
+            </time>
+        </span>
+        <span class="tags">
+            
+            <a class="label label-rounded label-secondary p-category"
+                href="https://www.tyrad.cc/tags/java">Java</a>
+            
+        </span>
+    </section>
+</section>
+
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item" class="column  col-10  col-md-12 extra-spacing">
+                    
+
+<p>Quartz是一个功能丰富的开源作业调度库，几乎可以集成在任何Java应用程序中 - 从最小的独立应用程序到最大的电子商务系统。</p>
+
+<h2 id="基本概念">基本概念</h2>
+
+<ul>
+<li>开发会遇到<strong><em>任务调度</em></strong>问题。 例如，按月生成统计报表</li>
+<li>实现<strong><em>任务调度</em></strong>需要关心线程、以及资源分配问题</li>
+<li>重复造轮子没必要,这里引出了Quartz</li>
+</ul>
+
+<p><code>Quartz</code>就是用来执行定时任务的的框架。特定时间去干某些事,例如:</p>
+
+<blockquote>
+<p>每天5点半收拾收拾下班</p>
+</blockquote>
+
+<p>Quartz中有几个特别重要的概念:<code>scheduler</code>调度器、<code>trigger</code>触发器、<code>job</code>任务,可以类比为:</p>
+
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>作用</th>
+<th>类比</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>trigger</td>
+<td>定义调度时间</td>
+<td>每天五点半</td>
+</tr>
+
+<tr>
+<td>job</td>
+<td>被调度的任务</td>
+<td>收拾东西下班</td>
+</tr>
+
+<tr>
+<td>Scheduler</td>
+<td>执行调度的控制器</td>
+<td>大脑进行协调指挥、关联前两者</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="示例-springboot">示例(springboot)</h2>
+
+<p>首先添加maven依赖</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000">&lt;dependency&gt;</span>
+    <span style="color:#000">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#000">&lt;/groupId&gt;</span>
+    <span style="color:#000">&lt;artifactId&gt;</span>spring-boot-starter-quartz<span style="color:#000">&lt;/artifactId&gt;</span>
+<span style="color:#000">&lt;/dependency&gt;</span></code></pre></div>
+<h3 id="简单示例">简单示例</h3>
+
+<p>1). 实现job类,主要描述具体干了什么</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a90d91">public</span> <span style="color:#a90d91">class</span> <span style="color:#3f6e75">MyJob</span> <span style="color:#a90d91">implements</span> <span style="color:#000">Job</span> <span style="color:#000">{</span>
+    <span style="color:#000">@Override</span>
+    <span style="color:#a90d91">public</span> <span style="color:#a90d91">void</span> <span style="color:#000">execute</span><span style="color:#000">(</span><span style="color:#000">JobExecutionContext</span> <span style="color:#000">jobExecutionContext</span><span style="color:#000">)</span> <span style="color:#a90d91">throws</span> <span style="color:#000">JobExecutionException</span> <span style="color:#000">{</span>
+        <span style="color:#000">System</span><span style="color:#000">.</span><span style="color:#836c28">out</span><span style="color:#000">.</span><span style="color:#836c28">println</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;start job at:&#34;</span> <span style="color:#000">+</span> <span style="color:#a90d91">new</span> <span style="color:#000">Date</span><span style="color:#000">());</span>
+    <span style="color:#000">}</span>
+<span style="color:#000">}</span></code></pre></div>
+<p>2). 使用<code>SimpleTriggerImpl</code>的示例</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a90d91">public</span> <span style="color:#a90d91">class</span> <span style="color:#3f6e75">QuartzSimpleTriggerTest</span> <span style="color:#000">{</span>
+
+    <span style="color:#a90d91">public</span> <span style="color:#a90d91">static</span> <span style="color:#a90d91">void</span> <span style="color:#000">main</span><span style="color:#000">(</span><span style="color:#000">String</span><span style="color:#000">[]</span> <span style="color:#000">args</span><span style="color:#000">)</span> <span style="color:#a90d91">throws</span> <span style="color:#000">SchedulerException</span> <span style="color:#000">{</span>
+
+        <span style="color:#177500">//实现job接口,可以使java类变为可调度的任务
+</span><span style="color:#177500"></span>        <span style="color:#177500">//创建描述job的jobDetail对象
+</span><span style="color:#177500"></span>        <span style="color:#000">JobDetailImpl</span> <span style="color:#000">jobDetail</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">JobDetailImpl</span><span style="color:#000">();</span>
+        <span style="color:#000">jobDetail</span><span style="color:#000">.</span><span style="color:#836c28">setName</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;myjob&#34;</span><span style="color:#000">);</span>
+        <span style="color:#000">jobDetail</span><span style="color:#000">.</span><span style="color:#836c28">setGroup</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;myjobGrounp&#34;</span><span style="color:#000">);</span>
+        <span style="color:#000">jobDetail</span><span style="color:#000">.</span><span style="color:#836c28">setJobClass</span><span style="color:#000">(</span><span style="color:#000">MyJob</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">);</span>
+
+        <span style="color:#177500">//创建simplerTrigger对象
+</span><span style="color:#177500"></span>        <span style="color:#000">SimpleTriggerImpl</span> <span style="color:#000">trigger</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">SimpleTriggerImpl</span><span style="color:#000">();</span>
+        <span style="color:#000">trigger</span><span style="color:#000">.</span><span style="color:#836c28">setName</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;myTrigger&#34;</span><span style="color:#000">);</span>
+        <span style="color:#000">trigger</span><span style="color:#000">.</span><span style="color:#836c28">setGroup</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;myTriggerGroup&#34;</span><span style="color:#000">);</span>
+
+        <span style="color:#177500">//触发的时间规则
+</span><span style="color:#177500"></span>        <span style="color:#000">trigger</span><span style="color:#000">.</span><span style="color:#836c28">setStartTime</span><span style="color:#000">(</span><span style="color:#a90d91">new</span> <span style="color:#000">Date</span><span style="color:#000">());</span>
+        <span style="color:#000">trigger</span><span style="color:#000">.</span><span style="color:#836c28">setRepeatCount</span><span style="color:#000">(</span><span style="color:#000">10</span><span style="color:#000">);</span>
+        <span style="color:#000">trigger</span><span style="color:#000">.</span><span style="color:#836c28">setRepeatInterval</span><span style="color:#000">(</span><span style="color:#000">1000</span> <span style="color:#000">*</span> <span style="color:#000">3</span><span style="color:#000">);</span>
+
+        <span style="color:#177500">//创建scheduler对象
+</span><span style="color:#177500"></span>        <span style="color:#000">StdSchedulerFactory</span> <span style="color:#000">factory</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">StdSchedulerFactory</span><span style="color:#000">();</span>
+        <span style="color:#000">Scheduler</span> <span style="color:#000">scheduler</span> <span style="color:#000">=</span> <span style="color:#000">factory</span><span style="color:#000">.</span><span style="color:#836c28">getScheduler</span><span style="color:#000">();</span>
+
+        <span style="color:#177500">//SchedulerFactory总注册jobDetail和trigger
+</span><span style="color:#177500"></span>        <span style="color:#000">scheduler</span><span style="color:#000">.</span><span style="color:#836c28">scheduleJob</span><span style="color:#000">(</span><span style="color:#000">jobDetail</span><span style="color:#000">,</span> <span style="color:#000">trigger</span><span style="color:#000">);</span>
+
+        <span style="color:#177500">//启动调度任务
+</span><span style="color:#177500"></span>        <span style="color:#000">scheduler</span><span style="color:#000">.</span><span style="color:#836c28">start</span><span style="color:#000">();</span>
+    <span style="color:#000">}</span>
+<span style="color:#000">}</span></code></pre></div>
+<p>3). 使用<code>CronTriggerImpl</code>的示例</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a90d91">public</span> <span style="color:#a90d91">static</span> <span style="color:#a90d91">void</span> <span style="color:#000">main</span><span style="color:#000">(</span><span style="color:#000">String</span><span style="color:#000">[]</span> <span style="color:#000">args</span><span style="color:#000">)</span> <span style="color:#a90d91">throws</span> <span style="color:#000">SchedulerException</span><span style="color:#000">,</span> <span style="color:#000">ParseException</span> <span style="color:#000">{</span>
+
+    <span style="color:#177500">//实现job接口,可以使java类变为可调度的任务
+</span><span style="color:#177500"></span>    <span style="color:#177500">//创建描述job的jobDetail对象
+</span><span style="color:#177500"></span>    <span style="color:#000">JobDetailImpl</span> <span style="color:#000">jobDetail</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">JobDetailImpl</span><span style="color:#000">();</span>
+    <span style="color:#000">jobDetail</span><span style="color:#000">.</span><span style="color:#836c28">setName</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;myjob&#34;</span><span style="color:#000">);</span>
+    <span style="color:#000">jobDetail</span><span style="color:#000">.</span><span style="color:#836c28">setGroup</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;myjobGrounp&#34;</span><span style="color:#000">);</span>
+    <span style="color:#000">jobDetail</span><span style="color:#000">.</span><span style="color:#836c28">setJobClass</span><span style="color:#000">(</span><span style="color:#000">MyJob</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">);</span>
+
+    <span style="color:#000">CronTriggerImpl</span> <span style="color:#000">trigger</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">CronTriggerImpl</span><span style="color:#000">();</span>
+    <span style="color:#000">trigger</span><span style="color:#000">.</span><span style="color:#836c28">setName</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;myTrigger&#34;</span><span style="color:#000">);</span>
+    <span style="color:#000">trigger</span><span style="color:#000">.</span><span style="color:#836c28">setGroup</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;myTriggerGroup&#34;</span><span style="color:#000">);</span>
+    <span style="color:#177500">//时间触发规则 2019年5月15号 14点18分 执行 每隔3秒执行一次
+</span><span style="color:#177500"></span>    <span style="color:#000">trigger</span><span style="color:#000">.</span><span style="color:#836c28">setCronExpression</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;0/3 18 14 15 5 ? 2019&#34;</span><span style="color:#000">);</span>
+
+    <span style="color:#177500">//创建scheduler对象
+</span><span style="color:#177500"></span>    <span style="color:#000">StdSchedulerFactory</span> <span style="color:#000">factory</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">StdSchedulerFactory</span><span style="color:#000">();</span>
+    <span style="color:#000">Scheduler</span> <span style="color:#000">scheduler</span> <span style="color:#000">=</span> <span style="color:#000">factory</span><span style="color:#000">.</span><span style="color:#836c28">getScheduler</span><span style="color:#000">();</span>
+
+    <span style="color:#177500">//SchedulerFactory总注册jobDetail和trigger
+</span><span style="color:#177500"></span>    <span style="color:#000">scheduler</span><span style="color:#000">.</span><span style="color:#836c28">scheduleJob</span><span style="color:#000">(</span><span style="color:#000">jobDetail</span><span style="color:#000">,</span> <span style="color:#000">trigger</span><span style="color:#000">);</span>
+
+    <span style="color:#177500">//启动调度任务
+</span><span style="color:#177500"></span>    <span style="color:#000">scheduler</span><span style="color:#000">.</span><span style="color:#836c28">start</span><span style="color:#000">();</span>
+<span style="color:#000">}</span></code></pre></div>
+<h3 id="spring-boot">spring boot</h3>
+
+<p>配置类编写,项目启动时执行定时任务。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000">@Configuration</span>
+<span style="color:#a90d91">public</span> <span style="color:#a90d91">class</span> <span style="color:#3f6e75">QuartzConfig</span> <span style="color:#000">{</span>
+
+    <span style="color:#000">@Bean</span>
+    <span style="color:#a90d91">public</span> <span style="color:#000">JobDetail</span> <span style="color:#000">testQuartz1</span><span style="color:#000">()</span> <span style="color:#000">{</span>
+        <span style="color:#a90d91">return</span> <span style="color:#000">JobBuilder</span><span style="color:#000">.</span><span style="color:#836c28">newJob</span><span style="color:#000">(</span><span style="color:#000">TestTask1</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">).</span><span style="color:#836c28">withIdentity</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;testTask1&#34;</span><span style="color:#000">).</span><span style="color:#836c28">storeDurably</span><span style="color:#000">().</span><span style="color:#836c28">build</span><span style="color:#000">();</span>
+    <span style="color:#000">}</span>
+
+    <span style="color:#000">@Bean</span>
+    <span style="color:#a90d91">public</span> <span style="color:#000">Trigger</span> <span style="color:#000">testQuartzTrigger1</span><span style="color:#000">()</span> <span style="color:#000">{</span>
+        <span style="color:#177500">//5秒执行一次
+</span><span style="color:#177500"></span>        <span style="color:#000">SimpleScheduleBuilder</span> <span style="color:#000">scheduleBuilder</span> <span style="color:#000">=</span> <span style="color:#000">SimpleScheduleBuilder</span><span style="color:#000">.</span><span style="color:#836c28">simpleSchedule</span><span style="color:#000">()</span>
+                <span style="color:#000">.</span><span style="color:#836c28">withIntervalInSeconds</span><span style="color:#000">(</span><span style="color:#000">5</span><span style="color:#000">)</span>
+                <span style="color:#000">.</span><span style="color:#836c28">repeatForever</span><span style="color:#000">();</span>
+        <span style="color:#a90d91">return</span> <span style="color:#000">TriggerBuilder</span><span style="color:#000">.</span><span style="color:#836c28">newTrigger</span><span style="color:#000">().</span><span style="color:#836c28">forJob</span><span style="color:#000">(</span><span style="color:#000">testQuartz1</span><span style="color:#000">())</span>
+                <span style="color:#000">.</span><span style="color:#836c28">withIdentity</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;testTask1&#34;</span><span style="color:#000">)</span>
+                <span style="color:#000">.</span><span style="color:#836c28">withSchedule</span><span style="color:#000">(</span><span style="color:#000">scheduleBuilder</span><span style="color:#000">)</span>
+                <span style="color:#000">.</span><span style="color:#836c28">build</span><span style="color:#000">();</span>
+    <span style="color:#000">}</span>
+
+    <span style="color:#000">@Bean</span>
+    <span style="color:#a90d91">public</span> <span style="color:#000">JobDetail</span> <span style="color:#000">testQuartz2</span><span style="color:#000">()</span> <span style="color:#000">{</span>
+        <span style="color:#a90d91">return</span> <span style="color:#000">JobBuilder</span><span style="color:#000">.</span><span style="color:#836c28">newJob</span><span style="color:#000">(</span><span style="color:#000">TestTask2</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">).</span><span style="color:#836c28">withIdentity</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;testTask2&#34;</span><span style="color:#000">).</span><span style="color:#836c28">storeDurably</span><span style="color:#000">().</span><span style="color:#836c28">build</span><span style="color:#000">();</span>
+    <span style="color:#000">}</span>
+
+    <span style="color:#000">@Bean</span>
+    <span style="color:#a90d91">public</span> <span style="color:#000">Trigger</span> <span style="color:#000">testQuartzTrigger2</span><span style="color:#000">()</span> <span style="color:#000">{</span>
+        <span style="color:#177500">//cron方式，每隔5秒执行一次
+</span><span style="color:#177500"></span>        <span style="color:#a90d91">return</span> <span style="color:#000">TriggerBuilder</span><span style="color:#000">.</span><span style="color:#836c28">newTrigger</span><span style="color:#000">().</span><span style="color:#836c28">forJob</span><span style="color:#000">(</span><span style="color:#000">testQuartz2</span><span style="color:#000">())</span>
+                <span style="color:#000">.</span><span style="color:#836c28">withIdentity</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;testTask2&#34;</span><span style="color:#000">)</span>
+                <span style="color:#000">.</span><span style="color:#836c28">withSchedule</span><span style="color:#000">(</span><span style="color:#000">CronScheduleBuilder</span><span style="color:#000">.</span><span style="color:#836c28">cronSchedule</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;*/5 * * * * ?&#34;</span><span style="color:#000">))</span>
+                <span style="color:#000">.</span><span style="color:#836c28">build</span><span style="color:#000">();</span>
+    <span style="color:#000">}</span>
+<span style="color:#000">}</span></code></pre></div>
+<p>job的实现类:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a90d91">public</span> <span style="color:#a90d91">class</span> <span style="color:#3f6e75">TestTask1</span> <span style="color:#a90d91">extends</span> <span style="color:#000">QuartzJobBean</span> <span style="color:#000">{</span>
+    <span style="color:#000">@Override</span>
+    <span style="color:#a90d91">protected</span> <span style="color:#a90d91">void</span> <span style="color:#000">executeInternal</span><span style="color:#000">(</span><span style="color:#000">JobExecutionContext</span> <span style="color:#000">jobExecutionContext</span><span style="color:#000">)</span> <span style="color:#a90d91">throws</span> <span style="color:#000">JobExecutionException</span> <span style="color:#000">{</span>
+        <span style="color:#000">SimpleDateFormat</span> <span style="color:#000">sdf</span><span style="color:#000">=</span><span style="color:#a90d91">new</span> <span style="color:#000">SimpleDateFormat</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;yyyy-MM-dd HH:mm:ss&#34;</span><span style="color:#000">);</span>
+        <span style="color:#000">System</span><span style="color:#000">.</span><span style="color:#836c28">out</span><span style="color:#000">.</span><span style="color:#836c28">println</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;TestQuartz01----&#34;</span> <span style="color:#000">+</span> <span style="color:#000">sdf</span><span style="color:#000">.</span><span style="color:#836c28">format</span><span style="color:#000">(</span><span style="color:#a90d91">new</span> <span style="color:#000">Date</span><span style="color:#000">()));</span>
+    <span style="color:#000">}</span>
+<span style="color:#000">}</span>
+
+<span style="color:#a90d91">public</span> <span style="color:#a90d91">class</span> <span style="color:#3f6e75">TestTask2</span> <span style="color:#a90d91">extends</span> <span style="color:#000">QuartzJobBean</span> <span style="color:#000">{</span>
+    <span style="color:#000">@Override</span>
+    <span style="color:#a90d91">protected</span> <span style="color:#a90d91">void</span> <span style="color:#000">executeInternal</span><span style="color:#000">(</span><span style="color:#000">JobExecutionContext</span> <span style="color:#000">jobExecutionContext</span><span style="color:#000">)</span> <span style="color:#a90d91">throws</span> <span style="color:#000">JobExecutionException</span> <span style="color:#000">{</span>
+        <span style="color:#000">SimpleDateFormat</span> <span style="color:#000">sdf</span><span style="color:#000">=</span><span style="color:#a90d91">new</span> <span style="color:#000">SimpleDateFormat</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;yyyy-MM-dd HH:mm:ss&#34;</span><span style="color:#000">);</span>
+        <span style="color:#000">System</span><span style="color:#000">.</span><span style="color:#836c28">out</span><span style="color:#000">.</span><span style="color:#836c28">println</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;TestQuartz02----&#34;</span> <span style="color:#000">+</span> <span style="color:#000">sdf</span><span style="color:#000">.</span><span style="color:#836c28">format</span><span style="color:#000">(</span><span style="color:#a90d91">new</span> <span style="color:#000">Date</span><span style="color:#000">()));</span>
+    <span style="color:#000">}</span>
+<span style="color:#000">}</span></code></pre></div>
+<h2 id="详解">详解</h2>
+
+<h3 id="相关概念脑图">相关概念脑图</h3>
+
+<p><img src="http://image.tyrad.cc/20190517155805910673112.png" alt="20190517155805910673112.png" /></p>
+
+<p><img src="http://image.tyrad.cc/20190517155806280034131.png" alt="20190517155806280034131.png" /></p>
+
+<h3 id="核心元素">核心元素</h3>
+
+<p><strong><em>trigger</em></strong></p>
+
+<p>trigger 是用于定义调度时间的元素，即按照什么时间规则去执行任务。Quartz 中主要提供了:</p>
+
+<ul>
+<li><code>SimpleTrigger</code> 常用来处理按时间间隔执行的任务</li>
+<li><code>CronTirgger</code> 使用cron表达式触发定时任务,如每周一执行</li>
+<li><code>CalendarIntervalTrigger</code> 根据一个给定的日历时间进行重复，可以设置启动时间。它可以完成 SimpleTrigger（比如每个月，因为月不是一个确定的秒数）和CronTrigger（比如5个月，因为5个月并不是12个月的公约数）不能完成的一些任务。注意，使用month作为周期单位时，如果起始日期是在某月的最后一天，比如1月31日，那么下一个激活日在2月28日，以后所有的激活日都在当月的28日。如果你要严格限制在每月的最后一天激活，那你需要使用cronTrigger。不受夏令时引起的时钟偏移影响</li>
+<li><code>DailyTimeIntervalTrigger</code> 在某个时间段以某个频率(如每隔一分钟)触发(重复周期必须在1天以内，不能为星期，月 ?)</li>
+</ul>
+
+<p><strong><em>job</em></strong></p>
+
+<p>job 用于表示被调度的任务。主要有两种类型的 job：无状态的（stateless）和有状态的（stateful）。对于同一个 trigger 来说，有状态的 job 不能被并行执行，只有上一次触发的任务被执行完之后，才能触发下一次执行。Job 主要有两种属性：volatility 和 durability，其中 volatility 表示任务是否被持久化到数据库存储，而 durability 表示在没有 trigger 关联的时候任务是否被保留。两者都是在值为 true 的时候任务被持久化或保留。一个 job 可以被多个 trigger 关联，但是一个 trigger 只能关联一个 job。<a href="https://www.ibm.com/developerworks/cn/opensource/os-cn-quartz/index.html">出处</a></p>
+
+<p><strong><em>scheduler</em></strong></p>
+
+<p>在 Quartz 中， scheduler 由 scheduler 工厂创建：DirectSchedulerFactory 或者 StdSchedulerFactory。 StdSchedulerFactory可以使用读取配置文件，因此更加简单也更常用。</p>
+
+<p><img src="https://www.ibm.com/developerworks/cn/opensource/os-cn-quartz/image001.gif" alt="" /></p>
+
+<h3 id="job-stores">Job Stores</h3>
+
+<p>负责存储所有工作数据。 需要根据实际需要选择合适的JobStore。</p>
+
+<p><strong><em>RAMJobStore</em></strong></p>
+
+<p>数据保存在RAM,速度最快。但是程序结束时,数据会丢失。</p>
+
+<p><strong><em>JDBC JobStore</em></strong></p>
+
+<p>JDBCJobStore几乎可以与任何数据库一起使用，已被广泛应用于Oracle，PostgreSQL，MySQL，MS SQLServer，HSQLDB和DB2。</p>
+
+<h3 id="builder">“builder”</h3>
+
+<p>Quartz提供的“builder”类,简化JobDetail、Trigger的构造过程。如<a href="https://github.com/quicktouch/quartz/blob/master/example/quartz-demo/src/test/java/com/th/quartz/quartzdemo/b_dataMap/DataMapExample.java">DataMapExample.java</a></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"> <span style="color:#177500">//将参数添加到jobDetail中
+</span><span style="color:#177500"></span><span style="color:#000">JobDataMap</span> <span style="color:#000">jobDataMap</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">JobDataMap</span><span style="color:#000">();</span>
+<span style="color:#000">jobDataMap</span><span style="color:#000">.</span><span style="color:#836c28">put</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;name&#34;</span><span style="color:#000">,</span> <span style="color:#c41a16">&#34;Xiaoming&#34;</span><span style="color:#000">);</span>
+
+<span style="color:#000">JobDetail</span> <span style="color:#000">jobDetail</span> <span style="color:#000">=</span> <span style="color:#000">JobBuilder</span><span style="color:#000">.</span><span style="color:#836c28">newJob</span><span style="color:#000">(</span><span style="color:#000">DataMapJob</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">)</span>
+        <span style="color:#000">.</span><span style="color:#836c28">withDescription</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;传递参数实例 JobDetail&#34;</span><span style="color:#000">)</span>
+        <span style="color:#000">.</span><span style="color:#836c28">usingJobData</span><span style="color:#000">(</span><span style="color:#000">jobDataMap</span><span style="color:#000">)</span>
+        <span style="color:#000">.</span><span style="color:#836c28">storeDurably</span><span style="color:#000">()</span>
+        <span style="color:#000">.</span><span style="color:#836c28">build</span><span style="color:#000">();</span>
+
+<span style="color:#177500">//也可以这样
+</span><span style="color:#177500">//jobDetail.getJobDataMap().put(&#34;key&#34;,&#34;value&#34;);
+</span><span style="color:#177500"></span>
+<span style="color:#000">SimpleTrigger</span> <span style="color:#000">trigger</span> <span style="color:#000">=</span> <span style="color:#000">newTrigger</span><span style="color:#000">()</span>
+        <span style="color:#000">.</span><span style="color:#836c28">withIdentity</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;trigger&#34;</span><span style="color:#000">)</span>
+        <span style="color:#000">.</span><span style="color:#836c28">startAt</span><span style="color:#000">(</span><span style="color:#000">evenMinuteDate</span><span style="color:#000">(</span><span style="color:#a90d91">new</span> <span style="color:#000">Date</span><span style="color:#000">()))</span>
+        <span style="color:#000">.</span><span style="color:#836c28">withSchedule</span><span style="color:#000">(</span><span style="color:#000">simpleSchedule</span><span style="color:#000">().</span><span style="color:#836c28">withIntervalInSeconds</span><span style="color:#000">(</span><span style="color:#000">3</span><span style="color:#000">).</span><span style="color:#836c28">withRepeatCount</span><span style="color:#000">(</span><span style="color:#000">10</span><span style="color:#000">))</span>
+        <span style="color:#000">.</span><span style="color:#836c28">build</span><span style="color:#000">();</span>
+
+<span style="color:#000">StdSchedulerFactory</span> <span style="color:#000">factory</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">StdSchedulerFactory</span><span style="color:#000">();</span>
+<span style="color:#000">Scheduler</span> <span style="color:#000">scheduler</span> <span style="color:#000">=</span> <span style="color:#000">factory</span><span style="color:#000">.</span><span style="color:#836c28">getScheduler</span><span style="color:#000">();</span>
+<span style="color:#000">scheduler</span><span style="color:#000">.</span><span style="color:#836c28">scheduleJob</span><span style="color:#000">(</span><span style="color:#000">jobDetail</span><span style="color:#000">,</span> <span style="color:#000">trigger</span><span style="color:#000">);</span>
+<span style="color:#000">scheduler</span><span style="color:#000">.</span><span style="color:#836c28">start</span><span style="color:#000">();</span></code></pre></div>
+<h3 id="线程视图">线程视图</h3>
+
+<p>在 Quartz 中，有两类线程，Scheduler 调度线程和任务执行线程，其中任务执行线程通常使用一个线程池维护一组线程。</p>
+
+<p>图 2. Quartz 线程视图
+<img src="https://www.ibm.com/developerworks/cn/opensource/os-cn-quartz/image002.gif" alt="" /></p>
+
+<p>Scheduler 调度线程主要有两个： 执行常规调度的线程，和执行 misfired trigger (错过的任务)的线程。常规调度线程轮询存储的所有 trigger，如果有需要触发的 trigger，即到达了下一次触发的时间，则从任务执行线程池获取一个空闲线程，执行与该 trigger 关联的任务。Misfire 线程是扫描所有的 trigger，查看是否有 misfired trigger，如果有的话根据 misfire 的策略分别处理。</p>
+
+<h3 id="cron表达式">cron表达式</h3>
+
+<table>
+<thead>
+<tr>
+<th>顺序</th>
+<th>秒</th>
+<th>分钟</th>
+<th>小时</th>
+<th>日期</th>
+<th>月份</th>
+<th>星期</th>
+<th>年（可选）</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>取值</td>
+<td>0-59</td>
+<td>0-59</td>
+<td>0-23</td>
+<td>1-30(31)</td>
+<td>1-12</td>
+<td>1-7</td>
+<td></td>
+</tr>
+
+<tr>
+<td>允许特殊字符</td>
+<td>, - * /</td>
+<td>, - * /</td>
+<td>, - * /</td>
+<td>, - * / ? L W C</td>
+<td>, - * /</td>
+<td>, - * / L # C</td>
+<td>1970-2099 , - * /</td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>*：代表所有可能的值<br />
+-：指定范围<br />
+,：列出枚举  例如在分钟里，&rdquo;5,15&rdquo;表示5分钟和20分钟触发<br />
+/：指定增量  例如在分钟里，&rdquo;<sup>3</sup>&frasl;<sub>15</sub>&rdquo;表示从3分钟开始，没隔15分钟执行一次<br />
+?：表示没有具体的值，使用?要注意冲突<br />
+L：表示last，例如星期中表示7或SAT，月份中表示最后一天31或30，6L表示这个月倒数第6天，FRIL表示这个月的最后一个星期五<br />
+W：只能用在日期中，表示最接近指定天的工作日<br />
+#：只能用在星期中，表示这个月的第几个周几，例如6#3表示这个月的第3个周五</p>
+</blockquote>
+
+<pre><code>0 * * * * ? 每1分钟触发一次
+0 0 * * * ? 每天每1小时触发一次
+0 0 10 * * ? 每天10点触发一次
+0 * 14 * * ? 在每天下午2点到下午2:59期间的每1分钟触发
+0 30 9 1 * ? 每月1号上午9点半
+0 15 10 15 * ? 每月15日上午10:15触发
+*/5 * * * * ? 每隔5秒执行一次
+0 */1 * * * ? 每隔1分钟执行一次
+0 0 5-15 * * ? 每天5-15点整点触发
+0 0/3 * * * ? 每三分钟触发一次
+0 0 0 1 * ?  每月1号凌晨执行一次
+</code></pre>
+
+<h2 id="示例代码">示例代码</h2>
+
+<p><a href="https://github.com/quicktouch/quartz">https://github.com/quicktouch/quartz</a></p>
+
+<h2 id="参考资料">参考资料</h2>
+
+<p><a href="http://www.quartz-scheduler.org/documentation/">官方文档地址</a></p>
+
+<p><a href="https://www.callicoder.com/spring-boot-quartz-scheduler-email-scheduling-example/">Spring Boot Quartz Scheduler Example: Building an Email Scheduling app</a></p>
+
+<p><a href="https://www.cnblogs.com/youzhibing/p/10024558.html">spring-boot-2.0.3之quartz集成，不是你想的那样哦！</a></p>
+
+<p><a href="https://www.cnblogs.com/youzhibing/p/10056696.html">spring-boot-2.0.3之quartz集成，数据源问题，源码探究</a></p>
+
+<p><a href="https://www.w3cschool.cn/quartz_doc/quartz_doc-1xbu2clr.html">非官方翻译</a></p>
+
+<p><a href="https://www.ibm.com/developerworks/cn/opensource/os-cn-quartz/index.html">基于 Quartz 开发企业级任务调度应用</a></p>
+
+<p><a href="http://cron.qqe2.com/">在线cron表达式</a></p>
+
+<p><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-quartz.html">spring quartz</a></p>
+
+<!-- [基于SpringBoot实现定时任务 ApplicationListener ](http://www.zhaoguojian.com/2018/07/16/%E5%9F%BA%E4%BA%8ESpringBoot%E5%AE%9E%E7%8E%B0%E5%AE%9A%E6%97%B6%E4%BB%BB%E5%8A%A1/) -->
+
+                    <p class="prev-next text-center" style="display:flex;justify-content:space-between; ">
+                        
+                        <a class="btn" href="/wiki/%E6%9D%82%E8%AE%B0/mtproxy-install/"><i class="fa fa-angle-left"></i>
+                            TG代理MTProxy搭建
+                        </a>
+                        
+                        
+                        <a class="btn" href="/wiki/java/springboot-kaptcha/">
+                            springboot之kaptcha验证码
+                            <i class="fa fa-angle-right"></i></a>
+                        
+                    </p>
+                </div>
+                                    
+                <div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed">
+                        <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#基本概念">基本概念</a></li>
+<li><a href="#示例-springboot">示例(springboot)</a>
+<ul>
+<li><a href="#简单示例">简单示例</a></li>
+<li><a href="#spring-boot">spring boot</a></li>
+</ul></li>
+<li><a href="#详解">详解</a>
+<ul>
+<li><a href="#相关概念脑图">相关概念脑图</a></li>
+<li><a href="#核心元素">核心元素</a></li>
+<li><a href="#job-stores">Job Stores</a></li>
+<li><a href="#builder">“builder”</a></li>
+<li><a href="#线程视图">线程视图</a></li>
+<li><a href="#cron表达式">cron表达式</a></li>
+</ul></li>
+<li><a href="#示例代码">示例代码</a></li>
+<li><a href="#参考资料">参考资料</a></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div>
+                
+            </div>
+        </section>
+    </section>
+</section>
+
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

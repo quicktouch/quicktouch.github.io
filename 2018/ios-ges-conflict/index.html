@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>iOS开发之常见的手势冲突 |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> iOS开发之常见的手势冲突 </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2018-05-04T11:32:22.000&#43;08:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2018-05-04
+            </time>
+        </span>
+        <span class="tags">
+            
+            <a class="label label-rounded label-secondary p-category"
+                href="https://www.tyrad.cc/tags/ios">iOS</a>
+            
+        </span>
+    </section>
+</section>
+
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item" class="column  col-10  col-md-12 extra-spacing">
+                    
+
+<h3 id="理解事件的响应">理解事件的响应</h3>
+
+<h4 id="事件的响应链">事件的响应链</h4>
+
+<p>事件的传递和响应与响应链息息相关,下图是官网对于响应链的示例:</p>
+
+<p><img src="http://image.tyrad.cc/2018050583775chain.png" alt="2018050583775chain.png" /></p>
+
+<p>若触摸发生在UITextField上，则事件的传递顺序会沿着箭头传递到<code>UIApplicationDelegation</code>,此时textField就是firstResponder。</p>
+
+<p><strong>UIResponder</strong>: 响应链的节点就是<strong>响应者(UIResponder)</strong>,UIView、UIViewController、UIApplication、AppDelegate都继承自UIResponder。</p>
+
+<p><strong>hit-test view</strong>: 当系统检测到手指触摸屏幕时,会把触摸事件加到<code>UIApplication</code>的事件队列中,UIApplication从事件队列中取出最新的触摸事件进行分发传递到UIWindow进行处理。UIWindow 会通过hitTest:withEvent:方法寻找触碰点所在的视图，这个过程称之为*hit-test view*。</p>
+
+<p>hitTest用来确定响应者(UIResponder)。可以简单理解为获取到响应区域的最顶层(最后添加)的可以响应的视图。hitTest方法忽略以下的视图: <br></p>
+
+<ul>
+<li>视图是隐藏的 hidden = YES</li>
+<li>用户交互关闭的 userInteractionEnabled = NO</li>
+<li>透明度小于0.01的 alpha &lt; 0.01</li>
+</ul>
+
+<p>hitTest获取responder顺序为: UIApplication -&gt; UIWindow -&gt; Root View -&gt;..-&gt; view1 -&gt; subview1。 responder可以通过<code>subview.nextResponder</code>属性获取上一级响应者,比如在这里subview1.nextResponder为view1。</p>
+
+<h4 id="uiresponder">UIResponder</h4>
+
+<p>响应者响应事件(不提motion)离不开如下代理方法:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#177500">//触摸开始
+</span><span style="color:#177500"></span>- (<span style="color:#a90d91">void</span>)<span style="color:#000">touchesBegan:</span>(<span style="color:#000">NSSet</span><span style="color:#000">&lt;</span><span style="color:#000">UITouch</span> <span style="color:#000">*&gt;</span> <span style="color:#000">*</span>)<span style="color:#000">touches</span> <span style="color:#000">withEvent:</span>(<span style="color:#000">nullable</span> <span style="color:#000">UIEvent</span> <span style="color:#000">*</span>)<span style="color:#000">event</span>;
+- (<span style="color:#a90d91">void</span>)<span style="color:#000">touchesMoved:</span>(<span style="color:#000">NSSet</span><span style="color:#000">&lt;</span><span style="color:#000">UITouch</span> <span style="color:#000">*&gt;</span> <span style="color:#000">*</span>)<span style="color:#000">touches</span> <span style="color:#000">withEvent:</span>(<span style="color:#000">nullable</span> <span style="color:#000">UIEvent</span> <span style="color:#000">*</span>)<span style="color:#000">event</span>;
+<span style="color:#177500">//触摸结束
+</span><span style="color:#177500"></span>- (<span style="color:#a90d91">void</span>)<span style="color:#000">touchesEnded:</span>(<span style="color:#000">NSSet</span><span style="color:#000">&lt;</span><span style="color:#000">UITouch</span> <span style="color:#000">*&gt;</span> <span style="color:#000">*</span>)<span style="color:#000">touches</span> <span style="color:#000">withEvent:</span>(<span style="color:#000">nullable</span> <span style="color:#000">UIEvent</span> <span style="color:#000">*</span>)<span style="color:#000">event</span>;
+<span style="color:#177500">//触摸结束前，某个系统事件中断了触摸，例如电话呼入
+</span><span style="color:#177500"></span>- (<span style="color:#a90d91">void</span>)<span style="color:#000">touchesCancelled:</span>(<span style="color:#000">NSSet</span><span style="color:#000">&lt;</span><span style="color:#000">UITouch</span> <span style="color:#000">*&gt;</span> <span style="color:#000">*</span>)<span style="color:#000">touches</span> <span style="color:#000">withEvent:</span>(<span style="color:#000">nullable</span> <span style="color:#000">UIEvent</span> <span style="color:#000">*</span>)<span style="color:#000">event</span>;</code></pre></div>
+<p>与响应链相关的方法</p>
+
+<ul>
+<li>isFirstResponder</li>
+<li>nextResponder</li>
+<li>canBecomeFirstResponder</li>
+<li>becomeFirstResponder</li>
+<li>canResignFirstResponder</li>
+<li>resignFirstResponder</li>
+</ul>
+
+<p>消息的响应和拦截是通过<code>touchesBegan:withEvent:</code>方法控制的，该方法默认将沿着响应链依次调用(View—&gt; controller的方向)。</p>
+
+<p><strong>响应者与手势识别</strong>:</p>
+
+<p>关于手势是如何是被识别的:</p>
+
+<p>1.肯定会调用<code>touchBegin:withEvent:</code>
+2.手势被识别后,Application会取消该视图对事件的响应 ,会调用<code>touchCancel:withEvent:</code>方法</p>
+
+<p>手势识别器的3个属性</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#a90d91">@property</span>(<span style="color:#a90d91">nonatomic</span>) <span style="color:#a90d91">BOOL</span> <span style="color:#000">cancelsTouchesInView</span>; <span style="color:#177500">//。表示手势是被成功后是否cancel响应链对事件的响应(touchCancel:withEvent:)。默认true
+</span><span style="color:#177500"></span><span style="color:#a90d91">@property</span>(<span style="color:#a90d91">nonatomic</span>) <span style="color:#a90d91">BOOL</span> <span style="color:#000">delaysTouchesBegan</span>; <span style="color:#177500">//若设置为true,在手势识别期间,被添加手势view的hit-tested view(子视图)不会响应`touchesBegan:withEvent`等事件。默认false。
+</span><span style="color:#177500"></span><span style="color:#a90d91">@property</span>(<span style="color:#a90d91">nonatomic</span>) <span style="color:#a90d91">BOOL</span> <span style="color:#000">delaysTouchesEnded</span>; <span style="color:#000">//</span><span style="color:#000">若设置为</span><span style="color:#a90d91">true</span>,<span style="color:#000">触摸完成时</span>,<span style="color:#000">会延迟一小段时间（</span><span style="color:#1c01ce">0.15</span><span style="color:#000">s</span><span style="color:#000">）再调用响应者的`</span><span style="color:#000">touchesEnded</span>:<span style="color:#000">withEvent</span>:<span style="color:#000">`</span> <span style="color:#000">。默认为</span><span style="color:#a90d91">true</span><span style="color:#000">。</span></code></pre></div>
+<p>额外的scrollView的几个属性：</p>
+
+<p><code>delaycontenttouch</code>: 用于确定滚动视图是否延迟触摸手势的处理。如果true,则会延迟处理向下的触摸手势,直到确定该视图是要滚动了;如果false，则滚动视图会立即调用<code>touchesShouldBegin（_：with：in :)</code>。</p>
+
+<p><code>touchesShouldCancelInContentView:</code>方法,可以重写方法处理子视图是否需要cancel。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">override</span> <span style="color:#a90d91">func</span> <span style="color:#000">touchesShouldCancel</span>(<span style="color:#a90d91">in</span> <span style="color:#000">view</span>: <span style="color:#000">UIView</span>) -&gt; <span style="color:#a90d91">Bool</span> {
+        <span style="color:#a90d91">if</span> <span style="color:#000">view</span> <span style="color:#a90d91">is</span> <span style="color:#000">UIButton</span> {
+            <span style="color:#a90d91">return</span> <span style="color:#a90d91">true</span>
+        }
+        <span style="color:#a90d91">return</span> <span style="color:#a90d91">super</span>.<span style="color:#000">touchesShouldCancel</span>(<span style="color:#a90d91">in</span>: <span style="color:#000">view</span>)
+    }</code></pre></div>
+<p><strong>main函数与UIApplication</strong></p>
+
+<p>main函数,<code>UIApplicationMain</code>第三个参数可以传递UIApplication对象, nil为默认的对象。根据需求可以自定义一个application对象，在方法里对事件进行拦截。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-objc" data-lang="objc"><span style="color:#a90d91">int</span> <span style="color:#000">main</span>(<span style="color:#a90d91">int</span> <span style="color:#000">argc</span>, <span style="color:#a90d91">char</span> <span style="color:#000">*</span> <span style="color:#000">argv</span>[])
+{
+    <span style="color:#a90d91">@autoreleasepool</span> {
+        <span style="color:#a90d91">return</span> <span style="color:#000">UIApplicationMain</span>(<span style="color:#000">argc</span>, <span style="color:#000">argv</span>,  <span style="color:#000">NSStringFromClass</span>([<span style="color:#000">MyApplication</span> <span style="color:#a90d91">class</span>]),
+                   <span style="color:#000">NSStringFromClass</span>([<span style="color:#000">AppDelegate</span> <span style="color:#a90d91">class</span>]));
+    }
+}</code></pre></div>
+<p>swift可以去掉<code>@UIApplicationMain</code>,再新建一个main.swift文件,方法如下</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">import</span> <span style="color:#3f6e75">UIKit</span>
+<span style="color:#a90d91">class</span> <span style="color:#3f6e75">MyApplication</span>: <span style="color:#000">UIApplication</span> {    
+    <span style="color:#a90d91">override</span> <span style="color:#a90d91">func</span> <span style="color:#000">sendEvent</span>(<span style="color:#a90d91">_</span> <span style="color:#000">event</span>: <span style="color:#000">UIEvent</span>) {
+        <span style="color:#5b269a">print</span>(<span style="color:#000">event</span>)
+        <span style="color:#a90d91">super</span>.<span style="color:#000">sendEvent</span>(<span style="color:#000">event</span>)
+    }    
+}
+
+<span style="color:#000">UIApplicationMain</span>(
+    <span style="color:#000">CommandLine</span>.<span style="color:#000">argc</span>,
+    <span style="color:#000">UnsafeMutableRawPointer</span>(<span style="color:#000">CommandLine</span>.<span style="color:#000">unsafeArgv</span>)
+        .<span style="color:#000">bindMemory</span>(
+            <span style="color:#000">to</span>: <span style="color:#a90d91">UnsafeMutablePointer</span>&lt;<span style="color:#a90d91">Int8</span><span style="color:#000">&gt;</span>.<span style="color:#a90d91">self</span>,
+            <span style="color:#000">capacity</span>: <span style="color:#a90d91">Int</span>(<span style="color:#000">CommandLine</span>.<span style="color:#000">argc</span>)),
+    <span style="color:#000">NSStringFromClass</span>(<span style="color:#000">MyApplication</span>.<span style="color:#a90d91">self</span>),
+    <span style="color:#000">NSStringFromClass</span>(<span style="color:#000">AppDelegate</span>.<span style="color:#a90d91">self</span>)
+)</code></pre></div>
+<h3 id="滚动视图添加滑动手势">滚动视图添加滑动手势</h3>
+
+<p>scollView上添加滑动手势,会与scollView本身自带的手势冲突,导致默认只响应后添加的手势。 <br>scrollView上添加tableView的情况与这个类似。</p>
+
+<p>举例: 类似高德地图的效果。</p>
+
+<p><img src="http://image.tyrad.cc/2018050526930221cc2.gif" alt="2018050526930221cc2.gif" /></p>
+
+<p>1). 方案1. 我们在tableView上添加pan手势来调整tableView的尺寸大小,并限定只有tableView的被拖动到顶端后才可以滑动。</p>
+
+<p>重写代理方法,可以使得两个手势同时生效:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#177500">//返回true，则表示两个手势同时使用</span>
+<span style="color:#177500">//否则仅最新添加的生效</span>
+<span style="color:#a90d91">func</span> <span style="color:#000">gestureRecognizer</span>(<span style="color:#a90d91">_</span> <span style="color:#000">gestureRecognizer</span>: <span style="color:#000">UIGestureRecognizer</span>, <span style="color:#000">shouldRecognizeSimultaneouslyWith</span> <span style="color:#000">otherGestureRecognizer</span>: <span style="color:#000">UIGestureRecognizer</span>) -&gt; <span style="color:#a90d91">Bool</span> {      
+    <span style="color:#a90d91">return</span> <span style="color:#a90d91">true</span>
+}</code></pre></div>
+<p>然后根据是否拉到顶端判断是否可以滑动tableView, 不能滑动tableView的时候<code>tableView.isScrollEnabled = false</code></p>
+
+<p>缺点: tableView滑动到顶端需要重新滑动才能滑动cell.</p>
+
+<p>2). 方案2. 不重写<code>gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -&gt; Bool</code> 方法。只根据滑动手势来调整tableView的frame和contentOffset。</p>
+
+<p>缺点: 卡顿,效果不够流畅。</p>
+
+<p>3). 方案3 (最终方案). 重写<code>gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -&gt; Bool</code> 方法,返回true; 通过tableView的代理方法控制tableView偏移;不能滚动的时候使<code>tableView = false</code>。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">func</span> <span style="color:#000">scrollViewDidScroll</span>(<span style="color:#a90d91">_</span> <span style="color:#000">scrollView</span>: <span style="color:#000">UIScrollView</span>) {
+   <span style="color:#a90d91">if</span> <span style="color:#000">canScroll</span> == <span style="color:#a90d91">false</span> {
+       <span style="color:#000">scrollView</span>.<span style="color:#000">contentOffset</span> = <span style="color:#000">CGPoint</span>.<span style="color:#000">zero</span>
+   }
+   <span style="color:#177500">//滑动到顶端</span>
+   <span style="color:#a90d91">if</span> <span style="color:#000">scrollView</span>.<span style="color:#000">contentOffset</span>.<span style="color:#000">y</span> <span style="color:#000">&lt;=</span> <span style="color:#1c01ce">0</span> {
+       <span style="color:#000">canScroll</span> = <span style="color:#a90d91">false</span>
+   }
+} </code></pre></div>
+<p>为了防止cell点击延迟,设置下delaycontenttouch=false即可.<br>
+关键代码: <a href="https://gist.github.com/tyrad/2e0a1bfced85f78bcc003a8edafb37e3">Gist</a></p>
+
+<p>4). 其他方案。 只调整视图的contentInset,背景为透明。 理论可行。</p>
+
+<h3 id="interactivepopgesturerecognizer与uiscrollview">interactivePopGestureRecognizer与UIScrollView</h3>
+
+<p>众所周知,重写导航栏返回按钮会使得系统自带的返回手势失效,通常的做法:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">override</span> <span style="color:#a90d91">func</span> <span style="color:#000">viewDidLoad</span>() {
+   <span style="color:#a90d91">super</span>.<span style="color:#000">viewDidLoad</span>()        
+   <span style="color:#a90d91">self</span>.<span style="color:#000">interactivePopGestureRecognizer</span>?.<span style="color:#000">delegate</span> = <span style="color:#a90d91">self</span>
+}
+    
+<span style="color:#a90d91">func</span> <span style="color:#000">gestureRecognizerShouldBegin</span>(<span style="color:#a90d91">_</span> <span style="color:#000">gestureRecognizer</span>: <span style="color:#000">UIGestureRecognizer</span>) -&gt; <span style="color:#a90d91">Bool</span> {
+   <span style="color:#177500">//可在此处可以对某些controller单独处理</span>
+   <span style="color:#a90d91">return</span> <span style="color:#a90d91">self</span>.<span style="color:#000">childViewControllers</span>.<span style="color:#5b269a">count</span> == <span style="color:#1c01ce">0</span> ? <span style="color:#a90d91">false</span> : <span style="color:#a90d91">true</span>
+}</code></pre></div>
+<p>但是可能与控制器的scollView滑动冲突,处理方法:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">func</span> <span style="color:#000">gestureRecognizer</span>(<span style="color:#a90d91">_</span> <span style="color:#000">gestureRecognizer</span>: <span style="color:#000">UIGestureRecognizer</span>, <span style="color:#000">shouldRecognizeSimultaneouslyWith</span> <span style="color:#000">otherGestureRecognizer</span>: <span style="color:#000">UIGestureRecognizer</span>) -&gt; <span style="color:#a90d91">Bool</span> {
+
+   <span style="color:#a90d91">if</span> <span style="color:#a90d91">self</span>.<span style="color:#000">interactivePopGestureRecognizer</span> == <span style="color:#000">gestureRecognizer</span> {
+       <span style="color:#a90d91">if</span> <span style="color:#a90d91">let</span> <span style="color:#000">scrollView</span> = <span style="color:#000">otherGestureRecognizer</span>.<span style="color:#000">view</span> <span style="color:#a90d91">as</span>? <span style="color:#000">UIScrollView</span> {
+           <span style="color:#a90d91">if</span> ((<span style="color:#000">scrollView</span>.<span style="color:#000">contentSize</span>.<span style="color:#000">width</span> <span style="color:#000">&gt;</span> <span style="color:#a90d91">self</span>.<span style="color:#000">view</span>.<span style="color:#000">bounds</span>.<span style="color:#000">size</span>.<span style="color:#000">width</span> <span style="color:#000">&amp;&amp;</span> <span style="color:#000">scrollView</span>.<span style="color:#000">contentOffset</span>.<span style="color:#000">x</span> == <span style="color:#1c01ce">0</span>)) {
+               <span style="color:#a90d91">return</span> <span style="color:#a90d91">true</span>;
+           }
+       }
+   }
+   <span style="color:#a90d91">return</span> <span style="color:#a90d91">false</span>
+}</code></pre></div>
+<p>参考自<a href="interactivePopGestureRecognizer interferes with UIScrollView">interactivePopGestureRecognizer interferes with UIScrollView</a></p>
+
+<p>未完待续..</p>
+
+<h3 id="相关链接">相关链接</h3>
+
+<blockquote>
+<p><a href="https://www.jianshu.com/p/c294d1bd963d">iOS触摸事件全家桶</a>  <br>
+<a href="https://www.jianshu.com/p/e7d28529196e">iOS 响应链-Hit-Testing</a> <br>
+<a href="http://swifter.tips/uiapplicationmain/">@UIAPPLICATIONMAIN</a><br></p>
+</blockquote>
+
+                    <p class="prev-next text-center" style="display:flex;justify-content:space-between; ">
+                        
+                        <a class="btn" href="/wiki/web/agular-run/"><i class="fa fa-angle-left"></i>
+                            angular环境搭建,配合webstorm运行
+                        </a>
+                        
+                        
+                        <a class="btn" href="/wiki/ionic/ionic-hello-world/">
+                            1.安装、启动、项目结构
+                            <i class="fa fa-angle-right"></i></a>
+                        
+                    </p>
+                </div>
+                                    
+                <div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed">
+                        <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li>
+<ul>
+<li><a href="#理解事件的响应">理解事件的响应</a>
+<ul>
+<li><a href="#事件的响应链">事件的响应链</a></li>
+<li><a href="#uiresponder">UIResponder</a></li>
+</ul></li>
+<li><a href="#滚动视图添加滑动手势">滚动视图添加滑动手势</a></li>
+<li><a href="#interactivepopgesturerecognizer与uiscrollview">interactivePopGestureRecognizer与UIScrollView</a></li>
+<li><a href="#相关链接">相关链接</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+                    </div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div>
+                
+            </div>
+        </section>
+    </section>
+</section>
+
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

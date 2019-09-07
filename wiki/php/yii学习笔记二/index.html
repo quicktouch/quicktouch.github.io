@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>Yii学习笔记(二) |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> Yii学习笔记(二) </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#php'>php</a></span>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2017-09-07T20:46:52.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2017-09-07
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<h2 id="phpstorm全局搜索">PHPStorm全局搜索</h2>
+
+<p>shift +cmd +f</p>
+
+<h2 id="全局的css">全局的css</h2>
+
+<p><a href="https://www.niwoxuexi.com/blog/php/article/166.html">https://www.niwoxuexi.com/blog/php/article/166.html</a></p>
+
+<ol>
+<li>全局修改<code>assets/AppAsset.php</code></li>
+<li>某个文件中引入</li>
+</ol>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP">//引用css文件，注意自己的文件路径
+<span style="color:#633820">&lt;?php</span> <span style="color:#000">$this</span><span style="color:#000">-&gt;</span><span style="color:#836c28">registerCssFile</span>(<span style="color:#c41a16">&#39;css/test.css&#39;</span>);<span style="color:#633820">?&gt;</span>
+//引用js文件，注意自己的文件路径&lt;<span style="color:#000">span</span> <span style="color:#836c28">class</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;redactor-invisible-space&#34;</span>&gt;&lt;/<span style="color:#000">span</span>&gt;
+<span style="color:#633820">&lt;?php</span> <span style="color:#000">$this</span><span style="color:#000">-&gt;</span><span style="color:#836c28">registerJsFile</span>(<span style="color:#c41a16">&#39;js/test.js&#39;</span>);<span style="color:#633820">?&gt;</span>
+</code></pre></div>
+<h2 id="默认控制器">默认控制器</h2>
+
+<p><code>config/web.php</code>,修改<code>defaultRoute</code>字段对应响应的控制器即可。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP">$config = [
+    &#39;id&#39; =&gt; &#39;basic&#39;,
+    &#39;defaultRoute&#39; =&gt;  &#39;default&#39;,
+    ...</code></pre></div>
+<p>默认将定位到<code>DefaultController-&gt;ActionIndex</code></p>
+
+<p>yii2中获取controller的方法</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#633820">&lt;?php</span>
+<span style="color:#a90d91">echo</span> <span style="color:#000">Yii</span><span style="color:#000">::</span><span style="color:#000">$app</span><span style="color:#000">-&gt;</span><span style="color:#836c28">controller</span><span style="color:#000">-&gt;</span><span style="color:#836c28">id</span>;
+<span style="color:#633820">?&gt;</span>
+</code></pre></div>
+<h2 id="nav-bar-active状态">Nav Bar active状态</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP">&#39;items&#39; =&gt; [
+            [&#39;label&#39; =&gt; &#39;首页&#39;, &#39;url&#39; =&gt; [&#39;/index/index&#39;]],
+            [   &#39;label&#39; =&gt; &#39;工具&#39;,
+                &#39;url&#39; =&gt; [&#39;/tools/index&#39;],
+                &#39;active&#39; =&gt; in_array(\Yii::$app-&gt;controller-&gt;id, [&#39;tools&#39;])
+            ],</code></pre></div>
+<p>对应到controller Id</p>
+
+<h2 id="修改title">修改title</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP">$this-&gt;getView()-&gt;title = &#34;about&#34;;</code></pre></div>
+<h2 id="伪静态">伪静态</h2>
+
+<p><code>config/web.php</code> $config 下面 components 添加 如下代码</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP">&#39;urlManager&#39; =&gt; [
+            &#39;enablePrettyUrl&#39; =&gt; true,
+            &#39;showScriptName&#39; =&gt; false,
+            &#39;suffix&#39; =&gt; &#39;.html&#39;,
+            &#39;rules&#39;           =&gt; [
+                &#39;&lt;<span style="color:#000">controller:</span><span style="color:#000">\</span><span style="color:#836c28">w</span><span style="color:#000">+</span>&gt;&#39; =&gt; &#39;&lt;<span style="color:#000">controller</span>&gt;/index&#39;,
+                &#39;&lt;<span style="color:#000">controller:</span><span style="color:#000">\</span><span style="color:#836c28">w</span><span style="color:#000">+</span>&gt;&#39; =&gt; &#39;&lt;<span style="color:#000">controller</span>&gt;/index&#39;,
+            ]
+        ],</code></pre></div>
+<p>然后再新建一个.htaccess 文件放置web目录
+该文件代码如下:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP">RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . index.php</code></pre></div>
+<h2 id="url跳转">URL跳转</h2>
+
+<p>方式1:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP">use yii\helpers\url;
+$co = URL::toRoute(&#39;site/index&#39;);</code></pre></div>
+<p>方式2:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP">Yii::$app-&gt; urlManager-&gt;crateUrl(&#39;xx/xxx&#39;);</code></pre></div>
+<h2 id="注意点">注意点</h2>
+
+<ol>
+<li>使用gii要格外注意大小写。否则界面可能会404</li>
+</ol>
+
+<h2 id="yii2禁用默认引入的jquery">Yii2禁用默认引入的jquery</h2>
+
+<h2 id="jquery放到头部">jquery放到头部</h2>
+
+<h2 id="js位置">js位置</h2>
+
+<pre><code>POS_HEAD——head结束标签之前：$this-&gt;registerJs('alert(4)',View::POS_HEAD);
+POS_BEGIN——body开始标签之后：$this-&gt;registerJs('alert(4)',View::POS_BEGIN);
+POS_END——body结束标签之前：$this-&gt;registerJs('alert(4)',View::POS_END);
+POS_READY POS_LOAD：$this-&gt;registerJs('alert(4)', View::POS_READY);
+//depends保证加载JS文件的先后顺序、asset bundles资源包
+//此时先加载yii\web\YiiAsset，再加载assets/e05e437e/yii.js
+</code></pre>
+
+<p>或<code>\yii\web\View::POS_END</code></p>
+
+<p>s的放置位置默认在html结尾,可以在AppAsset中设置:</p>
+
+<pre><code>&lt;?php $this-&gt;registerJsFile(yii\helpers\Url::base().'/js/jquery.numberedtextarea.js', ['depends' =&gt; ['app\assets\AppAsset'],'position' =&gt; $this::POS_HEAD]); ?&gt;
+    &lt;?php
+</code></pre>
+
+<h2 id="路径">路径</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP">Yii::$app-&gt;request-&gt;baseUrl. &#39;/supermarkets/sample&#39;
+Yii::$app-&gt;urlManager-&gt;createUrl(&#39;tools/json2objc&#39;);</code></pre></div>
+<h2 id="ajax请求">ajax请求</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#000">$</span>(<span style="color:#c41a16">&#39;.objc&#39;</span>).<span style="color:#000">click</span>(<span style="color:#a90d91">function</span>() {
+            <span style="color:#000">$</span>.<span style="color:#000">ajax</span>({
+                <span style="color:#000">type</span><span style="color:#000">:</span> <span style="color:#c41a16">&#34;POST&#34;</span>,
+                <span style="color:#000">url</span><span style="color:#000">:</span> <span style="color:#c41a16">&#34;&lt;?php echo \Yii::$app-&gt;urlManager-&gt;createUrl(&#39;tools/json2objc&#39;);?&gt;&#34;</span>,
+                <span style="color:#000">data</span><span style="color:#000">:</span>{<span style="color:#c41a16">&#39;json&#39;</span><span style="color:#000">:</span><span style="color:#000">current_json_str</span>} ,
+                <span style="color:#177500">//dataType: &#34;html&#34;,
+</span><span style="color:#177500"></span>                <span style="color:#000">success</span><span style="color:#000">:</span> <span style="color:#a90d91">function</span>(<span style="color:#000">html</span>){
+                    <span style="color:#177500">//$(&#34;#addAngles&#34;).append(html);
+</span><span style="color:#177500"></span>                    <span style="color:#000">console</span>.<span style="color:#000">log</span>(<span style="color:#000">html</span>);
+                }
+            })
+        });
+</code></pre></div>
+<h2 id="pagination">Pagination</h2>
+
+<p>控制器:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"> return $this-&gt;render(&#39;index&#39;,[
+           &#39;posts&#39; =&gt; $content,
+           &#39;pagination&#39; =&gt; $pagination
+       ]
+       );</code></pre></div>
+<p>视图：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP"><span style="color:#633820">&lt;?php</span>
+<span style="color:#a90d91">foreach</span>(<span style="color:#000">$posts</span> <span style="color:#a90d91">as</span> <span style="color:#000">$key</span><span style="color:#000">=&gt;</span><span style="color:#000">$val</span>){
+    <span style="color:#a90d91">echo</span> <span style="color:#000">var_dump</span>(<span style="color:#000">$val</span>);
+    <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#39;&lt;/br&gt;&#39;</span>;
+}
+<span style="color:#633820">?&gt;</span>
+<span style="color:#633820">&lt;?</span><span style="color:#000">=</span> <span style="color:#000">LinkPager</span><span style="color:#000">::</span><span style="color:#836c28">widget</span>([<span style="color:#c41a16">&#39;pagination&#39;</span> <span style="color:#000">=&gt;</span> <span style="color:#000">$pagination</span>]); <span style="color:#633820">?&gt;</span>
+</code></pre></div>
+<h2 id="手动配置第三方库-不使用composer">手动配置第三方库(不使用composer)</h2>
+
+<ol>
+<li>将第三方包放到<code>vendor</code>目录下</li>
+</ol>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP">require(__DIR__ . &#39;/../vendor/yj/bmob/BmobObject.class.php&#39;);
+
+//使用
+$bmobObj = new \BmobObject(&#34;GameScore&#34;);
+$res=$bmobObj-&gt;create(array(&#34;score&#34;=&gt;80,&#34;playerName&#34;=&gt;&#34;game&#34;)); //添加对象
+$res=$bmobObj-&gt;get(&#34;bd89c6bce9&#34;); // 获取id为bd89c6bce9的对象
+$res=$bmobObj-&gt;get(); //获取所有对象
+print_r($res);</code></pre></div>
+<p>推荐使用 require_once</p>
+
+<h2 id="stdclass-object转array的方法">stdClass Object转array的方法</h2>
+
+<p><a href="http://blog.csdn.net/qq_29572055/article/details/51818812">参考:PHP中把stdClass Object转array的几个方法</a></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-PHP" data-lang="PHP">$array = json_decode(json_encode($res),TRUE);</code></pre></div></div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#phpstorm全局搜索">PHPStorm全局搜索</a></li>
+<li><a href="#全局的css">全局的css</a></li>
+<li><a href="#默认控制器">默认控制器</a></li>
+<li><a href="#nav-bar-active状态">Nav Bar active状态</a></li>
+<li><a href="#修改title">修改title</a></li>
+<li><a href="#伪静态">伪静态</a></li>
+<li><a href="#url跳转">URL跳转</a></li>
+<li><a href="#注意点">注意点</a></li>
+<li><a href="#yii2禁用默认引入的jquery">Yii2禁用默认引入的jquery</a></li>
+<li><a href="#jquery放到头部">jquery放到头部</a></li>
+<li><a href="#js位置">js位置</a></li>
+<li><a href="#路径">路径</a></li>
+<li><a href="#ajax请求">ajax请求</a></li>
+<li><a href="#pagination">Pagination</a></li>
+<li><a href="#手动配置第三方库-不使用composer">手动配置第三方库(不使用composer)</a></li>
+<li><a href="#stdclass-object转array的方法">stdClass Object转array的方法</a></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

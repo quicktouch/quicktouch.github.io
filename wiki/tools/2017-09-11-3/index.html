@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title> pem:生成推送证书 |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2>  pem:生成推送证书 </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#tools'>tools</a></span>
+    
+    
+    
+    
+    
+    &nbsp/&nbsp<span>fastlane</span>
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2017-06-30T10:32:11.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2017-06-30
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content"><h2 id="使用">使用</h2>
+
+<p>是否厌倦了手动创建和维护您的iOS应用程序的推送通知配置文件？ 是否厌倦了为您的服务器生成一个pem文件？</p>
+
+<p>fastlane做所有这些，只要简单一个<code>fastlane pem</code>命令。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby"><span style="color:#000">fastlane</span> <span style="color:#000">pem</span>
+
+<span style="color:#000">+------------------+------------------------+</span>
+<span style="color:#000">|</span>          <span style="color:#000">Summary</span> <span style="color:#a90d91">for</span> <span style="color:#000">PEM</span> <span style="color:#1c01ce">2</span><span style="color:#000">.</span><span style="color:#1c01ce">41</span><span style="color:#000">.</span><span style="color:#1c01ce">0</span>           <span style="color:#000">|</span>
+<span style="color:#000">+------------------+------------------------+</span>
+<span style="color:#000">|</span> <span style="color:#000">development</span>      <span style="color:#000">|</span> <span style="color:#a90d91">false</span>                  <span style="color:#000">|</span>
+<span style="color:#000">|</span> <span style="color:#000">generate_p12</span>     <span style="color:#000">|</span> <span style="color:#a90d91">true</span>                   <span style="color:#000">|</span>
+<span style="color:#000">|</span> <span style="color:#000">force</span>            <span style="color:#000">|</span> <span style="color:#a90d91">false</span>                  <span style="color:#000">|</span>
+<span style="color:#000">|</span> <span style="color:#000">save_private_key</span> <span style="color:#000">|</span> <span style="color:#a90d91">true</span>                   <span style="color:#000">|</span>
+<span style="color:#000">|</span> <span style="color:#000">app_identifier</span>   <span style="color:#000">|</span> <span style="color:#000">com</span><span style="color:#000">.</span><span style="color:#000">tyrad</span><span style="color:#000">.</span><span style="color:#000">fastlaneProj</span> <span style="color:#000">|</span>
+<span style="color:#000">|</span> <span style="color:#000">username</span>         <span style="color:#000">|</span> <span style="color:#000">qianshangjia</span><span style="color:#000">@</span><span style="color:#1c01ce">126</span><span style="color:#000">.</span><span style="color:#000">com</span>   <span style="color:#000">|</span>
+<span style="color:#000">|</span> <span style="color:#000">team_id</span>          <span style="color:#000">|</span> <span style="color:#000">ZAKS37HHGG</span>             <span style="color:#000">|</span>
+<span style="color:#000">|</span> <span style="color:#000">output_path</span>      <span style="color:#000">|</span> <span style="color:#000">.</span>                      <span style="color:#000">|</span>
+<span style="color:#000">+------------------+------------------------+</span>
+
+<span style="color:#000">[</span><span style="color:#1c01ce">10</span>:<span style="color:#1c01ce">24</span>:<span style="color:#1c01ce">58</span><span style="color:#000">]</span>: <span style="color:#000">Starting</span> <span style="color:#000">login</span> <span style="color:#000">with</span> <span style="color:#000">user</span> <span style="color:#c41a16">&#39;xxx@126.com&#39;</span>
+<span style="color:#000">[</span><span style="color:#1c01ce">10</span>:<span style="color:#1c01ce">25</span>:<span style="color:#1c01ce">02</span><span style="color:#000">]</span>: <span style="color:#000">Successfully</span> <span style="color:#000">logged</span> <span style="color:#a90d91">in</span>
+<span style="color:#000">[</span><span style="color:#1c01ce">10</span>:<span style="color:#1c01ce">25</span>:<span style="color:#1c01ce">03</span><span style="color:#000">]</span>: <span style="color:#000">Creating</span> <span style="color:#000">a</span> <span style="color:#a90d91">new</span> <span style="color:#000">push</span> <span style="color:#000">certificate</span> <span style="color:#a90d91">for</span> <span style="color:#000">app</span> <span style="color:#c41a16">&#39;com.tyrad.fastlaneProj&#39;</span><span style="color:#000">.</span>
+<span style="color:#000">[</span><span style="color:#1c01ce">10</span>:<span style="color:#1c01ce">25</span>:<span style="color:#1c01ce">06</span><span style="color:#000">]</span>: <span style="color:#000">Private</span> <span style="color:#c41a16">key</span>: <span style="color:#c41a16">/Users/</span><span style="color:#000">admin</span><span style="color:#c41a16">/Desktop/sn</span><span style="color:#000">apshot</span><span style="color:#000">-</span><span style="color:#000">fastlane</span><span style="color:#c41a16">/fastlaneProj/</span><span style="color:#000">production_com</span><span style="color:#000">.</span><span style="color:#000">tyrad</span><span style="color:#000">.</span><span style="color:#000">fastlaneProj</span><span style="color:#000">.</span><span style="color:#000">pkey</span>
+<span style="color:#000">[</span><span style="color:#1c01ce">10</span>:<span style="color:#1c01ce">25</span>:<span style="color:#1c01ce">06</span><span style="color:#000">]</span>: <span style="color:#000">p12</span> <span style="color:#c41a16">certificate</span>: <span style="color:#c41a16">/Users/</span><span style="color:#000">admin</span><span style="color:#c41a16">/Desktop/sn</span><span style="color:#000">apshot</span><span style="color:#000">-</span><span style="color:#000">fastlane</span><span style="color:#c41a16">/fastlaneProj/</span><span style="color:#000">production_com</span><span style="color:#000">.</span><span style="color:#000">tyrad</span><span style="color:#000">.</span><span style="color:#000">fastlaneProj</span><span style="color:#000">.</span><span style="color:#000">p12</span>
+<span style="color:#000">[</span><span style="color:#1c01ce">10</span>:<span style="color:#1c01ce">25</span>:<span style="color:#1c01ce">06</span><span style="color:#000">]</span>: <span style="color:#c41a16">PEM</span>: <span style="color:#c41a16">/Users/</span><span style="color:#000">admin</span><span style="color:#c41a16">/Desktop/sn</span><span style="color:#000">apshot</span><span style="color:#000">-</span><span style="color:#000">fastlane</span><span style="color:#c41a16">/fastlaneProj/</span><span style="color:#000">production_com</span><span style="color:#000">.</span><span style="color:#000">tyrad</span><span style="color:#000">.</span><span style="color:#000">fastlaneProj</span><span style="color:#000">.</span><span style="color:#000">pem</span></code></pre></div>
+<h2 id="做了哪些工作">做了哪些工作</h2>
+
+<ul>
+<li>创建新的签名请求(signing request)</li>
+<li>创建新的推送证书( push certification)</li>
+<li>下载这个证书(certificate)</li>
+<li>在当前工作目录创建新的 .pem 文件,你可以上传到你的服务器</li>
+</ul>
+
+<p><code>pem</code>不会revoke已经存在的证书,也不会下载已经存在的证书,因为私钥仅在创建的机器上可用。</p>
+
+<h2 id="实用命令">实用命令</h2>
+
+<p>如果你已经有一个可用的推送证书(certificate),而且有效期至少还有30天以上，<code>pem</code>就不会创建新的证书。如果你想要创建新的，使用<code>force</code>：</p>
+
+<pre><code>fastlane pem --force
+</code></pre>
+
+<p>还可传参数,如:</p>
+
+<pre><code>fastlane pem -a com.krausefx.app -u username
+</code></pre>
+
+<p><strong>生成开发证书:</strong></p>
+
+<pre><code>fastlane pem --development
+</code></pre>
+
+<p>给p12文件设置密码:</p>
+
+<pre><code>fastlane pem -p &quot;MyPass&quot;
+</code></pre>
+
+<p>可以指定输出名字:</p>
+
+<pre><code>fastlane pem -o my.pem
+</code></pre>
+
+<p>列出可用命令选项:</p>
+
+<pre><code>fastlane pem --help
+</code></pre>
+
+<h2 id="注意事项">注意事项</h2>
+
+<p><code>pem</code>命令生成的p12文件可以没有密码或者空字符串当密码。这样尽管生成的文件是有效的,但mac的Keychain Access不会允许你打开没指定密码的p12。</p>
+
+<p><img src="http://image.tyrad.cc/2017062679494error.png?imageView/2/w/400" alt="2017062679494error.png" /></p>
+
+<p>这时候,可以用OpenSSL验证文件:</p>
+
+<pre><code>openssl pkcs12 -info -in my.p12
+</code></pre>
+
+<p>如果要用keychain中的p12,比如说推送测试软件<a href="https://github.com/KnuffApp/Knuff">Knuff</a>或<a href="https://github.com/noodlewerk/NWPusher">NWPusher</a>,您可以使用openssl将p12导出到pem并返回到p12(设置密码)。</p>
+
+<pre><code>% openssl pkcs12 -in my.p12 -out my.pem
+Enter Import Password:
+  &lt;hit enter: the p12 has no password&gt;
+MAC verified OK
+Enter PEM pass phrase:
+  &lt;enter a temporary password to encrypt the pem file&gt;
+  
+% openssl pkcs12 -export -in my.pem -out my-with-passphrase.p12
+Enter pass phrase for temp.pem:
+  &lt;enter the temporary password to decrypt the pem file&gt;
+
+Enter Export Password:
+  &lt;enter a password for encrypting the new p12 file&gt;
+</code></pre>
+
+<h2 id="参考链接">参考链接</h2>
+
+<p><a href="https://github.com/fastlane/fastlane/tree/master/pem">https://github.com/fastlane/fastlane/tree/master/pem</a></p></div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#使用">使用</a></li>
+<li><a href="#做了哪些工作">做了哪些工作</a></li>
+<li><a href="#实用命令">实用命令</a></li>
+<li><a href="#注意事项">注意事项</a></li>
+<li><a href="#参考链接">参考链接</a></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>1.安装、启动、项目结构 |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> 1.安装、启动、项目结构 </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#ionic'>ionic</a></span>
+    
+    
+    
+    
+    
+    &nbsp/&nbsp<span>Tutorial</span>
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2018-05-06T00:00:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2018-05-06
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<h2 id="安装">安装</h2>
+
+<p><a href="https://ionicframework.com/getting-started">https://ionicframework.com/getting-started</a></p>
+
+<p><a href="https://ionicframework.com/docs/">https://ionicframework.com/docs/</a></p>
+
+<p>安装ionic</p>
+
+<pre><code>ionic start ionicApp tabs
+</code></pre>
+
+<p>初始化App,名字ionicApp,带tabs。</p>
+
+<pre><code>ionic start ionicApp tabs 
+</code></pre>
+
+<p>1). start: 告诉<code>CLI</code>创建一个新的app
+2). ionicApp: 生成该名字的目录并且作为app的名字
+3). 自带的几种模板:</p>
+
+<p>1.tabs:简单的3个tab布局
+2.sidemenu:侧滑布局
+3.blank:仅创建一个单页面
+4.tutorial: a guided starter project</p>
+
+<blockquote>
+<p>初始化提供了几种风格
+<img src="http://image.tyrad.cc/20180506327541.png" alt="20180506327541.png" /></p>
+</blockquote>
+
+<h2 id="启动">启动</h2>
+
+<p>cd到目录,
+启动: <code>ionic serve</code></p>
+
+<h2 id="项目结构">项目结构</h2>
+
+<p>通过剖析一个ionic app。可以看到,在创建的文件夹内部，我们有一个典型的<a href="https://ionicframework.com/docs/v1/what-is/#cordova">Cordova</a>项目结构，我们可以在其中安装原生插件，并创建特定于平台的项目文件。</p>
+
+<p><strong>./src/index.html</strong></p>
+
+<p>应用程序的主要入口点，但它的目的是设置script以及CSS包括bootstrap等，或者开始运行我们的应用程序。我们不会把大部分时间花在这个文件上。</p>
+
+<p><strong>./src/</strong></p>
+
+<p><code>src</code>是主要工作区域。当运行<code>ionic serve</code>,<code>src/</code>中的代码会被<a href="https://ionicframework.com/docs/resources/what-is/#transpiler">转化</a>为浏览器可以识别的正确的代码,目前是<a href="https://ionicframework.com/docs/resources/what-is/#es5">ES5</a>。这意味我们可以使用typescript工作，然后但是可以将其编译成浏览器需要的较老的Javascript形式。</p>
+
+<p><code>src/app/app.module.ts</code>是程序的入口点。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#000">@</span><span style="color:#000">NgModule</span>({
+  <span style="color:#000">declarations</span><span style="color:#000">:</span> [<span style="color:#000">MyApp</span>, <span style="color:#000">HelloIonicPage</span>, <span style="color:#000">ItemDetailsPage</span>, <span style="color:#000">ListPage</span>],
+  <span style="color:#000">imports</span><span style="color:#000">:</span> [<span style="color:#000">BrowserModule</span>, <span style="color:#000">IonicModule</span>.<span style="color:#000">forRoot</span>(<span style="color:#000">MyApp</span>)],
+  <span style="color:#000">bootstrap</span><span style="color:#000">:</span> [<span style="color:#000">IonicApp</span>],
+  <span style="color:#000">entryComponents</span><span style="color:#000">:</span> [<span style="color:#000">MyApp</span>, <span style="color:#000">HelloIonicPage</span>, <span style="color:#000">ItemDetailsPage</span>, <span style="color:#000">ListPage</span>],
+  <span style="color:#000">providers</span><span style="color:#000">:</span> []
+})
+<span style="color:#a90d91">export</span> <span style="color:#a90d91">class</span> <span style="color:#000">AppModule</span> {}
+</code></pre></div>
+<p>每个应用程序都有一个根本模块，它主要控制应用程序的其余部分。这与Ionic 1和AngularJS的ng-app非常相似。这也是我们将<code>ionicBootstrap</code>引导我们的应用程序的地方。</p>
+
+<p><strong>./src/app/app.html</strong></p>
+
+<p><code>src/app/app.html</code> 是app的main template .</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"> &lt;<span style="color:#000">ion-nav</span> <span style="color:#836c28">id</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;nav&#34;</span> <span style="color:#000">[</span><span style="color:#836c28">root</span><span style="color:#000">]=&#34;</span><span style="color:#836c28">rootPage</span><span style="color:#000">&#34;</span> <span style="color:#000">#</span><span style="color:#836c28">nav</span> <span style="color:#836c28">swipeBackEnabled</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;false&#34;</span>&gt;&lt;/<span style="color:#000">ion-nav</span>&gt;
+&lt;<span style="color:#000">ion-menu</span> <span style="color:#000">[</span><span style="color:#836c28">content</span><span style="color:#000">]=&#34;</span><span style="color:#836c28">nav</span><span style="color:#000">&#34;</span>&gt;
+  &lt;<span style="color:#000">ion-header</span>&gt;
+    &lt;<span style="color:#000">ion-toolbar</span>&gt;
+      &lt;<span style="color:#000">ion-title</span>&gt;Pages&lt;/<span style="color:#000">ion-title</span>&gt;
+    &lt;/<span style="color:#000">ion-toolbar</span>&gt;
+  &lt;/<span style="color:#000">ion-header</span>&gt;
+  &lt;<span style="color:#000">ion-content</span>&gt;
+    &lt;<span style="color:#000">ion-list</span>&gt;
+      &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-item</span> <span style="color:#000">*</span><span style="color:#836c28">ngFor</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;let p of pages&#34;</span> <span style="color:#000">(</span><span style="color:#836c28">click</span><span style="color:#000">)=&#34;</span><span style="color:#836c28">openPage</span><span style="color:#000">(</span><span style="color:#836c28">p</span><span style="color:#000">)&#34;</span>&gt;
+        {{p.title}}
+      &lt;/<span style="color:#000">button</span>&gt;
+    &lt;/<span style="color:#000">ion-list</span>&gt;
+  &lt;/<span style="color:#000">ion-content</span>&gt;
+&lt;/<span style="color:#000">ion-menu</span>&gt;</code></pre></div>
+<p>在此模板中，我们设置了一个<a href="https://ionicframework.com/docs//components/#menus">ion-menu</a>作为侧面菜单，然后设置一个<a href="https://ionicframework.com/docs//api/components/nav/Nav/">ion-nav</a>组件作为主要内容区域。
+ion-menu的[content]属性绑定到我们的<a href="https://ionicframework.com/docs//api/components/nav/Nav/">ion-nav</a>的局部变量nav，所以它知道它应该在哪里做动画。</p>
+
+<blockquote>
+<p>原文链接:<a href="https://ionicframework.com/docs/intro/tutorial/project-structure/">https://ionicframework.com/docs/intro/tutorial/project-structure/</a></p>
+</blockquote>
+</div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#安装">安装</a></li>
+<li><a href="#启动">启动</a></li>
+<li><a href="#项目结构">项目结构</a></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

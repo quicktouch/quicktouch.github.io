@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>基础(一):Layer types |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> 基础(一):Layer types </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#swift'>swift</a></span>
+    
+    
+    
+    
+    
+    &nbsp/&nbsp<span>arcgis-basic</span>
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2018-04-08T09:10:36.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2018-04-08
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<h1 id="layer-types">Layer types</h1>
+
+<p>不同的图层类型用于绘制不同的数据类型。
+通常，地图中的图层可以分为底图(basemap)，操作图层(operational)或图形(graphics)图层。功能和性能可能会有所不同，具体取决于数据的特征以及它在应用程序中的访问方式和显示方式。</p>
+
+<h2 id="choosing-layer-types">Choosing layer types</h2>
+
+<p>大多数图层显示来自GIS服务器Web服务的内容，例如ArcGIS for Server服务，Bing地图，Open Street Map或WMS服务。</p>
+
+<p>其中一种服务被称为地图服务。地图服务分为两大类：动态(dynamic)或平铺(tiled)。</p>
+
+<ul>
+<li>动态地图服务,返回客户请求时,即时创建的地图图像。</li>
+<li>平铺地图服务根据某种切片方案(based on some tiling scheme)提供预先生成(pre-generated)的图像，并且图层在客户端应用程序中组合这些切片。</li>
+</ul>
+
+<p>另一种服务被称为特色服务( feature service)。 作为响应，ArcGIS for Server要素服务会从单个图层返回一组要素。</p>
+
+<p>其他图层显示不同类型的内容:
+- 图形层(graphics layer)不依赖于Web服务的内容。
+- 专业层(Specialized layers)也可用于处理数据源，如Web地图服务（WMS）信息和KML。</p>
+
+<p>以下部分提供了用于底图(basemap)，操作(operational)和图形(graphics)图层的典型类。然而，这些并不是绝对的规则，并且类别的选择应该基于对每种类型特征的理解。
+以下部分将讨论一些例外情况。</p>
+
+<p>API提供了各种各样的图层类。
+每个可用于显示特定的数据类型，并且每个都有其自己的功能和性能特征。
+通常，每个图层类都用于特定图层类型 - 底图(basemap)，操作(operational)和图形(graphics)图层.</p>
+
+<h3 id="common-layer-properties">Common layer properties</h3>
+
+<p>全部的layer types都继承自common class ,它允许为任何图层类型查询或更改某些属性。</p>
+
+<ul>
+<li>获取layer的full extent,使用<code>fullEnvelope</code>属性</li>
+<li>使用spatialReference方法确定图层使用的空间参考(patial reference)。</li>
+<li>显示或隐藏layer使用<code>visible</code>属性</li>
+<li>控制透明度用<code>opacity</code>属性</li>
+<li>使用<code>minScale</code>和<code>maxScale</code>属性更改可见图层的比​​例范围阈值。</li>
+</ul>
+
+<h2 id="basemap-layers">Basemap layers</h2>
+
+<p>通常将底图数据设置为平铺地图图层(tiled map layer)。根据显示的数据，不同的class用于创建底图图层。</p>
+
+<p>如果您的底图必须在具有各种不同空间参考的地图中使用，或者经常更改或者不经常使用，那么将数据发布为动态地图服务可能更合适。此外，如果您的操作数据很少更改并被大量用户使用，则将它作为平铺地图服务发布可能更合适。</p>
+
+<h3 id="tiled-service-layers">Tiled service layers</h3>
+
+<p>API classes：<code>AGSTiledMapServiceLayer</code>，<code>AGSBingMapLayer</code>，<code>AGSOpenStreetMapLayer</code>，<code>AGSWebTiledLayer</code>，<code>AGSWMTSLayer-Tiled</code>地图服务图层连接到缓存地图服务（来自ArcGIS for Server，OpenGIS Web地图图块服务实现，OpenStreetMap或Bing），它们以预定义的比例提供地图图像。
+在平铺方案中。
+平铺方案由服务器设置。
+地图图像拼贴是在地图视图上绘制的栅格（也称为位图）图像，并由客户机API安排到其拼贴方案中。
+这些服务可以包含多个子层。</p>
+
+<p><strong>Functional characteristics 功能特点</strong></p>
+
+<p>由于服务器上已存在每个平铺图像(tile image)，因此无法更改单个图层的可见性或服务的地图默认空间参考（它们可被视为静态地图服务）。
+另外，除非高速缓存被刷新，否则数据不能随时间变化。
+平铺的服务层无法查询。</p>
+
+<p><strong>Performance characteristics 性能特点</strong></p>
+
+<p>平铺地图服务是运行时可用的最快的地图服务。
+地图图像是由服务器预先创建和缓存的，并且很快从服务器返回。
+多个图像通常会返回一个地图范围。
+请求是在多个线程上完成的，并且响应是异步处理的（分片被请求并且彼此单独绘制）。
+这种方法会导致对服务器的很多小型请求，而客户端处理很少会绘制返回的图像。
+每个返回图像的大小随着图像的分辨率或复杂度的增加而增加。
+例如，对于相同的区域和地图范围，高分辨率图像切片的文件大小大于地形图。</p>
+
+<h3 id="offline-tiled-layers">Offline tiled layers</h3>
+
+<p>API类AGSLocalTiledLayer - 可以将瓦片缓存从服务器下载到客户端设备，并在应用程序中显示为图层，而无需保持连接到服务。
+缓存可以作为单个Tile Package（TPK）文件或ArcGIS Compact Cache下载，也可以使用ArcGIS for Desktop创建并直接配置到设备。</p>
+
+<p><strong>Functional and performance characteristics</strong></p>
+
+<p>本地平铺图层比平铺服务图层显示速度更快，因为不需要网络调用来检索图像切片。
+但是，数据必须预先准备好，并通过网络生成并下载到设备，或者直接将生成的文件供应给设备文件存储。
+其他功能和性能特征与平铺服务层的特征类似。</p>
+
+<h2 id="operational-layers">Operational layers</h2>
+
+<p>操作数据通常作为要素服务(feature service)或作为动态地图服务(dynamic map service)进行配置。
+服务类型的选择取决于层需要哪些功能和性能特征。
+如果需要编辑，请使用功能服务(feature service); 然而，如果需要复杂的渲染，动态地图服务可能更合适。
+下面强调了更多的差异。</p>
+
+<p>如果您的操作数据不需要编辑，更改频率不高，并且被大量用户使用，将它作为平铺地图服务发布可能更合适。
+相反，如果您的底图必须在具有各种不同空间参考的地图中使用，或者经常更改或者很少使用，那么将数据发布为动态地图服务可能更合适。</p>
+
+<p><strong>Feature layers 类似地图覆盖物?</strong></p>
+
+<p>要素图层(Feature layers)显示来自要素服务的数据。
+要素图层可用于显示，选择和查询图层中的要素。
+如果底层要素服务支持编辑，请使用要素图层来编辑几何图元，属性和附件。</p>
+
+<p>可以在使用应用程序时从服务器检索功能，或者可以在设备连接时下载功能，并在设备脱机时本地缓存以供使用。
+选择最合适的API选项可让您的应用程序提供所需的工作流程，并使其能够适应情况的要求。
+有关可用的不同选项的更多信息，请参阅下面的部分。</p>
+
+<p><strong>Online</strong></p>
+
+<p>API类：AGSFeatureTableLayer（基于AGSGDBFeatureServiceTable） - 要素服务中要素的几何图元，属性和附件被临时缓存在客户端的表中。
+要素图层使用此表根据地图范围在地图中原生地绘制要素。
+导航地图时会自动检索新功能。
+除非特别刷新图层，否则不会从服务器表中检索已在应用程序中缓存的功能更改。
+当处理图层时，本地表缓存将被丢弃。</p>
+
+<p>创建并初始化AGSGDBFeatureServiceTable，然后通过将AGSGDBFeatureServiceTable传递给构造函数来创建AGSFeatureTableLayer，最后将AGSFeatureTableLayer添加到地图中。
+AGSGDBFeatureServiceTable类是AGSGDBFeatureTable的子类型，用于离线要素图层。</p>
+
+<p><strong>Offline</strong></p>
+
+<p>API类：AGSGDBFeatureTable，AGSFeatureTableLayer - 可以从ArcGIS for Server下载功能服务的本地缓存，并将其显示为应用中的图层，而无需保持连接到服务。使用AGSGDBSyncTask将功能下载到本地地理数据库文件。创建并初始化一个AGSGDBFeatureTable，并通过将AGSGDBFeatureTable传递给构造函数来创建一个AGSFeatureTableLayer，然后将AGSFeatureTableLayer添加到地图中。</p>
+
+<p>创建并初始化一个AGSGDBFeatureTable，并通过将AGSGDBFeatureTable传递给构造函数来创建一个AGSFeatureTableLayer，然后将AGSFeatureTableLayer添加到地图中。</p>
+
+<p><strong>Functional characteristics</strong></p>
+
+<p>由于要素属性，几何图形和附件信息在本地缓存，因此可以根据空间查询或基于文本的WHERE子句查询和过滤这些图层中的各个要素。如果图层是通过可编辑的ArcGIS for Server要素服务创建的，则可以编辑要素图层，并在需要时编辑推送到服务。 如果该图层最初是通过支持同步创建的，则可以将对离线图层中的要素所做的编辑上载到该服务，并且可以将该服务的更新同步到客户端应用程序。</p>
+
+<p>如果该图层最初是通过支持同步创建的，则可以将对离线图层中的要素所做的编辑上载到该服务，并且可以将该服务的更新同步到客户端应用程序。</p>
+
+<p><strong>Performance characteristics</strong></p>
+
+<p>由于完整的特征信息在本地缓存，并且特征是本地绘制的，因此在缩放和平移地图时，此图层类型在缓存特征的范围内提供了卓越的显示性能。
+查询这些功能也很有效，可以实现应用程序功能，例如在地图中实时更新查询结果。
+本地缓存必须最初创建，这需要服务器端处理时间，并且下载到设备可能需要大量的网络使用和随后的本地设备存储。
+此外，应用程序内存随着缓存功能的数量和复杂性而增加。
+网络使用可以通过预先将缓存直接配置给设备来消除，方法是使用台式计算机创建缓存并将其复制到设备的内部存储器（如果设备支持此功能，则为可扩展存储卡），这可能是一个合适的工作流程，如果数据没有经常变化。</p>
+
+<h3 id="arcgis-feature-service-layers">ArcGIS feature service layers</h3>
+
+<p>API类：AGSFeatureLayer - 要素服务图层通过来自ArcGIS for Server要素服务或地图服务的JavaScript对象表示法（JSON）响应创建要素。
+每个特征都包含几何图形和属性信息，并在地图中本地绘制。
+ArcGIS要素服务图层只能在设备保持连接时使用;
+但是，它们确实提供对地理数据库版本和相关字段上的查询的支持。
+许多现有应用程序在将其添加到API之前使用ArcGIS要素服务图层，然后才能使用其他要素图层类型。</p>
+
+<p><strong>Functional characteristics</strong></p>
+
+<p>与其他要素图层类型一样，ArcGIS要素服务图层提供了丰富的功能，因为它们包含有关地图上显示的所有要素的完整信息。
+可以根据空间查询或基于文本的WHERE子句查询，选择和过滤这些图层中的各个要素。
+如果图层是从可编辑的ArcGIS for Server要素服务创建的，则可以编辑要素图层。</p>
+
+<p><strong>Performance characteristics</strong></p>
+
+<p>就服务器的请求处理时间，响应处理时间和渲染速度而言，功能层的丰富功能的成本很低。
+这是因为有关每个功能的信息由服务器返回，经过分析并处理成设备上的功能，然后绘制到屏幕上。要素服务图层的性能特征可以通过更改要素图层设置进行调整。</p>
+
+<p>了解这些问题并为您的方案应用最合适的功能图层设置，可帮助您最大限度地提高应用功能图层的性能并构建令人兴奋的功能应用程序。</p>
+
+<p><strong>Feature service layer settings</strong></p>
+
+<p>通过更改要素服务图层的客户端设置，您可以更改图层性能的所有方面，包括请求频率配置文件，响应大小，处理时间和渲染时间。</p>
+
+<blockquote>
+<p>为了获得最佳性能，无论客户端设置如何，您仍应遵循在服务器上设置服务的最佳实践。</p>
+</blockquote>
+
+<p>Output attribute fields— 可以通过设置所需输出字段的列表来限制从服务器返回的属性字段。这意味着更少的数据通过网络发送并在响应中处理，因为响应包含的信息较少。使用AGSFeatureLayer类的outFields属性。</p>
+
+<p>Maximum vertex offset - 通过设置最大偏移值可以减少从服务器返回的几何图形的复杂程度，从而减少内存大小。
+此值在地图单位中设置，用于在返回信息之前概括服务器上的要素顶点。
+如果您正在编辑该功能，则不应使用它，因为某些顶点将丢失，并且拓扑规则可能很容易被破坏。
+使用AGSFeatureLayer类中的maxAllowableOffset字段。</p>
+
+<p>Mode—特征服务层支持三种不同的模式，这会显着影响图层的功能和性能。
+在传递给要素图层构造函数的AGSFeatureLayer的模式字段中设置您需要的模式。 模式包括Snapshot( 将图层添加到地图后，会立即从服务器检索功能，并且不会再次请求)、On demand(只有地图当前范围内的功能才能从服务中检索。)、Selection(仅在进行选择时才会从服务中请求功能。)
+Feature collections—用于显示要素服务的同一类也可以初始化，以显示一组要素，可以使用来自ArcGIS for Server具象状态传输（REST）API调用的JSON字符串定义要素，也可以使用代码手动创建要素。
+在这种情况下不需要主动服务连接。
+该层可以按照与普通要素图层相同的方式进行查询。</p>
+
+<h3 id="dynamic-map-service-layers">Dynamic map service layers</h3>
+
+<p>PI类：AGSDynamicMapServiceLayer，AGSImageServiceLayer - 动态地图服务可以包含多个图层，每次请求时都会由服务器呈现，并作为单个栅格图像返回给客户端。
+该图像不包含有关地图中的功能的任何其他信息。
+动态地图图层连接到ArcGIS for Server动态地图服务。</p>
+
+<p><strong>Functional characteristics</strong></p>
+
+<p>由于地图图像是由服务器在每次请求时绘制的，所以如果您的数据发生变化，只要请求新的地图图像就会看到这些更改。
+此外，可以更改各个地图图层的可见性，并且可以通过添加单个图层定义表达式来过滤显示的数据。
+此图层类型的空间参考可以从服务的默认设置改变，ArcGIS for Server可以将每个图像即时重新投影到请求的输出空间参考（地图的）。</p>
+
+<p>该API不包括查询个人动态地图服务图层的具体方法。
+但是，图层的终点URL可以被查找任务使用，标识任务，查询任务或用于创建单独的可查询要素图层。</p>
+
+<p><strong>Performance characteristics</strong></p>
+
+<p>对于每个地图请求，ArcGIS for Server都可以即时创建地图图像。因此，服务器渲染时间取决于地图中数据的数量和复杂程度。但是，如果地图服务得到了充分优化，这应该会对客户端做出相对快速的响应，但通常会比等效平铺地图服务层的响应时间更长。</p>
+
+<p>返回的地图图片的文件大小还取决于地图中的数据。由于服务器响应是图像，因此它可以快速绘制，因为它只需要很少的客户端处理。 只要客户端不需要特征信息（属性，几何图形或符号），动态地图服务图层就可以显示随时间周期性变化的特征或需要用户进行某种过滤的特征。</p>
+
+<p>它们通常与选择模式中的要素图层结合使用，以显示最新的地图数据，而无需从每个地图请求中提取服务器中的所有要素信息（如feature layers）。</p>
+
+<h2 id="graphics-layers">Graphics layers</h2>
+
+<p>图形图层可用于显示上面其他类型图层未覆盖的信息。图形是根据用户操作，从操作产生的，或者从外部信息源中的信息转换而在应用程序的内存中定义的。 要素图层与图形图层共享一点功能。</p>
+
+<p>有关何时使用功能图层与图形图层的更多信息，请参阅功能和图形。
+API类：图形图层中的AGSGraphicsLayer-Graphics可以包含几何图形和属性信息，并且可以使用单独的符号或基于图层的渲染器来绘制图形。与要素图层( feature layer)中的要素(feature)一样，每个图形都在本地绘制在地图中。</p>
+
+<p><strong>Functional characteristics</strong></p>
+
+<p>由于图形包含几何图形和属性信息，因此可以显示有关图形的信息。例如，您可以在图形图层中显示图形的弹出窗口。</p>
+
+<p>您还可以使用屏幕坐标查找图形，并将其重新映射到地图上的用户操作事件。图形层负责在地图上以空间坐标绘制图形。</p>
+
+<p>它不是设计用于绘制非地理边缘，例如北方箭头或版权文本。</p>
+
+<p><strong>Performance characteristics</strong></p>
+
+<p>不建议向图形层添加太多图形，因为它们被保存在设备内存中。如果您正在使用许多功能（数千个），则通过创建功能服务将这些功能放入功能层可能更合适。</p>
+
+<p>当图形定期更改位置时，图形图层的设计能够最好地执行，并且在地图上放大和缩小时可以实现特征的最佳动画效果。</p>
+
+<p>可以将图形图层的默认渲染模式更改为优化，以批量绘制添加到图层的更多数量的特征。具有相同渲染模式的图层应该组合在一起。</p>
+
+<p>有关更多信息，请参阅AGSGraphicsLayerRenderingMode枚举。</p>
+
+<h3 id="specialized-layers">Specialized layers</h3>
+
+<p>其他图层类可用于在地图中显示特定类型的数据。</p>
+
+<ul>
+<li><p>Group layers- 组图层由其他图层的集合组成，用于表示由多个不同图层组成的数据集。
+例如，KML图层和消息组图层都是组图层的类型。所有组层都从AGSGroupLayer超类继承。</p></li>
+
+<li><p>WMS—Web Map Service layers 允许您将Open Geospatial Consortium（OGC）WMS服务添加到地图。 这些服务是一种动态地图服务，可用作底图或操作层。 AGSWMSLayer用于将WMS服务添加到地图。</p></li>
+
+<li><p>Message groups - 消息组层使用来自其中一种受支持的符号字典类型的军事符号显示图形。</p></li>
+
+<li><p>Bing maps - Bing地图服务可以添加为地图中的图层。通过使用specialist AGSBingMapLayer类，Bing地图服务可以添加为地图中的图层。这些服务是平铺地图（tiled map）服务，通常为地图提供底图图层。</p></li>
+
+<li><p>OpenStreetMap。通过使用专家AGSOpenStreetMapLayer类，可以将Open StreetMap服务添加为地图中的图层。这些服务是平铺地图服务，通常为地图提供底图图层。</p></li>
+</ul>
+</div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li><a href="#layer-types">Layer types</a>
+<ul>
+<li><a href="#choosing-layer-types">Choosing layer types</a>
+<ul>
+<li><a href="#common-layer-properties">Common layer properties</a></li>
+</ul></li>
+<li><a href="#basemap-layers">Basemap layers</a>
+<ul>
+<li><a href="#tiled-service-layers">Tiled service layers</a></li>
+<li><a href="#offline-tiled-layers">Offline tiled layers</a></li>
+</ul></li>
+<li><a href="#operational-layers">Operational layers</a>
+<ul>
+<li><a href="#arcgis-feature-service-layers">ArcGIS feature service layers</a></li>
+<li><a href="#dynamic-map-service-layers">Dynamic map service layers</a></li>
+</ul></li>
+<li><a href="#graphics-layers">Graphics layers</a>
+<ul>
+<li><a href="#specialized-layers">Specialized layers</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

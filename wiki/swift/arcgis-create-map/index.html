@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>(一)构建地图 |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> (一)构建地图 </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#swift'>swift</a></span>
+    
+    
+    
+    
+    
+    &nbsp/&nbsp<span>arcgis</span>
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='0001-01-01T00:00:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 0001-01-01
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<h1 id="添加图层">添加图层</h1>
+
+<p>从概念上讲，地图由一系列图层组成。</p>
+
+<p>地图显示在AGSMapView组件中，可以将其添加到应用程序的用户界面中。因此，地图视图像一个空画布一样绘制一个或多个地图图层。</p>
+
+<p>图层以自下而上的顺序显示，以便随后的图层在以前的图层上呈现。每个地图图层都会引用存储在地图服务，平铺服务等中的数据，而不是实际存储地理数据。此API可以支持多种图层类型：平铺图层，动态图层，要素图层，图形图层以及许多其他图层，WMS图层和Bing图层。</p>
+
+<p>图层和服务的配置也可以在ArcGIS Online中创建并通过其唯一的ItemId访问的网络地图中保存。在这里探索更多关于网络地图。</p>
+
+<h2 id="地图上添加图层">地图上添加图层</h2>
+
+<p>1). 实例化图层。如果该图层依赖于Web服务，请提供该服务的URL。如果Web服务受到保护，请提供访问该服务所需的凭据。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">let</span> <span style="color:#000">url</span> = <span style="color:#000">NSURL</span>(<span style="color:#000">string</span>: <span style="color:#c41a16">&#34;http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer&#34;</span>)
+<span style="color:#a90d91">let</span> <span style="color:#000">layer</span> = <span style="color:#000">AGSTiledMapServiceLayer</span>(<span style="color:#000">URL</span>: <span style="color:#000">url</span>)</code></pre></div>
+<p>2). 使用addMapLayer：withName：方法将图层添加到地图视图。默认情况下，该图层添加到任何现有图层的顶部。*图层按照自下而上的顺序绘制。*这意味着一个图层可能会掩盖其下的其他图层的内容。如果要将图层插入特定位置，可以使用insertMapLayer：withName：atIndex：方法，其中索引0将在底部插入新图层。
+在添加或插入图层时提供唯一的名称。
+如果您想稍后检索图层，地图会使用它来跟踪图层。</p>
+
+<p>完整代码</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"> <span style="color:#a90d91">func</span> <span style="color:#000">simpleInit</span>() {
+        
+   <span style="color:#a90d91">self</span>.<span style="color:#000">mapView</span>.<span style="color:#000">layerDelegate</span> = <span style="color:#a90d91">self</span>
+   <span style="color:#a90d91">self</span>.<span style="color:#000">mapView</span>.<span style="color:#000">touchDelegate</span> = <span style="color:#a90d91">self</span>
+   
+   <span style="color:#a90d91">let</span> <span style="color:#000">urlString</span> = <span style="color:#c41a16">&#34;http://services.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer&#34;</span>
+   <span style="color:#a90d91">let</span> <span style="color:#000">tiledLayer</span> = <span style="color:#000">AGSTiledMapServiceLayer</span>(<span style="color:#000">url</span>:<span style="color:#000">URL</span>.<span style="color:#a90d91">init</span>(<span style="color:#000">string</span>: <span style="color:#000">urlString</span>))
+   <span style="color:#a90d91">self</span>.<span style="color:#000">mapView</span>.<span style="color:#000">addMapLayer</span>(<span style="color:#000">tiledLayer</span>, <span style="color:#000">withName</span>: <span style="color:#000">kBasemapLayerName</span>)
+}
+
+<span style="color:#a90d91">func</span> <span style="color:#000">addLayer</span>(){
+   
+   <span style="color:#a90d91">let</span> <span style="color:#000">url</span> = <span style="color:#000">URL</span>.<span style="color:#a90d91">init</span>(<span style="color:#000">string</span>: <span style="color:#c41a16">&#34;http://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer&#34;</span>)
+   <span style="color:#a90d91">let</span> <span style="color:#000">layer</span> =  <span style="color:#000">AGSTiledMapServiceLayer</span>.<span style="color:#a90d91">init</span>(<span style="color:#000">url</span>: <span style="color:#000">url</span><span style="color:#000">!</span>)
+   <span style="color:#a90d91">self</span>.<span style="color:#000">mapView</span>.<span style="color:#000">addMapLayer</span>(<span style="color:#000">layer</span>, <span style="color:#000">withName</span>: <span style="color:#c41a16">&#34;Streets&#34;</span>)
+}    </code></pre></div>
+<h2 id="确认地图已经添加">确认地图已经添加</h2>
+
+<p>层在后台连接到Web服务。添加图层时不会阻塞线程，因此不能根据执行<code>addMapLayer</code>就认为图层已经添加上了。</p>
+
+<p>通过<code>AGSLayerDelegate</code>可以知道图层加载成功或失败。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">extension</span> <span style="color:#3f6e75">ViewController</span> : <span style="color:#000">AGSLayerDelegate</span>{
+    
+    <span style="color:#a90d91">func</span> <span style="color:#000">layerDidLoad</span>(<span style="color:#a90d91">_</span> <span style="color:#000">layer</span>: <span style="color:#000">AGSLayer</span><span style="color:#000">!</span>) {
+        <span style="color:#a90d91">if</span> <span style="color:#000">layer</span>.<span style="color:#000">name</span> == <span style="color:#c41a16">&#34;Streets&#34;</span>  {
+            <span style="color:#5b269a">print</span>(<span style="color:#c41a16">&#34;did load streets layer&#34;</span>)
+        }
+    }
+    
+    <span style="color:#a90d91">func</span> <span style="color:#000">layer</span>(<span style="color:#a90d91">_</span> <span style="color:#000">layer</span>: <span style="color:#000">AGSLayer</span><span style="color:#000">!</span>, <span style="color:#000">didFailToLoadWithError</span> <span style="color:#000">error</span>: <span style="color:#000">Error</span><span style="color:#000">!</span>) {
+        <span style="color:#a90d91">if</span> <span style="color:#000">layer</span>.<span style="color:#000">name</span> == <span style="color:#c41a16">&#34;Streets&#34;</span>  {
+            <span style="color:#5b269a">print</span>(<span style="color:#c41a16">&#34;load streets layer failed&#34;</span>)
+        }
+    }
+}</code></pre></div>
+<h2 id="地图的空间参考">地图的空间参考</h2>
+
+<p>您添加到地图的第一层被认为是底图图层。它规定了地图的初始范围以及地图的整体空间参考。随后添加到地图的任何平铺图层也必须位于此空间参考中;否则，他们的内容将不会显示。</p>
+
+<p>另一方面，<strong><em>动态图层可以在任何空间参考中</em></strong>，因为它们会在必要时自动将其内容重新投影到地图的空间参考中。</p>
+
+<h1 id="使用web-map">使用Web Map</h1>
+
+<p>网络地图基本上描述了要在地图上显示的内容。 Web地图的核心是包含需要在地图中显示的图层的信息，其顺序，可见性和呈现细节。网络地图还可以包含其他信息，如书签，笔记，幻灯片，任务，小工具等。</p>
+
+<p>您可以使用ArcGIS Explorer Online或内置的ArcGIS.com Viewer等应用程序在www.ArcGIS.com上以交互方式<a href="http://help.arcgis.com/en/arcgisonline/help/index.html#/Creating_maps/010q0000001n000000/">创建</a>和<a href="http://help.arcgis.com/en/arcgisonline/help/index.html#/Sharing_maps/010q00000046000000/">共享</a>Web地图。</p>
+
+<p>然后，您可以使用各种Web和移动客户端查看Web地图，包括使用API​​构建的自定义应用程序。</p>
+
+<p>该API仅支持Web地图中的信息子集，例如图层信息，弹出窗口定义和书签。网络地图中的所有其他信息都会被忽略。图层信息用于构建图层并将其添加到地图视图。弹出式定义用于使用AGSPopupsContainerViewController显示和编辑功能细节。书签可用作AGSEnvelope对象，可用于将地图缩放到特定区域。</p>
+
+<blockquote>
+<p>如果您有兴趣访问存储在Web地图中的信息，则可以从AGSWebMap对象的json属性中获取Web地图的原始JSON数据。</p>
+</blockquote>
+
+<p>要查看网络地图的内容，您需要执行以下操作：</p>
+
+<ul>
+<li>Load the web map</li>
+<li>Set the delegate</li>
+<li>Open into a map view</li>
+</ul>
+
+<h2 id="加载地图">加载地图</h2>
+
+<p>首先再网页端创建web map, 点击“详细信息”, 点开后查看链接<code>http://username.maps.arcgis.com/home/item.html?id=a675fb1ed44f436dbxxx</code>中的id。</p>
+
+<p>但是，如果网络地图是私人的或只与少数人共享，则还需要提供有效的凭据以访问网络地图。
+以下是一个例子：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">let</span> <span style="color:#000">credential</span> = <span style="color:#000">AGSCredential</span>(<span style="color:#000">user</span>: <span style="color:#c41a16">&#34;&lt;user&gt;&#34;</span>, <span style="color:#000">password</span>: <span style="color:#c41a16">&#34;&lt;password&gt;&#34;</span>)
+<span style="color:#000">credential</span>.<span style="color:#000">authType</span> = .<span style="color:#000">Token</span>
+<span style="color:#a90d91">let</span> <span style="color:#000">webmap</span> = <span style="color:#000">AGSWebMap</span>(<span style="color:#000">itemId</span>: <span style="color:#c41a16">&#34;e229d715f7ca4fa980308549fb288165&#34;</span>, <span style="color:#000">credential</span>: <span style="color:#000">credential</span></code></pre></div>
+<p>如果Web地图托管在www.arcgis.com之外，则在企业级ArcGIS Portal上，您需要提供可访问Web地图数据的共享端点的URL。
+以下是一个例子：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">let</span> <span style="color:#000">endpoint</span> = <span style="color:#000">NSURL</span>(<span style="color:#000">string</span>: <span style="color:#c41a16">&#34;http://&lt;my_arcgis_portal&gt;/sharing&#34;</span>)
+<span style="color:#a90d91">let</span> <span style="color:#000">webmap</span> = <span style="color:#000">AGSWebMap</span>(<span style="color:#000">itemId</span>: <span style="color:#c41a16">&#34;e229d715f7ca4fa980308549fb288165&#34;</span>, <span style="color:#000">sharingEndPoint</span>: <span style="color:#000">endpoint</span>, <span style="color:#000">credential</span>: <span style="color:#000">credential</span>)</code></pre></div>
+<blockquote>
+<p>当你实例化一个webmap时，你需要确保它的内存在它有机会执行之前不会被释放。要做到这一点，如果您使用的是手动保留版本，则需要保留该网站地图，或者如果您使用的是ARC，请创建一个强引用。有关如何管理对象内存的更多信息，请参阅<a href="https://developer.apple.com/library/mac/#documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html">Apple内存管理编程指南</a>。</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">extension</span> <span style="color:#3f6e75">ViewController</span> : <span style="color:#000">AGSWebMapDelegate</span>{
+
+    
+    <span style="color:#a90d91">@IBAction</span> <span style="color:#a90d91">func</span> <span style="color:#000">buttonClick</span>(<span style="color:#a90d91">_</span> <span style="color:#000">sender</span>: <span style="color:#a90d91">Any</span>) {
+        
+        <span style="color:#5b269a">print</span>(<span style="color:#c41a16">&#34;button click&#34;</span>)
+        <span style="color:#177500">//addLayer();</span>
+        
+        <span style="color:#000">initWebMap</span>()
+        
+        <span style="color:#a90d91">self</span>.<span style="color:#000">webmap</span>?.<span style="color:#000">open</span>(<span style="color:#000">into</span>: <span style="color:#a90d91">self</span>.<span style="color:#000">mapView</span><span style="color:#000">!</span>)
+        
+    }
+    <span style="color:#a90d91">func</span> <span style="color:#000">initWebMap</span>() {
+        
+        <span style="color:#a90d91">if</span> <span style="color:#a90d91">self</span>.<span style="color:#000">webmap</span> == <span style="color:#a90d91">nil</span> {
+            
+            <span style="color:#a90d91">let</span> <span style="color:#000">credential</span> = <span style="color:#000">AGSCredential</span>(<span style="color:#000">user</span>: <span style="color:#c41a16">&#34;name&#34;</span>, <span style="color:#000">password</span>: <span style="color:#c41a16">&#34;xx&#34;</span>)
+            <span style="color:#000">credential</span><span style="color:#000">!</span>.<span style="color:#000">authType</span> = .<span style="color:#000">token</span>
+            <span style="color:#a90d91">self</span>.<span style="color:#000">webmap</span> = <span style="color:#000">AGSWebMap</span>(<span style="color:#000">itemId</span>: <span style="color:#c41a16">&#34;79356c3d96d9439ca7a31d953f8828ac&#34;</span>, <span style="color:#000">credential</span>: <span style="color:#000">credential</span>)
+            <span style="color:#a90d91">self</span>.<span style="color:#000">webmap</span>?.<span style="color:#000">delegate</span> = <span style="color:#a90d91">self</span>
+        }
+    }
+    
+    <span style="color:#a90d91">func</span> <span style="color:#000">webMapDidLoad</span>(<span style="color:#a90d91">_</span> <span style="color:#000">webMap</span>: <span style="color:#000">AGSWebMap</span><span style="color:#000">!</span>) {
+        
+        <span style="color:#5b269a">print</span>(<span style="color:#c41a16">&#34;webmap didload&#34;</span>)
+    }
+}</code></pre></div>
+<p>按钮点击后稍等片刻就可以看到自己配置的地图内容了。</p>
+
+<h1 id="navigating-the-map">Navigating the map</h1>
+
+<p>map view 包含了用于定义和更改地图范围的选项以及修改范围时的用户体验。值得注意的是底图图层base layer（添加到地图的第一层）定义了以下地图属性：</p>
+
+<ul>
+<li>Initial extent</li>
+<li>Full extent</li>
+<li>Spatial reference</li>
+</ul>
+
+<p>虽然可以修改初始范围，但不能明确更改空间参考。
+本主题讨论使用地图范围的开发人员和最终用户解决方案。</p>
+
+<h2 id="setting-the-map-extent-设置地图的显示范围">Setting the map extent 设置地图的显示范围</h2>
+
+<p>要设置地图范围，请在地图视图中使用<code>zoomToEnvelope：animated：</code>方法，方法是传入代表要放大(zoom)的区域的evelope geometry。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">override</span> <span style="color:#a90d91">func</span> <span style="color:#000">viewDidLoad</span>() {
+ <span style="color:#a90d91">super</span>.<span style="color:#000">viewDidLoad</span>()
+        
+ <span style="color:#177500">//add a layer to the map</span>
+ <span style="color:#a90d91">let</span> <span style="color:#000">tiledLayer</span> = <span style="color:#000">AGSTiledMapServiceLayer</span>(<span style="color:#000">URL</span>: <span style="color:#000">NSURL</span>(<span style="color:#000">string</span>:  <span style="color:#c41a16">&#34;http://server.arcgisonline.com/ArcGIS/rest/services/ESRI_StreetMap_World_2D/MapServer&#34;</span>))
+ <span style="color:#a90d91">self</span>.<span style="color:#000">mapView</span>.<span style="color:#000">addMapLayer</span>(<span style="color:#000">tiledLayer</span>, <span style="color:#000">withName</span>: <span style="color:#c41a16">&#34;Tiled Layer&#34;</span>)
+        
+ <span style="color:#177500">//zoom to an area</span>
+ <span style="color:#a90d91">let</span> <span style="color:#000">envelope</span> = <span style="color:#000">AGSEnvelope</span>(<span style="color:#000">xmin</span>: <span style="color:#000">-</span><span style="color:#1c01ce">124.83145667</span>, <span style="color:#000">ymin</span>: <span style="color:#1c01ce">30.49849464</span>, <span style="color:#000">xmax</span>: <span style="color:#000">-</span><span style="color:#1c01ce">113.91375495</span>,  <span style="color:#000">ymax</span>: <span style="color:#1c01ce">44.69150688</span>,  <span style="color:#000">spatialReference</span>: <span style="color:#000">mapView</span>.<span style="color:#000">spatialReference</span>) 
+ <span style="color:#a90d91">self</span>.<span style="color:#000">mapView</span>.<span style="color:#000">zoomToEnvelope</span>(<span style="color:#000">envelope</span>, <span style="color:#000">animated</span>: <span style="color:#a90d91">true</span>)
+}</code></pre></div>
+<p>或者，也可以使用<code>zoomToGeometry：withPadding：animated：</code>方法缩放到地图上的任意几何图形（例如国家或河流的形状）。</p>
+
+<h2 id="获取地图范围">获取地图范围</h2>
+
+<p>您可以使用地图视图的visibleArea属性来获取地图的范围。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">let</span> <span style="color:#000">mapExtent</span> = <span style="color:#a90d91">self</span>.<span style="color:#000">mapView</span>.<span style="color:#000">visibleArea</span>()</code></pre></div>
+<p>visibleArea属性返回一个多边形，该多边形包含地图上四个角的每个角的顶点，从左上角开始，顺时针方向前进。</p>
+
+<p>如果地图不包含任何旋转，则visibleArea多边形表示的区域与多边形的封闭信封完全重合。
+因此，您可以使用visibleArea多边形或其envelope作为地图范围。</p>
+
+<p>但是，如果地图已旋转，则visibleArea多边形和多边形的包络(envelope)将不同。
+包络表示一个比多边形稍大的区域，它完全包含多边形。
+在这种情况下，使用visibleArea多边形来获取地图范围。</p>
+
+<h2 id="跟踪平移和缩放">跟踪平移和缩放</h2>
+
+<p>地图视图为范围更改提供两个通知，<code>AGSMapViewDidEndPanningNotification</code>和<code>AGSMapViewDidEndZoomingNotification</code>。这些通知分别在地图平移或缩放后进行广播。</p>
+
+<p>以下代码是如何在用户平移或缩放地图时侦听通知的示例。它会显示一条alert，显示从地图视图的信封属性中检索到的新地图范围：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">func</span> <span style="color:#000">mapViewDidLoad</span>(<span style="color:#000">mapView</span>: <span style="color:#000">AGSMapView</span><span style="color:#000">!</span>) {
+ <span style="color:#177500">//register for pan notifications</span>
+ <span style="color:#000">NSNotificationCenter</span>.<span style="color:#000">defaultCenter</span>().<span style="color:#000">addObserver</span>(<span style="color:#a90d91">self</span>, <span style="color:#000">selector</span>: <span style="color:#c41a16">&#34;respondToEnvChange:&#34;</span>, <span style="color:#000">name</span>: <span style="color:#000">AGSMapViewDidEndPanningNotification</span>, <span style="color:#000">object</span>: <span style="color:#a90d91">nil</span>)
+        
+ <span style="color:#177500">//register for zoom notifications</span>
+ <span style="color:#000">NSNotificationCenter</span>.<span style="color:#000">defaultCenter</span>().<span style="color:#000">addObserver</span>(<span style="color:#a90d91">self</span>, <span style="color:#000">selector</span>: <span style="color:#c41a16">&#34;respondToEnvChange:&#34;</span>, <span style="color:#000">name</span>: <span style="color:#000">AGSMapViewDidEndZoomingNotification</span>, <span style="color:#000">object</span>: <span style="color:#a90d91">nil</span>)
+        
+ ...
+}
+    
+ <span style="color:#177500">// The method that should be called when the notification arises</span>
+ <span style="color:#a90d91">func</span> <span style="color:#000">respondToEnvChange</span>(<span style="color:#000">notification</span>:<span style="color:#000">NSNotification</span>) {
+        
+  <span style="color:#177500">//create the string containing the new map extent NSString*</span>
+  <span style="color:#a90d91">let</span> <span style="color:#000">theString</span> = <span style="color:#c41a16">&#34;xmin = </span><span style="color:#c41a16">\(</span><span style="color:#000">mapView</span>.<span style="color:#000">visibleAreaEnvelope</span>.<span style="color:#000">xmin</span><span style="color:#c41a16">)</span><span style="color:#c41a16">,</span><span style="color:#c41a16">\n</span><span style="color:#c41a16">ymin = </span><span style="color:#c41a16">\(</span><span style="color:#000">mapView</span>.<span style="color:#000">visibleAreaEnvelope</span>.<span style="color:#000">ymin</span><span style="color:#c41a16">)</span><span style="color:#c41a16">,</span><span style="color:#c41a16">\n</span><span style="color:#c41a16">xmax = </span><span style="color:#c41a16">\(</span><span style="color:#000">mapView</span>.<span style="color:#000">visibleAreaEnvelope</span>.<span style="color:#000">xmax</span><span style="color:#c41a16">)</span><span style="color:#c41a16">,</span><span style="color:#c41a16">\n</span><span style="color:#c41a16">ymax = </span><span style="color:#c41a16">\(</span><span style="color:#000">mapView</span>.<span style="color:#000">visibleAreaEnvelope</span>.<span style="color:#000">ymax</span><span style="color:#c41a16">)</span><span style="color:#c41a16">&#34;</span>
+        
+  <span style="color:#177500">//display the new map extent in a simple alert</span>
+  <span style="color:#a90d91">let</span> <span style="color:#000">alertView</span> = <span style="color:#000">UIAlertView</span>(<span style="color:#000">title</span>: <span style="color:#c41a16">&#34;Finished Panning&#34;</span>, <span style="color:#000">message</span>: <span style="color:#000">theString</span>, <span style="color:#000">delegate</span>: <span style="color:#a90d91">nil</span>, <span style="color:#000">cancelButtonTitle</span>: <span style="color:#c41a16">&#34;OK&#34;</span>)
+  <span style="color:#000">alertView</span>.<span style="color:#000">show</span>()
+}</code></pre></div>
+<p>你应该注意到这些通知在处理器闲置时被广播;因此，用户完成执行操作和通知提出时间之间可能会有一些延迟。</p>
+
+<p>另外，通知在主线上发布。你不应该通过执行昂贵的任务来阻止这个线程;否则，您的应用程序对用户显得很迟钝。</p>
+
+<h2 id="更改地图范围">更改地图范围</h2>
+
+<p>如前所述，您可以在地图视图上使用<code>zoomToEnvelope：</code>动画方法来设置地图视图的范围。
+您还可以使用地图视图的<code>centerAtPoint</code>将给定地点的地图居<code>centerAtPoint:animated</code>方法：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">let</span> <span style="color:#000">newPoint</span> = <span style="color:#000">AGSPoint</span>(<span style="color:#000">x</span>: <span style="color:#000">-</span><span style="color:#1c01ce">93.032201</span>, <span style="color:#000">y</span>: <span style="color:#1c01ce">49.636213</span>, <span style="color:#000">spatialReference</span>: <span style="color:#a90d91">self</span>.<span style="color:#000">mapView</span>.<span style="color:#000">spatialReference</span>)
+<span style="color:#a90d91">self</span>.<span style="color:#000">mapView</span>.<span style="color:#000">centerAtPoint</span>(<span style="color:#000">newPoint</span>, <span style="color:#000">animated</span>: <span style="color:#a90d91">true</span>)</code></pre></div>
+<h2 id="用户手势">用户手势</h2>
+
+<p>用户可以在运行时执行几个手势来更改地图视图的范围。
+所有这些都会触发<code>MapDidEndPanning</code>和<code>MapDidEndZooming</code>通知。</p>
+
+<table>
+<thead>
+<tr>
+<th>User Action</th>
+<th>Map Action</th>
+<th>Notification raised</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Pinch-in</td>
+<td>Zoom out on map</td>
+<td>AGSMapViewDidEndZoomingNotification</td>
+</tr>
+
+<tr>
+<td>Pinch-out</td>
+<td>Zoom in on map</td>
+<td>AGSMapViewDidEndZoomingNotification</td>
+</tr>
+
+<tr>
+<td>Double tap</td>
+<td>Zoom in on map</td>
+<td>AGSMapViewDidEndZoomingNotification</td>
+</tr>
+
+<tr>
+<td>Two finger tap</td>
+<td>Zoom out on map</td>
+<td>AGSMapViewDidEndZoomingNotification</td>
+</tr>
+
+<tr>
+<td>Swipe (any direction)</td>
+<td>Pan map in direction of swipe</td>
+<td>AGSMapViewDidEndPanningNotification</td>
+</tr>
+
+<tr>
+<td>Two finger twist= (see the following note)</td>
+<td>Rotate the map</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<blockquote>
+<p>注意：
+启用AGSMapView AGSMapView上的allowRotationByPinching属性以启用双指扭曲手势。</p>
+</blockquote>
+
+<h2 id="enable-wrap-around-启用环绕">Enable wrap around 启用环绕</h2>
+
+<p>世界是圆的。它不会在日期行结束。然而，地球的大多数平面表示仅延伸至东经180度。这使得难以可视化跨越日期线的区域或穿越太平洋的路线。</p>
+
+<p>利用环绕支持，可以将日期线以外的世界地图无缝地展现出来。
+东半球和西半球互相缠绕形成一张连续的地图，给人的印象是地图是无止境的。
+平移地图与旋转地球相似。</p>
+
+<p>开启方法:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">self</span>.<span style="color:#000">mapView</span>.<span style="color:#000">enableWrapAround</span>()</code></pre></div>
+<h3 id="constraints-限制条件">Constraints 限制条件</h3>
+
+<p>启用环绕的限制条件:</p>
+
+<ul>
+<li>地图的全部信封必须覆盖整个世界。</li>
+<li>地图的空间参考必须是WGS 84（WKID = 4326）或Web墨卡托（WKID = 102113,102100或3857）。这意味着地图上的所有平铺图层都必须属于这些空间参照之一。另一方面，动态图层可以在任何空间参考中，因为它们能够重新投影其数据。</li>
+<li>动态图层必须基于来自ArcGIS Server 10.0或更高版本的地图服务。这是因为早期版本的REST API不支持用于空间参考的知名文本（WKT）值，这是使动态地图服务支持环绕所需的。</li>
+<li>如果这些需求中的任何一个不满足并且您尝试启用环绕，则AGSMapView上的wrapAroundStatus属性指示不支持环绕。</li>
+</ul>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">self</span>.<span style="color:#000">mapView</span>.<span style="color:#000">enableWrapAround</span>()
+<span style="color:#a90d91">if</span> <span style="color:#a90d91">self</span>.<span style="color:#000">mapView</span>.<span style="color:#000">wrapAroundStatus</span>() == .<span style="color:#000">Unsupported</span>  {
+ <span style="color:#5b269a">println</span>(<span style="color:#c41a16">&#34;Wrap around is not supported&#34;</span>)
+}</code></pre></div>
+<h3 id="normalizing-geometries-规范几何">Normalizing geometries 规范几何</h3>
+
+<p>为了更好地理解环绕，将地图可视化为由帧组成。
+位于-180经度和+180经度之间的地图部分为0帧。即使未启用环绕，此帧也可以定期显示。
+在东边与这个框架相邻的是框架1，其假设在+180和+540经度之间延伸。
+在西边邻近第0帧的是第-1帧，假设在-180和-540经度之间延伸。</p>
+
+<p>根据所显示的帧，地图报告的经度值可能是真实的（在-180和+180之间）或假设的（超出-180或+180）。
+以下是可能包含假设坐标的几何示例：</p>
+
+<ul>
+<li>A map&rsquo;s envelope</li>
+<li>Touch coordinates reported by a map&rsquo;s delegates</li>
+<li>Geometries digitized by a sketch layer</li>
+</ul>
+
+<p>当几何图形包含假设坐标时，在使用它们执行空间查询或将其存储在地理数据库中之前对其进行规格化。
+这种标准化过程将几何图形的坐标从其他框架转换为框架0.如果几何图形包含假设值并且需要标准化或非标准化，则难以在运行时以编程方式进行检查。
+启用绕回时总是使几何图形标准化更安全。</p>
+
+<p>您可以使用AGSGeometryEngine上的<code>normalizeCentralMeridianOfGeometry：</code>方法规格化几何。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-swift" data-lang="swift"><span style="color:#a90d91">let</span> <span style="color:#000">geo</span>:<span style="color:#000">AGSGeometry</span> = ...
+        
+<span style="color:#a90d91">if</span> <span style="color:#a90d91">self</span>.<span style="color:#000">mapView</span>.<span style="color:#000">wrapAroundStatus</span>() == .<span style="color:#000">Enabled</span> {
+ <span style="color:#000">geo</span> = <span style="color:#000">AGSGeometryEngine</span>.<span style="color:#000">defaultGeometryEngine</span>().<span style="color:#000">normalizeCentralMeridianOfGeometry</span>(<span style="color:#000">geo</span>)
+}</code></pre></div>
+<h1 id="创建离线地图">创建离线地图</h1>
+
+<p>您可以为用户提供离线地图，以便在他们的网络连接较差或不存在时提高生产率。要创建离线地图，您可以创建地理数据库和平铺缓存，然后根据这些主题构建图层。</p>
+
+<p>您可以添加以下功能：</p>
+
+<ul>
+<li>Viewing basemaps（也称为平铺图层tiled layers，由平铺缓存创建）</li>
+<li>Editing operational data 编辑操作数据（也称为特征数据和矢量数据）。这包括查询和编辑要素的位置，形状，属性，相关表格和附件。</li>
+<li>如果您的数据是基于服务的，则在再次联机时同步编辑（上传编辑和/或仅下拉其他人编辑的更新功能）。</li>
+<li>快速搜索位置（地理编码和反向地理编码）和路线。
+有关详细信息，请参阅定位器任务和路由任务。</li>
+</ul>
+
+<p>[略]</p>
+</div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li><a href="#添加图层">添加图层</a>
+<ul>
+<li><a href="#地图上添加图层">地图上添加图层</a></li>
+<li><a href="#确认地图已经添加">确认地图已经添加</a></li>
+<li><a href="#地图的空间参考">地图的空间参考</a></li>
+</ul></li>
+<li><a href="#使用web-map">使用Web Map</a>
+<ul>
+<li><a href="#加载地图">加载地图</a></li>
+</ul></li>
+<li><a href="#navigating-the-map">Navigating the map</a>
+<ul>
+<li><a href="#setting-the-map-extent-设置地图的显示范围">Setting the map extent 设置地图的显示范围</a></li>
+<li><a href="#获取地图范围">获取地图范围</a></li>
+<li><a href="#跟踪平移和缩放">跟踪平移和缩放</a></li>
+<li><a href="#更改地图范围">更改地图范围</a></li>
+<li><a href="#用户手势">用户手势</a></li>
+<li><a href="#enable-wrap-around-启用环绕">Enable wrap around 启用环绕</a>
+<ul>
+<li><a href="#constraints-限制条件">Constraints 限制条件</a></li>
+<li><a href="#normalizing-geometries-规范几何">Normalizing geometries 规范几何</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#创建离线地图">创建离线地图</a></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

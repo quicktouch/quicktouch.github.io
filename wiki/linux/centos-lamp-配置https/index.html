@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>CentOS LAMP 配置https |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> CentOS LAMP 配置https </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#linux'>linux</a></span>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='0001-01-01T00:00:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 0001-01-01
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-md-12 extra-spacing blog-content"><blockquote>
+<p>摘自:阿里云https配置教程</p>
+</blockquote>
+
+<ol>
+<li>证书文件214179346500845.pem，包含两段内容，请不要删除任何一段内容。</li>
+<li>如果是证书系统创建的CSR，还包含：证书私钥文件214179346500845.key、证书公钥文件public.pem、证书链文件chain.pem。</li>
+</ol>
+
+<pre><code>( 1 ) 在Apache的安装目录下创建cert目录，并且将下载的全部文件拷贝到cert目录中。如果申请证书时是自己创建的CSR文件，请将对应的私钥文件放到cert目录下并且命名为214179346500845.key；
+( 2 ) 打开 apache 安装目录下 conf 目录中的 httpd.conf 文件，找到以下内容并去掉“#”：
+
+#LoadModule ssl_module modules/mod_ssl.so (如果找不到请确认是否编译过 openssl 插件) 我是硬写进去的
+#Include conf/extra/httpd-ssl.conf
+( 3 ) 打开 apache 安装目录下 conf/extra/httpd-ssl.conf 文件 (也可能是conf.d/ssl.conf，与操作系统及安装方式有关)， 在配置文件中查找以下配置语句:
+# 添加 SSL 协议支持协议，去掉不安全的协议
+SSLProtocol all -SSLv2 -SSLv3
+# 修改加密套件如下
+SSLCipherSuite HIGH:!RC4:!MD5:!aNULL:!eNULL:!NULL:!DH:!EDH:!EXP:+MEDIUM
+SSLHonorCipherOrder on
+# 证书公钥配置
+SSLCertificateFile cert/public.pem
+# 证书私钥配置
+SSLCertificateKeyFile cert/214179346500845.key
+# 证书链配置，如果该属性开头有 '#'字符，请删除掉
+SSLCertificateChainFile cert/chain.pem
+( 4 ) 重启 Apache。 
+OK,恭喜你可以正常使用HTTPS来访问你的根目录了。
+</code></pre>
+
+<p>因为转lnmp了,贴下之前配置<code>/usr/local/apache/conf/httpd.conf</code>:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-XML" data-lang="XML">ServerRoot &#34;/usr/local/apache&#34;
+Timeout 60
+KeepAlive Off
+MaxKeepAliveRequests 100
+KeepAliveTimeout 15
+Listen 80
+LoadModule authn_file_module modules/mod_authn_file.so
+LoadModule authn_core_module modules/mod_authn_core.so
+LoadModule authz_host_module modules/mod_authz_host.so
+LoadModule authz_groupfile_module modules/mod_authz_groupfile.so
+LoadModule authz_user_module modules/mod_authz_user.so
+LoadModule authz_core_module modules/mod_authz_core.so
+LoadModule access_compat_module modules/mod_access_compat.so
+LoadModule auth_basic_module modules/mod_auth_basic.so
+LoadModule reqtimeout_module modules/mod_reqtimeout.so
+LoadModule filter_module modules/mod_filter.so
+LoadModule mime_module modules/mod_mime.so
+LoadModule log_config_module modules/mod_log_config.so
+LoadModule env_module modules/mod_env.so
+LoadModule headers_module modules/mod_headers.so
+LoadModule setenvif_module modules/mod_setenvif.so
+LoadModule version_module modules/mod_version.so
+LoadModule unixd_module modules/mod_unixd.so
+LoadModule status_module modules/mod_status.so
+LoadModule autoindex_module modules/mod_autoindex.so
+
+#配置https
+LoadModule ssl_module modules/mod_ssl.so
+LoadModule socache_shmcb_module modules/mod_socache_shmcb.so
+#Include conf/extra/httpd-ssl.conf
+
+<span style="color:#000">&lt;IfModule</span> <span style="color:#000">mpm_prefork_module</span><span style="color:#000">&gt;</span>
+<span style="color:#000">&lt;/IfModule&gt;</span>
+<span style="color:#000">&lt;IfModule</span> <span style="color:#000">!mpm_prefork_module</span><span style="color:#000">&gt;</span>
+<span style="color:#000">&lt;/IfModule&gt;</span>
+LoadModule dir_module modules/mod_dir.so
+LoadModule alias_module modules/mod_alias.so
+LoadModule rewrite_module modules/mod_rewrite.so
+LoadModule php7_module        modules/libphp7.so
+AddType application/x-httpd-php .php
+<span style="color:#000">&lt;IfModule</span> <span style="color:#000">unixd_module</span><span style="color:#000">&gt;</span>
+User daemon
+Group daemon
+<span style="color:#000">&lt;/IfModule&gt;</span>
+
+ServerAdmin you@example.com
+ServerName www.example.com:80
+<span style="color:#000">&lt;Directory</span> <span style="color:#000">/&gt;</span>
+    AllowOverride All
+    Require all denied
+    #Require all granted
+<span style="color:#000">&lt;/Directory&gt;</span>
+
+
+#DocumentRoot &#34;/data/www/typecho&#34;
+<span style="color:#000">&lt;Directory</span> <span style="color:#000">&#34;/data/www/typecho&#34;</span><span style="color:#000">&gt;</span>
+    Options FollowSymLinks
+    AllowOverride All
+    Require all granted
+<span style="color:#000">&lt;/Directory&gt;</span>
+
+<span style="color:#000">&lt;Directory</span> <span style="color:#000">&#34;/data/www/wiki&#34;</span><span style="color:#000">&gt;</span>
+    Options FollowSymLinks
+    AllowOverride All
+    Require all granted
+<span style="color:#000">&lt;/Directory&gt;</span>
+
+#尝试配置443
+<span style="color:#000">&lt;VirtualHost</span> <span style="color:#000">*:443</span><span style="color:#000">&gt;</span>
+    SSLEngine on
+    SSLCertificateFile     /usr/local/apache/cert/public.pem
+    SSLCertificateKeyFile  /usr/local/apache/cert/214179346500845.key
+    <span style="color:#000">&lt;Directory</span> <span style="color:#000">/var/www/html/virtual-web</span><span style="color:#000">&gt;</span>
+        AllowOverride All
+    <span style="color:#000">&lt;/Directory&gt;</span>
+    ServerAdmin email@example.com
+    DocumentRoot /data/www/typecho
+    ServerName  tyrad.cc
+<span style="color:#000">&lt;/VirtualHost&gt;</span>
+
+
+<span style="color:#000">&lt;VirtualHost</span> <span style="color:#000">*:443</span><span style="color:#000">&gt;</span>
+    SSLEngine on
+    SSLCertificateFile  /usr/local/apache/wikiCer/public.pem
+    SSLCertificateKeyFile /usr/local/apache/wikiCer/214186353460845.key
+    <span style="color:#000">&lt;Directory</span> <span style="color:#000">/var/www/html/virtual-web</span><span style="color:#000">&gt;</span>
+        AllowOverride All
+    <span style="color:#000">&lt;/Directory&gt;</span>
+    ServerAdmin email@example.com
+    DocumentRoot /data/www/wiki
+    ServerName wiki.tyrad.cc
+<span style="color:#000">&lt;/VirtualHost&gt;</span>
+
+
+#单个站点强制使用https （没必要）
+#<span style="color:#000">&lt;VirtualHost</span> <span style="color:#000">*:80</span><span style="color:#000">&gt;</span>
+#    ServerName tyrad.cc
+#    Redirect permanent / https://tyrad.cc
+#<span style="color:#000">&lt;/VirtualHost&gt;</span>
+
+
+
+
+<span style="color:#000">&lt;IfModule</span> <span style="color:#000">dir_module</span><span style="color:#000">&gt;</span>
+    DirectoryIndex index.php index.html
+<span style="color:#000">&lt;/IfModule&gt;</span>
+<span style="color:#000">&lt;Files</span> <span style="color:#000">&#34;.ht*&#34;</span><span style="color:#000">&gt;</span>
+    Require all denied
+<span style="color:#000">&lt;/Files&gt;</span>
+ErrorLog &#34;logs/error_log&#34;
+LogLevel warn
+<span style="color:#000">&lt;IfModule</span> <span style="color:#000">log_config_module</span><span style="color:#000">&gt;</span>
+    LogFormat &#34;%h %l %u %t \&#34;%r\&#34; %&gt;s %b \&#34;%{Referer}i\&#34; \&#34;%{User-Agent}i\&#34;&#34; combined
+    LogFormat &#34;%h %l %u %t \&#34;%r\&#34; %&gt;s %b&#34; common
+    <span style="color:#000">&lt;IfModule</span> <span style="color:#000">logio_module</span><span style="color:#000">&gt;</span>
+      LogFormat &#34;%h %l %u %t \&#34;%r\&#34; %&gt;s %b \&#34;%{Referer}i\&#34; \&#34;%{User-Agent}i\&#34; %I %O&#34; combinedio
+    <span style="color:#000">&lt;/IfModule&gt;</span>
+    CustomLog &#34;logs/access_log&#34; common
+<span style="color:#000">&lt;/IfModule&gt;</span>
+<span style="color:#000">&lt;IfModule</span> <span style="color:#000">alias_module</span><span style="color:#000">&gt;</span>
+    ScriptAlias /cgi-bin/ &#34;/usr/local/apache/cgi-bin/&#34;
+<span style="color:#000">&lt;/IfModule&gt;</span>
+<span style="color:#000">&lt;IfModule</span> <span style="color:#000">cgid_module</span><span style="color:#000">&gt;</span>
+<span style="color:#000">&lt;/IfModule&gt;</span>
+<span style="color:#000">&lt;Directory</span> <span style="color:#000">&#34;/usr/local/apache/cgi-bin&#34;</span><span style="color:#000">&gt;</span>
+    AllowOverride None
+    Options None
+    Require all granted
+<span style="color:#000">&lt;/Directory&gt;</span>
+<span style="color:#000">&lt;IfModule</span> <span style="color:#000">headers_module</span><span style="color:#000">&gt;</span>
+    RequestHeader unset Proxy early
+<span style="color:#000">&lt;/IfModule&gt;</span>
+<span style="color:#000">&lt;IfModule</span> <span style="color:#000">mime_module</span><span style="color:#000">&gt;</span>
+    TypesConfig conf/mime.types
+    AddType application/x-compress .Z
+    AddType application/x-gzip .gz .tgz
+<span style="color:#000">&lt;/IfModule&gt;</span>
+<span style="color:#000">&lt;IfModule</span> <span style="color:#000">proxy_html_module</span><span style="color:#000">&gt;</span>
+Include conf/extra/proxy-html.conf
+<span style="color:#000">&lt;/IfModule&gt;</span>
+
+#配置https
+Include conf/extra/httpd-ssl.conf
+
+<span style="color:#000">&lt;IfModule</span> <span style="color:#000">ssl_module</span><span style="color:#000">&gt;</span>
+SSLRandomSeed startup builtin
+SSLRandomSeed connect builtin
+<span style="color:#000">&lt;/IfModule&gt;</span>
+
+#尝试配置多个域名(发现这个没什么用)
+#Include conf/extra/httpd-vhosts.conf
+
+#尝试配置多个域名
+#NameVirtualHost *:80（这句apache  2.4 废弃不需要）
+<span style="color:#000">&lt;VirtualHost</span> <span style="color:#000">*:80</span><span style="color:#000">&gt;</span>
+   ServerAdmin admin@example.com
+   DocumentRoot &#34;/data/www/typecho&#34;
+   ServerName www.tyrad.cc
+   #ErrorLog &#34;/usr/local/httpd/logs/error.log&#34;
+   # CustomLog &#34;/usr/local/httpd/logs/custom.log&#34; combined
+<span style="color:#000">&lt;/VirtualHost&gt;</span>
+
+<span style="color:#000">&lt;VirtualHost</span> <span style="color:#000">*:80</span><span style="color:#000">&gt;</span>
+   ServerAdmin admin@example.com
+   DocumentRoot &#34;/data/www/wiki&#34;
+   ServerName wiki.tyrad.cc
+   #ErrorLog &#34;/usr/local/httpd/logs/blog_error.log&#34;
+   #CustomLog &#34;/usr/local/httpd/logs/blog_custom.log&#34; combined
+<span style="color:#000">&lt;/VirtualHost&gt;</span>
+
+
+#配置ngrok的反向代理
+
+#加载转发模块
+LoadModule proxy_module modules/mod_proxy.so
+LoadModule proxy_http_module modules/mod_proxy_http.so
+
+
+<span style="color:#000">&lt;VirtualHost</span> <span style="color:#000">*:80</span><span style="color:#000">&gt;</span>
+ServerName main.tunnel.tyrad.cc
+ServerAlias *.tunnel.tyrad.cc
+RewriteEngine On
+RewriteRule ^/(.*) http://%{HTTP_HOST}:8080/$1 [P]
+<span style="color:#000">&lt;Proxy</span> <span style="color:#000">*</span><span style="color:#000">&gt;</span>
+Order deny,allow
+Allow from all
+<span style="color:#000">&lt;/Proxy&gt;</span>
+ProxyPass / http://localhost:8080/
+ProxyPassReverse / http://localhost:8080/
+<span style="color:#000">&lt;/VirtualHost&gt;</span></code></pre></div></div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

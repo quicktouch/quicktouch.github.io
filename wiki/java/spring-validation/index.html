@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>spring之表单验证 |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> spring之表单验证 </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#java'>java</a></span>
+    
+    
+    
+    
+    
+    &nbsp/&nbsp<span>SpringBoot</span>
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2019-06-14T00:00:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2019-06-14
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<h2 id="校验及示例">校验及示例</h2>
+
+<p>通过注解约定字段如何进行校验，然后在controller层进行校验以及校验错误的输出。 示例代码:</p>
+
+<p>(<code>@NotBlank</code>表示字段不能为空且长度大于0)</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000">@Data</span>
+<span style="color:#a90d91">public</span> <span style="color:#a90d91">class</span> <span style="color:#3f6e75">ScreenInputVo</span> <span style="color:#a90d91">implements</span> <span style="color:#000">IDataConvertInterface</span><span style="color:#000">{</span>
+    <span style="color:#000">@NotBlank</span><span style="color:#000">(</span><span style="color:#000">message</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#34;大屏名称不能为空&#34;</span><span style="color:#000">)</span>
+    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">compName</span><span style="color:#000">;</span>
+<span style="color:#000">}</span>
+
+<span style="color:#177500">//controller层代码
+</span><span style="color:#177500"></span><span style="color:#000">@PostMapping</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;/addBaseScreen&#34;</span><span style="color:#000">)</span>
+<span style="color:#000">MVCResult</span> <span style="color:#000">add</span><span style="color:#000">(</span><span style="color:#000">@RequestBody</span> <span style="color:#000">@Valid</span> <span style="color:#000">ScreenInputVo</span> <span style="color:#000">model</span><span style="color:#000">,</span> <span style="color:#000">BindingResult</span> <span style="color:#000">bindingResult</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+  <span style="color:#a90d91">if</span> <span style="color:#000">(</span><span style="color:#000">bindingResult</span><span style="color:#000">.</span><span style="color:#836c28">hasErrors</span><span style="color:#000">())</span> <span style="color:#000">{</span>
+      <span style="color:#a90d91">return</span> <span style="color:#000">MVCResult</span><span style="color:#000">.</span><span style="color:#836c28">fail</span><span style="color:#000">(</span><span style="color:#000">oper</span><span style="color:#000">,</span> <span style="color:#000">ValidErrorUtils</span><span style="color:#000">.</span><span style="color:#836c28">toAssignedError</span><span style="color:#000">(</span><span style="color:#000">bindingResult</span><span style="color:#000">));</span>
+  <span style="color:#000">}</span>
+  <span style="color:#177500">//略
+</span><span style="color:#177500"></span><span style="color:#000">}</span></code></pre></div>
+<p>ValidErrorUtils 是一个简单的工具类，用于统一输出错误信息</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a90d91">public</span> <span style="color:#a90d91">class</span> <span style="color:#3f6e75">ValidErrorUtils</span> <span style="color:#000">{</span>
+
+    <span style="color:#177500">/**
+</span><span style="color:#177500">     * 提取错误信息
+</span><span style="color:#177500">     *
+</span><span style="color:#177500">     * @param bindingResult BindingResult实例
+</span><span style="color:#177500">     * @return 错误提示信息
+</span><span style="color:#177500">     */</span>
+    <span style="color:#a90d91">public</span> <span style="color:#a90d91">static</span> <span style="color:#000">String</span> <span style="color:#000">toError</span><span style="color:#000">(</span><span style="color:#000">BindingResult</span> <span style="color:#000">bindingResult</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+        <span style="color:#a90d91">if</span> <span style="color:#000">(</span><span style="color:#000">bindingResult</span> <span style="color:#000">!=</span> <span style="color:#a90d91">null</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+            <span style="color:#000">List</span><span style="color:#000">&lt;</span><span style="color:#000">ObjectError</span><span style="color:#000">&gt;</span> <span style="color:#000">ls</span> <span style="color:#000">=</span> <span style="color:#000">bindingResult</span><span style="color:#000">.</span><span style="color:#836c28">getAllErrors</span><span style="color:#000">();</span>
+            <span style="color:#a90d91">if</span> <span style="color:#000">(</span><span style="color:#000">ls</span><span style="color:#000">.</span><span style="color:#836c28">size</span><span style="color:#000">()</span> <span style="color:#000">&gt;</span> <span style="color:#000">0</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+                <span style="color:#000">ObjectError</span> <span style="color:#000">objectError</span> <span style="color:#000">=</span> <span style="color:#000">ls</span><span style="color:#000">.</span><span style="color:#836c28">get</span><span style="color:#000">(</span><span style="color:#000">0</span><span style="color:#000">);</span>
+                <span style="color:#a90d91">if</span> <span style="color:#000">(</span><span style="color:#000">objectError</span> <span style="color:#a90d91">instanceof</span> <span style="color:#000">FieldError</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+                    <span style="color:#a90d91">return</span> <span style="color:#000">((</span><span style="color:#000">FieldError</span><span style="color:#000">)</span> <span style="color:#000">objectError</span><span style="color:#000">).</span><span style="color:#836c28">getField</span><span style="color:#000">()</span> <span style="color:#000">+</span> <span style="color:#c41a16">&#34;:&#34;</span> <span style="color:#000">+</span> <span style="color:#000">objectError</span><span style="color:#000">.</span><span style="color:#836c28">getDefaultMessage</span><span style="color:#000">();</span>
+                <span style="color:#000">}</span>
+                <span style="color:#a90d91">return</span> <span style="color:#000">objectError</span><span style="color:#000">.</span><span style="color:#836c28">getDefaultMessage</span><span style="color:#000">();</span>
+            <span style="color:#000">}</span>
+        <span style="color:#000">}</span>
+        <span style="color:#a90d91">return</span> <span style="color:#a90d91">null</span><span style="color:#000">;</span>
+    <span style="color:#000">}</span>
+
+    <span style="color:#177500">/**
+</span><span style="color:#177500">     * 提取错误信息,错误提示是用户自己指定的
+</span><span style="color:#177500">     *
+</span><span style="color:#177500">     * @param bindingResult BindingResult实例
+</span><span style="color:#177500">     * @return 错误提示信息
+</span><span style="color:#177500">     */</span>
+    <span style="color:#a90d91">public</span> <span style="color:#a90d91">static</span> <span style="color:#000">String</span> <span style="color:#000">toAssignedError</span><span style="color:#000">(</span><span style="color:#000">BindingResult</span> <span style="color:#000">bindingResult</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+        <span style="color:#a90d91">if</span> <span style="color:#000">(</span><span style="color:#000">bindingResult</span> <span style="color:#000">!=</span> <span style="color:#a90d91">null</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+            <span style="color:#000">List</span><span style="color:#000">&lt;</span><span style="color:#000">ObjectError</span><span style="color:#000">&gt;</span> <span style="color:#000">ls</span> <span style="color:#000">=</span> <span style="color:#000">bindingResult</span><span style="color:#000">.</span><span style="color:#836c28">getAllErrors</span><span style="color:#000">();</span>
+            <span style="color:#a90d91">if</span> <span style="color:#000">(</span><span style="color:#000">ls</span><span style="color:#000">.</span><span style="color:#836c28">size</span><span style="color:#000">()</span> <span style="color:#000">&gt;</span> <span style="color:#000">0</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+                <span style="color:#000">ObjectError</span> <span style="color:#000">objectError</span> <span style="color:#000">=</span> <span style="color:#000">ls</span><span style="color:#000">.</span><span style="color:#836c28">get</span><span style="color:#000">(</span><span style="color:#000">0</span><span style="color:#000">);</span>
+                <span style="color:#a90d91">return</span> <span style="color:#000">objectError</span><span style="color:#000">.</span><span style="color:#836c28">getDefaultMessage</span><span style="color:#000">();</span>
+            <span style="color:#000">}</span>
+        <span style="color:#000">}</span>
+        <span style="color:#a90d91">return</span> <span style="color:#a90d91">null</span><span style="color:#000">;</span>
+    <span style="color:#000">}</span>
+<span style="color:#000">}</span></code></pre></div>
+<h2 id="解释和说明">解释和说明</h2>
+
+<p><a href="http://daobin.wang/2017/06/Spring-Validation/">这篇文章</a> 总结的不错，下面是一些转载</p>
+
+<h3 id="必要性">必要性</h3>
+
+<blockquote>
+<p>车险项目，有计划做To B业务，作为接口服务提供方，就非常有必要在项目中加入参数校验模块，限制入口参数。例如：车型查询接口-110，可对车辆信息对象<code>carInfo</code>中的车架号、车牌号、发动机号、品牌型号验参。因此，引入Spring Validation框架。</p>
+</blockquote>
+
+<p>Spring 4.0支持<code>Bean Validation 1.0(JSR-303)</code>和<code>Bean Validation 1.1(JSR-349)</code>，提供<code>@Validator</code>注解，并且能够通过BindingResult类在Controller层的处理方法中取得错误信息。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a90d91">import</span> <span style="color:#000">java.util.HashMap</span><span style="color:#000">;</span>
+<span style="color:#a90d91">import</span> <span style="color:#000">java.util.Map</span><span style="color:#000">;</span>
+
+<span style="color:#a90d91">import</span> <span style="color:#000">javax.validation.Valid</span><span style="color:#000">;</span>
+
+<span style="color:#a90d91">import</span> <span style="color:#000">org.slf4j.Logger</span><span style="color:#000">;</span>
+<span style="color:#a90d91">import</span> <span style="color:#000">org.slf4j.LoggerFactory</span><span style="color:#000">;</span>
+<span style="color:#a90d91">import</span> <span style="color:#000">org.springframework.stereotype.Controller</span><span style="color:#000">;</span>
+<span style="color:#a90d91">import</span> <span style="color:#000">org.springframework.ui.Model</span><span style="color:#000">;</span>
+<span style="color:#a90d91">import</span> <span style="color:#000">org.springframework.validation.BindingResult</span><span style="color:#000">;</span>
+<span style="color:#a90d91">import</span> <span style="color:#000">org.springframework.web.bind.annotation.RequestMapping</span><span style="color:#000">;</span>
+<span style="color:#a90d91">import</span> <span style="color:#000">org.springframework.web.bind.annotation.RequestMethod</span><span style="color:#000">;</span>
+
+<span style="color:#a90d91">import</span> <span style="color:#000">com.journaldev.spring.form.model.Customer</span><span style="color:#000">;</span>
+
+<span style="color:#000">@Controller</span>
+<span style="color:#a90d91">public</span> <span style="color:#a90d91">class</span> <span style="color:#3f6e75">CustomerController</span> <span style="color:#000">{</span>
+
+    <span style="color:#a90d91">private</span> <span style="color:#a90d91">static</span> <span style="color:#a90d91">final</span> <span style="color:#000">Logger</span> <span style="color:#000">logger</span> <span style="color:#000">=</span> <span style="color:#000">LoggerFactory</span>
+            <span style="color:#000">.</span><span style="color:#836c28">getLogger</span><span style="color:#000">(</span><span style="color:#000">CustomerController</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">);</span>
+    
+    <span style="color:#a90d91">private</span> <span style="color:#000">Map</span><span style="color:#000">&lt;</span><span style="color:#000">String</span><span style="color:#000">,</span> <span style="color:#000">Customer</span><span style="color:#000">&gt;</span> <span style="color:#000">customers</span> <span style="color:#000">=</span> <span style="color:#a90d91">null</span><span style="color:#000">;</span>
+    
+    <span style="color:#a90d91">public</span> <span style="color:#000">CustomerController</span><span style="color:#000">(){</span>
+        <span style="color:#000">customers</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">HashMap</span><span style="color:#000">&lt;</span><span style="color:#000">String</span><span style="color:#000">,</span> <span style="color:#000">Customer</span><span style="color:#000">&gt;();</span>
+    <span style="color:#000">}</span>
+
+    <span style="color:#000">@RequestMapping</span><span style="color:#000">(</span><span style="color:#000">value</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#34;/cust/save&#34;</span><span style="color:#000">,</span> <span style="color:#000">method</span> <span style="color:#000">=</span> <span style="color:#000">RequestMethod</span><span style="color:#000">.</span><span style="color:#836c28">GET</span><span style="color:#000">)</span>
+    <span style="color:#a90d91">public</span> <span style="color:#000">String</span> <span style="color:#000">saveCustomerPage</span><span style="color:#000">(</span><span style="color:#000">Model</span> <span style="color:#000">model</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+        <span style="color:#000">logger</span><span style="color:#000">.</span><span style="color:#836c28">info</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;Returning custSave.jsp page&#34;</span><span style="color:#000">);</span>
+        <span style="color:#000">model</span><span style="color:#000">.</span><span style="color:#836c28">addAttribute</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;customer&#34;</span><span style="color:#000">,</span> <span style="color:#a90d91">new</span> <span style="color:#000">Customer</span><span style="color:#000">());</span>
+        <span style="color:#a90d91">return</span> <span style="color:#c41a16">&#34;custSave&#34;</span><span style="color:#000">;</span>
+    <span style="color:#000">}</span>
+
+    <span style="color:#000">@RequestMapping</span><span style="color:#000">(</span><span style="color:#000">value</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#34;/cust/save.do&#34;</span><span style="color:#000">,</span> <span style="color:#000">method</span> <span style="color:#000">=</span> <span style="color:#000">RequestMethod</span><span style="color:#000">.</span><span style="color:#836c28">POST</span><span style="color:#000">)</span>
+    <span style="color:#a90d91">public</span> <span style="color:#000">String</span> <span style="color:#000">saveCustomerAction</span><span style="color:#000">(</span><span style="color:#000">@Valid</span> <span style="color:#000">Customer</span> <span style="color:#000">customer</span><span style="color:#000">,</span> <span style="color:#000">BindingResult</span> <span style="color:#000">bindingResult</span><span style="color:#000">,</span> <span style="color:#000">Model</span> <span style="color:#000">model</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+        <span style="color:#a90d91">if</span> <span style="color:#000">(</span><span style="color:#000">bindingResult</span><span style="color:#000">.</span><span style="color:#836c28">hasErrors</span><span style="color:#000">())</span> <span style="color:#000">{</span>
+            <span style="color:#000">logger</span><span style="color:#000">.</span><span style="color:#836c28">info</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;Returning custSave.jsp page&#34;</span><span style="color:#000">);</span>
+            <span style="color:#a90d91">return</span> <span style="color:#c41a16">&#34;custSave&#34;</span><span style="color:#000">;</span>
+        <span style="color:#000">}</span>
+        <span style="color:#000">logger</span><span style="color:#000">.</span><span style="color:#836c28">info</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;Returning custSaveSuccess.jsp page&#34;</span><span style="color:#000">);</span>
+        <span style="color:#000">model</span><span style="color:#000">.</span><span style="color:#836c28">addAttribute</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;customer&#34;</span><span style="color:#000">,</span> <span style="color:#000">customer</span><span style="color:#000">);</span>
+        <span style="color:#000">customers</span><span style="color:#000">.</span><span style="color:#836c28">put</span><span style="color:#000">(</span><span style="color:#000">customer</span><span style="color:#000">.</span><span style="color:#836c28">getEmail</span><span style="color:#000">(),</span> <span style="color:#000">customer</span><span style="color:#000">);</span>
+        <span style="color:#a90d91">return</span> <span style="color:#c41a16">&#34;custSaveSuccess&#34;</span><span style="color:#000">;</span>
+    <span style="color:#000">}</span>
+<span style="color:#000">}</span> </code></pre></div>
+<h3 id="如何校验">如何校验</h3>
+
+<h4 id="引入maven依赖">引入Maven依赖</h4>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000">&lt;dependency&gt;</span>
+    <span style="color:#000">&lt;groupId&gt;</span>javax.validation<span style="color:#000">&lt;/groupId&gt;</span>
+    <span style="color:#000">&lt;artifactId&gt;</span>validation-api<span style="color:#000">&lt;/artifactId&gt;</span>
+    <span style="color:#000">&lt;version&gt;</span>1.1.0.Final<span style="color:#000">&lt;/version&gt;</span>
+<span style="color:#000">&lt;/dependency&gt;</span>
+
+<span style="color:#000">&lt;dependency&gt;</span>
+    <span style="color:#000">&lt;groupId&gt;</span>org.hibernate<span style="color:#000">&lt;/groupId&gt;</span>
+    <span style="color:#000">&lt;artifactId&gt;</span>hibernate-validator<span style="color:#000">&lt;/artifactId&gt;</span>
+    <span style="color:#000">&lt;version&gt;</span>5.4.0.Final<span style="color:#000">&lt;/version&gt;</span>
+<span style="color:#000">&lt;/dependency&gt;</span>
+
+<span style="color:#000">&lt;dependency&gt;</span>
+    <span style="color:#000">&lt;groupId&gt;</span>javax.el<span style="color:#000">&lt;/groupId&gt;</span>
+    <span style="color:#000">&lt;artifactId&gt;</span>javax.el-api<span style="color:#000">&lt;/artifactId&gt;</span>
+    <span style="color:#000">&lt;version&gt;</span>2.2.4<span style="color:#000">&lt;/version&gt;</span>
+<span style="color:#000">&lt;/dependency&gt;</span>
+
+<span style="color:#000">&lt;dependency&gt;</span>
+    <span style="color:#000">&lt;groupId&gt;</span>org.glassfish.web<span style="color:#000">&lt;/groupId&gt;</span>
+    <span style="color:#000">&lt;artifactId&gt;</span>javax.el<span style="color:#000">&lt;/artifactId&gt;</span>
+    <span style="color:#000">&lt;version&gt;</span>2.2.4<span style="color:#000">&lt;/version&gt;</span>
+<span style="color:#000">&lt;/dependency&gt;</span></code></pre></div>
+<p>Model上加JSR-303注解类型
+JSR-303定义的校验类型：</p>
+
+<table>
+<thead>
+<tr>
+<th>注解</th>
+<th>描述</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>空检查</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td>@Null</td>
+<td>验证对象是否为null</td>
+</tr>
+
+<tr>
+<td>@NotNull</td>
+<td>验证对象是否不为null, 无法查检长度为0的字符串</td>
+</tr>
+
+<tr>
+<td>@NotBlank</td>
+<td>检查约束字符串是不是Null还有被trim的长度是否大于0,只对字符串,且会去掉前后空格</td>
+</tr>
+
+<tr>
+<td>@NotEmpty</td>
+<td>检查约束元素是否为NULL或者是EMPTY</td>
+</tr>
+
+<tr>
+<td><code>Booelan检查</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td>@AssertTrue</td>
+<td>验证 Boolean 对象是否为 true</td>
+</tr>
+
+<tr>
+<td>@AssertFalse</td>
+<td>验证 Boolean 对象是否为 false</td>
+</tr>
+
+<tr>
+<td><code>长度检查</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td>@Size(min=, max=)</td>
+<td>验证对象（Array,Collection,Map,String）长度是否在给定的范围之内</td>
+</tr>
+
+<tr>
+<td>@Length(min=, max=)</td>
+<td>Validates that the annotated string is between min and max included</td>
+</tr>
+
+<tr>
+<td><code>日期检查</code></td>
+<td></td>
+</tr>
+
+<tr>
+<td>@Past</td>
+<td>验证 Date 和 Calendar 对象是否在当前时间之前</td>
+</tr>
+
+<tr>
+<td>@Future</td>
+<td>验证 Date 和 Calendar 对象是否在当前时间之后</td>
+</tr>
+
+<tr>
+<td>@Pattern</td>
+<td>验证 String 对象是否符合正则表达式的规则</td>
+</tr>
+
+<tr>
+<td><code>数值检查</code></td>
+<td>建议使用在Stirng,Integer类型，不建议使用在int类型上，因为表单值为“”时无法转换为int，但可以转换为Stirng为”“,Integer为null</td>
+</tr>
+
+<tr>
+<td>@Min</td>
+<td>验证 Number 和 String 对象是否大等于指定的值</td>
+</tr>
+
+<tr>
+<td>@Max</td>
+<td>验证 Number 和 String 对象是否小等于指定的值</td>
+</tr>
+
+<tr>
+<td>@DecimalMax</td>
+<td>被标注的值必须不大于约束中指定的最大值.这个约束的参数是一个通过BigDecimal定义的最大值的字符串表示.小数存在精度</td>
+</tr>
+
+<tr>
+<td>@DecimalMin</td>
+<td>被标注的值必须不小于约束中指定的最小值. 这个约束的参数是一个通过BigDecimal定义的最小值的字符串表示.小数存在精度</td>
+</tr>
+
+<tr>
+<td>@Digits</td>
+<td>验证 Number 和 String 的构成是否合法</td>
+</tr>
+
+<tr>
+<td>@Digits(integer=,fraction=)</td>
+<td>验证字符串是否是符合指定格式的数字，interger指定整数精度，fraction指定小数精度</td>
+</tr>
+
+<tr>
+<td>@Range(min=, max=)</td>
+<td>检查数字是否介于min和max之间.</td>
+</tr>
+
+<tr>
+<td>@Valid</td>
+<td>递归的对关联对象进行校验, 如果关联对象是个集合或者数组,那么对其中的元素进行递归校验,如果是一个map,则对其中的值部分进行校验.(是否进行递归验证)</td>
+</tr>
+
+<tr>
+<td>@CreditCardNumber</td>
+<td>信用卡验证</td>
+</tr>
+
+<tr>
+<td>@Email</td>
+<td>验证是否是邮件地址，如果为null,不进行验证，算通过验证</td>
+</tr>
+
+<tr>
+<td>@ScriptAssert(lang= ,script=, alias=)</td>
+<td></td>
+</tr>
+
+<tr>
+<td>@URL(protocol=,host=, port=,regexp=, flags=)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p>自定义注解,定义车架号的验证：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#177500">/**
+</span><span style="color:#177500"> * @Description 车架号注解
+</span><span style="color:#177500"> * @Author daobin&lt;wdb@winbaoxian.com&gt;
+</span><span style="color:#177500"> * @Date 2017/3/24.
+</span><span style="color:#177500"> */</span>
+<span style="color:#000">@Target</span><span style="color:#000">({</span> <span style="color:#000">METHOD</span><span style="color:#000">,</span> <span style="color:#000">FIELD</span><span style="color:#000">,</span> <span style="color:#000">ANNOTATION_TYPE</span><span style="color:#000">,</span> <span style="color:#000">CONSTRUCTOR</span><span style="color:#000">,</span> <span style="color:#000">PARAMETER</span> <span style="color:#000">})</span>
+<span style="color:#000">@Retention</span><span style="color:#000">(</span><span style="color:#000">RUNTIME</span><span style="color:#000">)</span>
+<span style="color:#000">@Documented</span>
+<span style="color:#000">@Constraint</span><span style="color:#000">(</span><span style="color:#000">validatedBy</span> <span style="color:#000">=</span> <span style="color:#000">{</span> <span style="color:#000">VinNoValidator</span><span style="color:#000">.</span><span style="color:#836c28">class</span> <span style="color:#000">})</span>
+<span style="color:#a90d91">public</span> <span style="color:#000">@interface</span> <span style="color:#000">VinNo</span> <span style="color:#000">{</span>
+    <span style="color:#000">String</span> <span style="color:#000">message</span><span style="color:#000">()</span> <span style="color:#a90d91">default</span> <span style="color:#c41a16">&#34;车架号不合法「不能包含I、O、Q，第十位不能是U、Z、数字0」&#34;</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">/**「
+</span><span style="color:#177500">     * @return the regular expression to match
+</span><span style="color:#177500">     */</span>
+    <span style="color:#000">String</span> <span style="color:#000">regexp</span><span style="color:#000">()</span> <span style="color:#a90d91">default</span> <span style="color:#c41a16">&#34;^[A-HJ-NP-PR-Z0-9]{9}[A-HJ-NP-PR-TV-Y1-9]{1}[A-HJ-NP-PR-Z0-9]{7}$&#34;</span><span style="color:#000">;</span>
+    <span style="color:#000">Class</span><span style="color:#000">&lt;?&gt;[]</span> <span style="color:#000">groups</span><span style="color:#000">()</span> <span style="color:#a90d91">default</span> <span style="color:#000">{</span> <span style="color:#000">};</span>
+
+    <span style="color:#000">Class</span><span style="color:#000">&lt;?</span> <span style="color:#a90d91">extends</span> <span style="color:#000">Payload</span><span style="color:#000">&gt;[]</span> <span style="color:#000">payload</span><span style="color:#000">()</span> <span style="color:#a90d91">default</span> <span style="color:#000">{</span> <span style="color:#000">};</span>
+
+    <span style="color:#177500">/**
+</span><span style="color:#177500">     * Defines several {@link VinNo} annotations on the same element.
+</span><span style="color:#177500">     *
+</span><span style="color:#177500">     * @see VinNo
+</span><span style="color:#177500">     */</span>
+    <span style="color:#000">@Target</span><span style="color:#000">({</span> <span style="color:#000">METHOD</span><span style="color:#000">,</span> <span style="color:#000">FIELD</span><span style="color:#000">,</span> <span style="color:#000">ANNOTATION_TYPE</span><span style="color:#000">,</span> <span style="color:#000">CONSTRUCTOR</span><span style="color:#000">,</span> <span style="color:#000">PARAMETER</span> <span style="color:#000">})</span>
+    <span style="color:#000">@Retention</span><span style="color:#000">(</span><span style="color:#000">RUNTIME</span><span style="color:#000">)</span>
+    <span style="color:#000">@Documented</span>
+    <span style="color:#000">@interface</span> <span style="color:#000">List</span> <span style="color:#000">{</span>
+        <span style="color:#000">VinNo</span><span style="color:#000">[]</span> <span style="color:#000">value</span><span style="color:#000">();</span>
+    <span style="color:#000">}</span>
+<span style="color:#000">}</span></code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#177500">/**
+</span><span style="color:#177500"> * @Description 车架号验证类
+</span><span style="color:#177500"> * @Author daobin&lt;wdb@winbaoxian.com&gt;
+</span><span style="color:#177500"> * @Date 2017/3/24.
+</span><span style="color:#177500"> */</span>
+<span style="color:#a90d91">public</span> <span style="color:#a90d91">class</span> <span style="color:#3f6e75">VinNoValidator</span> <span style="color:#a90d91">implements</span> <span style="color:#000">ConstraintValidator</span><span style="color:#000">&lt;</span><span style="color:#000">VinNo</span><span style="color:#000">,</span> <span style="color:#000">String</span><span style="color:#000">&gt;</span> <span style="color:#000">{</span>
+
+    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">regexp</span><span style="color:#000">;</span>
+
+    <span style="color:#000">@Override</span>
+    <span style="color:#a90d91">public</span> <span style="color:#a90d91">void</span> <span style="color:#000">initialize</span><span style="color:#000">(</span><span style="color:#000">VinNo</span> <span style="color:#000">vinNo</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+        <span style="color:#a90d91">this</span><span style="color:#000">.</span><span style="color:#836c28">regexp</span> <span style="color:#000">=</span> <span style="color:#000">vinNo</span><span style="color:#000">.</span><span style="color:#836c28">regexp</span><span style="color:#000">();</span>
+    <span style="color:#000">}</span>
+
+    <span style="color:#000">@Override</span>
+    <span style="color:#a90d91">public</span> <span style="color:#a90d91">boolean</span> <span style="color:#000">isValid</span><span style="color:#000">(</span><span style="color:#000">String</span> <span style="color:#000">s</span><span style="color:#000">,</span> <span style="color:#000">ConstraintValidatorContext</span> <span style="color:#000">constraintValidatorContext</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+        <span style="color:#a90d91">if</span> <span style="color:#000">(</span><span style="color:#000">s</span> <span style="color:#000">==</span> <span style="color:#a90d91">null</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+            <span style="color:#a90d91">return</span> <span style="color:#a90d91">true</span><span style="color:#000">;</span>
+        <span style="color:#000">}</span>
+
+        <span style="color:#a90d91">if</span> <span style="color:#000">(</span><span style="color:#000">s</span><span style="color:#000">.</span><span style="color:#836c28">matches</span><span style="color:#000">(</span><span style="color:#000">regexp</span><span style="color:#000">))</span> <span style="color:#000">{</span>
+            <span style="color:#a90d91">return</span> <span style="color:#a90d91">true</span><span style="color:#000">;</span>
+        <span style="color:#000">}</span>
+        <span style="color:#a90d91">return</span> <span style="color:#a90d91">false</span><span style="color:#000">;</span>
+    <span style="color:#000">}</span>
+<span style="color:#000">}</span></code></pre></div>
+<p>Model上的注解</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#177500">/**
+</span><span style="color:#177500"> * 车险公司、供应商
+</span><span style="color:#177500"> */</span>
+<span style="color:#000">@JsonSerialize</span><span style="color:#000">(</span><span style="color:#000">include</span><span style="color:#000">=</span> <span style="color:#000">JsonSerialize</span><span style="color:#000">.</span><span style="color:#836c28">Inclusion</span><span style="color:#000">.</span><span style="color:#836c28">NON_NULL</span><span style="color:#000">)</span>
+<span style="color:#a90d91">public</span> <span style="color:#a90d91">class</span> <span style="color:#3f6e75">VehicleInfo</span> <span style="color:#000">{</span>
+
+    <span style="color:#177500">// 城市代码 国标
+</span><span style="color:#177500"></span>    <span style="color:#000">@NotNull</span><span style="color:#000">(</span><span style="color:#000">message</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#34;{NotNull.cityCode}&#34;</span><span style="color:#000">,</span> <span style="color:#000">groups</span> <span style="color:#000">=</span> <span style="color:#000">{</span><span style="color:#000">Group110</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">})</span>
+    <span style="color:#a90d91">private</span> <span style="color:#000">Long</span> <span style="color:#000">cityCode</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">// 机构代码
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">comCode</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">// 车牌号
+</span><span style="color:#177500"></span>    <span style="color:#000">@LicenseNo</span><span style="color:#000">(</span><span style="color:#000">groups</span> <span style="color:#000">=</span> <span style="color:#000">{</span><span style="color:#000">Group110</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">})</span>
+    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">licenseNo</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">// 上牌标记 1=已上牌，0=未上牌
+</span><span style="color:#177500"></span>    <span style="color:#000">@ZeroOrOne</span><span style="color:#000">(</span><span style="color:#000">groups</span> <span style="color:#000">=</span> <span style="color:#000">{</span><span style="color:#000">Group110</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">})</span>
+    <span style="color:#000">@NotNull</span><span style="color:#000">(</span><span style="color:#000">message</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#34;{NotNull.noLicenseFlag}&#34;</span><span style="color:#000">,</span> <span style="color:#000">groups</span> <span style="color:#000">=</span> <span style="color:#000">{</span><span style="color:#000">Group110</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">}</span> <span style="color:#000">)</span>
+    <span style="color:#a90d91">private</span> <span style="color:#000">Integer</span> <span style="color:#000">noLicenseFlag</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">// 是否新车, 1-是；0-不是
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">private</span> <span style="color:#000">Integer</span> <span style="color:#000">vehicleNewFlag</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">// 发票价 置购价
+</span><span style="color:#177500"></span>    <span style="color:#000">@DecimalMin</span><span style="color:#000">(</span><span style="color:#000">value</span><span style="color:#000">=</span> <span style="color:#c41a16">&#34;0&#34;</span><span style="color:#000">,</span> <span style="color:#000">groups</span> <span style="color:#000">=</span> <span style="color:#000">{</span><span style="color:#000">Group110</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">})</span>
+    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">vehiclePrice</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">// 购车发票开具日期
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">private</span> <span style="color:#000">Date</span> <span style="color:#000">buyInvoiceDate</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">// 新车购置价含税
+</span><span style="color:#177500"></span>    <span style="color:#000">@DecimalMin</span><span style="color:#000">(</span><span style="color:#000">value</span><span style="color:#000">=</span> <span style="color:#c41a16">&#34;0&#34;</span><span style="color:#000">,</span> <span style="color:#000">groups</span> <span style="color:#000">=</span> <span style="color:#000">{</span><span style="color:#000">Group110</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">})</span>
+    <span style="color:#a90d91">private</span> <span style="color:#000">Double</span> <span style="color:#000">vehiclePriceTax</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">// 车辆实际价值 通过起保时间、注册登记时间、新车购置价算出
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">vehicleActualPrice</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">// 车架号
+</span><span style="color:#177500"></span>    <span style="color:#000">@VinNo</span><span style="color:#000">(</span><span style="color:#000">groups</span> <span style="color:#000">=</span> <span style="color:#000">{</span><span style="color:#000">GroupDefault</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">,</span> <span style="color:#000">Group110</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">})</span>
+    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">vehicleFrameNo</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">// 发动机号
+</span><span style="color:#177500"></span>    <span style="color:#000">@EngineNo</span><span style="color:#000">(</span><span style="color:#000">groups</span> <span style="color:#000">=</span> <span style="color:#000">{</span><span style="color:#000">GroupDefault</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">,</span> <span style="color:#000">Group110</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">})</span>
+    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">engineNo</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">// 车辆使用性质
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">carProperty</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">// 初登日期
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">private</span> <span style="color:#000">Date</span> <span style="color:#000">firstRegisterDate</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">// 是否过户车 1=是 0=否
+</span><span style="color:#177500"></span>    <span style="color:#000">@ZeroOrOne</span><span style="color:#000">(</span><span style="color:#000">groups</span> <span style="color:#000">=</span> <span style="color:#000">{</span><span style="color:#000">Group110</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">})</span>
+    <span style="color:#000">@NotNull</span><span style="color:#000">(</span><span style="color:#000">message</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#34;{NotNull.transferFlag}&#34;</span><span style="color:#000">,</span> <span style="color:#000">groups</span> <span style="color:#000">=</span> <span style="color:#000">{</span><span style="color:#000">Group110</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">}</span> <span style="color:#000">)</span>
+    <span style="color:#a90d91">private</span> <span style="color:#000">Integer</span> <span style="color:#000">transferFlag</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">// 过户日期 过户车必传
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">private</span> <span style="color:#000">Date</span> <span style="color:#000">transferDate</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">// 车型名称 如：丰田GTM6480GSL多用途乘用车
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">vehicleModelName</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">// 品牌名称
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">vehicleBrandName</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">//  车系名称
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">vehicleFamily</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">// 车型描述
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">vehicleDesc</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">// 车型Id
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">vehicleId</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">// 行业车型编码
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">tradeVehicleId</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">// 公告号
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">noticeNo</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">// setter getter method
+</span><span style="color:#177500"></span>
+<span style="color:#000">}</span></code></pre></div>
+<p>applicationContext.xml文件中加入如下配置：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#177500">&lt;!--校验器 ，LocalValidatorFactoryBean是spring提供的一个校验接口--&gt;</span>
+<span style="color:#000">&lt;bean</span> <span style="color:#836c28">id=</span><span style="color:#c41a16">&#34;validator&#34;</span> <span style="color:#836c28">class=</span><span style="color:#c41a16">&#34;org.springframework.validation.beanvalidation.LocalValidatorFactoryBean&#34;</span><span style="color:#000">&gt;</span>
+    <span style="color:#177500">&lt;!-- hibernate校验器 --&gt;</span>
+    <span style="color:#000">&lt;property</span> <span style="color:#836c28">name=</span><span style="color:#c41a16">&#34;providerClass&#34;</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;org.hibernate.validator.HibernateValidator&#34;</span> <span style="color:#000">/&gt;</span>
+    <span style="color:#177500">&lt;!-- 指定校验使用的资源文件，在文件中配置校验错误信息，如果不指定则默认使用classpath下的ValidationMessages.properties --&gt;</span>
+    <span style="color:#000">&lt;property</span> <span style="color:#836c28">name=</span><span style="color:#c41a16">&#34;validationMessageSource&#34;</span> <span style="color:#836c28">ref=</span><span style="color:#c41a16">&#34;messageSource&#34;</span> <span style="color:#000">/&gt;</span>
+<span style="color:#000">&lt;/bean&gt;</span>
+<span style="color:#177500">&lt;!-- 校验错误信息配置文件 --&gt;</span>
+<span style="color:#000">&lt;bean</span> <span style="color:#836c28">id=</span><span style="color:#c41a16">&#34;messageSource&#34;</span> <span style="color:#836c28">class=</span><span style="color:#c41a16">&#34;org.springframework.context.support.ReloadableResourceBundleMessageSource&#34;</span><span style="color:#000">&gt;</span>
+    <span style="color:#177500">&lt;!-- 资源文件名 --&gt;</span>
+    <span style="color:#000">&lt;property</span> <span style="color:#836c28">name=</span><span style="color:#c41a16">&#34;basename&#34;</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;classpath:ValidationMessages&#34;</span><span style="color:#000">/&gt;</span>
+    <span style="color:#000">&lt;property</span> <span style="color:#836c28">name=</span><span style="color:#c41a16">&#34;useCodeAsDefaultMessage&#34;</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;true&#34;</span> <span style="color:#000">/&gt;</span>
+    <span style="color:#177500">&lt;!-- 资源文件编码格式 --&gt;</span>
+    <span style="color:#000">&lt;property</span> <span style="color:#836c28">name=</span><span style="color:#c41a16">&#34;fileEncodings&#34;</span> <span style="color:#836c28">value=</span><span style="color:#c41a16">&#34;utf-8&#34;</span> <span style="color:#000">/&gt;</span>
+<span style="color:#000">&lt;/bean&gt;</span>
+<span style="color:#000">&lt;bean</span> <span style="color:#836c28">class=</span><span style="color:#c41a16">&#34;org.springframework.validation.beanvalidation.MethodValidationPostProcessor&#34;</span><span style="color:#000">/&gt;</span></code></pre></div>
+<p>配置ValidationMessages.properties文件，文件名一定要是ValidationMessages，使用其他名字不能读取到，也不知是何原因</p>
+
+<pre><code>NotNull.insureComCode=供应商代码不能为空
+Size.transId=transId长度不能超过{max}
+NotEmpty.transId=transId不允许空
+NotNull.transId=transId不允许NULL
+NotEmpty.partnerCode=partnerCode不允许空
+NotNull.partnerCode=partnerCode不允许NULL
+NotEmpty.operationCode=operationCode不允许空
+NotNull.operationCode=operationCode不允许空
+NotNull.cityCode=城市代码cityCode不允许空
+NotNull.transferFlag=transferFlag不允许空
+NotNull.provCode=provCode不允许空
+NotNull.noLicenseFlag=noLicenseFlag不允许空
+</code></pre>
+
+<p>加入@Validated，就大工搞成了</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#177500">/**
+</span><span style="color:#177500"> * @Description 车险标准接口Controller
+</span><span style="color:#177500"> * @Author daobin&lt;wdb@winbaoxian.com&gt;
+</span><span style="color:#177500"> * @Date 2017/6/26.
+</span><span style="color:#177500"> */</span>
+<span style="color:#000">@RestController</span>
+<span style="color:#000">@RequestMapping</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;carInsure&#34;</span><span style="color:#000">)</span>
+<span style="color:#a90d91">public</span> <span style="color:#a90d91">class</span> <span style="color:#3f6e75">StandardCarController</span> <span style="color:#000">{</span>
+
+    <span style="color:#a90d91">private</span> <span style="color:#a90d91">static</span> <span style="color:#000">Logger</span> <span style="color:#000">logger</span> <span style="color:#000">=</span> <span style="color:#000">LoggerFactory</span><span style="color:#000">.</span><span style="color:#836c28">getLogger</span><span style="color:#000">(</span><span style="color:#000">StandardCarController</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">);</span>
+
+
+    <span style="color:#000">@Autowired</span>
+    <span style="color:#a90d91">protected</span> <span style="color:#000">MongoTemplate</span> <span style="color:#000">mongoTemplate</span><span style="color:#000">;</span>
+
+    <span style="color:#000">@Autowired</span>
+    <span style="color:#a90d91">protected</span> <span style="color:#000">InsuranceRecordService</span> <span style="color:#000">insuranceRecordService</span><span style="color:#000">;</span>
+
+    <span style="color:#000">@Autowired</span>
+    <span style="color:#a90d91">private</span> <span style="color:#000">InsuranceSvcBeanRoutingService</span> <span style="color:#000">routeService</span><span style="color:#000">;</span>
+
+
+    <span style="color:#177500">/**
+</span><span style="color:#177500">     * 车险标准入口
+</span><span style="color:#177500">     *
+</span><span style="color:#177500">     * @param params
+</span><span style="color:#177500">     * @param partnerCode
+</span><span style="color:#177500">     * @return
+</span><span style="color:#177500">     */</span>
+    <span style="color:#000">@RequestMapping</span><span style="color:#000">(</span><span style="color:#000">value</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#34;autoQuote&#34;</span><span style="color:#000">,</span> <span style="color:#000">method</span> <span style="color:#000">=</span> <span style="color:#000">RequestMethod</span><span style="color:#000">.</span><span style="color:#836c28">POST</span><span style="color:#000">)</span>
+    <span style="color:#000">@ResponseBody</span>
+    <span style="color:#a90d91">public</span> <span style="color:#000">RestResponse</span><span style="color:#000">&lt;</span><span style="color:#000">CarMultiRespWrapper</span><span style="color:#000">&gt;</span> <span style="color:#000">autoQuote</span><span style="color:#000">(</span><span style="color:#000">@RequestParam</span> <span style="color:#000">String</span> <span style="color:#000">params</span><span style="color:#000">,</span> <span style="color:#000">@RequestParam</span> <span style="color:#000">String</span> <span style="color:#000">partnerCode</span><span style="color:#000">)</span> <span style="color:#a90d91">throws</span> <span style="color:#000">Exception</span> <span style="color:#000">{</span>
+
+        <span style="color:#000">String</span> <span style="color:#000">prodCode</span> <span style="color:#000">=</span> <span style="color:#000">CarConstants</span><span style="color:#000">.</span><span style="color:#836c28">CAR_PROD_CODE</span><span style="color:#000">;</span>
+
+        <span style="color:#000">CarRequestBean</span> <span style="color:#000">request</span> <span style="color:#000">=</span> <span style="color:#000">JSON</span><span style="color:#000">.</span><span style="color:#836c28">parseObject</span><span style="color:#000">(</span><span style="color:#000">JsonLibUtil</span><span style="color:#000">.</span><span style="color:#836c28">removeUndefinedKey</span><span style="color:#000">(</span><span style="color:#000">params</span><span style="color:#000">),</span> <span style="color:#000">CarRequestBean</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">);</span>
+
+        <span style="color:#000">Integer</span> <span style="color:#000">operationCode</span> <span style="color:#000">=</span> <span style="color:#000">request</span><span style="color:#000">.</span><span style="color:#836c28">getChannelInfo</span><span style="color:#000">().</span><span style="color:#836c28">getOperationCode</span><span style="color:#000">();</span>
+        <span style="color:#000">String</span> <span style="color:#000">serialNo</span> <span style="color:#000">=</span> <span style="color:#000">SerialNoUtil</span><span style="color:#000">.</span><span style="color:#836c28">createInsuranceSerialNo</span><span style="color:#000">(</span><span style="color:#000">partnerCode</span><span style="color:#000">);</span>
+
+        <span style="color:#000">CarMultiInsureService</span> <span style="color:#000">service</span> <span style="color:#000">=</span> <span style="color:#000">InsureServiceFactory</span><span style="color:#000">.</span><span style="color:#836c28">INSTANCE</span><span style="color:#000">.</span><span style="color:#836c28">getCarMultiInsureService</span><span style="color:#000">(</span><span style="color:#000">prodCode</span><span style="color:#000">,</span> <span style="color:#000">routeService</span><span style="color:#000">.</span><span style="color:#836c28">getInsuranceSvcBeanGroupId</span><span style="color:#000">(</span><span style="color:#000">prodCode</span><span style="color:#000">,</span> <span style="color:#000">operationCode</span><span style="color:#000">),</span> <span style="color:#000">serialNo</span><span style="color:#000">);</span>
+
+        <span style="color:#a90d91">if</span> <span style="color:#000">(</span><span style="color:#000">service</span> <span style="color:#000">==</span> <span style="color:#a90d91">null</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+            <span style="color:#a90d91">throw</span> <span style="color:#a90d91">new</span> <span style="color:#000">InsureCustomException</span><span style="color:#000">(</span><span style="color:#000">CarConstants</span><span style="color:#000">.</span><span style="color:#836c28">RET_MSG_INVALID_PRODCODE</span><span style="color:#000">);</span>
+        <span style="color:#000">}</span>
+
+        <span style="color:#177500">// 投保前校验
+</span><span style="color:#177500"></span>        <span style="color:#000">ParameterValidateResult</span> <span style="color:#000">parameterValidateResult</span> <span style="color:#000">=</span> <span style="color:#000">service</span><span style="color:#000">.</span><span style="color:#836c28">verifyParams</span><span style="color:#000">(</span><span style="color:#000">request</span><span style="color:#000">);</span>
+        <span style="color:#a90d91">if</span> <span style="color:#000">(!</span><span style="color:#000">parameterValidateResult</span><span style="color:#000">.</span><span style="color:#836c28">isValidate</span><span style="color:#000">())</span> <span style="color:#000">{</span>
+            <span style="color:#a90d91">throw</span> <span style="color:#a90d91">new</span> <span style="color:#000">InsureCustomException</span><span style="color:#000">(</span><span style="color:#000">parameterValidateResult</span><span style="color:#000">.</span><span style="color:#836c28">getResultMsg</span><span style="color:#000">());</span>
+        <span style="color:#000">}</span>
+
+        <span style="color:#177500">// 初始化投保上下文
+</span><span style="color:#177500"></span>        <span style="color:#000">InsuranceContext</span> <span style="color:#000">insuranceContext</span> <span style="color:#000">=</span> <span style="color:#000">InsuranceContextFactory</span><span style="color:#000">.</span><span style="color:#836c28">getCarMultiPriceContext</span><span style="color:#000">(</span><span style="color:#000">partnerCode</span><span style="color:#000">,</span> <span style="color:#000">serialNo</span><span style="color:#000">,</span> <span style="color:#000">operationCode</span><span style="color:#000">,</span> <span style="color:#000">prodCode</span><span style="color:#000">,</span> <span style="color:#000">params</span><span style="color:#000">,</span> <span style="color:#a90d91">new</span> <span style="color:#000">Date</span><span style="color:#000">());</span>
+        <span style="color:#177500">// 车险投保
+</span><span style="color:#177500"></span>        <span style="color:#000">CarMultiRespWrapper</span> <span style="color:#000">carMultiRespWrapper</span> <span style="color:#000">=</span> <span style="color:#000">service</span><span style="color:#000">.</span><span style="color:#836c28">doInsure</span><span style="color:#000">(</span><span style="color:#000">request</span><span style="color:#000">,</span> <span style="color:#000">insuranceContext</span><span style="color:#000">);</span>
+
+        <span style="color:#a90d91">if</span> <span style="color:#000">(</span><span style="color:#000">insuranceContext</span> <span style="color:#000">!=</span> <span style="color:#a90d91">null</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+            <span style="color:#000">insuranceContext</span><span style="color:#000">.</span><span style="color:#836c28">getInsuranceAnalyzer</span><span style="color:#000">().</span><span style="color:#836c28">setRequestEndTime</span><span style="color:#000">(</span><span style="color:#a90d91">new</span> <span style="color:#000">Date</span><span style="color:#000">());</span>
+            <span style="color:#a90d91">this</span><span style="color:#000">.</span><span style="color:#836c28">insuranceRecordService</span><span style="color:#000">.</span><span style="color:#836c28">saveInsureDatagram</span><span style="color:#000">(</span><span style="color:#000">insuranceContext</span><span style="color:#000">);</span>
+        <span style="color:#000">}</span>
+        <span style="color:#a90d91">return</span> <span style="color:#000">RestFulUtil</span><span style="color:#000">.</span><span style="color:#836c28">toCarSuccessResponse</span><span style="color:#000">(</span><span style="color:#000">carMultiRespWrapper</span><span style="color:#000">);</span>
+    <span style="color:#000">}</span>
+<span style="color:#000">}</span></code></pre></div>
+<p>加入@Validated，就大工搞成了</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#177500">/**
+</span><span style="color:#177500"> * @Description 车险标准接口Controller
+</span><span style="color:#177500"> * @Author daobin&lt;wdb@winbaoxian.com&gt;
+</span><span style="color:#177500"> * @Date 2017/6/26.
+</span><span style="color:#177500"> */</span>
+<span style="color:#000">@RestController</span>
+<span style="color:#000">@RequestMapping</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;carInsure&#34;</span><span style="color:#000">)</span>
+<span style="color:#a90d91">public</span> <span style="color:#a90d91">class</span> <span style="color:#3f6e75">StandardCarController</span> <span style="color:#000">{</span>
+
+    <span style="color:#a90d91">private</span> <span style="color:#a90d91">static</span> <span style="color:#000">Logger</span> <span style="color:#000">logger</span> <span style="color:#000">=</span> <span style="color:#000">LoggerFactory</span><span style="color:#000">.</span><span style="color:#836c28">getLogger</span><span style="color:#000">(</span><span style="color:#000">StandardCarController</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">);</span>
+
+
+    <span style="color:#000">@Autowired</span>
+    <span style="color:#a90d91">protected</span> <span style="color:#000">MongoTemplate</span> <span style="color:#000">mongoTemplate</span><span style="color:#000">;</span>
+
+    <span style="color:#000">@Autowired</span>
+    <span style="color:#a90d91">protected</span> <span style="color:#000">InsuranceRecordService</span> <span style="color:#000">insuranceRecordService</span><span style="color:#000">;</span>
+
+    <span style="color:#000">@Autowired</span>
+    <span style="color:#a90d91">private</span> <span style="color:#000">InsuranceSvcBeanRoutingService</span> <span style="color:#000">routeService</span><span style="color:#000">;</span>
+
+
+    <span style="color:#177500">/**
+</span><span style="color:#177500">     * 车险标准入口
+</span><span style="color:#177500">     *
+</span><span style="color:#177500">     * @param params
+</span><span style="color:#177500">     * @param partnerCode
+</span><span style="color:#177500">     * @return
+</span><span style="color:#177500">     */</span>
+    <span style="color:#000">@RequestMapping</span><span style="color:#000">(</span><span style="color:#000">value</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#34;autoQuote&#34;</span><span style="color:#000">,</span> <span style="color:#000">method</span> <span style="color:#000">=</span> <span style="color:#000">RequestMethod</span><span style="color:#000">.</span><span style="color:#836c28">POST</span><span style="color:#000">)</span>
+    <span style="color:#000">@ResponseBody</span>
+    <span style="color:#a90d91">public</span> <span style="color:#000">RestResponse</span><span style="color:#000">&lt;</span><span style="color:#000">CarMultiRespWrapper</span><span style="color:#000">&gt;</span> <span style="color:#000">autoQuote</span><span style="color:#000">(</span><span style="color:#000">@RequestParam</span> <span style="color:#000">String</span> <span style="color:#000">params</span><span style="color:#000">,</span> <span style="color:#000">@RequestParam</span> <span style="color:#000">String</span> <span style="color:#000">partnerCode</span><span style="color:#000">)</span> <span style="color:#a90d91">throws</span> <span style="color:#000">Exception</span> <span style="color:#000">{</span>
+
+        <span style="color:#000">String</span> <span style="color:#000">prodCode</span> <span style="color:#000">=</span> <span style="color:#000">CarConstants</span><span style="color:#000">.</span><span style="color:#836c28">CAR_PROD_CODE</span><span style="color:#000">;</span>
+
+        <span style="color:#000">CarRequestBean</span> <span style="color:#000">request</span> <span style="color:#000">=</span> <span style="color:#000">JSON</span><span style="color:#000">.</span><span style="color:#836c28">parseObject</span><span style="color:#000">(</span><span style="color:#000">JsonLibUtil</span><span style="color:#000">.</span><span style="color:#836c28">removeUndefinedKey</span><span style="color:#000">(</span><span style="color:#000">params</span><span style="color:#000">),</span> <span style="color:#000">CarRequestBean</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">);</span>
+
+        <span style="color:#000">Integer</span> <span style="color:#000">operationCode</span> <span style="color:#000">=</span> <span style="color:#000">request</span><span style="color:#000">.</span><span style="color:#836c28">getChannelInfo</span><span style="color:#000">().</span><span style="color:#836c28">getOperationCode</span><span style="color:#000">();</span>
+        <span style="color:#000">String</span> <span style="color:#000">serialNo</span> <span style="color:#000">=</span> <span style="color:#000">SerialNoUtil</span><span style="color:#000">.</span><span style="color:#836c28">createInsuranceSerialNo</span><span style="color:#000">(</span><span style="color:#000">partnerCode</span><span style="color:#000">);</span>
+
+        <span style="color:#000">CarMultiInsureService</span> <span style="color:#000">service</span> <span style="color:#000">=</span> <span style="color:#000">InsureServiceFactory</span><span style="color:#000">.</span><span style="color:#836c28">INSTANCE</span><span style="color:#000">.</span><span style="color:#836c28">getCarMultiInsureService</span><span style="color:#000">(</span><span style="color:#000">prodCode</span><span style="color:#000">,</span> <span style="color:#000">routeService</span><span style="color:#000">.</span><span style="color:#836c28">getInsuranceSvcBeanGroupId</span><span style="color:#000">(</span><span style="color:#000">prodCode</span><span style="color:#000">,</span> <span style="color:#000">operationCode</span><span style="color:#000">),</span> <span style="color:#000">serialNo</span><span style="color:#000">);</span>
+
+        <span style="color:#a90d91">if</span> <span style="color:#000">(</span><span style="color:#000">service</span> <span style="color:#000">==</span> <span style="color:#a90d91">null</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+            <span style="color:#a90d91">throw</span> <span style="color:#a90d91">new</span> <span style="color:#000">InsureCustomException</span><span style="color:#000">(</span><span style="color:#000">CarConstants</span><span style="color:#000">.</span><span style="color:#836c28">RET_MSG_INVALID_PRODCODE</span><span style="color:#000">);</span>
+        <span style="color:#000">}</span>
+
+        <span style="color:#177500">// 投保前校验
+</span><span style="color:#177500"></span>        <span style="color:#000">ParameterValidateResult</span> <span style="color:#000">parameterValidateResult</span> <span style="color:#000">=</span> <span style="color:#000">service</span><span style="color:#000">.</span><span style="color:#836c28">verifyParams</span><span style="color:#000">(</span><span style="color:#000">request</span><span style="color:#000">);</span>
+        <span style="color:#a90d91">if</span> <span style="color:#000">(!</span><span style="color:#000">parameterValidateResult</span><span style="color:#000">.</span><span style="color:#836c28">isValidate</span><span style="color:#000">())</span> <span style="color:#000">{</span>
+            <span style="color:#a90d91">throw</span> <span style="color:#a90d91">new</span> <span style="color:#000">InsureCustomException</span><span style="color:#000">(</span><span style="color:#000">parameterValidateResult</span><span style="color:#000">.</span><span style="color:#836c28">getResultMsg</span><span style="color:#000">());</span>
+        <span style="color:#000">}</span>
+
+        <span style="color:#177500">// 初始化投保上下文
+</span><span style="color:#177500"></span>        <span style="color:#000">InsuranceContext</span> <span style="color:#000">insuranceContext</span> <span style="color:#000">=</span> <span style="color:#000">InsuranceContextFactory</span><span style="color:#000">.</span><span style="color:#836c28">getCarMultiPriceContext</span><span style="color:#000">(</span><span style="color:#000">partnerCode</span><span style="color:#000">,</span> <span style="color:#000">serialNo</span><span style="color:#000">,</span> <span style="color:#000">operationCode</span><span style="color:#000">,</span> <span style="color:#000">prodCode</span><span style="color:#000">,</span> <span style="color:#000">params</span><span style="color:#000">,</span> <span style="color:#a90d91">new</span> <span style="color:#000">Date</span><span style="color:#000">());</span>
+        <span style="color:#177500">// 车险投保
+</span><span style="color:#177500"></span>        <span style="color:#000">CarMultiRespWrapper</span> <span style="color:#000">carMultiRespWrapper</span> <span style="color:#000">=</span> <span style="color:#000">service</span><span style="color:#000">.</span><span style="color:#836c28">doInsure</span><span style="color:#000">(</span><span style="color:#000">request</span><span style="color:#000">,</span> <span style="color:#000">insuranceContext</span><span style="color:#000">);</span>
+
+        <span style="color:#a90d91">if</span> <span style="color:#000">(</span><span style="color:#000">insuranceContext</span> <span style="color:#000">!=</span> <span style="color:#a90d91">null</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+            <span style="color:#000">insuranceContext</span><span style="color:#000">.</span><span style="color:#836c28">getInsuranceAnalyzer</span><span style="color:#000">().</span><span style="color:#836c28">setRequestEndTime</span><span style="color:#000">(</span><span style="color:#a90d91">new</span> <span style="color:#000">Date</span><span style="color:#000">());</span>
+            <span style="color:#a90d91">this</span><span style="color:#000">.</span><span style="color:#836c28">insuranceRecordService</span><span style="color:#000">.</span><span style="color:#836c28">saveInsureDatagram</span><span style="color:#000">(</span><span style="color:#000">insuranceContext</span><span style="color:#000">);</span>
+        <span style="color:#000">}</span>
+        <span style="color:#a90d91">return</span> <span style="color:#000">RestFulUtil</span><span style="color:#000">.</span><span style="color:#836c28">toCarSuccessResponse</span><span style="color:#000">(</span><span style="color:#000">carMultiRespWrapper</span><span style="color:#000">);</span>
+    <span style="color:#000">}</span>
+<span style="color:#000">}</span></code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-JAVA" data-lang="JAVA"><span style="color:#000">@Validated</span>
+<span style="color:#a90d91">public</span> <span style="color:#a90d91">interface</span> <span style="color:#3f6e75">CarMultiInsureService</span> <span style="color:#000">{</span>
+
+    <span style="color:#000">ParameterValidateResult</span> <span style="color:#000">verifyParams</span><span style="color:#000">(</span><span style="color:#000">CarRequestBean</span> <span style="color:#000">requestBean</span><span style="color:#000">);</span>
+
+    <span style="color:#000">@Validated</span><span style="color:#000">({</span><span style="color:#000">GroupDefault</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">})</span>
+    <span style="color:#000">CarMultiRespWrapper</span> <span style="color:#000">doInsure</span><span style="color:#000">(</span><span style="color:#000">@Valid</span> <span style="color:#000">CarRequestBean</span> <span style="color:#000">requestBean</span><span style="color:#000">,</span> <span style="color:#000">InsuranceContext</span> <span style="color:#000">insuranceContext</span><span style="color:#000">);</span>
+<span style="color:#000">}</span></code></pre></div>
+<p>方便处理校验不通过异常ConstraintViolation，写了个RestFulUtil类处理</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#177500">/**
+</span><span style="color:#177500"> * @Description
+</span><span style="color:#177500"> * @Author daobin&lt;wdb@winbaoxian.com&gt;
+</span><span style="color:#177500"> * @Date 2017/7/5.
+</span><span style="color:#177500"> */</span>
+<span style="color:#a90d91">public</span> <span style="color:#a90d91">class</span> <span style="color:#3f6e75">RestFulUtil</span> <span style="color:#000">{</span>
+    <span style="color:#a90d91">public</span> <span style="color:#a90d91">static</span> <span style="color:#000">&lt;</span><span style="color:#000">T</span><span style="color:#000">&gt;</span> <span style="color:#000">RestResponse</span><span style="color:#000">&lt;</span><span style="color:#000">T</span><span style="color:#000">&gt;</span> <span style="color:#000">toCarSuccessResponse</span><span style="color:#000">(</span><span style="color:#000">CarMultiRespWrapper</span> <span style="color:#000">carMultiRespWrapper</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+        <span style="color:#000">RestResponse</span><span style="color:#000">.</span><span style="color:#836c28">Builder</span> <span style="color:#000">builder</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">RestResponse</span><span style="color:#000">.</span><span style="color:#836c28">Builder</span><span style="color:#000">();</span>
+        <span style="color:#000">builder</span><span style="color:#000">.</span><span style="color:#836c28">setStatus</span><span style="color:#000">(</span><span style="color:#000">HttpStatus</span><span style="color:#000">.</span><span style="color:#836c28">OK</span><span style="color:#000">.</span><span style="color:#836c28">value</span><span style="color:#000">());</span>
+        <span style="color:#000">builder</span><span style="color:#000">.</span><span style="color:#836c28">setCode</span><span style="color:#000">(</span><span style="color:#000">Constants</span><span style="color:#000">.</span><span style="color:#836c28">CAR_INSURE_SUCCEED</span><span style="color:#000">.</span><span style="color:#836c28">intValue</span><span style="color:#000">());</span>
+        <span style="color:#000">builder</span><span style="color:#000">.</span><span style="color:#836c28">setMessage</span><span style="color:#000">(</span><span style="color:#000">CarConstants</span><span style="color:#000">.</span><span style="color:#836c28">CAR_MSG_INSURE_SUCCESS</span><span style="color:#000">);</span>
+        <span style="color:#000">builder</span><span style="color:#000">.</span><span style="color:#836c28">setMessageDetail</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;&#34;</span><span style="color:#000">);</span>
+
+        <span style="color:#a90d91">if</span> <span style="color:#000">(</span><span style="color:#000">carMultiRespWrapper</span> <span style="color:#000">!=</span> <span style="color:#a90d91">null</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+            <span style="color:#000">builder</span><span style="color:#000">.</span><span style="color:#836c28">setData</span><span style="color:#000">(</span><span style="color:#000">carMultiRespWrapper</span><span style="color:#000">);</span>
+        <span style="color:#000">}</span>
+        <span style="color:#a90d91">return</span> <span style="color:#000">builder</span><span style="color:#000">.</span><span style="color:#836c28">build</span><span style="color:#000">();</span>
+    <span style="color:#000">}</span>
+
+    <span style="color:#a90d91">public</span> <span style="color:#a90d91">static</span> <span style="color:#000">String</span> <span style="color:#000">getConstraintViolationExMsg</span><span style="color:#000">(</span><span style="color:#000">ConstraintViolationException</span> <span style="color:#000">ex</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+        <span style="color:#000">List</span><span style="color:#000">&lt;</span><span style="color:#000">FieldError</span><span style="color:#000">&gt;</span> <span style="color:#000">errors</span> <span style="color:#000">=</span> <span style="color:#000">FieldError</span><span style="color:#000">.</span><span style="color:#836c28">getErrors</span><span style="color:#000">(</span><span style="color:#000">ex</span><span style="color:#000">.</span><span style="color:#836c28">getConstraintViolations</span><span style="color:#000">());</span>
+        <span style="color:#000">String</span> <span style="color:#000">errorMsg</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#34;&#34;</span><span style="color:#000">;</span>
+        <span style="color:#a90d91">for</span> <span style="color:#000">(</span><span style="color:#000">FieldError</span> <span style="color:#000">error</span> <span style="color:#000">:</span> <span style="color:#000">errors</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+            <span style="color:#000">errorMsg</span> <span style="color:#000">+=</span> <span style="color:#000">error</span><span style="color:#000">.</span><span style="color:#836c28">getMessage</span><span style="color:#000">()</span> <span style="color:#000">+</span> <span style="color:#c41a16">&#34;;&#34;</span><span style="color:#000">;</span>
+        <span style="color:#000">}</span>
+        <span style="color:#a90d91">return</span> <span style="color:#000">errorMsg</span><span style="color:#000">;</span>
+    <span style="color:#000">}</span>
+<span style="color:#000">}</span></code></pre></div><div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#177500">/**
+</span><span style="color:#177500"> * @Description
+</span><span style="color:#177500"> * @Author daobin&lt;wdb@winbaoxian.com&gt;
+</span><span style="color:#177500"> * @Date 2017/3/23.
+</span><span style="color:#177500"> */</span>
+<span style="color:#a90d91">public</span> <span style="color:#a90d91">class</span> <span style="color:#3f6e75">FieldError</span> <span style="color:#000">{</span>
+    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">field</span><span style="color:#000">;</span>
+    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">code</span><span style="color:#000">;</span>
+    <span style="color:#a90d91">private</span> <span style="color:#000">String</span> <span style="color:#000">message</span><span style="color:#000">;</span>
+
+    <span style="color:#177500">// Getter Setter Method
+</span><span style="color:#177500"></span>
+    <span style="color:#a90d91">public</span> <span style="color:#a90d91">static</span> <span style="color:#000">List</span><span style="color:#000">&lt;</span><span style="color:#000">FieldError</span><span style="color:#000">&gt;</span> <span style="color:#000">getErrors</span><span style="color:#000">(</span><span style="color:#000">Set</span><span style="color:#000">&lt;</span><span style="color:#000">ConstraintViolation</span><span style="color:#000">&lt;?&gt;&gt;</span> <span style="color:#000">constraintViolations</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+        <span style="color:#000">List</span><span style="color:#000">&lt;</span><span style="color:#000">FieldError</span><span style="color:#000">&gt;</span> <span style="color:#000">list</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">ArrayList</span><span style="color:#000">&lt;&gt;();</span>
+        <span style="color:#a90d91">for</span><span style="color:#000">(</span><span style="color:#000">ConstraintViolation</span><span style="color:#000">&lt;?&gt;</span> <span style="color:#000">constraintViolation</span> <span style="color:#000">:</span> <span style="color:#000">constraintViolations</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+            <span style="color:#000">list</span><span style="color:#000">.</span><span style="color:#836c28">add</span><span style="color:#000">(</span><span style="color:#000">of</span><span style="color:#000">(</span><span style="color:#000">constraintViolation</span><span style="color:#000">));</span>
+        <span style="color:#000">}</span>
+        <span style="color:#a90d91">return</span> <span style="color:#000">list</span><span style="color:#000">;</span>
+    <span style="color:#000">}</span>
+
+    <span style="color:#a90d91">private</span> <span style="color:#a90d91">static</span> <span style="color:#000">FieldError</span> <span style="color:#000">of</span><span style="color:#000">(</span><span style="color:#000">ConstraintViolation</span><span style="color:#000">&lt;?&gt;</span> <span style="color:#000">constraintViolation</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+        <span style="color:#000">String</span> <span style="color:#000">field</span> <span style="color:#000">=</span> <span style="color:#000">StringUtils</span><span style="color:#000">.</span><span style="color:#836c28">substringAfter</span><span style="color:#000">(</span><span style="color:#000">constraintViolation</span><span style="color:#000">.</span><span style="color:#836c28">getPropertyPath</span><span style="color:#000">().</span><span style="color:#836c28">toString</span><span style="color:#000">(),</span> <span style="color:#c41a16">&#34;.&#34;</span><span style="color:#000">);</span>
+        <span style="color:#a90d91">return</span> <span style="color:#a90d91">new</span> <span style="color:#000">FieldError</span><span style="color:#000">(</span><span style="color:#000">field</span><span style="color:#000">,</span> <span style="color:#000">constraintViolation</span><span style="color:#000">.</span><span style="color:#836c28">getMessageTemplate</span><span style="color:#000">(),</span> <span style="color:#000">constraintViolation</span><span style="color:#000">.</span><span style="color:#836c28">getMessage</span><span style="color:#000">());</span>
+    <span style="color:#000">}</span>
+<span style="color:#000">}</span></code></pre></div>
+<p>至此，Spring Validation 搞定，增减前置参数校验 只需要在Model加减注解即可。</p>
+
+<p>参考 :</p>
+
+<p>（原文）<a href="http://daobin.wang/2017/06/Spring-Validation/">http://daobin.wang/2017/06/Spring-Validation/</a><br />
+<a href="https://www.jianshu.com/p/cbaee928a2f7">https://www.jianshu.com/p/cbaee928a2f7</a></p>
+</div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#校验及示例">校验及示例</a></li>
+<li><a href="#解释和说明">解释和说明</a>
+<ul>
+<li><a href="#必要性">必要性</a></li>
+<li><a href="#如何校验">如何校验</a>
+<ul>
+<li><a href="#引入maven依赖">引入Maven依赖</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

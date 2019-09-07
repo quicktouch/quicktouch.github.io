@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>py3语法(一) |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> py3语法(一) </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#python%E7%8E%A9%E6%B3%95'>python%E7%8E%A9%E6%B3%95</a></span>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2018-01-12T17:24:01.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2018-01-12
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<h2 id="mac-安装python3">mac 安装python3</h2>
+
+<pre><code>brew install python3
+</code></pre>
+
+<p>安装完成后:命令<code>python3</code>就是使用python3.x版本,<code>python</code>就是使用<code>python 2.x</code>版本。也可以直接使用命令<code>IDLE</code>。</p>
+
+<h2 id="数据类型">数据类型</h2>
+
+<p>整数/浮点数/字符串/布尔值/空值
+变量/常量</p>
+
+<h3 id="字符串">字符串:</h3>
+
+<p>如果字符串内部既包含<code>'</code>又包含<code>&quot;</code>怎么办？可以用转义字符<code>\</code>来标识，比如：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000">&gt;&gt;&gt;</span> <span style="color:#a90d91">print</span>(<span style="color:#c41a16">&#34;i&#39;m ok&#34;</span>)
+<span style="color:#000">i</span><span style="color:#c41a16">&#39;m ok</span></code></pre></div>
+<p>为了简化，Python还允许用r&rdquo;表示&rdquo;内部的字符串默认不转义：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000">&gt;&gt;&gt;</span> <span style="color:#a90d91">print</span>(<span style="color:#c41a16">&#39;i </span><span style="color:#c41a16">\&#39;</span><span style="color:#c41a16">m&#39;</span>)
+<span style="color:#000">i</span> <span style="color:#c41a16">&#39;m</span><span style="color:#000">
+</span><span style="color:#000"></span><span style="color:#c41a16">&gt;&gt;&gt; print(r&#39;</span><span style="color:#000">i</span> \<span style="color:#c41a16">&#39;m&#39;</span>)
+<span style="color:#000">i</span> \<span style="color:#c41a16">&#39;m</span></code></pre></div>
+<p>多行内容:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000">&gt;&gt;&gt;</span> <span style="color:#a90d91">print</span>(<span style="color:#c41a16">&#39;&#39;&#39; line1
+</span><span style="color:#c41a16">... line2
+</span><span style="color:#c41a16">... line3
+</span><span style="color:#c41a16">... &#39;&#39;&#39;</span>);
+ <span style="color:#000">line1</span>
+<span style="color:#000">line2</span>
+<span style="color:#000">line3</span></code></pre></div>
+<h3 id="bool">BOOL</h3>
+
+<p>在Python中，可以直接用<code>True</code>、<code>False</code>表示布尔值.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000">&gt;&gt;&gt;</span> <span style="color:#5b269a">True</span>
+<span style="color:#5b269a">True</span>
+<span style="color:#000">&gt;&gt;&gt;</span> <span style="color:#5b269a">False</span>
+<span style="color:#5b269a">False</span>
+<span style="color:#000">&gt;&gt;&gt;</span> <span style="color:#1c01ce">3</span> <span style="color:#000">&gt;</span> <span style="color:#1c01ce">2</span>
+<span style="color:#5b269a">True</span>
+<span style="color:#000">&gt;&gt;&gt;</span> <span style="color:#1c01ce">3</span> <span style="color:#000">&gt;</span> <span style="color:#1c01ce">5</span>
+<span style="color:#5b269a">False</span></code></pre></div>
+<p>布尔值可以用and(与)、or(或)和not(非)运算。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000">&gt;&gt;&gt;</span> <span style="color:#000">not</span> <span style="color:#5b269a">True</span>
+<span style="color:#5b269a">False</span>
+<span style="color:#000">&gt;&gt;&gt;</span> <span style="color:#000">not</span> <span style="color:#5b269a">False</span>
+<span style="color:#5b269a">True</span>
+<span style="color:#000">&gt;&gt;&gt;</span> <span style="color:#000">not</span> <span style="color:#1c01ce">1</span> <span style="color:#000">&gt;</span> <span style="color:#1c01ce">2</span>
+<span style="color:#5b269a">True</span></code></pre></div>
+<!--https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431658624177ea4f8fcb06bc4d0e8aab2fd7aa65dd95000-->
+
+<h3 id="空值">空值</h3>
+
+<p>空值是Python里一个特殊的值，用<code>None</code>表示。None不能理解为0，因为0是有意义的，而None是一个特殊的空值。</p>
+
+<h2 id="变量">变量</h2>
+
+<p>变量名必须是大小写英文、数字和_的组合，且不能用数字开头。</p>
+
+<pre><code>a = 'ABCDEFG'
+</code></pre>
+
+<h2 id="常量">常量</h2>
+
+<p>所谓常量就是不能变的变量，比如常用的数学常数π就是一个常量。在Python中，通常用全部大写的变量名表示常量：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-Python" data-lang="Python"><span style="color:#000">PI</span> <span style="color:#000">=</span> <span style="color:#1c01ce">3.1415926</span></code></pre></div>
+<p>但事实上PI仍然是一个变量，Python根本没有任何机制保证PI不会被改变，所以，用全部大写的变量名表示常量只是一个习惯上的用法，如果你一定要改变变量PI的值，也没人能拦住你。</p>
+
+<p>最后解释一下整数的除法为什么也是精确的。在Python中，有两种除法，一种除法是/：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000">&gt;&gt;&gt;</span> <span style="color:#1c01ce">10</span> <span style="color:#000">/</span> <span style="color:#1c01ce">3</span>
+<span style="color:#1c01ce">3.3333333333333335</span></code></pre></div>
+<p><code>/</code>除法计算结果是浮点数，即使是两个整数恰好整除，结果也是浮点数：</p>
+
+<pre><code>&gt;&gt;&gt; 9 / 3
+3.0
+</code></pre>
+
+<h2 id="list">list</h2>
+
+<p>list是Python内置的列表.</p>
+
+<p><code>len()</code>函数可以获取list元素的个数。</p>
+
+<p><code>myList[n]</code>:可以访问对应下标的元素,需要注意不要越界。</p>
+
+<p><code>mylist[-1]</code>: 下标为-1时,可以获取到最后一个元素。</p>
+
+<p><code>mylist.appned(xx)</code>:使用<code>append()</code>添加元素。</p>
+
+<p><code>mylist.insert(1,'jack')</code>:使用<code>insert</code>插入元素到指定的位置。</p>
+
+<p><code>mylist.pop()</code>:删除末尾元素</p>
+
+<p><code>mylist.pop(i)</code>:删除指定索引位置的元素</p>
+
+<p><code>mylist[i] = 'Sara'</code>:某个元素替换成别的元素,可以直接赋值给索引位置</p>
+
+<p><code>L = ['Apple',123, True, [1,2,3]]</code>:数组元素类型可以不同</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000">&gt;&gt;&gt;</span> <span style="color:#000">classmates</span> <span style="color:#000">=</span> [<span style="color:#c41a16">&#39;a&#39;</span>,<span style="color:#c41a16">&#39;b&#39;</span>,<span style="color:#c41a16">&#39;c&#39;</span>]
+<span style="color:#000">&gt;&gt;&gt;</span> <span style="color:#000">classmates</span>
+[<span style="color:#c41a16">&#39;a&#39;</span>, <span style="color:#c41a16">&#39;b&#39;</span>, <span style="color:#c41a16">&#39;c&#39;</span>]
+<span style="color:#000">&gt;&gt;&gt;</span> <span style="color:#a90d91">len</span>(<span style="color:#000">classmates</span>)
+<span style="color:#1c01ce">3</span>
+<span style="color:#000">&gt;&gt;&gt;</span> <span style="color:#000">classmates</span>[<span style="color:#1c01ce">0</span>]
+<span style="color:#c41a16">&#39;a&#39;</span>
+<span style="color:#000">&gt;&gt;&gt;</span> <span style="color:#000">classmates</span>[<span style="color:#000">-</span><span style="color:#1c01ce">1</span>]
+<span style="color:#c41a16">&#39;c&#39;</span></code></pre></div>
+<h2 id="tuple">tuple</h2>
+
+<p>元组一旦初始化就不能修改</p>
+
+<pre><code>&gt;&gt;&gt; cs = ('Mic','Bob', 'Tyc')
+&gt;&gt;&gt; cs2 = (1,) #声明一个元素的元组
+</code></pre>
+
+<p>&ldquo;可变&rdquo;的一种情况:</p>
+
+<pre><code>&gt;&gt;&gt; t = ('a', 'b', ['A', 'B'])
+&gt;&gt;&gt; t[2][0] = 'X'
+&gt;&gt;&gt; t[2][1] = 'Y'
+&gt;&gt;&gt; t
+('a', 'b', ['X', 'Y'])
+</code></pre>
+
+<h2 id="条件">条件</h2>
+
+<h3 id="if">if</h3>
+
+<pre><code>age = 20 
+if age &gt; 10 
+    print('xx')
+else age &gt; 100
+    print('vv')    
+else: 
+    print('ss')    
+</code></pre>
+
+<h2 id="循环">循环</h2>
+
+<h3 id="for-in">for in</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000">names</span>  <span style="color:#000">=</span> [<span style="color:#c41a16">&#39;name&#39;</span>,<span style="color:#1c01ce">2</span>,<span style="color:#1c01ce">3</span>]
+<span style="color:#a90d91">for</span> <span style="color:#000">name</span> <span style="color:#000">in</span> <span style="color:#000">names</span>:
+	<span style="color:#a90d91">print</span>(<span style="color:#000">name</span>)	</code></pre></div>
+<h3 id="range-函数可以生成队列"><code>range()</code>函数可以生成队列</h3>
+
+<pre><code>&gt;&gt;&gt; list(range(5))
+[0, 1, 2, 3, 4]
+</code></pre>
+
+<h3 id="while">while</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#a90d91">sum</span> <span style="color:#000">=</span> <span style="color:#1c01ce">0</span>
+<span style="color:#000">n</span> <span style="color:#000">=</span> <span style="color:#1c01ce">99</span>
+<span style="color:#a90d91">while</span> <span style="color:#000">n</span> <span style="color:#000">&gt;</span> <span style="color:#1c01ce">0</span>:
+    <span style="color:#a90d91">sum</span> <span style="color:#000">=</span> <span style="color:#a90d91">sum</span> <span style="color:#000">+</span> <span style="color:#000">n</span>
+    <span style="color:#000">n</span> <span style="color:#000">=</span> <span style="color:#000">n</span> <span style="color:#000">-</span> <span style="color:#1c01ce">2</span>
+<span style="color:#a90d91">print</span>(<span style="color:#a90d91">sum</span>)</code></pre></div>
+<h2 id="使用dict和set">使用dict和set</h2>
+
+<h3 id="dict-字典">dict  字典</h3>
+
+<p>dict是无序的。</p>
+
+<p>和list比较，dict有以下几个特点：</p>
+
+<blockquote>
+<p>dict
+查找和插入的速度极快，不会随着key的增加而变慢；
+需要占用大量的内存，内存浪费多。</p>
+
+<p>而list相反：
+查找和插入的时间随着元素的增加而增加；
+占用空间小，浪费内存很少。</p>
+</blockquote>
+
+<p>初始化:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000">&gt;&gt;&gt;</span> <span style="color:#000">d</span> <span style="color:#000">=</span> {<span style="color:#c41a16">&#39;Michael&#39;</span>: <span style="color:#1c01ce">95</span>, <span style="color:#c41a16">&#39;Bob&#39;</span>: <span style="color:#1c01ce">75</span>, <span style="color:#c41a16">&#39;Tracy&#39;</span>: <span style="color:#1c01ce">85</span>}
+<span style="color:#000">&gt;&gt;&gt;</span> <span style="color:#000">d</span>[<span style="color:#c41a16">&#39;Michael&#39;</span>]
+<span style="color:#1c01ce">95</span></code></pre></div>
+<p>存放(覆盖):</p>
+
+<pre><code>&gt;&gt;&gt; d['Adam'] = 67
+&gt;&gt;&gt; d['Adam']
+67
+</code></pre>
+
+<p>如果key不存在，dict就会报错。判断key是否存在:</p>
+
+<p>使用<code>in</code>:
+<code>'ss' in d</code> 会返回布尔值。</p>
+
+<p>使用<code>get</code>:</p>
+
+<p>如果key不存在，可以返回None，或者自己指定的value：</p>
+
+<pre><code>&gt;&gt;&gt; d.get('Thomas') #返回None的时候Python的交互环境不显示结果。
+&gt;&gt;&gt; d.get('Thomas', -1)
+-1
+</code></pre>
+
+<h3 id="set">set</h3>
+
+<p>set和dict类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在set中，没有重复的key。</p>
+
+<p>要创建一个set，需要提供一个list作为输入集合：</p>
+
+<pre><code>&gt;&gt;&gt; s = set([1, 2, 3])
+&gt;&gt;&gt; s
+{1, 2, 3}
+
+#重复元素在set中自动被过滤:
+&gt;&gt;&gt; s = set([1, 1, 2, 2, 3, 3])
+&gt;&gt;&gt; s
+{1, 2, 3}
+</code></pre>
+
+<p><code>add(key)</code>方法可以添加元素到set中，可以重复添加，但不会有效果：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#000">&gt;&gt;&gt;</span> <span style="color:#000">s</span><span style="color:#000">.</span><span style="color:#000">add</span>(<span style="color:#1c01ce">4</span>)
+<span style="color:#000">&gt;&gt;&gt;</span> <span style="color:#000">s</span>
+{<span style="color:#1c01ce">1</span>, <span style="color:#1c01ce">2</span>, <span style="color:#1c01ce">3</span>, <span style="color:#1c01ce">4</span>}
+<span style="color:#000">&gt;&gt;&gt;</span> <span style="color:#000">s</span><span style="color:#000">.</span><span style="color:#000">add</span>(<span style="color:#1c01ce">4</span>)
+<span style="color:#000">&gt;&gt;&gt;</span> <span style="color:#000">s</span>
+{<span style="color:#1c01ce">1</span>, <span style="color:#1c01ce">2</span>, <span style="color:#1c01ce">3</span>, <span style="color:#1c01ce">4</span>}</code></pre></div>
+<p>通过<code>remove(key)</code>方法可以删除元素：</p>
+
+<pre><code>&gt;&gt;&gt; s.remove(4)
+&gt;&gt;&gt; s
+{1, 2, 3}
+</code></pre>
+
+<p>set可以看成数学意义上的无序和无重复元素的集合，因此，两个set可以做数学意义上的交集、并集等操作：</p>
+
+<pre><code>&gt;&gt;&gt; s1 = set([1, 2, 3])
+&gt;&gt;&gt; s2 = set([2, 3, 4])
+&gt;&gt;&gt; s1 &amp; s2
+{2, 3}
+&gt;&gt;&gt; s1 | s2
+{1, 2, 3, 4}
+</code></pre>
+
+<h2 id="函数">函数</h2>
+
+<p>系统内置的函数:</p>
+
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th></th>
+<th>举例</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>abs</td>
+<td>绝对值</td>
+<td>abs(-20)得到20</td>
+</tr>
+
+<tr>
+<td>max</td>
+<td></td>
+<td>max(1,2) max(2,3,4,-1)</td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p>数据类型转换: <code>int('123')</code> 、<code>float(12.23)</code>、<code>bool(1)</code>等</p>
+
+<h3 id="定义函数">定义函数</h3>
+
+<p>使用<code>def</code>语句</p>
+
+<pre><code>def my_abs(x):
+    if x &gt;= 0:
+        return x
+    else:
+        return -x
+</code></pre>
+
+<p><code>print(my_abs(-99))</code></p>
+</div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#mac-安装python3">mac 安装python3</a></li>
+<li><a href="#数据类型">数据类型</a>
+<ul>
+<li><a href="#字符串">字符串:</a></li>
+<li><a href="#bool">BOOL</a></li>
+<li><a href="#空值">空值</a></li>
+</ul></li>
+<li><a href="#变量">变量</a></li>
+<li><a href="#常量">常量</a></li>
+<li><a href="#list">list</a></li>
+<li><a href="#tuple">tuple</a></li>
+<li><a href="#条件">条件</a>
+<ul>
+<li><a href="#if">if</a></li>
+</ul></li>
+<li><a href="#循环">循环</a>
+<ul>
+<li><a href="#for-in">for in</a></li>
+<li><a href="#range-函数可以生成队列"><code>range()</code>函数可以生成队列</a></li>
+<li><a href="#while">while</a></li>
+</ul></li>
+<li><a href="#使用dict和set">使用dict和set</a>
+<ul>
+<li><a href="#dict-字典">dict  字典</a></li>
+<li><a href="#set">set</a></li>
+</ul></li>
+<li><a href="#函数">函数</a>
+<ul>
+<li><a href="#定义函数">定义函数</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

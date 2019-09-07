@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>3.组件(一) |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> 3.组件(一) </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#ionic'>ionic</a></span>
+    
+    
+    
+    
+    
+    &nbsp/&nbsp<span>Tutorial</span>
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2018-05-22T00:00:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2018-05-22
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<p><a href="https://ionicframework.com/docs/components">https://ionicframework.com/docs/components/</a></p>
+
+<p>离子应用程序由称为组件的高级构建块组成。组件允许您快速构建应用程序的界面。
+Ionic配备了许多组件，包括模块，弹出窗口和卡片。查看下面的示例，了解每个组件的外观，并了解如何使用每个组件。熟悉基础知识后，请前往<a href="https://ionicframework.com/docs//api">API文档</a>，了解如何自定义每个组件。</p>
+
+<p>按钮点击触发:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">  <span style="color:#177500">&lt;!--block为占满整个宽度--&gt;</span>
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">block</span> <span style="color:#000">(</span><span style="color:#836c28">click</span><span style="color:#000">)=&#34;</span><span style="color:#836c28">showAction</span><span style="color:#000">()&#34;</span>&gt;
+    Show Action Sheet
+  &lt;/<span style="color:#000">button</span>&gt;</code></pre></div>
+<h2 id="action-sheets">Action Sheets</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a90d91">let</span> <span style="color:#000">actionSheet</span> <span style="color:#000">=</span> <span style="color:#a90d91">this</span>.<span style="color:#000">actionSheetCtrl</span>.<span style="color:#000">create</span>(
+ {
+   <span style="color:#000">title</span><span style="color:#000">:</span><span style="color:#c41a16">&#39;this is a action sheet&#39;</span>,
+   <span style="color:#000">buttons</span><span style="color:#000">:</span>[
+     {
+       <span style="color:#000">text</span><span style="color:#000">:</span> <span style="color:#c41a16">&#39;Destructive&#39;</span>, <span style="color:#177500">//红色
+</span><span style="color:#177500"></span>       <span style="color:#000">role</span><span style="color:#000">:</span> <span style="color:#c41a16">&#39;destructive&#39;</span>,
+       <span style="color:#000">handler</span><span style="color:#000">:</span> () =&gt; {
+         <span style="color:#000">console</span>.<span style="color:#000">log</span>(<span style="color:#c41a16">&#39;Destructive clicked&#39;</span>);
+       }
+     },{
+       <span style="color:#000">text</span><span style="color:#000">:</span> <span style="color:#c41a16">&#39;Archive&#39;</span>,  <span style="color:#177500">//蓝色
+</span><span style="color:#177500"></span>       <span style="color:#000">handler</span><span style="color:#000">:</span> () =&gt; {
+         <span style="color:#000">console</span>.<span style="color:#000">log</span>(<span style="color:#c41a16">&#39;Archive clicked&#39;</span>);
+       }
+     },{
+       <span style="color:#000">text</span><span style="color:#000">:</span> <span style="color:#c41a16">&#39;Cancel&#39;</span>,
+       <span style="color:#000">role</span><span style="color:#000">:</span> <span style="color:#c41a16">&#39;cancel&#39;</span>, <span style="color:#177500">//取消
+</span><span style="color:#177500"></span>       <span style="color:#000">handler</span><span style="color:#000">:</span> () =&gt; {
+         <span style="color:#000">console</span>.<span style="color:#000">log</span>(<span style="color:#c41a16">&#39;Cancel clicked&#39;</span>);
+         }
+     }
+   ]
+ }
+);
+<span style="color:#000">actionSheet</span>.<span style="color:#000">present</span>();
+</code></pre></div>
+<h2 id="alert">Alert</h2>
+
+<h3 id="alert-base">alert-base</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a90d91">let</span> <span style="color:#000">alert</span> <span style="color:#000">=</span> <span style="color:#a90d91">this</span>.<span style="color:#000">alertCtrl</span>.<span style="color:#000">create</span>({
+        <span style="color:#000">title</span><span style="color:#000">:</span><span style="color:#c41a16">&#34;alertView&#34;</span>,
+        <span style="color:#000">subTitle</span><span style="color:#000">:</span><span style="color:#c41a16">&#34;hello my friends&#34;</span>,
+        <span style="color:#000">buttons</span><span style="color:#000">:</span>[
+          <span style="color:#c41a16">&#39;yes&#39;</span>,
+          {
+          <span style="color:#000">text</span><span style="color:#000">:</span> <span style="color:#c41a16">&#39;no&#39;</span>,  <span style="color:#177500">//蓝色
+</span><span style="color:#177500"></span>          <span style="color:#000">handler</span><span style="color:#000">:</span> () =&gt; {
+            <span style="color:#000">console</span>.<span style="color:#000">log</span>(<span style="color:#c41a16">&#39;`no` button click&#39;</span>);
+          }
+        }]
+    });
+    <span style="color:#000">alert</span>.<span style="color:#000">present</span>()
+</code></pre></div>
+<h3 id="alert-prompt-可以指定inputs">alert-prompt 可以指定inputs</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#a90d91">let</span> <span style="color:#000">prompt</span> <span style="color:#000">=</span> <span style="color:#a90d91">this</span>.<span style="color:#000">alertCtrl</span>.<span style="color:#000">create</span>({
+
+ <span style="color:#000">title</span><span style="color:#000">:</span><span style="color:#c41a16">&#39;login&#39;</span>,
+ <span style="color:#000">message</span><span style="color:#000">:</span><span style="color:#c41a16">&#39;this is message&#39;</span>,
+ <span style="color:#000">inputs</span><span style="color:#000">:</span>[
+   {
+     <span style="color:#000">name</span><span style="color:#000">:</span><span style="color:#c41a16">&#39;title&#39;</span>,
+     <span style="color:#000">placeholder</span><span style="color:#000">:</span><span style="color:#c41a16">&#39;Title&#39;</span>
+   }
+ ],
+ <span style="color:#000">buttons</span><span style="color:#000">:</span>[
+   {
+     <span style="color:#000">text</span><span style="color:#000">:</span> <span style="color:#c41a16">&#39;Cancel&#39;</span>,
+     <span style="color:#000">handler</span><span style="color:#000">:</span> <span style="color:#000">data</span> =&gt; {
+       <span style="color:#000">console</span>.<span style="color:#000">log</span>(<span style="color:#c41a16">&#39;Cancel clicked&#39;</span>);
+     }
+   },
+   {
+     <span style="color:#000">text</span><span style="color:#000">:</span> <span style="color:#c41a16">&#39;Save&#39;</span>,
+     <span style="color:#000">handler</span><span style="color:#000">:</span> <span style="color:#000">data</span> =&gt; {
+       <span style="color:#000">console</span>.<span style="color:#000">log</span>(<span style="color:#c41a16">&#39;Saved clicked&#39;</span> <span style="color:#000">+</span> <span style="color:#000">data</span>.<span style="color:#000">title</span> );
+     }
+   }
+ ]
+});
+<span style="color:#000">prompt</span>.<span style="color:#000">present</span>();
+</code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052297007pro.png" alt="2018052297007pro.png" /></p>
+
+<h3 id="alert-radio-单选">alert-radio  单选</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"><span style="color:#177500">//单选
+</span><span style="color:#177500"></span><span style="color:#a90d91">let</span> <span style="color:#000">alert</span> <span style="color:#000">=</span> <span style="color:#a90d91">this</span>.<span style="color:#000">alertCtrl</span>.<span style="color:#000">create</span>();
+    <span style="color:#000">alert</span>.<span style="color:#000">setTitle</span>(<span style="color:#c41a16">&#34;this is alert title&#34;</span>);
+    <span style="color:#000">alert</span>.<span style="color:#000">addInput</span>({
+      <span style="color:#000">type</span><span style="color:#000">:</span><span style="color:#c41a16">&#39;radio&#39;</span>,
+      <span style="color:#000">label</span><span style="color:#000">:</span><span style="color:#c41a16">&#39;Blue&#39;</span>,
+      <span style="color:#000">value</span><span style="color:#000">:</span><span style="color:#c41a16">&#39;blue&#39;</span>,
+      <span style="color:#000">checked</span><span style="color:#000">:</span><span style="color:#a90d91">true</span>
+    }) ;
+    <span style="color:#000">alert</span>.<span style="color:#000">addInput</span>({
+      <span style="color:#000">type</span><span style="color:#000">:</span><span style="color:#c41a16">&#39;radio&#39;</span>,
+      <span style="color:#000">label</span><span style="color:#000">:</span><span style="color:#c41a16">&#39;Red&#39;</span>,
+      <span style="color:#000">value</span><span style="color:#000">:</span><span style="color:#c41a16">&#39;red&#39;</span>,
+      <span style="color:#000">checked</span><span style="color:#000">:</span><span style="color:#a90d91">false</span>
+    }) ;
+
+
+    <span style="color:#000">alert</span>.<span style="color:#000">addButton</span>(<span style="color:#c41a16">&#39;cancel&#39;</span>)
+    <span style="color:#000">alert</span>.<span style="color:#000">addButton</span>({
+      <span style="color:#000">text</span><span style="color:#000">:</span><span style="color:#c41a16">&#39;OK&#39;</span>,
+      <span style="color:#000">handler</span><span style="color:#000">:</span><span style="color:#000">data</span> =&gt; {
+
+      }
+    })
+
+    <span style="color:#000">alert</span>.<span style="color:#000">present</span>()
+</code></pre></div>
+<h3 id="alert-checkbox-多选">alert-Checkbox 多选</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-js" data-lang="js"> <span style="color:#a90d91">let</span> <span style="color:#000">alert</span> <span style="color:#000">=</span> <span style="color:#a90d91">this</span>.<span style="color:#000">alertCtrl</span>.<span style="color:#000">create</span>();
+    <span style="color:#000">alert</span>.<span style="color:#000">setTitle</span>(<span style="color:#c41a16">&#34;this is checkbox&#34;</span>)
+    <span style="color:#000">alert</span>.<span style="color:#000">addInput</span>({
+      <span style="color:#000">type</span><span style="color:#000">:</span><span style="color:#c41a16">&#39;checkbox&#39;</span>,
+      <span style="color:#000">label</span><span style="color:#000">:</span><span style="color:#c41a16">&#39;value1&#39;</span>,
+      <span style="color:#000">value</span><span style="color:#000">:</span><span style="color:#c41a16">&#39;value1&#39;</span>,
+      <span style="color:#000">checked</span><span style="color:#000">:</span><span style="color:#a90d91">true</span>
+    });
+    <span style="color:#000">alert</span>.<span style="color:#000">addInput</span>({
+      <span style="color:#000">type</span><span style="color:#000">:</span><span style="color:#c41a16">&#39;checkbox&#39;</span>,
+      <span style="color:#000">label</span><span style="color:#000">:</span><span style="color:#c41a16">&#39;value2&#39;</span>,
+      <span style="color:#000">value</span><span style="color:#000">:</span><span style="color:#c41a16">&#39;value2&#39;</span>,
+      <span style="color:#000">checked</span><span style="color:#000">:</span><span style="color:#a90d91">true</span>
+    });
+
+    <span style="color:#000">alert</span>.<span style="color:#000">addButton</span>(<span style="color:#c41a16">&#39;Cancel&#39;</span>);
+    <span style="color:#000">alert</span>.<span style="color:#000">addButton</span>({
+      <span style="color:#000">text</span><span style="color:#000">:</span><span style="color:#c41a16">&#39;Okay&#39;</span>,
+      <span style="color:#000">handler</span><span style="color:#000">:</span><span style="color:#000">data</span> =&gt; {
+        <span style="color:#000">console</span>.<span style="color:#000">log</span>(<span style="color:#000">data</span>); <span style="color:#177500">//Array
+</span><span style="color:#177500"></span>      }
+    });
+    <span style="color:#000">alert</span>.<span style="color:#000">present</span>()
+</code></pre></div>
+<h2 id="badge-角标">badge 角标</h2>
+
+<p>角标,意义指定颜色:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000">&lt;ion-badge</span> <span style="color:#836c28">color=</span><span style="color:#c41a16">&#34;secondary&#34;</span><span style="color:#000">&gt;&lt;/ion-badge&gt;</span></code></pre></div>
+<p>举例</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000">&lt;ion-item&gt;</span>
+  <span style="color:#000">&lt;ion-icon</span> <span style="color:#836c28">name=</span><span style="color:#c41a16">&#34;logo-twitter&#34;</span> <span style="color:#000">item-start</span><span style="color:#000">&gt;&lt;/ion-icon&gt;</span>
+  Followers
+  <span style="color:#000">&lt;ion-badge</span> <span style="color:#000">item-end</span><span style="color:#000">&gt;</span>260k<span style="color:#000">&lt;/ion-badge&gt;</span>
+<span style="color:#000">&lt;</span>/ion-item</code></pre></div>
+<p>显示效果非常美观:</p>
+
+<p><img src="http://image.tyrad.cc/2018052297137m2.png" alt="2018052297137m2.png" /></p>
+
+<h2 id="button">button</h2>
+
+<h3 id="default-outline-clear-round">Default/Outline/Clear/Round</h3>
+
+<p><strong>Default</strong>
+浏览器默认显示安卓风格，iOS设备默认是扁平风格</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">  <span style="color:#177500">&lt;!--最基本的使用，可以修改颜色风格--&gt;</span>
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span>&gt;按钮默认样式，宽度自适应&lt;/<span style="color:#000">button</span>&gt;
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;light&#34;</span>&gt;light&lt;/<span style="color:#000">button</span>&gt;
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;secondary&#34;</span>&gt;secondary&lt;/<span style="color:#000">button</span>&gt;
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;danger&#34;</span>&gt;danger&lt;/<span style="color:#000">button</span>&gt;
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;dark&#34;</span>&gt;dark&lt;/<span style="color:#000">button</span>&gt; &lt;<span style="color:#000">hr</span>&gt;</code></pre></div>
+<p><strong>Outline</strong>
+字体颜色与outline的颜色相同</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">outline</span>&gt;默认outline button&lt;/<span style="color:#000">button</span>&gt;
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;light&#34;</span> <span style="color:#836c28">outline</span>&gt;light outline&lt;/<span style="color:#000">button</span>&gt;
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;secondary&#34;</span> <span style="color:#836c28">outline</span>&gt;secondary outline&lt;/<span style="color:#000">button</span>&gt;
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;danger&#34;</span> <span style="color:#836c28">outline</span>&gt;danger outline&lt;/<span style="color:#000">button</span>&gt;
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;dark&#34;</span> <span style="color:#836c28">outline</span>&gt;dark outline&lt;/<span style="color:#000">button</span>&gt; &lt;<span style="color:#000">hr</span>&gt;</code></pre></div>
+<p><strong>clear</strong>
+无背景色和边框颜色</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">clear</span>&gt;clear default&lt;/<span style="color:#000">button</span>&gt;
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;light&#34;</span> <span style="color:#836c28">clear</span>&gt;light&lt;/<span style="color:#000">button</span>&gt;
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;secondary&#34;</span> <span style="color:#836c28">clear</span>&gt;secondary&lt;/<span style="color:#000">button</span>&gt;
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;danger&#34;</span> <span style="color:#836c28">clear</span>&gt;danger&lt;/<span style="color:#000">button</span>&gt;
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;dark&#34;</span> <span style="color:#836c28">clear</span>&gt;dark&lt;/<span style="color:#000">button</span>&gt; &lt;<span style="color:#000">hr</span>&gt;</code></pre></div>
+<p><strong>Round</strong>
+圆角</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;light&#34;</span> <span style="color:#836c28">round</span>&gt;Light Round&lt;/<span style="color:#000">button</span>&gt;
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">round</span>&gt;Primary Round&lt;/<span style="color:#000">button</span>&gt;
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;secondary&#34;</span> <span style="color:#836c28">round</span>&gt;Secondary Round&lt;/<span style="color:#000">button</span>&gt;
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;danger&#34;</span> <span style="color:#836c28">round</span>&gt;Danger Round&lt;/<span style="color:#000">button</span>&gt;
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;dark&#34;</span> <span style="color:#836c28">round</span>&gt;Dark Round&lt;/<span style="color:#000">button</span>&gt;</code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052213233line.jpg" alt="2018052213233line.jpg" /></p>
+
+<h3 id="block-full">Block/Full</h3>
+
+<p>block: 宽度和父视图相同
+ full: 类似block,但是会删除左右 borders,视图在整个显示宽度上延伸时，此样式非常有用</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">   &lt;<span style="color:#000">p</span>&gt;block&lt;/<span style="color:#000">p</span>&gt;
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">block</span>&gt;Block Button&lt;/<span style="color:#000">button</span>&gt;
+  &lt;<span style="color:#000">p</span>&gt;full&lt;/<span style="color:#000">p</span>&gt;
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">full</span>&gt;Full Button&lt;/<span style="color:#000">button</span>&gt;</code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052214357full.png" alt="2018052214357full.png" /></p>
+
+<h3 id="button-size">button size</h3>
+
+<p>可以通过<code>small</code>、<code>large</code>控制button的大小</p>
+
+<pre><code>  &lt;button ion-button small&gt;small&lt;/button&gt;
+  &lt;button ion-button &gt;default&lt;/button&gt;
+  &lt;button ion-button large&gt;large&lt;/button&gt;
+</code></pre>
+
+<p><img src="http://image.tyrad.cc/2018052279544size.png" alt="2018052279544size.png" /></p>
+
+<h3 id="icon-buttons">icon buttons</h3>
+
+<p>配合<code>ion-icon</code>显示icon</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"> &lt;<span style="color:#000">p</span>&gt;icon button&lt;/<span style="color:#000">p</span>&gt;
+
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">icon-left</span>&gt;
+    &lt;<span style="color:#000">ion-icon</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;home&#34;</span>&gt;&lt;/<span style="color:#000">ion-icon</span>&gt;
+    Left Icon
+  &lt;/<span style="color:#000">button</span>&gt;
+
+  <span style="color:#177500">&lt;!-- Float the icon right --&gt;</span>
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">icon-right</span>&gt;
+    Right Icon
+    &lt;<span style="color:#000">ion-icon</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;home&#34;</span>&gt;&lt;/<span style="color:#000">ion-icon</span>&gt;
+  &lt;/<span style="color:#000">button</span>&gt;
+  <span style="color:#177500">&lt;!-- Only icon (no text) --&gt;</span>
+  &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">icon-only</span>&gt;
+    &lt;<span style="color:#000">ion-icon</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;home&#34;</span>&gt;&lt;/<span style="color:#000">ion-icon</span>&gt;
+  &lt;/<span style="color:#000">button</span>&gt;
+  &lt;<span style="color:#000">p</span>&gt;
+    &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;light&#34;</span> <span style="color:#836c28">icon-start</span>&gt;
+      &lt;<span style="color:#000">ion-icon</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;arrow-back&#39;</span>&gt;&lt;/<span style="color:#000">ion-icon</span>&gt;
+      Back
+    &lt;/<span style="color:#000">button</span>&gt;
+
+    &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;light&#34;</span> <span style="color:#836c28">icon-only</span>&gt;
+      &lt;<span style="color:#000">ion-icon</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;arrow-down&#39;</span>&gt;&lt;/<span style="color:#000">ion-icon</span>&gt;
+    &lt;/<span style="color:#000">button</span>&gt;
+
+    &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;light&#34;</span> <span style="color:#836c28">icon-only</span>&gt;
+      &lt;<span style="color:#000">ion-icon</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;arrow-up&#39;</span>&gt;&lt;/<span style="color:#000">ion-icon</span>&gt;
+    &lt;/<span style="color:#000">button</span>&gt;
+
+    &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;light&#34;</span> <span style="color:#836c28">icon-end</span>&gt;
+      Next
+      &lt;<span style="color:#000">ion-icon</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;arrow-forward&#39;</span>&gt;&lt;/<span style="color:#000">ion-icon</span>&gt;
+    &lt;/<span style="color:#000">button</span>&gt;
+  &lt;/<span style="color:#000">p</span>&gt;
+
+  &lt;<span style="color:#000">p</span>&gt;
+    &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">icon-start</span>&gt;
+      &lt;<span style="color:#000">ion-icon</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;home&#39;</span>&gt;&lt;/<span style="color:#000">ion-icon</span>&gt;
+      Home
+    &lt;/<span style="color:#000">button</span>&gt;
+    &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">outline</span> <span style="color:#836c28">icon-start</span>&gt;
+      &lt;<span style="color:#000">ion-icon</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;briefcase&#39;</span> <span style="color:#836c28">is-active</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;false&#34;</span>&gt;&lt;/<span style="color:#000">ion-icon</span>&gt;
+      Work
+    &lt;/<span style="color:#000">button</span>&gt;
+    &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">clear</span> <span style="color:#836c28">icon-start</span>&gt;
+      &lt;<span style="color:#000">ion-icon</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;beer&#39;</span> <span style="color:#836c28">is-active</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;false&#34;</span>&gt;&lt;/<span style="color:#000">ion-icon</span>&gt;
+      Pub
+    &lt;/<span style="color:#000">button</span>&gt;
+  &lt;/<span style="color:#000">p</span>&gt;
+
+  &lt;<span style="color:#000">p</span>&gt;
+    &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;secondary&#34;</span> <span style="color:#836c28">icon-start</span>&gt;
+      &lt;<span style="color:#000">ion-icon</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;people&#39;</span>&gt;&lt;/<span style="color:#000">ion-icon</span>&gt;
+      Friends
+    &lt;/<span style="color:#000">button</span>&gt;
+    &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;secondary&#34;</span> <span style="color:#836c28">outline</span> <span style="color:#836c28">icon-start</span>&gt;
+      &lt;<span style="color:#000">ion-icon</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;paw&#39;</span> <span style="color:#836c28">is-active</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;false&#34;</span>&gt;&lt;/<span style="color:#000">ion-icon</span>&gt;
+      Best Friend
+    &lt;/<span style="color:#000">button</span>&gt;
+  &lt;/<span style="color:#000">p</span>&gt;
+
+  &lt;<span style="color:#000">p</span>&gt;
+    &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;danger&#34;</span> <span style="color:#836c28">icon-start</span>&gt;
+      &lt;<span style="color:#000">ion-icon</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;close&#39;</span>&gt;&lt;/<span style="color:#000">ion-icon</span>&gt;
+      Remove
+    &lt;/<span style="color:#000">button</span>&gt;
+    &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;danger&#34;</span> <span style="color:#836c28">outline</span> <span style="color:#836c28">icon-only</span>&gt;
+      &lt;<span style="color:#000">ion-icon</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;remove-circle&#39;</span> <span style="color:#836c28">is-active</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;false&#34;</span>&gt;&lt;/<span style="color:#000">ion-icon</span>&gt;
+    &lt;/<span style="color:#000">button</span>&gt;
+    &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;danger&#34;</span> <span style="color:#836c28">clear</span> <span style="color:#836c28">icon-only</span>&gt;
+      &lt;<span style="color:#000">ion-icon</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;trash&#39;</span> <span style="color:#836c28">is-active</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;false&#34;</span>&gt;&lt;/<span style="color:#000">ion-icon</span>&gt;
+    &lt;/<span style="color:#000">button</span>&gt;
+  &lt;/<span style="color:#000">p</span>&gt;
+
+  &lt;<span style="color:#000">p</span>&gt;
+    &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;dark&#34;</span> <span style="color:#836c28">round</span> <span style="color:#836c28">icon-start</span>&gt;
+      &lt;<span style="color:#000">ion-icon</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;construct&#39;</span> <span style="color:#836c28">is-active</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;false&#34;</span>&gt;&lt;/<span style="color:#000">ion-icon</span>&gt;
+      Tools
+    &lt;/<span style="color:#000">button</span>&gt;
+    &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;dark&#34;</span> <span style="color:#836c28">clear</span> <span style="color:#836c28">icon-only</span>&gt;
+      &lt;<span style="color:#000">ion-icon</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#39;hammer&#39;</span> <span style="color:#836c28">is-active</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;false&#34;</span>&gt;&lt;/<span style="color:#000">ion-icon</span>&gt;
+    &lt;/<span style="color:#000">button</span>&gt;
+  &lt;/<span style="color:#000">p</span>&gt;</code></pre></div>
+<p><img src="http://image.tyrad.cc/201805229105icons.png" alt="201805229105icons.png" /></p>
+
+<h3 id="buttons-in-components">buttons In Components</h3>
+
+<p>尽管按钮可以单独使用，但它们可以很容易地在其他组件中使用。例如，可以将按钮添加到列表项目或导航栏中。</p>
+
+<p>nav上使用</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000">ion-header</span>&gt;
+  &lt;<span style="color:#000">ion-navbar</span>&gt;
+    &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">menuToggle</span>&gt;
+      &lt;<span style="color:#000">ion-icon</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;menu&#34;</span>&gt;&lt;/<span style="color:#000">ion-icon</span>&gt;
+    &lt;/<span style="color:#000">button</span>&gt;
+    &lt;<span style="color:#000">ion-title</span>&gt;Hello Ionic&lt;/<span style="color:#000">ion-title</span>&gt;
+
+
+    <span style="color:#177500">&lt;!--默认为 `start`左侧； 可以改成右侧`end`--&gt;</span>
+    &lt;<span style="color:#000">ion-buttons</span> <span style="color:#836c28">end</span>&gt;
+      &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">icon-only</span>&gt;
+        &lt;<span style="color:#000">ion-icon</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;search&#34;</span>&gt;&lt;/<span style="color:#000">ion-icon</span>&gt;
+      &lt;/<span style="color:#000">button</span>&gt;
+    &lt;/<span style="color:#000">ion-buttons</span>&gt;
+
+
+  &lt;/<span style="color:#000">ion-navbar</span>&gt;
+&lt;/<span style="color:#000">ion-header</span>&gt;</code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052237901searchBar.png" alt="2018052237901searchBar.png" /></p>
+
+<p>list中使用（以居右显示为例）</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">  &lt;<span style="color:#000">ion-list</span>&gt;
+    &lt;<span style="color:#000">ion-item</span>&gt;
+      Left Icon Button
+      <span style="color:#177500">&lt;!--item-end 将button置于 icon-item的最右端--&gt;</span>
+      &lt;<span style="color:#000">button</span> <span style="color:#836c28">ion-button</span> <span style="color:#836c28">outline</span> <span style="color:#836c28">item-end</span> <span style="color:#836c28">icon-left</span>&gt;
+        &lt;<span style="color:#000">ion-icon</span> <span style="color:#836c28">name</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;star&#34;</span>&gt; &lt;/<span style="color:#000">ion-icon</span>&gt; left icon
+      &lt;/<span style="color:#000">button</span>&gt;
+    &lt;/<span style="color:#000">ion-item</span>&gt;
+  &lt;/<span style="color:#000">ion-list</span>&gt;</code></pre></div>
+<h2 id="cards">Cards</h2>
+
+<p>卡片是展示重要内容的绝佳方式，并且正迅速成为应用程序的核心设计模式。它们是遏制和组织信息的好方法，同时也为用户设定了可预测的期望。有了这么多的内容可以立即显示，而且屏幕的显示空间非常小，卡片很快就成为许多公司的首选设计模式，包括<a href="http://www.google.com/landing/now/">Google</a>，Twitter和Spotify等。</p>
+
+<p>对于移动体验，卡片可以轻松地在多种不同的屏幕尺寸下直观地显示相同的信息。他们允许更多的控制，灵活性，甚至可以动画。卡通常被放置在另一个之上，但它们也可以像“页面”一样使用，并在左右之间滑动。</p>
+
+<h3 id="基本用法">基本用法</h3>
+
+<p>就像普通页面一样，可以对卡片定义标题。  要将卡头添加到卡上，使用<code>&lt;ion-card-header&gt;</code></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000">&lt;ion-card&gt;</span>
+    <span style="color:#000">&lt;ion-card-header&gt;</span>
+      星期二
+    <span style="color:#000">&lt;/ion-card-header&gt;</span>
+    <span style="color:#000">&lt;ion-card-content&gt;</span>
+       今天天气不错，风和日丽的
+    <span style="color:#000">&lt;/ion-card-content&gt;</span>
+  <span style="color:#000">&lt;/ion-card&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052219086card-basic.png" alt="2018052219086card-basic.png" /></p>
+
+<h4 id="lists-in-cards">Lists In Cards</h4>
+
+<p>card可以嵌套list-item。 此时，使用ion-list替代<code>ion-card-content</code></p>
+
+<pre><code>  &lt;ion-card&gt;
+    &lt;ion-card-header&gt;我的TODO列表&lt;/ion-card-header&gt;
+
+    &lt;ion-list&gt;
+      &lt;button ion-item&gt;
+        &lt;ion-icon name=&quot;cart&quot; item-start&gt;&lt;/ion-icon&gt;
+        购物
+      &lt;/button&gt;
+      &lt;button ion-item&gt;
+        &lt;ion-icon name=&quot;cafe&quot; item-start&gt;&lt;/ion-icon&gt;
+        休闲
+      &lt;/button&gt;
+    &lt;/ion-list&gt;
+  &lt;/ion-card&gt;
+</code></pre>
+
+<p><img src="http://image.tyrad.cc/2018052264535card-in-list.png" alt="2018052264535card-in-list.png" /></p>
+
+<h4 id="image-in-cards">image In Cards</h4>
+
+<p>图片大小各不相同，因此在整个应用中采用一致的样式非常重要。    图像可以很容易地添加到卡片上。
+  将图像添加到卡上会使图像具有<strong>固定的宽度</strong>和<strong>可变的高度</strong>。<br />
+  Lists，headers和其他card组件可以轻松地与图像卡结合使用。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html"> &lt;<span style="color:#000">ion-card</span>&gt;
+    &lt;<span style="color:#000">img</span> <span style="color:#836c28">src</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;assets/imgs/nin-live.png&#34;</span> <span style="color:#836c28">alt</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;&#34;</span>&gt;
+    &lt;<span style="color:#000">ion-card-content</span>&gt;
+      &lt;<span style="color:#000">ion-card-title</span>&gt;
+        Nine Inch Nails Live
+      &lt;/<span style="color:#000">ion-card-title</span>&gt;
+      &lt;<span style="color:#000">p</span>&gt;
+        The most popular industrial group ever, and largely
+        responsible for bringing the music to a mass audience.
+      &lt;/<span style="color:#000">p</span>&gt;
+    &lt;/<span style="color:#000">ion-card-content</span>&gt;
+  &lt;/<span style="color:#000">ion-card</span>&gt;</code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052256475imgincard.jpg" alt="2018052256475imgincard.jpg" /></p>
+
+<p>复杂一点的:</p>
+
+<pre><code>  &lt;ion-card&gt;
+
+    &lt;img src=&quot;assets/imgs/nin-live.png&quot;/&gt;
+
+    &lt;ion-card-content&gt;
+      &lt;ion-card-title&gt;
+        Nine Inch Nails Live
+      &lt;/ion-card-title&gt;
+      &lt;p&gt;
+        The most popular industrial group ever, and largely responsible for bringing the music to a mass audience.
+      &lt;/p&gt;
+    &lt;/ion-card-content&gt;
+
+    &lt;ion-row no-padding&gt;
+      &lt;ion-col&gt;
+        &lt;button ion-button clear small color=&quot;danger&quot; icon-start&gt;
+          &lt;ion-icon name='star'&gt;&lt;/ion-icon&gt;
+          Favorite
+        &lt;/button&gt;
+      &lt;/ion-col&gt;
+      &lt;ion-col text-center&gt;
+        &lt;button ion-button clear small color=&quot;danger&quot; icon-start&gt;
+          &lt;ion-icon name='musical-notes'&gt;&lt;/ion-icon&gt;
+          Listen
+        &lt;/button&gt;
+      &lt;/ion-col&gt;
+      &lt;ion-col text-right&gt;
+        &lt;button ion-button clear small color=&quot;danger&quot; icon-start&gt;
+          &lt;ion-icon name='share-alt'&gt;&lt;/ion-icon&gt;
+          Share
+        &lt;/button&gt;
+      &lt;/ion-col&gt;
+    &lt;/ion-row&gt;
+  &lt;/ion-card&gt;
+</code></pre>
+
+<p><img src="http://image.tyrad.cc/2018052283036u.png" alt="2018052283036u.png" /></p>
+
+<h4 id="background-images">Background Images</h4>
+
+<p>卡可以用来实现多种设计。  我们提供许多元素来实现通用设计，但有时需要添加自定义样式。  将背景图像添加到卡片中是添加自定义样式可以实现完全不同外观的绝佳示例。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000">style</span>&gt;
+
+    .<span style="color:#3f6e75">card-background-page</span> <span style="color:#000">ion-card</span> {
+      <span style="color:#a90d91">position</span>: <span style="color:#a90d91">relative</span>;
+      <span style="color:#a90d91">text-align</span>: <span style="color:#a90d91">center</span>;
+    }
+
+    .<span style="color:#3f6e75">card-background-page</span> .<span style="color:#3f6e75">card-title</span> {
+      <span style="color:#a90d91">position</span>: <span style="color:#a90d91">absolute</span>;
+      <span style="color:#a90d91">top</span>: <span style="color:#1c01ce">36</span><span style="color:#a90d91">%</span>;
+      <span style="color:#a90d91">font-size</span>: <span style="color:#1c01ce">2.0</span><span style="color:#a90d91">em</span>;
+      <span style="color:#a90d91">width</span>: <span style="color:#1c01ce">100</span><span style="color:#a90d91">%</span>;
+      <span style="color:#a90d91">font-weight</span>: <span style="color:#a90d91">bold</span>;
+      <span style="color:#a90d91">color</span>: <span style="color:#1c01ce">#fff</span>;
+    }
+
+    .<span style="color:#3f6e75">card-background-page</span> .<span style="color:#3f6e75">card-subtitle</span> {
+      <span style="color:#a90d91">font-size</span>: <span style="color:#1c01ce">1.0</span><span style="color:#a90d91">em</span>;
+      <span style="color:#a90d91">position</span>: <span style="color:#a90d91">absolute</span>;
+      <span style="color:#a90d91">top</span>: <span style="color:#1c01ce">52</span><span style="color:#a90d91">%</span>;
+      <span style="color:#a90d91">width</span>: <span style="color:#1c01ce">100</span><span style="color:#a90d91">%</span>;
+      <span style="color:#a90d91">color</span>: <span style="color:#1c01ce">#fff</span>;
+    }
+
+  &lt;/<span style="color:#000">style</span>&gt;
+
+  &lt;<span style="color:#000">div</span> <span style="color:#836c28">class</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;card-background-page&#34;</span>&gt;
+
+  &lt;<span style="color:#000">ion-card</span>&gt;
+    &lt;<span style="color:#000">img</span> <span style="color:#836c28">src</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;assets/imgs/card-saopaolo.png&#34;</span> <span style="color:#836c28">alt</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;&#34;</span>&gt;
+    &lt;<span style="color:#000">div</span> <span style="color:#836c28">class</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;card-title&#34;</span>&gt;São Paulo&lt;/<span style="color:#000">div</span>&gt;
+    &lt;<span style="color:#000">div</span> <span style="color:#836c28">class</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;card-subtitle&#34;</span>&gt;72 Listings&lt;/<span style="color:#000">div</span>&gt;
+  &lt;/<span style="color:#000">ion-card</span>&gt;
+
+    &lt;<span style="color:#000">ion-card</span>&gt;
+      &lt;<span style="color:#000">img</span> <span style="color:#836c28">src</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;assets/imgs/card-madison.png&#34;</span>/&gt;
+      &lt;<span style="color:#000">div</span> <span style="color:#836c28">class</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;card-title&#34;</span>&gt;Madison&lt;/<span style="color:#000">div</span>&gt;
+      &lt;<span style="color:#000">div</span> <span style="color:#836c28">class</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;card-subtitle&#34;</span>&gt;28 Listings&lt;/<span style="color:#000">div</span>&gt;
+    &lt;/<span style="color:#000">ion-card</span>&gt;
+  &lt;/<span style="color:#000">div</span>&gt;</code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052256940avat.jpg" alt="2018052256940avat.jpg" /></p>
+
+<h3 id="高级使用">高级使用</h3>
+
+<p>来自不同类型卡片的样式可以组合起来创建高级卡片。  卡片也可以使用自定义CSS。
+  以下是一些通过将各种卡片属性与少量自定义CSS组合在一起而构建的高级卡片。</p>
+
+<pre><code>  &lt;ion-card&gt;
+
+    &lt;ion-item&gt;
+      &lt;ion-avatar item-start&gt;
+        &lt;img src=&quot;assets/imgs/marty-avatar.png&quot;&gt;
+      &lt;/ion-avatar&gt;
+      &lt;h2&gt;Marty McFly&lt;/h2&gt;
+      &lt;p&gt;November 5, 1955&lt;/p&gt;
+    &lt;/ion-item&gt;
+
+    &lt;img src=&quot;assets/imgs/advance-card-bttf.png&quot;&gt;
+
+    &lt;ion-card-content&gt;
+      &lt;p&gt;Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.&lt;/p&gt;
+    &lt;/ion-card-content&gt;
+
+    &lt;ion-row&gt;
+      &lt;ion-col&gt;
+        &lt;button ion-button icon-left clear small&gt;
+          &lt;ion-icon name=&quot;thumbs-up&quot;&gt;&lt;/ion-icon&gt;
+          &lt;div&gt;12 Likes&lt;/div&gt;
+        &lt;/button&gt;
+      &lt;/ion-col&gt;
+      &lt;ion-col&gt;
+        &lt;button ion-button icon-left clear small&gt;
+          &lt;ion-icon name=&quot;text&quot;&gt;&lt;/ion-icon&gt;
+          &lt;div&gt;4 Comments&lt;/div&gt;
+        &lt;/button&gt;
+      &lt;/ion-col&gt;
+      &lt;ion-col center text-center&gt;
+        &lt;ion-note&gt;
+          11h ago
+        &lt;/ion-note&gt;
+      &lt;/ion-col&gt;
+    &lt;/ion-row&gt;
+  &lt;/ion-card&gt;
+</code></pre>
+
+<p><img src="http://image.tyrad.cc/2018052245823ss.png" alt="2018052245823ss.png" /></p>
+
+<h2 id="checkbox">Checkbox</h2>
+
+<p>复选框与HTML复选框输入没有区别。但是，像其他Ionic组件一样，复选框的样式在每个平台上都是不同的。使用checked属性设置默认值，使用disabled属性禁用用户更改该值</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#000">ion-item</span>&gt;
+    &lt;<span style="color:#000">ion-label</span>&gt;this is a ion-lable&lt;/<span style="color:#000">ion-label</span>&gt;
+    &lt;<span style="color:#000">ion-checkbox</span>&gt;&lt;/<span style="color:#000">ion-checkbox</span>&gt;
+  &lt;/<span style="color:#000">ion-item</span>&gt;
+
+  &lt;<span style="color:#000">ion-item</span>&gt;
+    &lt;<span style="color:#000">ion-label</span>&gt;this is a ion-lable&lt;/<span style="color:#000">ion-label</span>&gt;
+    &lt;<span style="color:#000">ion-checkbox</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;dark&#34;</span> <span style="color:#000">[</span><span style="color:#836c28">checked</span><span style="color:#000">]=&#34;</span><span style="color:#836c28">true</span><span style="color:#000">&#34;</span>&gt;&lt;/<span style="color:#000">ion-checkbox</span>&gt;
+  &lt;/<span style="color:#000">ion-item</span>&gt;
+
+  &lt;<span style="color:#000">ion-item</span>&gt;
+    &lt;<span style="color:#000">ion-label</span>&gt;this is a ion-lable&lt;/<span style="color:#000">ion-label</span>&gt;
+    &lt;<span style="color:#000">ion-checkbox</span> <span style="color:#836c28">color</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;secondary&#34;</span>  <span style="color:#836c28">disabled</span><span style="color:#000">=</span><span style="color:#c41a16">&#34;&#34;</span> <span style="color:#000">[</span><span style="color:#836c28">checked</span><span style="color:#000">]=&#34;</span><span style="color:#836c28">true</span><span style="color:#000">&#34;</span>&gt;&lt;/<span style="color:#000">ion-checkbox</span>&gt;
+  &lt;/<span style="color:#000">ion-item</span>&gt;</code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052381386checkbox.png" alt="2018052381386checkbox.png" /></p>
+
+<h2 id="datetime">DateTime</h2>
+
+<p>DateTime组件用于显示一个界面，使用户可以轻松选择日期和时间。DateTime组件类似于本地的元素<code>&lt;input type=&quot;datetime-local&gt;</code>，但是，Ionic的DateTime组件可以很容易地以首选格式（preferred format）显示日期和时间，并管理日期时间值。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#000">&lt;ion-item&gt;</span>
+    <span style="color:#000">&lt;ion-label&gt;</span>Start Time<span style="color:#000">&lt;/ion-label&gt;</span>
+    <span style="color:#000">&lt;ion-datetime</span> <span style="color:#836c28">displayFormat=</span><span style="color:#c41a16">&#34;h:mm A&#34;</span> <span style="color:#836c28">pickerFormat=</span><span style="color:#c41a16">&#34;h mm A&#34;</span> <span style="color:#000">&gt;&lt;/ion-datetime&gt;</span>
+  <span style="color:#000">&lt;/ion-item&gt;</span></code></pre></div>
+<p><img src="http://image.tyrad.cc/2018052337661datepk.png" alt="2018052337661datepk.png" /></p>
+
+<h2 id="fab">FAB</h2>
+
+<p>浮动按钮,并且可以点击展开。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">  <span style="color:#000">&lt;p&gt;</span>Floating Action Buttons<span style="color:#000">&lt;/p&gt;</span>
+
+    <span style="color:#000">&lt;ion-fab</span> <span style="color:#000">top</span> <span style="color:#000">left</span> <span style="color:#000">edge</span><span style="color:#000">&gt;</span>
+      <span style="color:#000">&lt;button</span> <span style="color:#000">ion-fab</span> <span style="color:#000">mini</span><span style="color:#000">&gt;&lt;ion-icon</span> <span style="color:#836c28">name=</span><span style="color:#c41a16">&#34;add&#34;</span><span style="color:#000">&gt;&lt;/ion-icon&gt;&lt;/button&gt;</span>
+      <span style="color:#000">&lt;ion-fab-list&gt;</span>
+        <span style="color:#000">&lt;button</span> <span style="color:#000">ion-fab</span><span style="color:#000">&gt;&lt;ion-icon</span> <span style="color:#836c28">name=</span><span style="color:#c41a16">&#34;logo-facebook&#34;</span><span style="color:#000">&gt;&lt;/ion-icon&gt;&lt;/button&gt;</span>
+        <span style="color:#000">&lt;button</span> <span style="color:#000">ion-fab</span><span style="color:#000">&gt;&lt;ion-icon</span> <span style="color:#836c28">name=</span><span style="color:#c41a16">&#34;logo-twitter&#34;</span><span style="color:#000">&gt;&lt;/ion-icon&gt;&lt;/button&gt;</span>
+        <span style="color:#000">&lt;button</span> <span style="color:#000">ion-fab</span><span style="color:#000">&gt;&lt;ion-icon</span> <span style="color:#836c28">name=</span><span style="color:#c41a16">&#34;logo-vimeo&#34;</span><span style="color:#000">&gt;&lt;/ion-icon&gt;&lt;/button&gt;</span>
+        <span style="color:#000">&lt;button</span> <span style="color:#000">ion-fab</span><span style="color:#000">&gt;&lt;ion-icon</span> <span style="color:#836c28">name=</span><span style="color:#c41a16">&#34;logo-googleplus&#34;</span><span style="color:#000">&gt;&lt;/ion-icon&gt;&lt;/button&gt;</span>
+      <span style="color:#000">&lt;/ion-fab-list&gt;</span>
+    <span style="color:#000">&lt;/ion-fab&gt;</span></code></pre></div></div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#action-sheets">Action Sheets</a></li>
+<li><a href="#alert">Alert</a>
+<ul>
+<li><a href="#alert-base">alert-base</a></li>
+<li><a href="#alert-prompt-可以指定inputs">alert-prompt 可以指定inputs</a></li>
+<li><a href="#alert-radio-单选">alert-radio  单选</a></li>
+<li><a href="#alert-checkbox-多选">alert-Checkbox 多选</a></li>
+</ul></li>
+<li><a href="#badge-角标">badge 角标</a></li>
+<li><a href="#button">button</a>
+<ul>
+<li><a href="#default-outline-clear-round">Default/Outline/Clear/Round</a></li>
+<li><a href="#block-full">Block/Full</a></li>
+<li><a href="#button-size">button size</a></li>
+<li><a href="#icon-buttons">icon buttons</a></li>
+<li><a href="#buttons-in-components">buttons In Components</a></li>
+</ul></li>
+<li><a href="#cards">Cards</a>
+<ul>
+<li><a href="#基本用法">基本用法</a>
+<ul>
+<li><a href="#lists-in-cards">Lists In Cards</a></li>
+<li><a href="#image-in-cards">image In Cards</a></li>
+<li><a href="#background-images">Background Images</a></li>
+</ul></li>
+<li><a href="#高级使用">高级使用</a></li>
+</ul></li>
+<li><a href="#checkbox">Checkbox</a></li>
+<li><a href="#datetime">DateTime</a></li>
+<li><a href="#fab">FAB</a></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

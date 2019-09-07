@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>斐讯n1刷入armbian记录 |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> 斐讯n1刷入armbian记录 </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#linux'>linux</a></span>
+    
+    
+    
+    
+    
+    &nbsp/&nbsp<span>搞机</span>
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2019-04-22T00:00:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2019-04-22
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<p>最近pdd上入手了一台斐讯n1,八九十左右的样子。刷成linux做开发、学习使用,简单记录刷机过程。</p>
+
+<p>安装过程主要 <del>拷贝</del> 参考自: <a href="https://www.edevops.top/posts/21a18ac.html">https://www.edevops.top/posts/21a18ac.html</a></p>
+
+<h2 id="开启adb">开启ADB</h2>
+
+<ol>
+<li>N1通电开机，HDMI链接显示器，连接网络(wifi/有线)，鼠标点击四次版本号的位置打开远程调试ADB(<strong>有提示</strong>)</li>
+<li>电脑通过adb连接设备</li>
+<li>刷入降级镜像并重启</li>
+</ol>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500"># 连接N1</span>
+adb connect <span style="color:#1c01ce">192</span>.168.1.184
+<span style="color:#177500"># 双公头USB数据线插入盒子靠近HDMI的USB口和电脑的原生 USB2.0 接口并启动盒子到fastboot</span>
+adb shell reboot fastboot
+
+<span style="color:#177500"># N1重启黑屏后查询是否识别设备</span>
+fastboot devices
+<span style="color:#177500"># 显示一行设备信息，说明 USB 连接正常</span>
+
+<span style="color:#177500"># 刷入降级镜像</span>
+fastboot flash bootloader bootloader.img
+fastboot flash boot boot.img
+fastboot flash recovery recovery.img
+<span style="color:#177500"># 刷入成功后重启</span>
+fastboot reboot</code></pre></div>
+<blockquote>
+<p>重启后系统版本显示依然是2.28。此降级并非降级系统，而是降级引导等关键分区，所以系统版本哪里不会变的。</p>
+</blockquote>
+
+<h2 id="制作系统盘">制作系统盘</h2>
+
+<p><strong>window:</strong></p>
+
+<p>window上推荐使用<a href="https://rufus.ie/">rufus</a>工具,简单无脑</p>
+
+<p><strong>macos:</strong>（笔者没有通过命令行刷入成功，改用在window系统上输入,有时间再做测试)</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">#访达内 右键解压 Armbian_5.77_Aml-s905_Ubuntu_bionic_default_5.0.2_20190401.img.xz</span> 
+<span style="color:#177500">#命令行 查询U盘</span>
+diskutil list
+sudo diskutil unmountDisk /dev/disk4 <span style="color:#177500">#卸载U盘</span>
+sudo dd <span style="color:#000">bs</span><span style="color:#000">=</span>4m <span style="color:#a90d91">if</span><span style="color:#000">=</span>/Users/evan/Downloads/Armbian_5.77_Aml-s905_Ubuntu_bionic_default_5.0.2_20190401.img <span style="color:#000">of</span><span style="color:#000">=</span>/dev/disk4
+diskutil eject /dev/disk4   <span style="color:#177500">#推出U盘</span></code></pre></div>
+<h2 id="u盘启动-armbian-ubuntu">U盘启动 armbian-ubuntu</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">adb connect <span style="color:#1c01ce">192</span>.168.1.184
+adb shell reboot update
+<span style="color:#177500">#U盘制作好后千万别插在正在运行的Android系统下，否则会被更改权限，导致armbian出现问题。</span>
+<span style="color:#177500">#所以执行上述步骤后N1断电再插入armbian启动盘，通电启动到armbian</span>
+
+进入 Armbian 以后用 root:1234 登录<span style="color:#000">(</span>**自备键盘插入另一USB口**<span style="color:#000">)</span>，会被要求修改密码和创建普通用户，不想创建用户可以Ctrl+C跳过。
+Ctrl+C跳过后需要再次输入root及修改的新密码进入bash
+
+armbian默认使用的是kdahas-vim开发板的dtb，所以不完全适配n1，一些设备不工作，我们只需修改/boot/uEnv.ini指向n1的dtb即可。
+
+- 修改前的uEnv.ini：      <span style="color:#000">dtb_name</span><span style="color:#000">=</span>/dtb/meson-gxl-s905x-khadas-vim.dtb
+- 修改后的uEnv.ini：      <span style="color:#000">dtb_name</span><span style="color:#000">=</span>/dtb/meson-gxl-s905d-phicomm-n1.dtb
+
+使用 meson-gxl-s905d-phicomm-n1.dtb 系统负载初始始终保持 <span style="color:#1c01ce">2</span>.0 左右，偏高不正常。
+
+<span style="color:#177500">#笔者没有进行以下操作</span>
+<span style="color:#177500">#解决高负载问题，关键：修改随镜像文件自带的dtb文件中的一项与中断处理有关的设置：</span> 
+<span style="color:#177500">## 反编译原始n1 dtb文件为n1.dts</span>
+<span style="color:#177500">#$ dtc -I dtb -O dts -o n1.dts /boot/dtb/meson-gxl-s905d-phicomm-n1.dtb</span>
+<span style="color:#177500">## 用vi 或 nano打开n1.dts，将第183行注释掉。修改前：phandle = &lt;0x1e&gt;;  修改后： #phandle = &lt;0x1e&gt;;</span>
+<span style="color:#177500">#$ vi n1.dts</span>
+
+<span style="color:#177500">## 编译新的n1.dtb</span>
+<span style="color:#177500">#$ dtc -I dts -O dtb -o n1.dtb n1.dts</span>
+<span style="color:#177500">## 复制n1.dtb到/boot/dtb中并修改相应uEnv.ini文件</span>
+<span style="color:#177500">#$ sudo cp -av n1.dtb /boot/dtb/meson-gxl-s905d-phicomm-n1-xiangsm.dtb</span>
+<span style="color:#177500">#$ sudo sed -i -e &#39;s/-n1/-n1-xiangsm/&#39; /boot/uEnv.ini   # 或用vi/nano可视化编辑</span>
+
+
+<span style="color:#177500"># 好了，可以重启系统了，重启后，系统负载终于正常，并且各项硬件应该依然都能正常工作。</span>
+$ sudo reboot</code></pre></div>
+<h2 id="备份原系统">备份原系统</h2>
+
+<blockquote>
+<p>强烈建议armbian刷入emmc前备份原系统文件。执行 <code>ddbr</code> 命令后 选 <code>b</code> 然后按指示操作 并等待备份完（大概需要15分钟左右），备份路径为 <code>/ddbr/BACKUP-s9xxx-emmc.img.gz</code>,请仔细检查是否备份成功。
+若报错，很有可能是识别 <code>emmc</code> 失败， 这时千万不要把<code>armbian</code>刷入<code>emmc</code>,百分百变砖。</p>
+</blockquote>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">执行 lsblk
+$ lsblk 
+NAME         MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+sda            <span style="color:#1c01ce">8</span>:0    <span style="color:#1c01ce">1</span>  <span style="color:#1c01ce">14</span>.6G  <span style="color:#1c01ce">0</span> disk 
+|-sda1         <span style="color:#1c01ce">8</span>:1    <span style="color:#1c01ce">1</span>   128M  <span style="color:#1c01ce">0</span> part /boot
+<span style="color:#c41a16">`</span>-sda2         <span style="color:#1c01ce">8</span>:2    <span style="color:#1c01ce">1</span>  <span style="color:#1c01ce">14</span>.3G  <span style="color:#1c01ce">0</span> part /
+mmcblk1      <span style="color:#1c01ce">179</span>:0    <span style="color:#1c01ce">0</span>   <span style="color:#1c01ce">7</span>.3G  <span style="color:#1c01ce">0</span> disk 
+mmcblk1boot0 <span style="color:#1c01ce">179</span>:32   <span style="color:#1c01ce">0</span>     4M  <span style="color:#1c01ce">1</span> disk 
+mmcblk1boot1 <span style="color:#1c01ce">179</span>:64   <span style="color:#1c01ce">0</span>     4M  <span style="color:#1c01ce">1</span> disk 
+zram0        <span style="color:#1c01ce">253</span>:0    <span style="color:#1c01ce">0</span>    50M  <span style="color:#1c01ce">0</span> disk /var/log
+zram1        <span style="color:#1c01ce">253</span>:1    <span style="color:#1c01ce">0</span> <span style="color:#1c01ce">919</span>.2M  <span style="color:#1c01ce">0</span> disk <span style="color:#000">[</span>SWAP<span style="color:#000">]</span>
+
+看到 mmcblk1 分区的才能刷入emmc
+
+<span style="color:#a90d91">cd</span> /root/
+./install.sh
+安装完成后关机
+halt -p 或 showdown <span style="color:#000">(</span>关机<span style="color:#000">)</span>
+拔掉电源及U盘，通电重启
+
+登录刷入emmc的armbian系统
+
+syslog中每10s出现一次ttyS0服务启动失败的日志。解决办法:
+
+systemctl disable serial-getty@ttyS0
+systemctl disable syslog.service
+systemctl stop serial-getty@ttyS0
+systemctl stop syslog.service</code></pre></div>
+<p>查看负载<code>armbianmonitor -m</code>(或者装一个<code>htop</code>更好)</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">监控
+$ armbianmonitor -m
+Stop monitoring using <span style="color:#000">[</span>ctrl<span style="color:#000">]</span>-<span style="color:#000">[</span>c<span style="color:#000">]</span>
+Time        CPU    load %cpu %sys %usr %nice %io %irq   CPU
+
+<span style="color:#1c01ce">18</span>:27:06: 1512MHz  <span style="color:#1c01ce">0</span>.00   <span style="color:#1c01ce">0</span>%   <span style="color:#1c01ce">0</span>%   <span style="color:#1c01ce">0</span>%   <span style="color:#1c01ce">0</span>%   <span style="color:#1c01ce">0</span>%   <span style="color:#1c01ce">0</span>% <span style="color:#1c01ce">43</span>.0°C
+<span style="color:#1c01ce">18</span>:27:11:  500MHz  <span style="color:#1c01ce">0</span>.00   <span style="color:#1c01ce">0</span>%   <span style="color:#1c01ce">0</span>%   <span style="color:#1c01ce">0</span>%   <span style="color:#1c01ce">0</span>%   <span style="color:#1c01ce">0</span>%   <span style="color:#1c01ce">0</span>% <span style="color:#1c01ce">42</span>.0°C
+<span style="color:#1c01ce">18</span>:27:16:  500MHz  <span style="color:#1c01ce">0</span>.00   <span style="color:#1c01ce">0</span>%   <span style="color:#1c01ce">0</span>%   <span style="color:#1c01ce">0</span>%   <span style="color:#1c01ce">0</span>%   <span style="color:#1c01ce">0</span>%   <span style="color:#1c01ce">0</span>% <span style="color:#1c01ce">42</span>.0°C</code></pre></div>
+<h2 id="u盘或移动硬盘分区-挂载">U盘或移动硬盘分区、挂载</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">#ARMBIAN 5.77 Ubuntu 18.04.2 LTS 5.0.2-aml-s905</span>
+<span style="color:#177500">#默认即可挂载NTFS分区，但权限为777且修改无效。</span>
+<span style="color:#177500">#建议还是格式化为 ext4 分区再挂载</span>
+
+fdisk -l
+fdisk /dev/sda
+<span style="color:#177500">#p打印现有分区 d删除分区 n新建一个主分区 w保存写入分区 q退出</span>
+
+mkfs.ext4 /dev/sda1
+mount /dev/sda1 /home/
+
+<span style="color:#177500">#查看分区UUID</span>
+ls -l /dev/disk/by-uuid/
+blkid /dev/sda1
+
+vim /etc/fstab <span style="color:#177500">#(开机自动挂载)</span>
+
+<span style="color:#000">UUID</span><span style="color:#000">=</span>46899d7f-489e-4a6d-ac7a-857a4ac2cb5b   /home     ext4    defaults    <span style="color:#1c01ce">0</span> <span style="color:#1c01ce">0</span></code></pre></div>
+<h2 id="apt换源">apt换源</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">#开机后插入网线 eth0 会自动获取ip</span>
+<span style="color:#177500">#通过 nmtui 图形化编辑激活WiFi</span>
+<span style="color:#177500">#armbian-config 也可编辑网络，修改时区，修改默认语言，修改主机名，安装软件等</span>
+
+<span style="color:#177500">#更改国内源</span>
+cp /etc/apt/sources.list /etc/apt/sources.list.Ori
+
+sed -i <span style="color:#c41a16">&#34;s#http://ports.ubuntu.com/#https://mirror.tuna.tsinghua.edu.cn/ubuntu-ports/#g&#34;</span> /etc/apt/sources.list
+
+<span style="color:#177500">#更新</span>
+apt update <span style="color:#000">&amp;&amp;</span> apt upgrade</code></pre></div>
+<h2 id="安装docker">安装docker</h2>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@aml:~# curl -fsSL https://get.docker.com -o get-docker.sh
+root@aml:~# ls
+get-docker.sh 
+root@aml:~# sh get-docker.sh --mirror Aliyun
+
+<span style="color:#177500">#随后即进行自动安装</span>
+<span style="color:#177500"># Executing docker install script, commit: 2f4ae48</span>
++ sh -c apt-get update -qq &gt;/dev/null
++ sh -c apt-get install -y -qq apt-transport-https ca-certificates curl &gt;/dev/null
++ sh -c curl -fsSL <span style="color:#c41a16">&#34;https://mirrors.aliyun.com/docker-ce/linux/ubuntu/gpg&#34;</span> | apt-key add -qq - &gt;/dev/null
+Warning: apt-key output should not be parsed <span style="color:#000">(</span>stdout is not a terminal<span style="color:#000">)</span>
++ sh -c <span style="color:#a90d91">echo</span> <span style="color:#c41a16">&#34;deb [arch=arm64] https://mirrors.aliyun.com/docker-ce/linux/ubuntu bionic stable&#34;</span> &gt; /etc/apt/sources.list.d/docker.list
++ sh -c apt-get update -qq &gt;/dev/null
++ <span style="color:#000">[</span> -n  <span style="color:#000">]</span>
++ sh -c apt-get install -y -qq --no-install-recommends docker-ce &gt;/dev/null
++ sh -c docker version
+Client:
+ Version:           <span style="color:#1c01ce">18</span>.09.5
+ API version:       <span style="color:#1c01ce">1</span>.39
+ Go version:        go1.10.8
+ Git commit:        e8ff056
+ Built:             Thu Apr <span style="color:#1c01ce">11</span> <span style="color:#1c01ce">04</span>:48:27 <span style="color:#1c01ce">2019</span>
+ OS/Arch:           linux/arm64
+ Experimental:      <span style="color:#a90d91">false</span>
+
+Server: Docker Engine - Community
+ Engine:
+  Version:          <span style="color:#1c01ce">18</span>.09.5
+  API version:      <span style="color:#1c01ce">1</span>.39 <span style="color:#000">(</span>minimum version <span style="color:#1c01ce">1</span>.12<span style="color:#000">)</span>
+  Go version:       go1.10.8
+  Git commit:       e8ff056
+  Built:            Thu Apr <span style="color:#1c01ce">11</span> <span style="color:#1c01ce">04</span>:11:17 <span style="color:#1c01ce">2019</span>
+  OS/Arch:          linux/arm64
+  Experimental:     <span style="color:#a90d91">false</span>
+If you would like to use Docker as a non-root user, you should now consider
+adding your user to the <span style="color:#c41a16">&#34;docker&#34;</span> group with something like:
+
+  sudo usermod -aG docker your-user
+
+Remember that you will have to log out and back in <span style="color:#a90d91">for</span> this to take effect!
+
+WARNING: Adding a user to the <span style="color:#c41a16">&#34;docker&#34;</span> group will grant the ability to run
+         containers which can be used to obtain root privileges on the
+         docker host.
+         Refer to https://docs.docker.com/engine/security/security/#docker-daemon-attack-surface
+         <span style="color:#a90d91">for</span> more information.</code></pre></div>
+<h3 id="修改docker镜像">修改docker镜像</h3>
+
+<p>修改docker镜像,改为国内镜像:</p>
+
+<blockquote>
+<p>当前系统
+RMBIAN 5.77 user-built Ubuntu 18.04.2 LTS 5.0.2-aml-s905</p>
+</blockquote>
+
+<p><code>/etc/docker/daemon.json</code> 中写入如下内容（如果文件不存在请新建该文件）</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+  <span style="color:#000">&#34;registry-mirrors&#34;</span>: [
+    <span style="color:#c41a16">&#34;https://registry.docker-cn.com&#34;</span>
+  ]
+}</code></pre></div>
+<blockquote>
+<p>注意，一定要保证该文件符合 json 规范，否则 Docker 将不能启动。</p>
+</blockquote>
+
+<p>之后重新启动服务。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo systemctl daemon-reload
+$ sudo systemctl restart docker</code></pre></div>
+<p><strong>检查加速器是否生效</strong></p>
+
+<p>命令行执行 <code>docker info</code>，如果从结果中看到了如下内容，说明配置成功。</p>
+
+<pre><code>Registry Mirrors:
+ https://registry.docker-cn.com/
+</code></pre>
+
+<h3 id="portainer-docker图形管理工具">Portainer:docker图形管理工具</h3>
+
+<p><a href="https://www.right.com.cn/forum/forum.php?mod=viewthread&amp;tid=430903">恩山论坛</a>有人安装了Portainer作为docker管理面板。尝试了下,体验还差不错。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker volume create portainer_data
+
+docker run -d -p <span style="color:#1c01ce">9000</span>:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer:linux-arm64</code></pre></div></div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#开启adb">开启ADB</a></li>
+<li><a href="#制作系统盘">制作系统盘</a></li>
+<li><a href="#u盘启动-armbian-ubuntu">U盘启动 armbian-ubuntu</a></li>
+<li><a href="#备份原系统">备份原系统</a></li>
+<li><a href="#u盘或移动硬盘分区-挂载">U盘或移动硬盘分区、挂载</a></li>
+<li><a href="#apt换源">apt换源</a></li>
+<li><a href="#安装docker">安装docker</a>
+<ul>
+<li><a href="#修改docker镜像">修改docker镜像</a></li>
+<li><a href="#portainer-docker图形管理工具">Portainer:docker图形管理工具</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

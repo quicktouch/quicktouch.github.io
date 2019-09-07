@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>2.Redis客户端：Jedis |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer  header-transparent header-dark ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+<section id="blog-hero" class="section 
+modular-hero hero text-light title-h1h2 overlay-dark-gradient hero-tiny parallax" style="background-color: black;background-image: url( http://image.tyrad.cc/20190606155978918221695.jpg ); 
+background-position-y: 0px;">
+    <div class="image-overlay"></div>
+    <section class="container grid-lg" style="text-align: center">
+        
+        <h1>2.Redis客户端：Jedis</h1>  
+        
+        <h2></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#java'>java</a></span>
+    
+    
+    
+    
+    
+    &nbsp/&nbsp<span>Redis</span>
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2019-06-05T00:00:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2019-06-05
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+    <i id="to-start" class="pulse fa fa-angle-down"></i>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<h2 id="spring-data-redis">Spring Data Redis</h2>
+
+<ul>
+<li><code>Spring Data</code>: Spring Data的任务是为数据访问提供熟悉且一致的基于Spring的编程模型，同时仍保留底层数据存储的特​​殊特性。</li>
+<li><code>Spring Data Redis</code>: 是Spring Data家族的一部分，可以从Spring应用程序轻松配置和访问Redis。
+它提供了与store交互的低级和高级抽象，把用户从基础设施问题(基础设施问题)中解救出来。</li>
+</ul>
+
+<p>Spring对Redis的支持</p>
+
+<ul>
+<li>Spring Data Redis
+
+<ul>
+<li>支持的客户端Jedis / Lettuce / Redisson等</li>
+<li>RedisTemplate</li>
+<li>Repository支持</li>
+</ul></li>
+</ul>
+
+<p>Jedis支持redis的哪些特性:</p>
+
+<ul>
+<li>排序 Sorting<br /></li>
+<li>连接  Connection handling<br /></li>
+<li>Commands operating on any kind of values<br /></li>
+<li>Commands operating on string values<br /></li>
+<li>Commands operating on hashes<br /></li>
+<li>Commands operating on lists<br /></li>
+<li>Commands operating on sets<br /></li>
+<li>Commands operating on sorted sets<br /></li>
+<li>事务 Transactions<br /></li>
+<li>Pipelining<br /></li>
+<li>发布/订阅 Publish/Subscribe<br /></li>
+<li>持久性控制命令 Persistence control commands<br /></li>
+<li>Remote server control commands<br /></li>
+<li>Connection pooling<br /></li>
+<li>Sharding (MD5, MurmurHash)<br /></li>
+<li>Key-tags for sharding<br /></li>
+<li>Sharding with pipelining<br /></li>
+<li>Scripting with pipelining<br /></li>
+<li>Redis Cluster<br /></li>
+</ul>
+
+<h2 id="jedis的使用">Jedis的使用</h2>
+
+<ul>
+<li>Jedis不是线程安全的</li>
+<li>通过JedisPool获取Jedis实例</li>
+<li>直接使用Jedis中的方法</li>
+</ul>
+
+<h3 id="简单示例">简单示例</h3>
+
+<p>最简单的一个示例:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#177500">/* 添加依赖
+</span><span style="color:#177500">&lt;dependency&gt;
+</span><span style="color:#177500">    &lt;groupId&gt;redis.clients&lt;/groupId&gt;
+</span><span style="color:#177500">    &lt;artifactId&gt;jedis&lt;/artifactId&gt;
+</span><span style="color:#177500">&lt;/dependency&gt;
+</span><span style="color:#177500">*/</span>
+<span style="color:#000">@SpringBootApplication</span>
+<span style="color:#000">@Slf4j</span>
+<span style="color:#a90d91">public</span> <span style="color:#a90d91">class</span> <span style="color:#3f6e75">JedisDemoApplication</span> <span style="color:#a90d91">implements</span> <span style="color:#000">ApplicationRunner</span> <span style="color:#000">{</span>
+
+	<span style="color:#a90d91">public</span> <span style="color:#a90d91">static</span> <span style="color:#a90d91">void</span> <span style="color:#000">main</span><span style="color:#000">(</span><span style="color:#000">String</span><span style="color:#000">[]</span> <span style="color:#000">args</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+		<span style="color:#000">SpringApplication</span><span style="color:#000">.</span><span style="color:#836c28">run</span><span style="color:#000">(</span><span style="color:#000">JedisDemoApplication</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">,</span> <span style="color:#000">args</span><span style="color:#000">);</span>
+	<span style="color:#000">}</span>
+
+	<span style="color:#000">@Override</span>
+	<span style="color:#a90d91">public</span> <span style="color:#a90d91">void</span> <span style="color:#000">run</span><span style="color:#000">(</span><span style="color:#000">ApplicationArguments</span> <span style="color:#000">args</span><span style="color:#000">)</span> <span style="color:#a90d91">throws</span> <span style="color:#000">Exception</span> <span style="color:#000">{</span>
+		<span style="color:#000">Jedis</span> <span style="color:#000">jedis</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">Jedis</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;localhost&#34;</span><span style="color:#000">);</span>
+		<span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">set</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;foo&#34;</span><span style="color:#000">,</span><span style="color:#c41a16">&#34;bar&#34;</span><span style="color:#000">);</span>
+		<span style="color:#000">String</span> <span style="color:#000">value</span> <span style="color:#000">=</span> <span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">get</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;foo&#34;</span><span style="color:#000">);</span>
+		<span style="color:#000">log</span><span style="color:#000">.</span><span style="color:#836c28">info</span><span style="color:#000">(</span><span style="color:#000">value</span><span style="color:#000">);</span>
+	<span style="color:#000">}</span>
+<span style="color:#000">}</span></code></pre></div>
+<h3 id="多线程环境">多线程环境</h3>
+
+<p>为什么使用<code>JedisPool</code>:</p>
+
+<ul>
+<li><strong>Jedis不是线程安全的</strong></li>
+<li>创建大量的Jedis它意味着使用更多的套接字和连接，这也会导致奇怪的错误</li>
+</ul>
+
+<p>下面初始化一个池子,您可以静态地(statically)将池存储在某个地方，它是线程安全的。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000">JedisPool</span> <span style="color:#000">pool</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">JedisPool</span><span style="color:#000">(</span><span style="color:#a90d91">new</span> <span style="color:#000">JedisPoolConfig</span><span style="color:#000">(),</span> <span style="color:#c41a16">&#34;localhost&#34;</span><span style="color:#000">);</span></code></pre></div>
+<p>JedisPoolConfig包含许多有用的特定于Redis的连接池默认值。
+JedisPool基于Commons Pool 2，因此您可能需要查看Commons Pool的配置。<a href="http://commons.apache.org/proper/commons-pool/apidocs/org/apache/commons/pool2/impl/GenericObjectPoolConfig.html">点击此处查看更多。</a></p>
+
+<p>Jedis实现了Closeable。因此，jedis实例将在执行完最后一个语句后自动关闭:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#177500">/// Jedis实现了Closeable。因此，jedis实例将在最后一个语句后自动关闭。
+</span><span style="color:#177500"></span><span style="color:#a90d91">try</span> <span style="color:#000">(</span><span style="color:#000">Jedis</span> <span style="color:#000">jedis</span> <span style="color:#000">=</span> <span style="color:#000">pool</span><span style="color:#000">.</span><span style="color:#836c28">getResource</span><span style="color:#000">())</span> <span style="color:#000">{</span>
+  <span style="color:#177500">/// ... do stuff here ... for example
+</span><span style="color:#177500"></span>  <span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">set</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;foo&#34;</span><span style="color:#000">,</span> <span style="color:#c41a16">&#34;bar&#34;</span><span style="color:#000">);</span>
+  <span style="color:#000">String</span> <span style="color:#000">foobar</span> <span style="color:#000">=</span> <span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">get</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;foo&#34;</span><span style="color:#000">);</span>
+  <span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">zadd</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;sose&#34;</span><span style="color:#000">,</span> <span style="color:#000">0</span><span style="color:#000">,</span> <span style="color:#c41a16">&#34;car&#34;</span><span style="color:#000">);</span> <span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">zadd</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;sose&#34;</span><span style="color:#000">,</span> <span style="color:#000">0</span><span style="color:#000">,</span> <span style="color:#c41a16">&#34;bike&#34;</span><span style="color:#000">);</span> 
+  <span style="color:#000">Set</span><span style="color:#000">&lt;</span><span style="color:#000">String</span><span style="color:#000">&gt;</span> <span style="color:#000">sose</span> <span style="color:#000">=</span> <span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">zrange</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;sose&#34;</span><span style="color:#000">,</span> <span style="color:#000">0</span><span style="color:#000">,</span> <span style="color:#000">-</span><span style="color:#000">1</span><span style="color:#000">);</span>
+<span style="color:#000">}</span>
+<span style="color:#177500">/// ... when closing your application:
+</span><span style="color:#177500"></span><span style="color:#000">pool</span><span style="color:#000">.</span><span style="color:#836c28">close</span><span style="color:#000">();</span></code></pre></div>
+<p>或者也可以手动关闭Jedis:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000">Jedis</span> <span style="color:#000">jedis</span> <span style="color:#000">=</span> <span style="color:#a90d91">null</span><span style="color:#000">;</span>
+<span style="color:#a90d91">try</span> <span style="color:#000">{</span>
+  <span style="color:#000">jedis</span> <span style="color:#000">=</span> <span style="color:#000">pool</span><span style="color:#000">.</span><span style="color:#836c28">getResource</span><span style="color:#000">();</span>
+  <span style="color:#177500">/// ... do stuff here ... for example
+</span><span style="color:#177500"></span>  <span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">set</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;foo&#34;</span><span style="color:#000">,</span> <span style="color:#c41a16">&#34;bar&#34;</span><span style="color:#000">);</span>
+  <span style="color:#000">String</span> <span style="color:#000">foobar</span> <span style="color:#000">=</span> <span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">get</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;foo&#34;</span><span style="color:#000">);</span>
+  <span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">zadd</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;sose&#34;</span><span style="color:#000">,</span> <span style="color:#000">0</span><span style="color:#000">,</span> <span style="color:#c41a16">&#34;car&#34;</span><span style="color:#000">);</span> <span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">zadd</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;sose&#34;</span><span style="color:#000">,</span> <span style="color:#000">0</span><span style="color:#000">,</span> <span style="color:#c41a16">&#34;bike&#34;</span><span style="color:#000">);</span> 
+  <span style="color:#000">Set</span><span style="color:#000">&lt;</span><span style="color:#000">String</span><span style="color:#000">&gt;</span> <span style="color:#000">sose</span> <span style="color:#000">=</span> <span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">zrange</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;sose&#34;</span><span style="color:#000">,</span> <span style="color:#000">0</span><span style="color:#000">,</span> <span style="color:#000">-</span><span style="color:#000">1</span><span style="color:#000">);</span>
+<span style="color:#000">}</span> <span style="color:#a90d91">finally</span> <span style="color:#000">{</span>
+  <span style="color:#177500">// You have to close jedis object. If you don&#39;t close then
+</span><span style="color:#177500"></span>  <span style="color:#177500">// it doesn&#39;t release back to pool and you can&#39;t get a new
+</span><span style="color:#177500"></span>  <span style="color:#177500">// resource from pool.
+</span><span style="color:#177500"></span>  <span style="color:#a90d91">if</span> <span style="color:#000">(</span><span style="color:#000">jedis</span> <span style="color:#000">!=</span> <span style="color:#a90d91">null</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+    <span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">close</span><span style="color:#000">();</span>
+  <span style="color:#000">}</span>
+<span style="color:#000">}</span>
+<span style="color:#177500">/// ... when closing your application:
+</span><span style="color:#177500"></span><span style="color:#000">pool</span><span style="color:#000">.</span><span style="color:#836c28">close</span><span style="color:#000">();</span></code></pre></div>
+<p>或者直接使用<code>@Bean</code>，Autowired方式</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#177500">//配置文件
+</span><span style="color:#177500"></span><span style="color:#000">redis</span><span style="color:#000">.</span><span style="color:#836c28">host</span><span style="color:#000">=</span><span style="color:#000">localhost</span>
+<span style="color:#000">redis</span><span style="color:#000">.</span><span style="color:#836c28">maxTotal</span><span style="color:#000">=</span><span style="color:#000">5</span>
+<span style="color:#000">redis</span><span style="color:#000">.</span><span style="color:#836c28">maxIdle</span><span style="color:#000">=</span><span style="color:#000">5</span>
+<span style="color:#000">redis</span><span style="color:#000">.</span><span style="color:#836c28">testOnBorrow</span><span style="color:#000">=</span><span style="color:#a90d91">true</span>
+
+<span style="color:#177500">//java类
+</span><span style="color:#177500"></span><span style="color:#000">@SpringBootApplication</span>
+<span style="color:#000">@Slf4j</span>
+<span style="color:#a90d91">public</span> <span style="color:#a90d91">class</span> <span style="color:#3f6e75">JedisDemoApplication</span> <span style="color:#a90d91">implements</span> <span style="color:#000">ApplicationRunner</span> <span style="color:#000">{</span>
+
+	<span style="color:#000">@Autowired</span>
+	<span style="color:#a90d91">private</span> <span style="color:#000">JedisPool</span> <span style="color:#000">jedisPool</span><span style="color:#000">;</span>
+	<span style="color:#000">@Autowired</span>
+	<span style="color:#a90d91">private</span> <span style="color:#000">JedisPoolConfig</span> <span style="color:#000">jedisPoolConfig</span><span style="color:#000">;</span>
+
+	<span style="color:#a90d91">public</span> <span style="color:#a90d91">static</span> <span style="color:#a90d91">void</span> <span style="color:#000">main</span><span style="color:#000">(</span><span style="color:#000">String</span><span style="color:#000">[]</span> <span style="color:#000">args</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+		<span style="color:#000">SpringApplication</span><span style="color:#000">.</span><span style="color:#836c28">run</span><span style="color:#000">(</span><span style="color:#000">JedisDemoApplication</span><span style="color:#000">.</span><span style="color:#836c28">class</span><span style="color:#000">,</span> <span style="color:#000">args</span><span style="color:#000">);</span>
+	<span style="color:#000">}</span>
+
+	<span style="color:#000">@Override</span>
+	<span style="color:#a90d91">public</span> <span style="color:#a90d91">void</span> <span style="color:#000">run</span><span style="color:#000">(</span><span style="color:#000">ApplicationArguments</span> <span style="color:#000">args</span><span style="color:#000">)</span> <span style="color:#a90d91">throws</span> <span style="color:#000">Exception</span> <span style="color:#000">{</span>
+		<span style="color:#000">userPool</span><span style="color:#000">();</span>
+	<span style="color:#000">}</span>
+
+	<span style="color:#000">@Bean</span>
+	<span style="color:#000">@ConfigurationProperties</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;redis&#34;</span><span style="color:#000">)</span> <span style="color:#177500">//将redis开头的相关属性赋给它
+</span><span style="color:#177500"></span>	<span style="color:#a90d91">public</span> <span style="color:#000">JedisPoolConfig</span> <span style="color:#000">jedisPoolConfig</span><span style="color:#000">()</span> <span style="color:#000">{</span>
+		<span style="color:#a90d91">return</span> <span style="color:#a90d91">new</span> <span style="color:#000">JedisPoolConfig</span><span style="color:#000">();</span>
+	<span style="color:#000">}</span>
+
+	<span style="color:#000">@Bean</span><span style="color:#000">(</span><span style="color:#000">destroyMethod</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#34;close&#34;</span><span style="color:#000">)</span> <span style="color:#177500">//关闭bean的时候
+</span><span style="color:#177500"></span>	<span style="color:#a90d91">public</span> <span style="color:#000">JedisPool</span> <span style="color:#000">jedisPool</span><span style="color:#000">(</span><span style="color:#000">@Value</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;${redis.host}&#34;</span><span style="color:#000">)</span> <span style="color:#000">String</span> <span style="color:#000">host</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+		<span style="color:#a90d91">return</span> <span style="color:#a90d91">new</span> <span style="color:#000">JedisPool</span><span style="color:#000">(</span><span style="color:#000">jedisPoolConfig</span><span style="color:#000">(),</span> <span style="color:#000">host</span><span style="color:#000">);</span>
+	<span style="color:#000">}</span>
+
+	<span style="color:#a90d91">private</span> <span style="color:#a90d91">void</span> <span style="color:#000">userPool</span><span style="color:#000">(){</span>
+
+		<span style="color:#000">log</span><span style="color:#000">.</span><span style="color:#836c28">info</span><span style="color:#000">(</span><span style="color:#000">jedisPool</span><span style="color:#000">.</span><span style="color:#836c28">toString</span><span style="color:#000">());</span>
+
+		<span style="color:#a90d91">try</span> <span style="color:#000">(</span><span style="color:#000">Jedis</span> <span style="color:#000">jedis</span> <span style="color:#000">=</span> <span style="color:#000">jedisPool</span><span style="color:#000">.</span><span style="color:#836c28">getResource</span><span style="color:#000">())</span> <span style="color:#000">{</span>
+			<span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">set</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;foo&#34;</span><span style="color:#000">,</span> <span style="color:#c41a16">&#34;bar&#34;</span><span style="color:#000">);</span>
+			<span style="color:#000">String</span> <span style="color:#000">foobar</span> <span style="color:#000">=</span> <span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">get</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;foo&#34;</span><span style="color:#000">);</span>
+			<span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">zadd</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;sose&#34;</span><span style="color:#000">,</span> <span style="color:#000">0</span><span style="color:#000">,</span> <span style="color:#c41a16">&#34;car&#34;</span><span style="color:#000">);</span>
+			<span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">zadd</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;sose&#34;</span><span style="color:#000">,</span> <span style="color:#000">0</span><span style="color:#000">,</span> <span style="color:#c41a16">&#34;bike&#34;</span><span style="color:#000">);</span>
+			<span style="color:#000">Set</span><span style="color:#000">&lt;</span><span style="color:#000">String</span><span style="color:#000">&gt;</span> <span style="color:#000">sose</span> <span style="color:#000">=</span> <span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">zrange</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;sose&#34;</span><span style="color:#000">,</span> <span style="color:#000">0</span><span style="color:#000">,</span> <span style="color:#000">-</span><span style="color:#000">1</span><span style="color:#000">);</span>
+			<span style="color:#000">log</span><span style="color:#000">.</span><span style="color:#836c28">info</span><span style="color:#000">(</span><span style="color:#000">sose</span><span style="color:#000">.</span><span style="color:#836c28">toString</span><span style="color:#000">());</span>
+		<span style="color:#000">}</span>
+		<span style="color:#000">jedisPool</span><span style="color:#000">.</span><span style="color:#836c28">close</span><span style="color:#000">();</span>
+	<span style="color:#000">}</span>
+
+<span style="color:#000">}</span></code></pre></div>
+<h3 id="主从复制">主从复制</h3>
+
+<p>Setting up master/slave distribution</p>
+
+<p><strong>enable replication 启用复制</strong></p>
+
+<p>Redis主要用于主/从(master/slave)分发。<br />
+我们的直接请求地址必须指定主节点（redis服务器）。主节点会复制变更到&rsquo;从服务器(也是redis服务器)&lsquo;。  然后，读取请求可以（但不一定必须）发送到从站，这可以减轻主站的负担。</p>
+
+<p>为了启用复制，有两种方法可以告诉从属服务器它将是给定主服务器的“slaveOf”：</p>
+
+<ul>
+<li>Redis Config中指定</li>
+<li>在redis实例中指定 IP (或 &ldquo;localhost&rdquo;) 和端口</li>
+</ul>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">slaveof</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;localhost&#34;</span><span style="color:#000">,</span> <span style="color:#000">6379</span><span style="color:#000">);</span>  <span style="color:#177500">//  if the master is on the same PC which runs your code
+</span><span style="color:#177500"></span><span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">slaveof</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;192.168.1.35&#34;</span><span style="color:#000">,</span> <span style="color:#000">6379</span><span style="color:#000">);</span> </code></pre></div>
+<blockquote>
+<p>Note: since Redis 2.6 slaves are read only by default, so write requests to them will result in an error.<br />
+If you change that setting they will behave like normal redis servers and accept write requests without errors, but the changes won&rsquo;t be replicated, and hence those changes are at risk to be silently overwritten, if you mix up your jedis instances.</p>
+</blockquote>
+
+<p><strong><em>disable replication / upon failing master, promote a slave</em></strong></p>
+
+<p>如果主节点挂了，你可能想设置从节点为新的节点。<br />
+您应首先（尝试）首先禁用脱机主机的复制，然后，如果您有多个从站，则启用其余从站的复制到新主站：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000">slave1jedis</span><span style="color:#000">.</span><span style="color:#836c28">slaveofNoOne</span><span style="color:#000">();</span>
+<span style="color:#000">slave2jedis</span><span style="color:#000">.</span><span style="color:#836c28">slaveof</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;192.168.1.36&#34;</span><span style="color:#000">,</span> <span style="color:#000">6379</span><span style="color:#000">);</span> </code></pre></div>
+<h2 id="jedis高级部分用法">Jedis高级部分用法</h2>
+
+<h3 id="transactions">Transactions</h3>
+
+<p>要在Jedis中执行事务，您必须将操作包装在事务块（transaction block）中，与pipelining非常相似：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">watch</span> <span style="color:#000">(</span><span style="color:#000">key1</span><span style="color:#000">,</span> <span style="color:#000">key2</span><span style="color:#000">,</span> <span style="color:#000">...);</span>
+<span style="color:#000">Transaction</span> <span style="color:#000">t</span> <span style="color:#000">=</span> <span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">multi</span><span style="color:#000">();</span>
+<span style="color:#000">t</span><span style="color:#000">.</span><span style="color:#836c28">set</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;foo&#34;</span><span style="color:#000">,</span> <span style="color:#c41a16">&#34;bar&#34;</span><span style="color:#000">);</span>
+<span style="color:#000">t</span><span style="color:#000">.</span><span style="color:#836c28">exec</span><span style="color:#000">();</span></code></pre></div>
+<p>需要返回值的情况</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000">Transaction</span> <span style="color:#000">t</span> <span style="color:#000">=</span> <span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">multi</span><span style="color:#000">();</span>
+<span style="color:#000">t</span><span style="color:#000">.</span><span style="color:#836c28">set</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;fool&#34;</span><span style="color:#000">,</span> <span style="color:#c41a16">&#34;bar&#34;</span><span style="color:#000">);</span> 
+<span style="color:#000">Response</span><span style="color:#000">&lt;</span><span style="color:#000">String</span><span style="color:#000">&gt;</span> <span style="color:#000">result1</span> <span style="color:#000">=</span> <span style="color:#000">t</span><span style="color:#000">.</span><span style="color:#836c28">get</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;fool&#34;</span><span style="color:#000">);</span>
+
+<span style="color:#000">t</span><span style="color:#000">.</span><span style="color:#836c28">zadd</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;foo&#34;</span><span style="color:#000">,</span> <span style="color:#000">1</span><span style="color:#000">,</span> <span style="color:#c41a16">&#34;barowitch&#34;</span><span style="color:#000">);</span> <span style="color:#000">t</span><span style="color:#000">.</span><span style="color:#836c28">zadd</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;foo&#34;</span><span style="color:#000">,</span> <span style="color:#000">0</span><span style="color:#000">,</span> <span style="color:#c41a16">&#34;barinsky&#34;</span><span style="color:#000">);</span> <span style="color:#000">t</span><span style="color:#000">.</span><span style="color:#836c28">zadd</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;foo&#34;</span><span style="color:#000">,</span> <span style="color:#000">0</span><span style="color:#000">,</span> <span style="color:#c41a16">&#34;barikoviev&#34;</span><span style="color:#000">);</span>
+<span style="color:#000">Response</span><span style="color:#000">&lt;</span><span style="color:#000">Set</span><span style="color:#000">&lt;</span><span style="color:#000">String</span><span style="color:#000">&gt;&gt;</span> <span style="color:#000">sose</span> <span style="color:#000">=</span> <span style="color:#000">t</span><span style="color:#000">.</span><span style="color:#836c28">zrange</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;foo&#34;</span><span style="color:#000">,</span> <span style="color:#000">0</span><span style="color:#000">,</span> <span style="color:#000">-</span><span style="color:#000">1</span><span style="color:#000">);</span>   <span style="color:#177500">// get the entire sortedset
+</span><span style="color:#177500"></span><span style="color:#000">t</span><span style="color:#000">.</span><span style="color:#836c28">exec</span><span style="color:#000">();</span>                                              <span style="color:#177500">// dont forget it
+</span><span style="color:#177500"></span>
+<span style="color:#000">String</span> <span style="color:#000">foolbar</span> <span style="color:#000">=</span> <span style="color:#000">result1</span><span style="color:#000">.</span><span style="color:#836c28">get</span><span style="color:#000">();</span>                       <span style="color:#177500">// use Response.get() to retrieve things from a Response
+</span><span style="color:#177500"></span><span style="color:#a90d91">int</span> <span style="color:#000">soseSize</span> <span style="color:#000">=</span> <span style="color:#000">sose</span><span style="color:#000">.</span><span style="color:#836c28">get</span><span style="color:#000">().</span><span style="color:#836c28">size</span><span style="color:#000">();</span>                      <span style="color:#177500">// on sose.get() you can directly call Set methods!
+</span><span style="color:#177500"></span>
+<span style="color:#000">//</span> <span style="color:#000">List</span><span style="color:#000">&lt;</span><span style="color:#000">Object</span><span style="color:#000">&gt;</span> <span style="color:#000">allResults</span> <span style="color:#000">=</span> <span style="color:#000">t</span><span style="color:#000">.</span><span style="color:#836c28">exec</span><span style="color:#000">();</span>                 <span style="color:#000">//</span> <span style="color:#000">you</span> <span style="color:#000">could</span> <span style="color:#000">still</span> <span style="color:#000">get</span> <span style="color:#000">all</span> <span style="color:#000">results</span> <span style="color:#000">at</span> <span style="color:#000">once</span><span style="color:#000">,</span> <span style="color:#000">as</span> <span style="color:#000">before</span></code></pre></div>
+<p><code>exec()</code>的时候操作才会执行。</p>
+
+<h3 id="pipelining">Pipelining</h3>
+
+<p>相关概念的理解:<a href="https://blog.csdn.net/u011489043/article/details/78769428">管道(Pipelining) 一篇不错的文章</a>。<br />
+简单理解就是命令的批处理。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#000">Pipeline</span> <span style="color:#000">p</span> <span style="color:#000">=</span> <span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">pipelined</span><span style="color:#000">();</span>
+<span style="color:#000">p</span><span style="color:#000">.</span><span style="color:#836c28">set</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;fool&#34;</span><span style="color:#000">,</span> <span style="color:#c41a16">&#34;bar&#34;</span><span style="color:#000">);</span> 
+<span style="color:#000">p</span><span style="color:#000">.</span><span style="color:#836c28">zadd</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;foo&#34;</span><span style="color:#000">,</span> <span style="color:#000">1</span><span style="color:#000">,</span> <span style="color:#c41a16">&#34;barowitch&#34;</span><span style="color:#000">);</span>  
+<span style="color:#000">p</span><span style="color:#000">.</span><span style="color:#836c28">zadd</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;foo&#34;</span><span style="color:#000">,</span> <span style="color:#000">0</span><span style="color:#000">,</span> <span style="color:#c41a16">&#34;barinsky&#34;</span><span style="color:#000">);</span> 
+<span style="color:#000">p</span><span style="color:#000">.</span><span style="color:#836c28">zadd</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;foo&#34;</span><span style="color:#000">,</span> <span style="color:#000">0</span><span style="color:#000">,</span> <span style="color:#c41a16">&#34;barikoviev&#34;</span><span style="color:#000">);</span>
+<span style="color:#000">Response</span><span style="color:#000">&lt;</span><span style="color:#000">String</span><span style="color:#000">&gt;</span> <span style="color:#000">pipeString</span> <span style="color:#000">=</span> <span style="color:#000">p</span><span style="color:#000">.</span><span style="color:#836c28">get</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;fool&#34;</span><span style="color:#000">);</span>
+<span style="color:#000">Response</span><span style="color:#000">&lt;</span><span style="color:#000">Set</span><span style="color:#000">&lt;</span><span style="color:#000">String</span><span style="color:#000">&gt;&gt;</span> <span style="color:#000">sose</span> <span style="color:#000">=</span> <span style="color:#000">p</span><span style="color:#000">.</span><span style="color:#836c28">zrange</span><span style="color:#000">(</span><span style="color:#c41a16">&#34;foo&#34;</span><span style="color:#000">,</span> <span style="color:#000">0</span><span style="color:#000">,</span> <span style="color:#000">-</span><span style="color:#000">1</span><span style="color:#000">);</span>
+<span style="color:#000">p</span><span style="color:#000">.</span><span style="color:#836c28">sync</span><span style="color:#000">();</span> 
+
+<span style="color:#a90d91">int</span> <span style="color:#000">soseSize</span> <span style="color:#000">=</span> <span style="color:#000">sose</span><span style="color:#000">.</span><span style="color:#836c28">get</span><span style="color:#000">().</span><span style="color:#836c28">size</span><span style="color:#000">();</span>
+<span style="color:#000">Set</span><span style="color:#000">&lt;</span><span style="color:#000">String</span><span style="color:#000">&gt;</span> <span style="color:#000">setBack</span> <span style="color:#000">=</span> <span style="color:#000">sose</span><span style="color:#000">.</span><span style="color:#836c28">get</span><span style="color:#000">();</span></code></pre></div>
+<h3 id="订阅-发布">订阅/发布</h3>
+
+<p>要在Redis中订阅频道，请创建JedisPubSub的实例并在Jedis实例上调用subscribe：</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a90d91">class</span> <span style="color:#3f6e75">MyListener</span> <span style="color:#a90d91">extends</span> <span style="color:#000">JedisPubSub</span> <span style="color:#000">{</span>
+        <span style="color:#a90d91">public</span> <span style="color:#a90d91">void</span> <span style="color:#000">onMessage</span><span style="color:#000">(</span><span style="color:#000">String</span> <span style="color:#000">channel</span><span style="color:#000">,</span> <span style="color:#000">String</span> <span style="color:#000">message</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+        <span style="color:#000">}</span>
+
+        <span style="color:#a90d91">public</span> <span style="color:#a90d91">void</span> <span style="color:#000">onSubscribe</span><span style="color:#000">(</span><span style="color:#000">String</span> <span style="color:#000">channel</span><span style="color:#000">,</span> <span style="color:#a90d91">int</span> <span style="color:#000">subscribedChannels</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+        <span style="color:#000">}</span>
+
+        <span style="color:#a90d91">public</span> <span style="color:#a90d91">void</span> <span style="color:#000">onUnsubscribe</span><span style="color:#000">(</span><span style="color:#000">String</span> <span style="color:#000">channel</span><span style="color:#000">,</span> <span style="color:#a90d91">int</span> <span style="color:#000">subscribedChannels</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+        <span style="color:#000">}</span>
+
+        <span style="color:#a90d91">public</span> <span style="color:#a90d91">void</span> <span style="color:#000">onPSubscribe</span><span style="color:#000">(</span><span style="color:#000">String</span> <span style="color:#000">pattern</span><span style="color:#000">,</span> <span style="color:#a90d91">int</span> <span style="color:#000">subscribedChannels</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+        <span style="color:#000">}</span>
+
+        <span style="color:#a90d91">public</span> <span style="color:#a90d91">void</span> <span style="color:#000">onPUnsubscribe</span><span style="color:#000">(</span><span style="color:#000">String</span> <span style="color:#000">pattern</span><span style="color:#000">,</span> <span style="color:#a90d91">int</span> <span style="color:#000">subscribedChannels</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+        <span style="color:#000">}</span>
+        <span style="color:#a90d91">public</span> <span style="color:#a90d91">void</span> <span style="color:#000">onPMessage</span><span style="color:#000">(</span><span style="color:#000">String</span> <span style="color:#000">pattern</span><span style="color:#000">,</span> <span style="color:#000">String</span> <span style="color:#000">channel</span><span style="color:#000">,</span> <span style="color:#000">String</span> <span style="color:#000">message</span><span style="color:#000">)</span> <span style="color:#000">{</span>
+        <span style="color:#000">}</span>
+<span style="color:#000">}</span>
+<span style="color:#000">MyListener</span> <span style="color:#000">l</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">MyListener</span><span style="color:#000">();</span>
+<span style="color:#000">jedis</span><span style="color:#000">.</span><span style="color:#836c28">subscribe</span><span style="color:#000">(</span><span style="color:#000">l</span><span style="color:#000">,</span> <span style="color:#c41a16">&#34;foo&#34;</span><span style="color:#000">);</span></code></pre></div>
+<p>请注意，subscribe是一个阻塞操作，因为它将轮询Redis以查询调用subscribe的线程的响应。
+单个JedisPubSub实例可用于订阅多个通道。
+您可以在现有的JedisPubSub实例上调用subscribe或psubscribe来更改您的订阅。</p>
+
+<h2 id="jedis-cluster">Jedis Cluster</h2>
+
+<!-- 
+```java
+Set<HostAndPort> jedisClusterNodes = new HashSet<HostAndPort>();
+//Jedis Cluster will attempt to discover cluster nodes automatically
+jedisClusterNodes.add(new HostAndPort("127.0.0.1", 7379));
+JedisCluster jc = new JedisCluster(jedisClusterNodes);
+jc.set("foo", "bar");
+String value = jc.get("foo");
+``` -->
+
+<p>有个缺点，分片情况下jedis只支持读master</p>
+
+<h2 id="与spring相结合">与spring相结合</h2>
+
+<p>后续单独讲</p>
+
+<h2 id="参考">参考</h2>
+
+<p><a href="https://github.com/xetorthio/jedis/wiki/Getting-started">https://github.com/xetorthio/jedis/wiki/Getting-started</a></p>
+
+<p><a href="https://lanjingling.github.io/categories/redis/">https://lanjingling.github.io/categories/redis/</a></p>
+</div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#spring-data-redis">Spring Data Redis</a></li>
+<li><a href="#jedis的使用">Jedis的使用</a>
+<ul>
+<li><a href="#简单示例">简单示例</a></li>
+<li><a href="#多线程环境">多线程环境</a></li>
+<li><a href="#主从复制">主从复制</a></li>
+</ul></li>
+<li><a href="#jedis高级部分用法">Jedis高级部分用法</a>
+<ul>
+<li><a href="#transactions">Transactions</a></li>
+<li><a href="#pipelining">Pipelining</a></li>
+<li><a href="#订阅-发布">订阅/发布</a></li>
+</ul></li>
+<li><a href="#jedis-cluster">Jedis Cluster</a></li>
+<li><a href="#与spring相结合">与spring相结合</a></li>
+<li><a href="#参考">参考</a></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>

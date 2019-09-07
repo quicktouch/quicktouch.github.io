@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" 
+    content="tyrad的个人技术博客，主要关注移动互联网,iOS,Flutter,Java,H5,Linux等技术。"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="4GHpSI8Or6aARE0YwdGyiIPg2Xpo01z1VvqQu9o2n1M" />
+    <title>dart基础笔记 |  TYRAD</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-exp.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre-icons.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/spectre.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/theme.min.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/blog.css" />
+    <link rel="stylesheet" href="https://www.tyrad.cc/css/override.css" /></head>
+
+<body id="top"
+    class="header-fixed header-animated sticky-footer ">
+    <div id="page-wrapper">
+        <section id="header" class="section">
+            <section class="container grid-lg">
+                <nav class="navbar">
+                    <section class="navbar-section logo">
+                        <a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a>
+                    </section>
+                    <section class="navbar-section desktop-menu">
+                        <nav class="dropmenu animated">
+
+<ul class=""><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+                    </section>
+                </nav>
+            </section>
+        </section>
+        <div class="mobile-menu">
+            <div class="button_container" id="toggle">
+                <span class="top"></span>
+                <span class="middle"></span>
+                <span class="bottom"></span>
+            </div>
+        </div>
+
+<section id="blog-hero" class="section 
+modular-hero hero text-dark title-h1h2 overlay-dark-gradient hero-tiny parallax"
+    style="padding-top: 4rem;padding-bottom: 0;">
+    <section class="container grid-lg" style="text-align: center">
+        <h2> dart基础笔记 </h2>
+        <h2 style="margin-top: 1rem;"></h2>
+        
+
+<span class="breadcrumbs" style="padding-right:40px;">
+    <i class="fa fa-bookmark" aria-hidden="true"></i>
+    
+    
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki'>wiki</a></span> &nbsp/&nbsp
+    
+    
+    
+    
+    
+    
+    <span><a href='https://www.tyrad.cc/wiki#flutter'>flutter</a></span>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</span>
+
+        <span class="blog-date">
+            <time class="dt-published" datetime='2019-01-30T00:00:00.000&#43;00:00'
+                itemprop="datePublished">
+                <i class="fa fa-calendar"></i> 2019-01-30
+            </time>
+        </span>
+        <span class="tags">
+            
+        </span>
+    </section>
+</section>
+<section id="start">
+    <section id="body-wrapper" class="section blog-listing post-content">
+        <section class="container grid-lg">
+            <div class="columns">
+                <div id="item"
+                    class="column  col-10  col-md-12 extra-spacing blog-content">
+
+<h2 id="安装">安装</h2>
+
+<p>安装方法:</p>
+
+<p><code>brew tap dart-lang/dart</code>
+<code>brew install dart</code></p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#177500">#安装</span>
+➜  ~ brew tap dart-lang/dart
+➜  ~ brew install dart  
+<span style="color:#177500">#查看安装信息</span>
+➜  ~ brew info dart
+dart-lang/dart/dart: stable <span style="color:#1c01ce">2</span>.1.0, devel <span style="color:#1c01ce">2</span>.1.1-dev.3.2
+The Dart SDK
+https://www.dartlang.org/
+/usr/local/Cellar/dart/2.1.0 <span style="color:#000">(</span><span style="color:#1c01ce">339</span> files, <span style="color:#1c01ce">300</span>.1MB<span style="color:#000">)</span> *
+  Built from <span style="color:#a90d91">source</span> on <span style="color:#1c01ce">2019</span>-01-29 at <span style="color:#1c01ce">18</span>:24:15
+From: https://github.com/dart-lang/homebrew-dart/blob/master/dart.rb
+<span style="color:#000">==</span>&gt; Options
+--devel
+	Install development version <span style="color:#1c01ce">2</span>.1.1-dev.3.2
+<span style="color:#000">==</span>&gt; Caveats
+Please note the path to the Dart SDK:
+  /usr/local/opt/dart/libexec</code></pre></div>
+<blockquote>
+<p>webstorm等ide需要配置dart sdk的地址。</p>
+</blockquote>
+
+<h2 id="数据类型">数据类型</h2>
+
+<h3 id="string">String</h3>
+
+<p>声明:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#177500">//双引号
+</span><span style="color:#177500"></span><span style="color:#a90d91">String</span> <span style="color:#000">str2</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#34;it&#39;s ok&#34;</span>;
+<span style="color:#177500">//单引号配合转义
+</span><span style="color:#177500"></span><span style="color:#a90d91">String</span> <span style="color:#000">str3</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#39;it</span><span style="color:#c41a16">\&#39;</span><span style="color:#c41a16">s ok&#39;</span>;</code></pre></div>
+<p>基本使用:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#177500">//三引号多行
+</span><span style="color:#177500"></span><span style="color:#a90d91">var</span> <span style="color:#000">str4</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#34;&#34;&#34; Dart Lang 
+</span><span style="color:#c41a16">hello world&#34;&#34;&#34;</span>;
+<span style="color:#177500">//相邻字符串自动拼接,可以用`+`拼接
+</span><span style="color:#177500"></span><span style="color:#a90d91">var</span> <span style="color:#000">str5</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#34;1&#34;</span> <span style="color:#c41a16">&#34;2&#34;</span> <span style="color:#c41a16">&#34;3&#34;</span>;  
+<span style="color:#a90d91">var</span> <span style="color:#000">str6</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#34;1&#34;</span> <span style="color:#000">+</span> <span style="color:#c41a16">&#34;2&#34;</span>;</code></pre></div>
+<p>StringBuffer可以高效创建字符串。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#000">StringBuffer</span> <span style="color:#000">sb</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">StringBuffer</span>();
+<span style="color:#000">sb</span>.<span style="color:#000">write</span>(<span style="color:#c41a16">&#34;Use a StringBuffer &#34;</span>);
+<span style="color:#000">sb</span>.<span style="color:#000">writeAll</span>([<span style="color:#c41a16">&#39;for &#39;</span>, <span style="color:#c41a16">&#39;efficient &#39;</span>, <span style="color:#c41a16">&#39;string &#39;</span>, <span style="color:#c41a16">&#39;creation &#39;</span>]);
+<span style="color:#000">sb</span>..<span style="color:#000">write</span>(<span style="color:#c41a16">&#39;if you are &#39;</span>)..<span style="color:#000">write</span>(<span style="color:#c41a16">&#39;building lots of string.&#39;</span>);
+<span style="color:#000">print</span>(<span style="color:#000">sb</span>.<span style="color:#000">toString</span>());
+<span style="color:#000">sb</span>.<span style="color:#000">clear</span>();</code></pre></div>
+<h3 id="num">num</h3>
+
+<h3 id="函数">函数</h3>
+
+<p>dart世界中，函数是一等公民</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#a90d91">String</span> <span style="color:#000">sayHello</span>(<span style="color:#a90d91">String</span> <span style="color:#000">name</span>) {
+    <span style="color:#a90d91">return</span> <span style="color:#c41a16">&#39;Hello </span><span style="color:#c41a16">$</span><span style="color:#000">name</span><span style="color:#c41a16">!&#39;</span>;
+}
+<span style="color:#000">print</span>(<span style="color:#000">sayHello</span>); <span style="color:#177500">//Closure: (String) =&gt; String
+</span><span style="color:#177500"></span><span style="color:#000">print</span>(<span style="color:#000">sayHello</span>(<span style="color:#c41a16">&#34;zh&#34;</span>)); <span style="color:#000">//</span><span style="color:#000">Hello</span> <span style="color:#000">zh</span><span style="color:#000">!</span></code></pre></div>
+<p>如果函数只是简单的返回一个表达式的值，可以使用箭头语法<code>=&gt;expr</code>:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#000">sayGood</span>(<span style="color:#000">name</span>) <span style="color:#000">=&gt;</span> <span style="color:#c41a16">&#34;hello </span><span style="color:#c41a16">$</span><span style="color:#000">name</span><span style="color:#c41a16">&#34;</span>;
+<span style="color:#000">print</span>(<span style="color:#000">sayGood</span>(<span style="color:#c41a16">&#34;XiaoMing&#34;</span>));</code></pre></div>
+<h4 id="闭包">闭包</h4>
+
+<p>函数闭包: 返回值为函数的函数。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#000">Function</span> <span style="color:#000">makeSubstract</span>(<span style="color:#a90d91">num</span> <span style="color:#000">n</span>) {
+    <span style="color:#a90d91">return</span> (<span style="color:#a90d91">num</span> <span style="color:#000">i</span>) <span style="color:#000">=&gt;</span> <span style="color:#000">n</span> <span style="color:#000">-</span> <span style="color:#000">i</span>;
+}
+<span style="color:#a90d91">var</span> <span style="color:#000">x</span> <span style="color:#000">=</span> <span style="color:#000">makeSubstract</span>(<span style="color:#1c01ce">5</span>);
+<span style="color:#000">print</span>(<span style="color:#000">x</span>(<span style="color:#1c01ce">2</span>)); <span style="color:#000">//</span><span style="color:#1c01ce">3</span></code></pre></div>
+<h4 id="可选参数">可选参数</h4>
+
+<p>Dart中支持两种可选参数：命名可选参数和位置可选参数，但两种可选不能同时使用（笔者没有测试）。在SDK 1.21.0中，允许使用操作符 = 或 : 设置命名可选参数的默认值</p>
+
+<ol>
+<li>命名可选参数使用大括号{}，默认值用冒号<code>:</code></li>
+<li>位置可选参数使用方括号[]，默认值用等号<code>=</code></li>
+</ol>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#177500">//可以省略返回值void 
+</span><span style="color:#177500"></span><span style="color:#000">methodX</span>(<span style="color:#000">a</span>, <span style="color:#000">b</span>, <span style="color:#000">c</span>) {
+    <span style="color:#000">print</span>(<span style="color:#c41a16">&#39;</span><span style="color:#c41a16">$</span><span style="color:#000">a</span><span style="color:#c41a16"> + </span><span style="color:#c41a16">$</span><span style="color:#000">b</span><span style="color:#c41a16"> + </span><span style="color:#c41a16">$</span><span style="color:#000">c</span><span style="color:#c41a16">&#39;</span>);
+}
+<span style="color:#000">methodX</span>(<span style="color:#1c01ce">8</span>, <span style="color:#1c01ce">8</span>, <span style="color:#1c01ce">8</span>);
+<span style="color:#000">methodY</span>(<span style="color:#000">a</span>, <span style="color:#000">b</span>, <span style="color:#000">c</span>, [<span style="color:#000">x</span>, <span style="color:#000">y</span> <span style="color:#000">=</span> <span style="color:#1c01ce">9</span>, <span style="color:#000">z</span> <span style="color:#000">=</span> <span style="color:#1c01ce">10</span>]) {
+    <span style="color:#000">print</span>(<span style="color:#c41a16">&#39;</span><span style="color:#c41a16">$</span><span style="color:#000">a</span><span style="color:#c41a16"> + </span><span style="color:#c41a16">$</span><span style="color:#000">b</span><span style="color:#c41a16"> + </span><span style="color:#c41a16">$</span><span style="color:#000">c</span><span style="color:#c41a16"> + </span><span style="color:#c41a16">$</span><span style="color:#000">x</span><span style="color:#c41a16">,</span><span style="color:#c41a16">$</span><span style="color:#000">y</span><span style="color:#c41a16">,</span><span style="color:#c41a16">$</span><span style="color:#000">z</span><span style="color:#c41a16">&#39;</span>);
+}
+<span style="color:#000">methodY</span>(<span style="color:#1c01ce">1</span>, <span style="color:#1c01ce">2</span>, <span style="color:#1c01ce">3</span>); <span style="color:#000">//</span><span style="color:#1c01ce">1</span> <span style="color:#000">+</span> <span style="color:#1c01ce">2</span> <span style="color:#000">+</span> <span style="color:#1c01ce">3</span> <span style="color:#000">+</span> <span style="color:#a90d91">null</span>,<span style="color:#1c01ce">9</span>,<span style="color:#1c01ce">10</span></code></pre></div>
+<h3 id="list">List</h3>
+
+<p>初始化:
+使用List的构造函数，也可以添加int参数，表示List固定长度;
+或者直接用List赋值</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#a90d91">var</span> <span style="color:#000">vegetables</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">List</span>();
+<span style="color:#177500">//可以指定容器类型
+</span><span style="color:#177500">//var fruits = new List&lt;String&gt;();
+</span><span style="color:#177500">//或者简单的用List来赋值
+</span><span style="color:#177500"></span><span style="color:#a90d91">var</span> <span style="color:#000">fruits</span> <span style="color:#000">=</span> [<span style="color:#c41a16">&#39;apples&#39;</span>, <span style="color:#c41a16">&#39;oranges&#39;</span>];</code></pre></div>
+<p>添加、删除、排序:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#a90d91">var</span> <span style="color:#000">fruits</span> <span style="color:#000">=</span> [<span style="color:#c41a16">&#39;apples&#39;</span>, <span style="color:#c41a16">&#39;oranges&#39;</span>];
+<span style="color:#177500">// 添加元素
+</span><span style="color:#177500"></span><span style="color:#000">fruits</span>.<span style="color:#000">add</span>(<span style="color:#c41a16">&#39;kiwis&#39;</span>);
+<span style="color:#177500">// 添加多个元素
+</span><span style="color:#177500"></span><span style="color:#000">fruits</span>.<span style="color:#000">addAll</span>([<span style="color:#c41a16">&#39;grapes&#39;</span>, <span style="color:#c41a16">&#39;bananas&#39;</span>]);
+<span style="color:#000">print</span>(<span style="color:#000">fruits</span>);
+<span style="color:#000">print</span>(<span style="color:#000">fruits</span>[<span style="color:#1c01ce">1</span>]);
+<span style="color:#000">print</span>(<span style="color:#000">fruits</span>.<span style="color:#000">length</span>);
+<span style="color:#000">print</span>(<span style="color:#000">fruits</span>.<span style="color:#000">indexOf</span>(<span style="color:#c41a16">&#39;element&#39;</span>));
+<span style="color:#000">print</span>(<span style="color:#000">fruits</span>.<span style="color:#000">indexOf</span>(<span style="color:#c41a16">&#39;grapes&#39;</span>));
+<span style="color:#177500">//排序
+</span><span style="color:#177500"></span><span style="color:#000">fruits</span>.<span style="color:#000">sort</span>((<span style="color:#000">a</span>, <span style="color:#000">b</span>) <span style="color:#000">=&gt;</span> <span style="color:#000">a</span>.<span style="color:#000">compareTo</span>(<span style="color:#000">b</span>));
+<span style="color:#000">print</span>(<span style="color:#000">fruits</span>);
+<span style="color:#177500">//清空
+</span><span style="color:#177500"></span><span style="color:#000">fruits</span>.<span style="color:#000">clear</span>();
+<span style="color:#000">print</span>(<span style="color:#000">fruits</span>);</code></pre></div>
+<h3 id="set">Set</h3>
+
+<p>无序,不能通过索引访问。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#a90d91">var</span> <span style="color:#000">ingredients</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">Set</span>();
+<span style="color:#000">ingredients</span>.<span style="color:#000">addAll</span>([<span style="color:#c41a16">&#39;gold&#39;</span>, <span style="color:#c41a16">&#39;titanium&#39;</span>, <span style="color:#c41a16">&#39;xenon&#39;</span>]);
+<span style="color:#000">print</span>(<span style="color:#000">ingredients</span>);
+<span style="color:#177500">// 重复添加无效
+</span><span style="color:#177500"></span><span style="color:#000">ingredients</span>.<span style="color:#000">add</span>(<span style="color:#c41a16">&#39;value&#39;</span>);
+<span style="color:#000">ingredients</span>.<span style="color:#000">add</span>(<span style="color:#c41a16">&#39;value&#39;</span>);
+<span style="color:#000">print</span>(<span style="color:#000">ingredients</span>);
+<span style="color:#177500">//删除
+</span><span style="color:#177500"></span><span style="color:#000">ingredients</span>.<span style="color:#000">remove</span>(<span style="color:#c41a16">&#39;value&#39;</span>);
+<span style="color:#000">print</span>(<span style="color:#000">ingredients</span>);
+<span style="color:#177500">//判断包含
+</span><span style="color:#177500"></span><span style="color:#a90d91">var</span> <span style="color:#000">s</span> <span style="color:#000">=</span> <span style="color:#000">ingredients</span>.<span style="color:#000">contains</span>(<span style="color:#c41a16">&#39;gold&#39;</span>);
+<span style="color:#000">print</span>(<span style="color:#000">s</span>);
+<span style="color:#177500">//判断包含多个元素
+</span><span style="color:#177500"></span><span style="color:#a90d91">var</span> <span style="color:#000">s2</span> <span style="color:#000">=</span> <span style="color:#000">ingredients</span>.<span style="color:#000">containsAll</span>([<span style="color:#c41a16">&#39;gold&#39;</span>, <span style="color:#c41a16">&#39;titianum&#39;</span>]);
+<span style="color:#000">print</span>(<span style="color:#000">s</span>);
+<span style="color:#177500">//集合的交集
+</span><span style="color:#177500"></span><span style="color:#a90d91">var</span> <span style="color:#000">nobleGases</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">Set</span>.<span style="color:#000">from</span>([<span style="color:#c41a16">&#39;xenon&#39;</span>, <span style="color:#c41a16">&#39;argon&#39;</span>]);
+<span style="color:#a90d91">var</span> <span style="color:#000">intersection</span> <span style="color:#000">=</span> <span style="color:#000">ingredients</span>.<span style="color:#000">intersection</span>(<span style="color:#000">nobleGases</span>);
+<span style="color:#000">print</span>(<span style="color:#000">intersection</span>); <span style="color:#000">//</span><span style="color:#000">xenon</span></code></pre></div>
+<h3 id="map">map</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#a90d91">var</span> <span style="color:#000">hawaiianBeaches</span> <span style="color:#000">=</span> {
+<span style="color:#c41a16">&#39;oahu&#39;</span><span style="color:#000">:</span> [<span style="color:#c41a16">&#39;waikiki&#39;</span>, <span style="color:#c41a16">&#39;kailua&#39;</span>, <span style="color:#c41a16">&#39;waimanalo&#39;</span>],
+<span style="color:#c41a16">&#39;big island&#39;</span><span style="color:#000">:</span> [<span style="color:#c41a16">&#39;wailea bay&#39;</span>, <span style="color:#c41a16">&#39;pololu beach&#39;</span>],
+<span style="color:#c41a16">&#39;kauai&#39;</span><span style="color:#000">:</span> [<span style="color:#c41a16">&#39;hanalei&#39;</span>, <span style="color:#c41a16">&#39;poipu&#39;</span>]
+};
+<span style="color:#a90d91">var</span> <span style="color:#000">searchTerms</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">Map</span>();
+<span style="color:#177500">// 指定键值对的参数类型
+</span><span style="color:#177500"></span><span style="color:#a90d91">var</span> <span style="color:#000">nobleGasesx</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">Map</span><span style="color:#000">&lt;</span><span style="color:#a90d91">int</span>, <span style="color:#a90d91">String</span><span style="color:#000">&gt;</span>();
+<span style="color:#177500">// Map的赋值，中括号中是Key，这里可不是数组
+</span><span style="color:#177500"></span><span style="color:#000">nobleGasesx</span>[<span style="color:#1c01ce">54</span>] <span style="color:#000">=</span> <span style="color:#c41a16">&#39;dart&#39;</span>;
+<span style="color:#000">print</span>(<span style="color:#000">nobleGasesx</span>);
+<span style="color:#177500">//map迭代器
+</span><span style="color:#177500"></span><span style="color:#a90d91">var</span> <span style="color:#000">allkeys</span> <span style="color:#000">=</span> <span style="color:#000">hawaiianBeaches</span>.<span style="color:#000">keys</span>;
+<span style="color:#000">print</span>(<span style="color:#000">allkeys</span>);
+<span style="color:#000">print</span>(<span style="color:#000">allkeys</span>.<span style="color:#000">contains</span>(<span style="color:#c41a16">&#39;oahu&#39;</span>));
+<span style="color:#177500">//foreach（无序）
+</span><span style="color:#177500"></span><span style="color:#000">hawaiianBeaches</span>.<span style="color:#000">forEach</span>((<span style="color:#000">k</span>, <span style="color:#000">v</span>) {
+<span style="color:#000">print</span>(<span style="color:#c41a16">&#34;</span><span style="color:#c41a16">$</span><span style="color:#000">k</span><span style="color:#c41a16"> =&gt; </span><span style="color:#c41a16">$</span><span style="color:#000">v</span><span style="color:#c41a16">&#34;</span>);
+});</code></pre></div>
+<h4 id="迭代">迭代</h4>
+
+<p>Set、List、Map都继承自Iterable，都是可以迭代的。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#a90d91">var</span> <span style="color:#000">collection</span> <span style="color:#000">=</span> [<span style="color:#1c01ce">0</span>, <span style="color:#1c01ce">111</span>, <span style="color:#1c01ce">2</span>];
+<span style="color:#000">collection</span>.<span style="color:#000">forEach</span>((<span style="color:#000">x</span>) <span style="color:#000">=&gt;</span> <span style="color:#000">print</span>(<span style="color:#000">x</span>));<span style="color:#177500">//forEach的参数为Function
+</span><span style="color:#177500"></span><span style="color:#a90d91">for</span>(<span style="color:#a90d91">var</span> <span style="color:#000">x</span> <span style="color:#a90d91">in</span> <span style="color:#000">collection</span>) {
+<span style="color:#000">print</span>(<span style="color:#000">x</span>);
+}</code></pre></div>
+<h3 id="类和对象">类和对象</h3>
+
+<p>声明一个函数如下</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#a90d91">class</span> <span style="color:#3f6e75">Point</span> {
+  <span style="color:#a90d91">num</span> <span style="color:#000">x</span>;
+  <span style="color:#a90d91">num</span> <span style="color:#000">y</span>;
+  <span style="color:#a90d91">num</span> <span style="color:#000">z</span>; 
+}</code></pre></div>
+<h4 id="构造">构造</h4>
+
+<p>构造函数,如果只是简单的参数传递,可以在构造函数参数前加<code>this</code>。
+也使用冒号初始化变量。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#a90d91">class</span> <span style="color:#3f6e75">Point</span> {
+  <span style="color:#a90d91">num</span> <span style="color:#000">x</span>;
+  <span style="color:#a90d91">num</span> <span style="color:#000">y</span>;
+  <span style="color:#a90d91">num</span> <span style="color:#000">z</span>;
+  <span style="color:#177500">//构造函数 如果只是简单的参数传递，可以在构造函数的参数前加this关键字定义
+</span><span style="color:#177500"></span>  <span style="color:#000">Point</span>(<span style="color:#a90d91">this</span>.<span style="color:#000">x</span>, <span style="color:#a90d91">this</span>.<span style="color:#000">y</span>, <span style="color:#000">z</span>) {
+    <span style="color:#177500">//第一个值传递给this.x，第二个值传递给this.y
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">this</span>.<span style="color:#000">z</span> <span style="color:#000">=</span> <span style="color:#000">z</span>;
+  }
+  <span style="color:#177500">//使用冒号初始化变量
+</span><span style="color:#177500"></span>  <span style="color:#000">Point</span>.<span style="color:#000">fromList</span>(<span style="color:#a90d91">var</span> <span style="color:#000">list</span>)
+      <span style="color:#000">:</span> <span style="color:#000">x</span> <span style="color:#000">=</span> <span style="color:#000">list</span>[<span style="color:#1c01ce">0</span>],
+        <span style="color:#000">y</span> <span style="color:#000">=</span> <span style="color:#000">list</span>[<span style="color:#1c01ce">1</span>],
+        <span style="color:#000">z</span> <span style="color:#000">=</span> <span style="color:#000">list</span>[<span style="color:#1c01ce">2</span>] {}
+ }</code></pre></div>
+<h4 id="getter-setter">Getter、Setter</h4>
+
+<p>每个字段都对应一个隐式的Getter和Setter,但是调用的时候是obj.x，而不是obj.x()。
+如果字段为final或者const的话，那么它只有一个getter方法。如: <code>num get delta =&gt; x - y</code>;</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#a90d91">class</span> <span style="color:#3f6e75">Point</span> {
+  <span style="color:#a90d91">num</span> <span style="color:#000">x</span>;
+  <span style="color:#a90d91">num</span> <span style="color:#000">y</span>;
+  <span style="color:#a90d91">num</span> <span style="color:#000">z</span>;
+  <span style="color:#000">Point</span>(<span style="color:#a90d91">this</span>.<span style="color:#000">x</span>, <span style="color:#a90d91">this</span>.<span style="color:#000">y</span>, <span style="color:#a90d91">this</span>.<span style="color:#000">z</span>) {}
+  <span style="color:#177500">//自定义的getter
+</span><span style="color:#177500"></span>  <span style="color:#a90d91">num</span> <span style="color:#a90d91">get</span> <span style="color:#000">delta</span> <span style="color:#000">=&gt;</span> <span style="color:#000">x</span> <span style="color:#000">-</span> <span style="color:#000">y</span>; 
+}</code></pre></div>
+<h4 id="抽象类abstract">抽象类abstract</h4>
+
+<p>抽象类不能实例化。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#a90d91">abstract</span> <span style="color:#a90d91">class</span> <span style="color:#3f6e75">Shape</span> {
+    <span style="color:#177500">// 定义了一个 Shape 类/接口
+</span><span style="color:#177500"></span>    <span style="color:#a90d91">num</span> <span style="color:#000">perimeter</span>(); <span style="color:#177500">// 这是一个抽象方法，不需要abstract关键字，是隐式接口的一部分。
+</span><span style="color:#177500"></span>}
+<span style="color:#a90d91">class</span> <span style="color:#3f6e75">Rectangle</span> <span style="color:#a90d91">implements</span> <span style="color:#000">Shape</span> {
+    <span style="color:#a90d91">final</span> <span style="color:#a90d91">num</span> <span style="color:#000">height</span>, <span style="color:#000">width</span>;
+    <span style="color:#000">Rectangle</span>(<span style="color:#a90d91">num</span> <span style="color:#a90d91">this</span>.<span style="color:#000">height</span>, <span style="color:#a90d91">num</span> <span style="color:#a90d91">this</span>.<span style="color:#000">width</span>);
+    <span style="color:#000">@</span><span style="color:#000">override</span>
+    <span style="color:#a90d91">num</span> <span style="color:#000">perimeter</span>() {
+        <span style="color:#177500">// TODO: implement perimeter
+</span><span style="color:#177500"></span>        <span style="color:#a90d91">return</span> <span style="color:#a90d91">null</span>;
+    }
+}
+<span style="color:#a90d91">class</span> <span style="color:#3f6e75">Square</span> <span style="color:#a90d91">extends</span> <span style="color:#000">Rectangle</span> {
+    <span style="color:#000">Square</span>(<span style="color:#a90d91">num</span> <span style="color:#000">width</span>) <span style="color:#000">:</span> <span style="color:#a90d91">super</span>(<span style="color:#000">width</span>, <span style="color:#000">width</span>); <span style="color:#177500">// 调用超类的构造函数
+</span><span style="color:#177500"></span>}</code></pre></div>
+<h2 id="逻辑运算符">逻辑运算符</h2>
+
+<p><code>switch</code>、<code>while</code>、<code>if</code>和常用语言没啥区别，略。</p>
+
+<p>switch参数可以是字符串也可是num。</p>
+
+<h3 id="循环-forin-foreach">循环 forin、foreach</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#177500">//循环
+</span><span style="color:#177500"></span><span style="color:#a90d91">var</span> <span style="color:#000">xx</span> <span style="color:#000">=</span> [<span style="color:#1c01ce">1</span>, <span style="color:#1c01ce">2</span>, <span style="color:#1c01ce">3</span>, <span style="color:#1c01ce">4</span>];
+<span style="color:#a90d91">for</span> (<span style="color:#a90d91">int</span> <span style="color:#000">i</span> <span style="color:#000">=</span> <span style="color:#1c01ce">0</span>; <span style="color:#000">i</span> <span style="color:#000">&lt;</span> <span style="color:#000">xx</span>.<span style="color:#000">length</span>; <span style="color:#000">i</span><span style="color:#000">++</span>) {
+<span style="color:#000">print</span>(<span style="color:#000">xx</span>[<span style="color:#000">i</span>]);
+}
+<span style="color:#177500">//foreach 或 forin
+</span><span style="color:#177500"></span><span style="color:#000">xx</span>.<span style="color:#000">forEach</span>((<span style="color:#000">item</span>) <span style="color:#000">=&gt;</span> <span style="color:#000">print</span>(<span style="color:#c41a16">&#39;</span><span style="color:#c41a16">$</span><span style="color:#000">item</span><span style="color:#c41a16">&#39;</span>));
+<span style="color:#a90d91">for</span> (<span style="color:#a90d91">var</span> <span style="color:#000">x</span> <span style="color:#a90d91">in</span> <span style="color:#000">xx</span>) {
+<span style="color:#000">print</span>(<span style="color:#c41a16">&#39;</span><span style="color:#c41a16">$</span><span style="color:#000">x</span><span style="color:#c41a16">&#39;</span>);
+}</code></pre></div>
+<h2 id="其他">其他</h2>
+
+<h3 id="常量">常量</h3>
+
+<p><code>const</code>和<code>final</code>定义的都是常量，值不能改变。</p>
+
+<p>区别:</p>
+
+<p><code>const</code>定义的是编译时常量，只能用编译时常量来初始化
+<code>final</code>定义的常量可以用变量来初始化</p>
+
+<p>如:</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#a90d91">var</span> <span style="color:#000">value1</span> <span style="color:#000">=</span> <span style="color:#1c01ce">100</span>;
+<span style="color:#a90d91">const</span> <span style="color:#000">i</span> <span style="color:#000">=</span> <span style="color:#1c01ce">100</span>; <span style="color:#177500">//ok
+</span><span style="color:#177500"></span><span style="color:#a90d91">const</span> <span style="color:#000">i</span> <span style="color:#000">=</span> <span style="color:#000">value1</span>; <span style="color:#177500">//error
+</span><span style="color:#177500"></span><span style="color:#a90d91">const</span> <span style="color:#000">list</span> <span style="color:#000">=</span> <span style="color:#a90d91">const</span> [<span style="color:#1c01ce">1</span>, <span style="color:#1c01ce">2</span>, <span style="color:#1c01ce">3</span>]; <span style="color:#177500">//Ok
+</span><span style="color:#177500"></span><span style="color:#a90d91">final</span> <span style="color:#000">v</span> <span style="color:#000">=</span> <span style="color:#000">value1</span>; <span style="color:#177500">//ok
+</span><span style="color:#177500"></span><span style="color:#a90d91">final</span> <span style="color:#000">list2</span> <span style="color:#000">=</span> [<span style="color:#1c01ce">1</span>, <span style="color:#1c01ce">2</span>, <span style="color:#1c01ce">3</span>]; <span style="color:#177500">//Ok
+</span><span style="color:#177500"></span><span style="color:#a90d91">final</span> <span style="color:#000">list3</span> <span style="color:#000">=</span> <span style="color:#a90d91">const</span> [<span style="color:#1c01ce">1</span>, <span style="color:#1c01ce">2</span>, <span style="color:#1c01ce">3</span>]; <span style="color:#177500">//Ok
+</span><span style="color:#177500"></span>
+<span style="color:#a90d91">final</span> <span style="color:#000">list4</span> <span style="color:#000">=</span> <span style="color:#a90d91">const</span>[<span style="color:#a90d91">new</span> <span style="color:#000">DateTime</span>.<span style="color:#000">now</span>(),<span style="color:#1c01ce">2</span>,<span style="color:#1c01ce">3</span>];<span style="color:#177500">// Error: New expression is not a constant expression.
+</span><span style="color:#177500"></span><span style="color:#a90d91">const</span> <span style="color:#000">list5</span> <span style="color:#000">=</span> <span style="color:#a90d91">const</span>[<span style="color:#a90d91">new</span> <span style="color:#000">DateTime</span>.<span style="color:#000">now</span>(),<span style="color:#1c01ce">2</span>,<span style="color:#1c01ce">3</span>];<span style="color:#000">//</span><span style="color:#000">Error:</span> <span style="color:#000">Const</span> <span style="color:#000">variables</span> <span style="color:#000">must</span> <span style="color:#000">be</span> <span style="color:#000">initialized</span> <span style="color:#a90d91">with</span> <span style="color:#000">a</span> <span style="color:#000">constant</span> <span style="color:#000">value</span></code></pre></div>
+<h4 id="不可变对象">不可变对象</h4>
+
+<p>如果你要创建一个不可变的对象，你可以定义编译时常量对象。需要在构造函数前加const。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#a90d91">class</span> <span style="color:#3f6e75">StaticPoint</span> {
+  <span style="color:#a90d91">final</span> <span style="color:#a90d91">num</span> <span style="color:#000">x</span>;
+  <span style="color:#a90d91">final</span> <span style="color:#a90d91">num</span> <span style="color:#000">y</span>;
+
+  <span style="color:#a90d91">const</span> <span style="color:#000">StaticPoint</span>(<span style="color:#a90d91">this</span>.<span style="color:#000">x</span>, <span style="color:#a90d91">this</span>.<span style="color:#000">y</span>); <span style="color:#177500">// 常量构造函数
+</span><span style="color:#177500"></span>  <span style="color:#a90d91">static</span> <span style="color:#a90d91">final</span> <span style="color:#000">StaticPoint</span> <span style="color:#000">org</span> <span style="color:#000">=</span> <span style="color:#a90d91">const</span> <span style="color:#000">StaticPoint</span>(<span style="color:#1c01ce">0</span>, <span style="color:#1c01ce">0</span>); <span style="color:#177500">// 创建一个常量对象不能用new，要用const
+</span><span style="color:#177500"></span>}</code></pre></div>
+<h3 id="操作符">操作符</h3>
+
+<p>取整<code>~/</code>长得有点特殊.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#177500">//取整
+</span><span style="color:#177500"></span><span style="color:#a90d91">int</span> <span style="color:#000">a</span> <span style="color:#000">=</span> <span style="color:#1c01ce">1100</span>;
+<span style="color:#a90d91">int</span> <span style="color:#000">b</span> <span style="color:#000">=</span> <span style="color:#1c01ce">1199</span>;
+<span style="color:#000">print</span>(<span style="color:#000">a</span> <span style="color:#000">~/</span> <span style="color:#000">b</span>); <span style="color:#000">//</span><span style="color:#1c01ce">0</span>   ,<span style="color:#000">相当于</span><span style="color:#1c01ce">1100</span><span style="color:#000">、</span><span style="color:#1c01ce">1199</span><span style="color:#000">取整</span>,<span style="color:#000">舍去余数</span></code></pre></div>
+<h3 id="链式操作">链式操作</h3>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"> <span style="color:#000">Person</span> <span style="color:#000">p</span> <span style="color:#000">=</span> <span style="color:#a90d91">new</span> <span style="color:#000">Person</span>();
+  <span style="color:#000">p</span>
+    ..<span style="color:#000">name</span> <span style="color:#000">=</span> <span style="color:#c41a16">&#34;大白&#34;</span>
+    ..<span style="color:#000">setCountry</span>(<span style="color:#c41a16">&#34;纽约&#34;</span>);</code></pre></div>
+<h3 id="assert">Assert</h3>
+
+<p>语言内置的断言函数，如果断言失败则程序立刻终止。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#a90d91">assert</span>(<span style="color:#000">str1</span> <span style="color:#000">!=</span> <span style="color:#c41a16">&#39;ok&#39;</span>);</code></pre></div>
+<h3 id="异常">异常</h3>
+
+<p>在Dart中可以抛出非空对象（不仅仅是Exception或Error）作为异常。</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#a90d91">try</span> {
+    <span style="color:#a90d91">throw</span> <span style="color:#c41a16">&#39;This a Exception!&#39;</span>;
+  } <span style="color:#000">on</span> <span style="color:#000">Exception</span> <span style="color:#a90d91">catch</span> (<span style="color:#000">e</span>) {
+    <span style="color:#000">print</span>(<span style="color:#c41a16">&#39;Unknown exception: </span><span style="color:#c41a16">$</span><span style="color:#000">e</span><span style="color:#c41a16">&#39;</span>);
+  } <span style="color:#a90d91">catch</span> (<span style="color:#000">e</span>) {
+    <span style="color:#000">print</span>(<span style="color:#c41a16">&#39;Unknown type: </span><span style="color:#c41a16">$</span><span style="color:#000">e</span><span style="color:#c41a16">&#39;</span>);
+  }
+
+  <span style="color:#a90d91">try</span> {
+    <span style="color:#a90d91">throw</span> <span style="color:#c41a16">&#39;This a Exception!&#39;</span>; <span style="color:#177500">//0
+</span><span style="color:#177500"></span>  } <span style="color:#a90d91">catch</span> (<span style="color:#000">e</span>) {
+    <span style="color:#177500">//删除catch语句，只用try...finally报错
+</span><span style="color:#177500"></span>    <span style="color:#000">print</span>(<span style="color:#c41a16">&#39;Catch Exception: </span><span style="color:#c41a16">$</span><span style="color:#000">e</span><span style="color:#c41a16">&#39;</span>); <span style="color:#177500">//1
+</span><span style="color:#177500"></span>  } <span style="color:#a90d91">finally</span> {
+    <span style="color:#000">print</span>(<span style="color:#c41a16">&#39;Close&#39;</span>); <span style="color:#177500">//2
+</span><span style="color:#177500"></span>  }</code></pre></div>
+<h3 id="引用库">引用库</h3>
+
+<p>Dart中任何文件都是一个库，即使你没有用关键字library声明。
+dart:前缀表示Dart的标准库，如dart:io、dart:html。当然，你也可以用相对路径或绝对路径的dart文件来引用<code>import 'lib/student/student.dart'</code>;</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-dart" data-lang="dart"><span style="color:#a90d91">import</span> <span style="color:#c41a16">&#39;lib/student/student.dart&#39;</span>;
+<span style="color:#a90d91">var</span> <span style="color:#000">random</span> <span style="color:#000">=</span> <span style="color:#000">Random</span>().<span style="color:#000">nextInt</span>(<span style="color:#1c01ce">99</span>);
+<span style="color:#000">print</span>(<span style="color:#000">random</span>);</code></pre></div></div><div id="sidebar" class="column col-2 col-md-12">
+                    <div id='toc' class="sidebar-content toc-fixed"><nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#安装">安装</a></li>
+<li><a href="#数据类型">数据类型</a>
+<ul>
+<li><a href="#string">String</a></li>
+<li><a href="#num">num</a></li>
+<li><a href="#函数">函数</a>
+<ul>
+<li><a href="#闭包">闭包</a></li>
+<li><a href="#可选参数">可选参数</a></li>
+</ul></li>
+<li><a href="#list">List</a></li>
+<li><a href="#set">Set</a></li>
+<li><a href="#map">map</a>
+<ul>
+<li><a href="#迭代">迭代</a></li>
+</ul></li>
+<li><a href="#类和对象">类和对象</a>
+<ul>
+<li><a href="#构造">构造</a></li>
+<li><a href="#getter-setter">Getter、Setter</a></li>
+<li><a href="#抽象类abstract">抽象类abstract</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#逻辑运算符">逻辑运算符</a>
+<ul>
+<li><a href="#循环-forin-foreach">循环 forin、foreach</a></li>
+</ul></li>
+<li><a href="#其他">其他</a>
+<ul>
+<li><a href="#常量">常量</a>
+<ul>
+<li><a href="#不可变对象">不可变对象</a></li>
+</ul></li>
+<li><a href="#操作符">操作符</a></li>
+<li><a href="#链式操作">链式操作</a></li>
+<li><a href="#assert">Assert</a></li>
+<li><a href="#异常">异常</a></li>
+<li><a href="#引用库">引用库</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav></div>
+                    <script src="https://www.tyrad.cc/js/toc.js"></script>
+                </div></div>
+        </section>
+    </section>
+</section>
+    </div>
+
+             
+    <section id="footer" class="section bg-gray">
+        <section class="container">
+            <p><a href="/">© 2019 </a> <i class="fa fa-code"></i> with <i
+                    class="fa fa-heart-o pulse "></i> by <a href="/">hugo</a>.</p>
+        </section>
+    </section>
+    
+    <div class="mobile-container">
+        <div class="overlay" id="overlay">
+            <div class="mobile-logo"><a href="https://www.tyrad.cc" class="navbar-brand mr-10">
+    
+    
+
+    <svg height="146px" viewBox="0 0 452 146" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g id="页面1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g id="black-37249" transform="translate(1.493827, 14.000000)" fill="#000000" fill-rule="nonzero">
+                <path
+                    d="M49.1575565,105.3356 C58.6514419,107.744266 56.8866035,117.059598 47.336582,117.946151 C42.200257,119.088059 32.5122345,116.823453 40.3049269,121.756528 C38.9160522,122.059136 31.4488504,121.215252 34.0530212,124.835545 C49.3931802,133.332539 76.1538235,115.03264 58.9252282,100.789887 C52.729951,96.9744155 44.6696275,99.6170026 49.1574334,105.335227 L49.1575565,105.3356 Z"
+                    id="路径"></path>
+                <path
+                    d="M19.6456893,70.1148 C22.442564,67.6540154 27.5058454,64.8429245 31.2812983,65.0068451 C34.6705665,65.8322497 35.5828047,67.0095653 39.186732,72.7438254 C42.8052895,78.5014146 47.9529463,97.2035504 46.1250646,102.790183 C44.2922642,108.392369 38.9206152,112.836988 32.033488,115.798916 C26.5426541,118.077388 16.2140442,117.216187 11.6635736,112.33745 C7.2203064,106.943992 10.4439768,99.2077518 14.1196674,94.0765913 C17.8286541,88.8988961 15.684207,74.5702816 19.6458155,70.1143062 L19.6456893,70.1148 Z"
+                    id="路径"></path>
+                <path
+                    d="M1.04535518,39.6272974 C4.05921119,39.3911165 4.59137567,39.1071824 5.59060008,38.0238167 C6.58982449,36.9404509 5.54928544,35.2576243 6.19663273,34.5114663 C6.84398002,33.7653083 8.10097246,32.9215361 9.07530028,33.5952113 C10.0496281,34.2688865 10.1138613,37.3267543 9.37831661,38.4819379 C8.64277193,39.6371215 5.43905457,40.0090086 5.43905457,40.0090086 L-0.469776243,41.8414683 C-1.16205066,72.2197737 13.1673278,72.6175072 32.5592772,62.9150689 C34.2888429,65.128073 36.8652659,66.7978007 39.3430985,68.5308898 C41.0289707,68.9713953 42.7656319,69.3673848 46.0436407,68.4125409 C52.7893702,66.6134557 67.7858277,37.9865577 58.6189054,24.5853236 C59.5609921,22.3072017 58.5329188,17.6980103 54.831139,9.92564579 C51.5837531,14.9810013 48.3835461,17.0014121 44.9911376,18.7424057 C39.7628549,17.4246155 36.1260864,16.8411895 31.0440711,17.2556102 C32.114064,10.6923806 28.9520111,5.60816741 24.8321244,0 C14.7334474,6.21819269 9.90786696,14.7224118 6.65139374,20.7687134 C4.38306595,26.7113784 -1.96157957,39.8636841 1.04555436,39.6278043 L1.04535518,39.6272974 Z"
+                    id="路径"></path>
+            </g>
+            <text id="TYRAD" font-family="STBaoliSC-Regular, Baoli SC" font-size="116" font-weight="normal"
+                fill="#000000">
+                <tspan x="87" y="106">TYRAD</tspan>
+            </text>
+        </g>
+    </svg>
+
+    
+    
+
+    
+</a></div>
+            <nav class="overlay-menu">
+
+<ul class=" tree treemenu treemenu-root "><li>
+        <a href="/" title="Home page"
+            class="">Home</a>
+    </li><li>
+        <a href="/archives/" title="Archives page"
+            class="">Archives</a>
+    </li><li>
+        <a href="/wiki/" title="Wiki page"
+            class="">Wiki</a>
+    </li><li>
+        <a href="/tools/" title="Tools page"
+            class="">Tools</a>
+        <ul><li>
+                <a href="/tools/json/" class="">JSON解析</a>
+            </li><li>
+                <a href="/tools/rsa/" class="">RSA测试</a>
+            </li><li>
+                <a href="/tools/knowlegenav/" class="">导航</a>
+            </li></ul>
+    </li><li>
+        <a href="/about/" title="About page"
+            class="">About</a>
+    </li></ul></nav>
+        </div>
+    </div>
+    <script src="https://www.tyrad.cc/js/jquery-2.x.min.js"></script>
+    <script src="https://www.tyrad.cc/js/jquery.treemenu.js"></script>
+    <script src="https://www.tyrad.cc/js/site.js"></script>
+    <script src="https://www.tyrad.cc/js/baidu.js"></script>
+    
+</body>
+
+</html>
