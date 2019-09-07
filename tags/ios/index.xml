@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ios on TYRAD</title>
-    <link>https://www.tyrad.cc/tags/ios/</link>
-    <description>Recent content in Ios on TYRAD</description>
+    <title>Ios on QuickTouch</title>
+    <link>https://quicktouch.github.io/tags/ios/</link>
+    <description>Recent content in Ios on QuickTouch</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 04 May 2018 11:32:22 +0800</lastBuildDate>
     
-        <atom:link href="https://www.tyrad.cc/tags/ios/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="https://quicktouch.github.io/tags/ios/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>iOS开发之常见的手势冲突</title>
-      <link>https://www.tyrad.cc/2018/ios-ges-conflict/</link>
+      <link>https://quicktouch.github.io/2018/ios-ges-conflict/</link>
       <pubDate>Fri, 04 May 2018 11:32:22 +0800</pubDate>
       
-      <guid>https://www.tyrad.cc/2018/ios-ges-conflict/</guid>
+      <guid>https://quicktouch.github.io/2018/ios-ges-conflict/</guid>
       <description>理解事件的响应 事件的响应链 事件的传递和响应与响应链息息相关,下图是官网对于响应链的示例: 若触摸发生在UITextField上，则事件的传递顺序会沿着箭头传递到UIApplicationDelegati</description>
     </item>
     
